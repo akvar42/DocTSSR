@@ -1,3 +1,4 @@
+```
 import os
 import fitz
 
@@ -58,4 +59,4 @@ for pdf_file in os.listdir(pdf_directory):
         
         print("Conversion terminée :", pdf_input_path, "->", md_output_path)
 
-
+```
