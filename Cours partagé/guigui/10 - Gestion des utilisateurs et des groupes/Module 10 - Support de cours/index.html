@@ -1,0 +1,1686 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../09%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/Module%2009%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/">
+      
+      
+        <link rel="next" href="../../../../demo/demo-vim/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>Module 10 – Gestion des utilisateurs et groupes** - DOC TSSR</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-10-gestion-des-utilisateurs-et-groupes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="DOC TSSR" class="md-header__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DOC TSSR
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 10 – Gestion des utilisateurs et groupes**
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="DOC TSSR" class="md-nav__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    DOC TSSR
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Bienvenue sur le site de Documentation TSSR2023
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Cours partagé
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cours partagé
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Guigui
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Guigui
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          05   Gestion du réseau sous Debian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          05   Gestion du réseau sous Debian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/" class="md-nav__link">
+        Module 05 – Gestion du réseau
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+          06   Gestion des paquets logiciels
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          06   Gestion des paquets logiciels
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06%20-%20Gestion%20des%20paquets%20logiciels/06%20-%20Gestion%20des%20paquets%20logiciels/" class="md-nav__link">
+        Module 06 – Gestion des paquets logiciels
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+          07   Gestion des espaces de stockage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          07   Gestion des espaces de stockage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07%20-%20Gestion%20des%20espaces%20de%20stockage/07%20-%20Gestion%20des%20espaces%20de%20stockage/" class="md-nav__link">
+        Module 07 – Gestion des espaces de stockage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_4" id="__nav_2_1_4_label" tabindex="0">
+          08   Gestion avancée des espaces de stockage   LVM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          08   Gestion avancée des espaces de stockage   LVM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08%20-%20Gestion%20avanc%C3%A9e%20des%20espaces%20de%20stockage%20-%20LVM/Module%2008%20-%20Support%20de%20cours/" class="md-nav__link">
+        Gestion des espaces de stockage avancée - LVM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_5" id="__nav_2_1_5_label" tabindex="0">
+          09   Gestion des espaces de stockage – File System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          09   Gestion des espaces de stockage – File System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/Module%2009%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/" class="md-nav__link">
+        Gestion des espaces de stockage – File System
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_6" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_6" id="__nav_2_1_6_label" tabindex="0">
+          10   Gestion des utilisateurs et des groupes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_6_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1_6">
+          <span class="md-nav__icon md-icon"></span>
+          10   Gestion des utilisateurs et des groupes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Module 10 – Gestion des utilisateurs et groupes**
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Module 10 – Gestion des utilisateurs et groupes**
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    Objectifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#considerations-generales" class="md-nav__link">
+    Considérations générales
+  </a>
+  
+    <nav class="md-nav" aria-label="Considérations générales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-identifiants" class="md-nav__link">
+    Les identifiants
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-fichiers-lies-a-la-gestion-des-groupes" class="md-nav__link">
+    Les fichiers liés à la gestion des groupes
+  </a>
+  
+    <nav class="md-nav" aria-label="Les fichiers liés à la gestion des groupes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generalites" class="md-nav__link">
+    Généralités
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-etcgroup" class="md-nav__link">
+    Le fichier /etc/group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-etcgshadow" class="md-nav__link">
+    Le fichier /etc/gshadow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandes-de-gestion-des-groupes" class="md-nav__link">
+    Commandes de gestion des groupes
+  </a>
+  
+    <nav class="md-nav" aria-label="Commandes de gestion des groupes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#groupadd" class="md-nav__link">
+    groupadd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupmod" class="md-nav__link">
+    groupmod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupdel" class="md-nav__link">
+    groupdel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpasswd" class="md-nav__link">
+    gpasswd
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-fichiers-lies-a-la-gestion-des-utilisateurs" class="md-nav__link">
+    Les fichiers liés à la gestion des utilisateurs
+  </a>
+  
+    <nav class="md-nav" aria-label="Les fichiers liés à la gestion des utilisateurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#informations-concernant-les-utilisateurs" class="md-nav__link">
+    Informations concernant les utilisateurs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-etcpasswd" class="md-nav__link">
+    Le fichier /etc/passwd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-etcshadow" class="md-nav__link">
+    Le fichier /etc/shadow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandes-de-gestion-des-utilisateurs" class="md-nav__link">
+    Commandes de gestion des utilisateurs
+  </a>
+  
+    <nav class="md-nav" aria-label="Commandes de gestion des utilisateurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useradd" class="md-nav__link">
+    useradd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usermod" class="md-nav__link">
+    usermod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userdel" class="md-nav__link">
+    userdel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwd" class="md-nav__link">
+    passwd
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changement-didentite-et-elevation-de-privileges" class="md-nav__link">
+    Changement d’identité et élévation de privilèges
+  </a>
+  
+    <nav class="md-nav" aria-label="Changement d’identité et élévation de privilèges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-commande-su" class="md-nav__link">
+    La commande su
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-commande-sudo" class="md-nav__link">
+    La commande sudo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Demo
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Demo
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../demo/demo-vim/" class="md-nav__link">
+        Résumé VIM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../demo/githubnoteav/" class="md-nav__link">
+        mini site avec github et mkdocs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Script
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Script
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          Pdf to md windows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Pdf to md windows
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/pdf_to_md_windows/Read-me/" class="md-nav__link">
+        Read me
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/pdf_to_md_windows/pdf_to_md_converter/" class="md-nav__link">
+        Pdf to md converter
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          Pdftomarkdown
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pdftomarkdown
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/pdftomarkdown/Readme/" class="md-nav__link">
+        Readme
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/pdftomarkdown/scriptpdftomarkdown5/" class="md-nav__link">
+        Scriptpdftomarkdown5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          Powershell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Powershell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/powershell/MVpdf/" class="md-nav__link">
+        MVpdf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/powershell/mvpdf/" class="md-nav__link">
+        Mvpdf
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          Traitement fichier cours
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Traitement fichier cours
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/traitement%20fichier%20cours/" class="md-nav__link">
+        Index
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/traitement%20fichier%20cours/IAmark2/" class="md-nav__link">
+        IAmark2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    Objectifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#considerations-generales" class="md-nav__link">
+    Considérations générales
+  </a>
+  
+    <nav class="md-nav" aria-label="Considérations générales">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-identifiants" class="md-nav__link">
+    Les identifiants
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-fichiers-lies-a-la-gestion-des-groupes" class="md-nav__link">
+    Les fichiers liés à la gestion des groupes
+  </a>
+  
+    <nav class="md-nav" aria-label="Les fichiers liés à la gestion des groupes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#generalites" class="md-nav__link">
+    Généralités
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-etcgroup" class="md-nav__link">
+    Le fichier /etc/group
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-etcgshadow" class="md-nav__link">
+    Le fichier /etc/gshadow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandes-de-gestion-des-groupes" class="md-nav__link">
+    Commandes de gestion des groupes
+  </a>
+  
+    <nav class="md-nav" aria-label="Commandes de gestion des groupes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#groupadd" class="md-nav__link">
+    groupadd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupmod" class="md-nav__link">
+    groupmod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#groupdel" class="md-nav__link">
+    groupdel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpasswd" class="md-nav__link">
+    gpasswd
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-fichiers-lies-a-la-gestion-des-utilisateurs" class="md-nav__link">
+    Les fichiers liés à la gestion des utilisateurs
+  </a>
+  
+    <nav class="md-nav" aria-label="Les fichiers liés à la gestion des utilisateurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#informations-concernant-les-utilisateurs" class="md-nav__link">
+    Informations concernant les utilisateurs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-etcpasswd" class="md-nav__link">
+    Le fichier /etc/passwd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-fichier-etcshadow" class="md-nav__link">
+    Le fichier /etc/shadow
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commandes-de-gestion-des-utilisateurs" class="md-nav__link">
+    Commandes de gestion des utilisateurs
+  </a>
+  
+    <nav class="md-nav" aria-label="Commandes de gestion des utilisateurs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#useradd" class="md-nav__link">
+    useradd
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usermod" class="md-nav__link">
+    usermod
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#userdel" class="md-nav__link">
+    userdel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passwd" class="md-nav__link">
+    passwd
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#changement-didentite-et-elevation-de-privileges" class="md-nav__link">
+    Changement d’identité et élévation de privilèges
+  </a>
+  
+    <nav class="md-nav" aria-label="Changement d’identité et élévation de privilèges">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#la-commande-su" class="md-nav__link">
+    La commande su
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-commande-sudo" class="md-nav__link">
+    La commande sudo
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conclusion" class="md-nav__link">
+    Conclusion
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="module-10-gestion-des-utilisateurs-et-groupes">Module 10 – Gestion des utilisateurs et groupes**</h1>
+<h2 id="objectifs">Objectifs</h2>
+<ul>
+<li>Créer et gérer des groupes et utilisateurs</li>
+<li>Consulter les fichiers de configuration</li>
+<li>Effectuer une élévation de privilèges en environnement GNU/Linux</li>
+</ul>
+<h2 id="considerations-generales">Considérations générales</h2>
+<h3 id="les-identifiants">Les identifiants</h3>
+<ul>
+<li>Sous Linux, les utilisateurs sont représentés par deux valeurs importantes : </li>
+<li>L’<code>UID</code> : l’identifiant <code>utilisateur</code></li>
+<li>Le <code>GID</code> : l’identifiant du <code>groupe principal</code></li>
+<li>Il est possible qu’un utilisateur appartienne à plusieurs groupes. Il y aura donc les notions de groupe principal et de groupe secondaire.</li>
+<li>
+<p>Le groupe principal est le groupe attribué à l’utilisateur au moment de sa connexion.</p>
+</li>
+<li>
+<p>Il existe trois types d’utilisateurs :</p>
+</li>
+<li><code>root</code> : UID=0, GID=0</li>
+</ul>
+<p>C’est le super-administrateur du système. Il a tout pouvoir. Il est donc conseillé d’être le moins possible sous cette identité, voire fortement conseillé de ne pas se connecter avec mais de faire une élévation de privilèges via la commande su -. </p>
+<p>Sur certains systèmes, il sera impossible de se connecter en root dans l’interface graphique.</p>
+<ul>
+<li><code>daemon</code> : UID 1-999, GID 1-999 Les utilisateurs compris entre 1 et 999 pour leur UID/GID représentent les utilisateurs applicatifs (les services). En effet sous Linux 99% des services ne sont pas exécutés sous l’identité de root mais sous leur propre identité à des fins de sécurité.</li>
+<li><code>Utilisateur</code> : UID et GID &gt; 1000
+Les utilisateurs « humains » sont représentés par des UID/GID supérieurs à 1000.</li>
+</ul>
+<h2 id="les-fichiers-lies-a-la-gestion-des-groupes">Les fichiers liés à la gestion des groupes</h2>
+<h3 id="generalites">Généralités</h3>
+<ul>
+<li>Les informations concernant les groupes d’un système Linux sont contenus dans les fichiers <code>/etc/group</code> et <code>/etc/gshadow</code></li>
+<li>Nous pourrons y prendre des informations, mais nous ne les modifierons jamais directement</li>
+<li>La manipulation des groupes devra se faire par les commandes dédiées</li>
+</ul>
+<h3 id="le-fichier-etcgroup">Le fichier <code>/etc/group</code></h3>
+<ul>
+<li>Ce fichier est composé de plusieurs champs, séparés par le caractère  <code>:</code></li>
+</ul>
+<p><img alt="Alt text" src="../image.png" /></p>
+<ul>
+<li>Analyse de colonnes</li>
+</ul>
+<p><img alt="Alt text" src="../image-1.png" /></p>
+<p><img alt="Alt text" src="../image-2.png" /></p>
+<h3 id="le-fichier-etcgshadow">Le fichier <code>/etc/gshadow</code></h3>
+<ul>
+<li>Ce fichier contient les informations cachées sur les groupes séparés par le caractère  <strong>:</strong> . Il est rarement utilisé</li>
+</ul>
+<p><img alt="Alt text" src="../image-3.png" /></p>
+<ul>
+<li>Analyse de colonnes</li>
+</ul>
+<p><img alt="Alt text" src="../image-4.png" /></p>
+<ul>
+<li>Si le champ du mot de passe contient les caractères « <code>!</code> » ou « <code>*</code> », les utilisateurs ne pourront pas utiliser le mot de passe pour accéder au groupe. </li>
+<li>Si le champ est vide, dans ce cas seul les membres du groupe pourront obtenir les permissions du groupe.</li>
+<li>Le champ administrateur contient la liste des administrateurs du groupe séparé par des virgules. Les administrateurs peuvent modifier le mot de passe et les membres du groupe.</li>
+</ul>
+<h2 id="commandes-de-gestion-des-groupes">Commandes de gestion des groupes</h2>
+<h3 id="groupadd">groupadd</h3>
+<pre><code>groupadd &lt;options&gt; [nom du groupe]
+</code></pre>
+<ul>
+<li>Option usuelle :</li>
+</ul>
+<p><code>-g [GID]</code> : valeur numérique de l’identifiant du groupe.</p>
+<p>Cette valeur doit être unique. </p>
+<p>Par défaut, le plus petit identifiant supérieur au <code>GID_MIN</code> et aux identifiants des groupes existants est utilisé.</p>
+<h3 id="groupmod">groupmod</h3>
+<pre><code>groupmod &lt;options&gt; [nom du groupe]
+</code></pre>
+<ul>
+<li>Options usuelles :</li>
+<li><code>-g [GID]</code> : change le GID d’un groupe. Attention aux orphelins des fichiers créés préalablement</li>
+<li><code>-n [nouveau nom]</code> : change le nom du groupe</li>
+</ul>
+<h3 id="groupdel">groupdel</h3>
+<pre><code>groupdel &lt;options&gt; [nom du groupe]
+</code></pre>
+<ul>
+<li>Cette commande permet de supprimer un groupe s’il est vidé de tous ses membres avant</li>
+</ul>
+<h3 id="gpasswd">gpasswd</h3>
+<pre><code>gpasswd &lt;options&gt; [nom du groupe]
+</code></pre>
+<ul>
+<li>Cette commande permet d’administrer les groupes</li>
+<li>Options usuelles :</li>
+<li><code>-a [utilisateur]</code> : ajoute « utilisateur » au groupe.</li>
+<li><code>-d [utilisateur]</code> : supprime « utilisateur » au groupe.</li>
+</ul>
+<h2 id="les-fichiers-lies-a-la-gestion-des-utilisateurs">Les fichiers liés à la gestion des utilisateurs</h2>
+<h3 id="informations-concernant-les-utilisateurs">Informations concernant les utilisateurs</h3>
+<ul>
+<li>Les informations concernant les utilisateurs d’un système Linux sont contenus dans les fichiers <code>/etc/passwd</code> et <code>/etc/shadow</code></li>
+<li>Nous pourrons y prendre des informations, mais nous ne les modifierons jamais directement</li>
+<li>La manipulation des utilisateurs devra se faire par les commandes dédiées</li>
+</ul>
+<h3 id="le-fichier-etcpasswd">Le fichier /etc/passwd</h3>
+<ul>
+<li>Ce fichier est composé de plusieurs champs, séparés par le caractère  <code>:</code></li>
+</ul>
+<p><img alt="Alt text" src="../image-5.png" /></p>
+<p><img alt="Alt text" src="../image-6.png" /></p>
+<ul>
+<li>En général, il y a un <code>x</code> dans la colonne du mot de passe, cela indique que le mot de passe est dans le fichier <code>/etc/shadow</code>. </li>
+<li>Le champ <code>UID</code> indique le numéro qui est l’identifiant unique de l’utilisateur.</li>
+<li>Le champ <code>GID</code> détermine quel est le groupe principal de l’utilisateur.</li>
+<li>Le champ <code>nom,complet</code> comporte des informations complémentaires comme le nom complet, le téléphone, etc. Ces informations peuvent être directement indiquées lors de la création de l’utilisateur ou via la commande <code>chfn</code>.</li>
+<li>Le champ répertoire personnel contient le chemin du répertoire d’accueil de l’utilisateur, si celui-ci a été créé.</li>
+<li>Le champ shell correspond au chemin du binaire correspondant au shell de l’utilisateur. Il est possible de le modifier avec la commande <code>chsh</code>.</li>
+</ul>
+<h3 id="le-fichier-etcshadow">Le fichier /etc/shadow</h3>
+<ul>
+<li>Ce fichier contient les informations cachées des utilisateurs séparées par le caractère  <code>:</code></li>
+</ul>
+<p><img alt="Alt text" src="../image-7.png" /></p>
+<ul>
+<li><code>User</code> : champ contenant le nom de l’utilisateur</li>
+<li><code>Mot de passe</code> : champ contenant le hash du mot de passe. Cette colonne est composée de 3 champs séparés par des « <code>$</code> »</li>
+<li><code>Premier champ</code> : algorithme de hashage</li>
+<li><code>$1$</code> signifie MD5</li>
+<li><code>$2a$</code> signifie Blowfish</li>
+<li><code>$2$</code> signifie Blowfish (manipulation correcte de caractères 8 bits)</li>
+<li><code>$5$</code> signifie SHA-256</li>
+<li><code>$6$</code> signifie SHA-512</li>
+<li><code>Deuxième champ</code> : le sel (ou grain de sable). C’est une chaîne de caractère aléatoire qui sera ajoutée au mot de passe avant de faire son hash</li>
+</ul>
+<p><img alt="Alt text" src="../image-8.png" /></p>
+<ul>
+<li><code>Troisième champ</code> : le hash du mot de passe plus son sel. Le hash est une chaîne de caractère unique généré par l’algorithme de hash. Plus l’algorithme est fort plus le hash est complexe à décrypter.</li>
+<li>Le fait d’utiliser un sel dans le stockage des mots de passe permet d’augmenter la sécurité des mots de passe. Le principe du hash est de générer une chaîne de caractère unique d’une certaine taille par rapport à une chaîne de caractère donnée. Donc si deux utilisateurs ont le même mot de passe, par exemple « <code>Pa$$w0rd</code> », alors les hashs purs seront identiques. L’ajout du sel fait en sorte que les hashs soient différents, pourtant les utilisateurs ont le même mot de passe.</li>
+</ul>
+<p><img alt="Alt text" src="../image-9.png" /></p>
+<ul>
+<li><code>Date de dernier changement de mot de passe</code> : nombre de jours depuis le 1er janvier 1970 déterminant le dernier changement du mot de passe. Une valeur à 0 force le changement du mot de passe pour l’utilisateur à la prochaine connexion. Si ce champ est vide, l’utilisateur ne subit pas les options de vieillissement du mot de passe.</li>
+<li><code>Âge minimum</code> : l’âge minimum est la durée en jour que l’utilisateur devra attendre avant de pouvoir changer son mot de passe de nouveau. Un champ vide ou à 0 signifie qu’il n’y a pas d’âge minimum.</li>
+</ul>
+<h2 id="commandes-de-gestion-des-utilisateurs">Commandes de gestion des utilisateurs</h2>
+<h3 id="useradd">useradd</h3>
+<pre><code>useradd &lt;options&gt; [utilisateur]
+</code></pre>
+<ul>
+<li>Options usuelles :</li>
+<li><code>-m</code> : useradd crée le répertoire d’accueil de l’utilisateur.</li>
+<li><code>-d [/chemin/rep/accueil]</code> : répertoire d’accueil de l’utilisateur. Si non indiqué, useradd utilisera le nom de l’utilisateur et la valeur de la variable HOME du fichier /etc/default/useradd.</li>
+<li>
+<p><code>-u [UID]</code> : indique l’UID de l’utilisateur. Si non renseigné, useradd utilisera le plus petit UID disponible.</p>
+</li>
+<li>
+<p>-<code>g [GID]</code> : indique le GID du groupe <strong>principal</strong> de l’utilisateur.</p>
+</li>
+<li><code>-G [groupe1,groupe2,groupe*n*]</code> : indique la liste des groupes secondaires de l’utilisateur séparés par des « <code>,</code> ».</li>
+<li><code>-s</code> : indique le shell de l’utilisateur sous la forme du chemin absolu du binaire.</li>
+<li><code>-r</code> : indique la création d’un utilisateur système.</li>
+</ul>
+<p>Lors de la création d’un utilisateur, si l’option <code>–m</code> est passée à <code>useradd</code>, alors useradd copiera le contenu du répertoire <code>/etc/skel</code> dans le répertoire d’accueil de l’utilisateur.</p>
+<h3 id="usermod">usermod</h3>
+<pre><code>usermod &lt;options&gt; [utilisateur]
+</code></pre>
+<ul>
+<li>Options usuelles :</li>
+<li><code>-d [/home/DIR]</code> : indique le nouveau répertoire d’accueil de l’utilisateur. Si l’option <code>–m</code> est fournie, le contenu du répertoire actuel sera déplacé dans le nouveau répertoire d’accueil</li>
+<li><code>-e [DATE FIN VALIDITE]</code> : date à laquelle le compte utilisateur sera désactivé. La date est indiquée dans le format <code>AAAA-MM- JJ</code> ou en nombre de jours depuis le 1er janvier 1970. </li>
+</ul>
+<p>Un paramètre <code>DATE\_FIN\_VALIDITÉ</code> vide <strong>désactivera</strong> l'expiration du compte.</p>
+<ul>
+<li><code>-f [DUREE INACTIVITE]</code> : nombre de jours suivant la fin de validité d’un mot de passe après lequel le compte est <strong>définitivement</strong> désactivé. Une valeur de <code>0</code> désactive le compte dès que le mot de passe a dépassé sa fin de validité, et une valeur de <code>-1</code> désactive cette fonctionnalité.</li>
+<li><code>-g [GID]</code> : nom du nouveau groupe principal de l’utilisateur. Tout fichier du répertoire personnel de l'utilisateur appartenant au groupe principal précédent de l'utilisateur appartiendra à ce nouveau groupe.</li>
+</ul>
+<p>Le groupe propriétaire des fichiers en dehors du répertoire personnel de l'utilisateur doit être modifié manuellement.</p>
+<pre><code>usermod &lt;options&gt; [utilisateur]
+</code></pre>
+<ul>
+<li>Options usuelles :</li>
+<li><code>-G [groupe1,groupe2,groupen]</code> : liste des groupes secondaires de l’utilisateur. Si l’utilisateur appartient déjà à des groupes secondaires, il est peut-être utile d’ajouter l’option -a afin de ne pas perdre ces appartenances. Le groupe propriétaire des fichiers en dehors du répertoire personnel de l'utilisateur doit être modifié manuellement.</li>
+<li><code>-a</code> : ajouter les groupes supplémentaires à l’utilisateur. </li>
+</ul>
+<p>À n’utiliser qu’avec l’option <code>-G</code>.</p>
+<pre><code>usermod &lt;options&gt; [utilisateur**]
+</code></pre>
+<ul>
+<li>Options usuelles :</li>
+<li><code>-s [shell]</code> : chemin du nouveau shell de l’utilisateur (peut être configuré à l’aide de la commande <code>chsh</code>).</li>
+<li>-<code>L</code> : verrouille le mot de passe de l’utilisateur. </li>
+</ul>
+<p>Cette option ajoute un « <code>!</code> » devant le hash du mot de passe dans <code>/etc/shadow</code>.</p>
+<p>Remarque : pour verrouiller le compte (et pas seulement l'accès par un mot de passe), il est également nécessaire de placer <code>DATE\_FIN\_VALIDITÉ</code> à <code>1</code>.</p>
+<ul>
+<li><code>-U</code> : déverrouille le mot de passe de l’utilisateur.</li>
+</ul>
+<h3 id="userdel">userdel</h3>
+<pre><code>userdel &lt;options&gt; [nom du groupe]
+</code></pre>
+<ul>
+<li>Cette commande permet de supprimer un utilisateur.</li>
+<li>Option usuelle :</li>
+<li><code>-r</code> : les fichiers présents dans le répertoire d’accueil de l’utilisateur seront également supprimés. Les fichiers de l’utilisateur présents dans d’autres répertoires ne seront pas supprimés.</li>
+</ul>
+<h3 id="passwd">passwd</h3>
+<pre><code>passwd &lt;options&gt; [utilisateur]
+</code></pre>
+<ul>
+<li>En plus de pouvoir changer le mot de passe, si root l’exécute, <code>passwd</code> modifiera suivant les options passées les champs du fichier <code>/etc/shadow|</code>.</li>
+<li>Options usuelles :</li>
+<li><code>-e [utilisateur]</code> : annuler immédiatement la validité du mot de passe d’un utilisateur. Celui-ci sera obligé de changer son mot de passe à sa prochaine connexion.</li>
+<li><code>-l [utilisateur]</code> : verrouille le mot de passe en ajoutant un « <code>!</code> » devant le hash du mot de passe dans <code>/etc/shadow</code>.</li>
+<li><code>-u [utilisateur]</code> : déverrouille le mot de passe en supprimant le « <code>!</code> » devant le hash du mot de passe dans <code>/etc/shadow</code>.</li>
+</ul>
+<h2 id="changement-didentite-et-elevation-de-privileges">Changement d’identité et élévation de privilèges</h2>
+<h3 id="la-commande-su">La commande su</h3>
+<pre><code>su &lt;options&gt; [utilisateur]
+</code></pre>
+<ul>
+<li><code>su</code> permet de changer d’utilisateur ou d’exécuter une commande sous l’identité d’un autre utilisateur. </li>
+<li>Si la commande est invoquée par un simple utilisateur, il faudra qu’il connaisse le mot de passe de l’autre utilisateur. </li>
+<li><code>su</code> peut aussi permettre de devenir root. </li>
+<li><code>-s [shell]</code> : préciser le shell à utiliser pour l’ouverture de session.</li>
+<li><strong>ou</strong> <code>-l [utilisateur]</code> : faire un changement complet d’identité (charge les variables d’environnement de l’utilisateur cible).</li>
+<li><code>-c [cmd]</code> : exécuter la commande, il est conseillé de mettre la commande entre simples quote.</li>
+</ul>
+<h3 id="la-commande-sudo">La commande sudo</h3>
+<pre><code>sudo &lt;options&gt; [commande]
+</code></pre>
+<ul>
+<li>La commande <code>sudo</code> permet de déléguer des tâches précises d'administration à certains utilisateurs. Par exemple, il sera possible d'accorder les privilèges de gestion des utilisateurs à un groupe d'utilisateurs.</li>
+<li>Nous ne rentrerons pas dans les détails dans ce cours.</li>
+<li>Afin qu’un utilisateur puisse utiliser la commande <code>sudo</code>, il faut qu’il soit renseigné dans le fichier de configuration <code>/etc/sudoers</code> et renseigner les commandes qu’il pourra utiliser.</li>
+</ul>
+<p><img alt="Alt text" src="../image-10.png" /></p>
+<ul>
+<li>De façon simple, il est possible de donner tous les droits root à un utilisateur en ajoutant le groupe <code>sudo</code> à l’utilisateur.</li>
+<li>L’utilisation de la commande <code>sudo</code> demande le mot de passe de l’utilisateur et non celui de root. L’élévation de privilège sera gardée en mémoire pour cinq minutes par défaut.</li>
+</ul>
+<p><img alt="Alt text" src="../image-11.png" /></p>
+<p>Lorsque vous utilisez l'option "<code>-i</code>", la session interactive en tant que superutilisateur est ouverte avec un nouvel environnement et un nouveau répertoire de travail. Cela signifie que vous obtenez un shell (interpréteur de commandes) avec les variables d'environnement et les paramètres du superutilisateur.</p>
+<h2 id="conclusion">Conclusion</h2>
+<ul>
+<li>Vous savez créer et gérer des groupes et utilisateurs</li>
+<li>Vous savez consulter les fichiers de configuration</li>
+<li>Vous savez effectuer une élévation de privilèges en environnement GNU/Linux</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
