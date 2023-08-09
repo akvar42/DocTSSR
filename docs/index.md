@@ -1,6 +1,6 @@
 # Bienvenue sur le site de Documentation TSSR2023
 
-N'hesitez pas à envoyer vos cours sur teams il seront publier
+N'hesitez pas à envoyer vos cours sur teams ils seront publié
 
 # Methodes
 
