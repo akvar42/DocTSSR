@@ -4,9 +4,8 @@ N'hesitez pas à envoyer vos cours sur teams il seront publier
 
 # Methodes
 
-##envoyer vos cours en .md
-##ne partager pas de contenus sensible (nom,ip, info perso ect ...)
-
+- Envoyé vos cours en .md
+- Ne partagé pas de contenus sensible (nom,ip, info perso ect ...)
+- l'union fait la force
 
 ## Merci
-
