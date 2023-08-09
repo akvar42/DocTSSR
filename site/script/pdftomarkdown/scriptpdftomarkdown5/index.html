@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../../img/favicon.ico">
-        <title>Readme - My Docs</title>
+        <title>Scriptpdftomarkdown5 - My Docs</title>
         <link href="../../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../../css/base.css" rel="stylesheet">
@@ -55,11 +55,11 @@
     <ul class="dropdown-menu">
             
 <li>
-    <a href="./" class="dropdown-item active">Readme</a>
+    <a href="../Readme/" class="dropdown-item">Readme</a>
 </li>
             
 <li>
-    <a href="../scriptpdftomarkdown5/" class="dropdown-item">Scriptpdftomarkdown5</a>
+    <a href="./" class="dropdown-item active">Scriptpdftomarkdown5</a>
 </li>
     </ul>
   </li>
@@ -277,12 +277,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../../../demo/githubnoteav/" class="nav-link">
+                                <a rel="prev" href="../Readme/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../scriptpdftomarkdown5/" class="nav-link">
+                                <a rel="next" href="../../traitement%20fichier%20cours/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -304,22 +304,12 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#description" class="nav-link">Description</a>
+            <li class="nav-item" data-level="1"><a href="#lire-readme" class="nav-link">Lire Readme !!!!!!!!!!!!!</a>
               <ul class="nav flex-column">
               </ul>
             </li>
             
-            <li class="nav-item" data-level="1"><a href="#etapes-dinstallation" class="nav-link">Étapes d'installation</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#utilisation-du-script" class="nav-link">Utilisation du Script</a>
-              <ul class="nav flex-column">
-              </ul>
-            </li>
-            
-            <li class="nav-item" data-level="1"><a href="#licence-libre" class="nav-link">Licence libre</a>
+            <li class="nav-item" data-level="1"><a href="#avincent-05082023" class="nav-link">Avincent 05082023</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -328,50 +318,71 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<p>readme de scriptpdftomarkdown.py Version 5
-A vincent 03/08/2023  </p>
-<h1 id="description">Description</h1>
-<p>Conversion de PDF en Markdown
-Ce script permet de convertir des fichiers PDF en fichiers Markdown, y compris les images incluses dans les PDF. 
-Il fonctionne sous Debian et d'autres systèmes Linux.</p>
-<h1 id="etapes-dinstallation">Étapes d'installation</h1>
-<p>(en root ou ajouter sudo)</p>
-<h3 id="installer-python">Installer Python</h3>
-<p>Assurez-vous que Python 3 est installé sur votre système. Vous pouvez l'installer en exécutant:</p>
-<blockquote>
-<p>apt update
-apt install python3</p>
-</blockquote>
-<h3 id="installer-pip-gestionnaire-de-paquets-python">Installer PIP (Gestionnaire de paquets Python)</h3>
-<p>Installez PIP pour faciliter l'installation des dépendances:</p>
-<blockquote>
-<p>apt install python3-pip</p>
-</blockquote>
-<h3 id="installer-les-dependances">Installer les Dépendances</h3>
-<p>Exécutez la commande suivante pour installer les dépendances requises:</p>
-<blockquote>
-<p>pip3 install PyPDF2 pdf2image tabulate mistune</p>
-</blockquote>
-<h3 id="installer-poppler-pour-pdf2image">Installer Poppler (pour pdf2image)</h3>
-<p>La bibliothèque pdf2image nécessite Poppler pour fonctionner. Installez-le avec:</p>
-<blockquote>
-<p>apt install poppler-utils</p>
-</blockquote>
-<h1 id="utilisation-du-script">Utilisation du Script</h1>
-<p>Sauvegardé le script dans un emplacement accessible sur votre système.</p>
-<p>Ouvrez un terminal et naviguez vers le répertoire où se trouve le script. </p>
-<p>Lancez-le avec:</p>
-<blockquote>
-<p>python3 scriptpdftomarkdown5.py</p>
-</blockquote>
-<p>Spécifiez le chemin du dossier contenant les PDF: 
-Le script vous demandera de spécifier le chemin du dossier où se trouvent les fichiers PDF à convertir. 
-Vous pouvez spécifier un chemin absolu ou relatif.</p>
-<p>Le script créera un dossier pour chaque fichier PDF et sauvegardera le fichier Markdown ainsi que les images associées dans ce dossier.</p>
-<h1 id="licence-libre">Licence libre</h1>
-<p>Ce script est sans garantie.
-si votre ordinateur explose et que vous vous blessiez gravement, si votre femme vous quitte, ou que le ciel vous tombe sur la tête:
-Dans tout les cas: je ne suis pas responsable.</p></div>
+<p>import PyPDF2
+from pdf2image import convert_from_path
+import glob
+import os
+import shutil</p>
+<h1 id="lire-readme">Lire Readme !!!!!!!!!!!!!</h1>
+<h1 id="avincent-05082023">Avincent 05082023</h1>
+<p>def extract_pdfs(source_folder, target_folder):
+    # Trouver tous les fichiers PDF dans le dossier source et les sous-dossiers
+    pdf_files = []
+    for root, dirs, files in os.walk(source_folder):
+        for file in files:
+            if file.endswith(".pdf"):
+                pdf_files.append(os.path.join(root, file))</p>
+<pre><code># Copier les fichiers PDF trouvés dans le dossier cible
+for pdf_file in pdf_files:
+    shutil.copy(pdf_file, target_folder)
+    print(f"Copié: {pdf_file} -&gt; {target_folder}")
+</code></pre>
+<p>def extract_text_and_images(pdf_path, output_folder):
+    images = []
+    pdf_reader = PyPDF2.PdfReader(pdf_path)
+    text = ""
+    for page_num in range(len(pdf_reader.pages)):
+        page = pdf_reader.pages[page_num]
+        # Extraire le texte de la page
+        page_text = page.extract_text()
+        text += page_text + "\n"
+        # Convertir la page PDF en image
+        image = convert_from_path(pdf_path, first_page=page_num, last_page=page_num + 1)[0]
+        # Sauvegarder l'image dans le dossier de sortie
+        image_path = os.path.join(output_folder, f"image{page_num}.png")
+        image.save(image_path)
+        images.append(image_path)
+    return text, images</p>
+<p>def main():
+    source_folder = input("Veuillez entrer le chemin du dossier contenant les PDF: ")
+    target_folder = "target_pdfs"
+    os.makedirs(target_folder, exist_ok=True)
+    # Extraire les PDF du dossier source vers le dossier cible
+    extract_pdfs(source_folder, target_folder)</p>
+<pre><code>pdf_paths = glob.glob(os.path.join(target_folder, '*.pdf'))
+for pdf_path in pdf_paths:
+    # Créer un dossier avec le nom du PDF
+    output_folder = os.path.basename(pdf_path).replace('.pdf', '')
+    os.makedirs(output_folder, exist_ok=True)
+
+    # Extraire le texte et les images du PDF
+    text, images = extract_text_and_images(pdf_path, output_folder)
+    markdown_content = text
+
+    # Ajouter les images au contenu Markdown en utilisant un chemin relatif
+    for page_num, image in enumerate(images):
+        relative_image_path = f"image{page_num}.png" # Chemin relatif à l'emplacement du fichier Markdown
+        markdown_content += f"![Image]({relative_image_path})\n"
+
+    # Sauvegarder le contenu Markdown dans un fichier
+    output_file_name = os.path.join(output_folder, os.path.basename(pdf_path).replace('.pdf', '.md'))
+    with open(output_file_name, 'w', encoding='utf-8') as file:
+        file.write(markdown_content)
+
+    print(f"Fichier Markdown {output_file_name} généré avec succès.")
+</code></pre>
+<p>if <strong>name</strong> == "<strong>main</strong>":
+    main()</p></div>
             </div>
         </div>
 
