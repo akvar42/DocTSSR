@@ -1,3 +1,4 @@
+```
 # Définir le chemin du dossier source et du dossier de destination
 $sourceDir = "C:\chemin\vers\le\dossier\source"
 $destDir = "C:\chemin\vers\le\dossier\destination"
@@ -13,3 +14,4 @@ Get-ChildItem -Path $sourceDir -Recurse -File -Filter "*.pdf" | Where-Object { $
 }
 
 Write-Output "Copie terminée."
+```

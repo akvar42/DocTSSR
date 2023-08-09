@@ -1,3 +1,4 @@
+```
 #ce script extrait les fichier qui contiennent "Support de cours" dans leur nom et les renomes avec le noms du dossier qui les contiennent
 
 # Définir le chemin du dossier source et du dossier de destination
@@ -20,3 +21,4 @@ Get-ChildItem -Path $sourceDir -Recurse -File -Filter "*.pdf" | Where-Object { $
 }
 
 Write-Output "Copie et renommage terminés."
+```

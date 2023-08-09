@@ -342,6 +342,68 @@
               
   
   
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Powershell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Powershell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../powershell/MVpdf/" class="md-nav__link">
+        MVpdf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../powershell/mvpdf/" class="md-nav__link">
+        Mvpdf
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
     
   
   
@@ -351,17 +413,17 @@
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
       
       
       
-        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
           Traitement fichier cours
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_3_2">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_3_3">
           <span class="md-nav__icon md-icon"></span>
           Traitement fichier cours
         </label>
@@ -449,34 +511,39 @@
 
   <h1>IAmark2</h1>
 
-<p>import openai
-import os</p>
-<p>openai.api_key = 'entrer votre clef API'</p>
-<p>def traiter_texte_par_morceaux(texte, taille_max=2000):
-    morceaux = [texte[i:i+taille_max] for i in range(0, len(texte), taille_max)]
-    texte_traité = ""</p>
-<pre><code>for morceau in morceaux:
-    reponse = openai.Completion.create(engine="davinci", prompt=morceau, max_tokens=100)
-    texte_traité += reponse.choices[0].text.strip()
+<pre><code>import openai
+import os
 
-return texte_traité
-</code></pre>
-<p>def traiter_fichiers(dossier_source, dossier_destination):
+openai.api_key = 'entrer votre clef API'
+
+def traiter_texte_par_morceaux(texte, taille_max=2000):
+    morceaux = [texte[i:i+taille_max] for i in range(0, len(texte), taille_max)]
+    texte_traité = &quot;&quot;
+
+    for morceau in morceaux:
+        reponse = openai.Completion.create(engine=&quot;davinci&quot;, prompt=morceau, max_tokens=100)
+        texte_traité += reponse.choices[0].text.strip()
+
+    return texte_traité
+
+def traiter_fichiers(dossier_source, dossier_destination):
     for racine, dossiers, fichiers in os.walk(dossier_source):
         for fichier in fichiers:
-            if fichier.endswith(".md"):
+            if fichier.endswith(&quot;.md&quot;):
                 chemin_complet = os.path.join(racine, fichier)
                 with open(chemin_complet, 'r', encoding='utf-8') as f:
                     contenu = f.read()
-                    contenu_traité = traiter_texte_par_morceaux(contenu)</p>
-<pre><code>            chemin_destination = os.path.join(dossier_destination, fichier)
-            with open(chemin_destination, 'w', encoding='utf-8') as f:
-                f.write(contenu_traité)
+                    contenu_traité = traiter_texte_par_morceaux(contenu)
+
+                chemin_destination = os.path.join(dossier_destination, fichier)
+                with open(chemin_destination, 'w', encoding='utf-8') as f:
+                    f.write(contenu_traité)
+
+if __name__ == &quot;__main__&quot;:
+    dossier_source = input(&quot;Entrez le chemin du dossier source contenant les fichiers .md :&quot;)
+    dossier_destination = input(&quot;Entrez le chemin du dossier de destination pour les fichiers traités :&quot;)
+    traiter_fichiers(dossier_source, dossier_destination)
 </code></pre>
-<p>if <strong>name</strong> == "<strong>main</strong>":
-    dossier_source = input("Entrez le chemin du dossier source contenant les fichiers .md :")
-    dossier_destination = input("Entrez le chemin du dossier de destination pour les fichiers traités :")
-    traiter_fichiers(dossier_source, dossier_destination)</p>
 
 
 

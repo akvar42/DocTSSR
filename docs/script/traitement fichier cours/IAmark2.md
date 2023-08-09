@@ -1,3 +1,4 @@
+```
 import openai
 import os
 
@@ -30,3 +31,4 @@ if __name__ == "__main__":
     dossier_source = input("Entrez le chemin du dossier source contenant les fichiers .md :")
     dossier_destination = input("Entrez le chemin du dossier de destination pour les fichiers traités :")
     traiter_fichiers(dossier_source, dossier_destination)
+```
