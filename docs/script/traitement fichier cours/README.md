@@ -14,7 +14,9 @@ Ce script Python permet de traiter du contenu texte à partir de fichiers Markdo
 Avant d'exécuter le script, remplacez 'VOTRE_CLÉ_API' par votre clé API OpenAI.
 
 ## Utilisation
-## !!! avant de l'executer modifier le prompt selon votre besoin dans la valeur prompt=f du script!!!
+
+!!! avant de l'executer modifier le prompt selon votre besoin dans la valeur prompt=f du script!!!
+
 1. Exécutez le script.
 2. Lorsque vous y êtes invité, entrez le chemin du dossier source contenant les fichiers .md que vous souhaitez traiter.
 3. Ensuite, entrez le chemin du dossier de destination où vous souhaitez que les fichiers traités soient enregistrés.
