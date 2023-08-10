@@ -1,4 +1,5 @@
-# petit script shell pour automatisé le deployement de MKdocs
+# Read me
+#  petit script shell pour automatisé le deployement de MKdocs
 
 
 
@@ -24,6 +25,12 @@ Ajoutez  deploy.sh pour ignorer notre script \`deploy.sh\` :
 
 ```
 deploy.sh
+```
+
+Ensuite, ajoutez et validez ce fichier :
+```
+git add .gitignore
+git commit -m 'build: add .gitignore'
 ```
 
 ### 3. Lancer le script

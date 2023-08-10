@@ -19,7 +19,7 @@
     
     
       
-        <title>petit script shell pour automatisé le deployement de MKdocs - DOC TSSR</title>
+        <title>Read me - DOC TSSR</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#petit-script-shell-pour-automatise-le-deployement-de-mkdocs" class="md-skip">
+        <a href="#read-me" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              petit script shell pour automatisé le deployement de MKdocs
+              Read me
             
           </span>
         </div>
@@ -698,74 +698,9 @@
         
       
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          petit script shell pour automatisé le deployement de MKdocs
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
       <a href="./" class="md-nav__link md-nav__link--active">
-        petit script shell pour automatisé le deployement de MKdocs
+        Read me
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mise-en-place-et-utilisation" class="md-nav__link">
-    Mise en place et utilisation
-  </a>
-  
-    <nav class="md-nav" aria-label="Mise en place et utilisation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-installation-dans-le-dossier-local-git" class="md-nav__link">
-    1. Installation dans le dossier local Git
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-creation-du-fichier-gitignore" class="md-nav__link">
-    2. Création du fichier `.gitignore`
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-lancer-le-script" class="md-nav__link">
-    3. Lancer le script
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#licence" class="md-nav__link">
-    Licence
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -1053,55 +988,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#mise-en-place-et-utilisation" class="md-nav__link">
-    Mise en place et utilisation
-  </a>
-  
-    <nav class="md-nav" aria-label="Mise en place et utilisation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-installation-dans-le-dossier-local-git" class="md-nav__link">
-    1. Installation dans le dossier local Git
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-creation-du-fichier-gitignore" class="md-nav__link">
-    2. Création du fichier `.gitignore`
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-lancer-le-script" class="md-nav__link">
-    3. Lancer le script
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#licence" class="md-nav__link">
-    Licence
-  </a>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1115,6 +1001,7 @@
                   
 
 
+<h1 id="read-me">Read me</h1>
 <h1 id="petit-script-shell-pour-automatise-le-deployement-de-mkdocs">petit script shell pour automatisé le deployement de MKdocs</h1>
 <h2 id="mise-en-place-et-utilisation">Mise en place et utilisation</h2>
 <h3 id="1-installation-dans-le-dossier-local-git">1. Installation dans le dossier local Git</h3>
@@ -1127,6 +1014,10 @@ vi deploy.sh #coller le script et sauvegardé (:wq)
 </code></pre>
 <p>Ajoutez  deploy.sh pour ignorer notre script `deploy.sh` :</p>
 <pre><code>deploy.sh
+</code></pre>
+<p>Ensuite, ajoutez et validez ce fichier :</p>
+<pre><code>git add .gitignore
+git commit -m 'build: add .gitignore'
 </code></pre>
 <h3 id="3-lancer-le-script">3. Lancer le script</h3>
 <p>Après avoir rendu le script exécutable (avec `chmod +x deploy.sh`), lancez-le en utilisant:</p>
