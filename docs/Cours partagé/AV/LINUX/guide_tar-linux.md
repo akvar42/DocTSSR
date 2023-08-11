@@ -5,38 +5,38 @@
 ## Création d'une archive
 
 ### Avec compression gzip (extension .tar.gz ou .tgz)
-\`\`\`
+```
 tar -czvf nom_de_l_archive.tar.gz dossier_a_archiver/
-\`\`\`
+```
 
 ### Avec compression bzip2 (extension .tar.bz2)
-\`\`\`
+```
 tar -cjvf nom_de_l_archive.tar.bz2 dossier_a_archiver/
-\`\`\`
+```
 
 ## Extraction d'une archive
 
 ### Archive .tar.gz ou .tgz
-\`\`\`
+```
 tar -xzvf nom_de_l_archive.tar.gz
-\`\`\`
+```
 
 ### Archive .tar.bz2
-\`\`\`
+```
 tar -xjvf nom_de_l_archive.tar.bz2
-\`\`\`
+```
 
 ## Lister le contenu d'une archive sans extraire
 
 ### Archive .tar.gz ou .tgz
-\`\`\`
+```
 tar -tzvf nom_de_l_archive.tar.gz
-\`\`\`
+```
 
 ### Archive .tar.bz2
-\`\`\`
+```
 tar -tjvf nom_de_l_archive.tar.bz2
-\`\`\`
+```
 
 ## Quelques options utiles
 
@@ -52,7 +52,7 @@ tar -tjvf nom_de_l_archive.tar.bz2
 
 ## Pour plus d'informations
 Pour obtenir plus de détails sur les options disponibles, consultez la page de manuel avec la commande :
-\`\`\`
+```
 man tar
-\`\`\`
+```
 
