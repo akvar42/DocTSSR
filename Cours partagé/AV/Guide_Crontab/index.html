@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../../pdftomarkdown/scriptpdftomarkdown5/">
+        <link rel="prev" href="../GuideD%C3%A9pannageVmware/">
       
       
-        <link rel="next" href="../mvpdf/">
+        <link rel="next" href="../Guide_information_system_LINUX/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>MVpdf - DOC TSSR</title>
+        <title>Guide d'Utilisation de Crontab sur GNU/Linux - DOC TSSR</title>
       
     
     
@@ -60,6 +60,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#guide-dutilisation-de-crontab-sur-gnulinux" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -91,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              MVpdf
+              Guide d'Utilisation de Crontab sur GNU/Linux
             
           </span>
         </div>
@@ -190,14 +195,16 @@
 
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
       
       
       
@@ -206,7 +213,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2">
           <span class="md-nav__icon md-icon"></span>
           Cours partagé
@@ -217,14 +224,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
       
       
       
@@ -233,7 +242,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           AV
@@ -246,7 +255,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/AV/GuideD%C3%A9pannageVmware/" class="md-nav__link">
+      <a href="../GuideD%C3%A9pannageVmware/" class="md-nav__link">
         Guide de dépannage pour VMware Workstation
       </a>
     </li>
@@ -258,11 +267,140 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/AV/Guide_Crontab/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Guide d'Utilisation de Crontab sur GNU/Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Guide d'Utilisation de Crontab sur GNU/Linux
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-bases-de-crontab" class="md-nav__link">
+    1. Bases de Crontab
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Bases de Crontab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-afficher-la-crontab" class="md-nav__link">
+    a. Afficher la Crontab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-editer-la-crontab" class="md-nav__link">
+    b. Éditer la Crontab
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-syntaxe-des-taches-planifiees" class="md-nav__link">
+    2. Syntaxe des Tâches Planifiées
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-exemples-dutilisation" class="md-nav__link">
+    3. Exemples d'Utilisation
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Exemples d'Utilisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-execution-dun-script-tous-les-jours-a-minuit" class="md-nav__link">
+    a. Exécution d'un script tous les jours à minuit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-execution-dune-commande-tous-les-lundis-a-7h30" class="md-nav__link">
+    b. Exécution d'une commande tous les lundis à 7h30
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-execution-dune-tache-toutes-les-heures" class="md-nav__link">
+    c. Exécution d'une tâche toutes les heures
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-astuces-supplementaires" class="md-nav__link">
+    4. Astuces Supplémentaires
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Astuces Supplémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-redirection-de-la-sortie-vers-un-fichier" class="md-nav__link">
+    a. Redirection de la sortie vers un fichier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-supprimer-une-crontab" class="md-nav__link">
+    b. Supprimer une Crontab
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -274,7 +412,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/AV/Guide_information_system_LINUX/" class="md-nav__link">
+      <a href="../Guide_information_system_LINUX/" class="md-nav__link">
         Guide Avancé sur les Informations Système sur GNU/Linux
       </a>
     </li>
@@ -288,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/AV/Guide_veille_et_journalisation/" class="md-nav__link">
+      <a href="../Guide_veille_et_journalisation/" class="md-nav__link">
         Guide de Veille et Journalisation sur GNU/Linux
       </a>
     </li>
@@ -302,7 +440,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/AV/InstallationVmware/" class="md-nav__link">
+      <a href="../InstallationVmware/" class="md-nav__link">
         Guide d'utilisation de VMware Workstation pour un technicien
       </a>
     </li>
@@ -316,7 +454,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/AV/guide_tar-linux/" class="md-nav__link">
+      <a href="../guide_tar-linux/" class="md-nav__link">
         Guide d'utilisation de tar sur Debian
       </a>
     </li>
@@ -391,7 +529,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/guigui/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/" class="md-nav__link">
+      <a href="../../guigui/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/" class="md-nav__link">
         Module 05 – Gestion du réseau
       </a>
     </li>
@@ -439,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/guigui/06%20-%20Gestion%20des%20paquets%20logiciels/06%20-%20Gestion%20des%20paquets%20logiciels/" class="md-nav__link">
+      <a href="../../guigui/06%20-%20Gestion%20des%20paquets%20logiciels/06%20-%20Gestion%20des%20paquets%20logiciels/" class="md-nav__link">
         Module 06 – Gestion des paquets logiciels
       </a>
     </li>
@@ -487,7 +625,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/guigui/07%20-%20Gestion%20des%20espaces%20de%20stockage/07%20-%20Gestion%20des%20espaces%20de%20stockage/" class="md-nav__link">
+      <a href="../../guigui/07%20-%20Gestion%20des%20espaces%20de%20stockage/07%20-%20Gestion%20des%20espaces%20de%20stockage/" class="md-nav__link">
         Module 07 – Gestion des espaces de stockage
       </a>
     </li>
@@ -535,7 +673,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/guigui/08%20-%20Gestion%20avanc%C3%A9e%20des%20espaces%20de%20stockage%20-%20LVM/Module%2008%20-%20Support%20de%20cours/" class="md-nav__link">
+      <a href="../../guigui/08%20-%20Gestion%20avanc%C3%A9e%20des%20espaces%20de%20stockage%20-%20LVM/Module%2008%20-%20Support%20de%20cours/" class="md-nav__link">
         Gestion des espaces de stockage avancée - LVM
       </a>
     </li>
@@ -583,7 +721,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/guigui/09%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/Module%2009%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/" class="md-nav__link">
+      <a href="../../guigui/09%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/Module%2009%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/" class="md-nav__link">
         Gestion des espaces de stockage – File System
       </a>
     </li>
@@ -631,7 +769,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../Cours%20partag%C3%A9/guigui/10%20-%20Gestion%20des%20utilisateurs%20et%20des%20groupes/Module%2010%20-%20Support%20de%20cours/" class="md-nav__link">
+      <a href="../../guigui/10%20-%20Gestion%20des%20utilisateurs%20et%20des%20groupes/Module%2010%20-%20Support%20de%20cours/" class="md-nav__link">
         Module 10 – Gestion des utilisateurs et groupes**
       </a>
     </li>
@@ -728,16 +866,14 @@
 
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
       
       
       
@@ -746,7 +882,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4">
           <span class="md-nav__icon md-icon"></span>
           Script
@@ -786,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../githubdeploy/Read_me/" class="md-nav__link">
+      <a href="../../../script/githubdeploy/Read_me/" class="md-nav__link">
         Read me
       </a>
     </li>
@@ -800,7 +936,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../githubdeploy/deploy/" class="md-nav__link">
+      <a href="../../../script/githubdeploy/deploy/" class="md-nav__link">
         Deploy
       </a>
     </li>
@@ -848,7 +984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pdf_to_md_windows/Read-me/" class="md-nav__link">
+      <a href="../../../script/pdf_to_md_windows/Read-me/" class="md-nav__link">
         Read me
       </a>
     </li>
@@ -862,7 +998,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pdf_to_md_windows/pdf_to_md_converter/" class="md-nav__link">
+      <a href="../../../script/pdf_to_md_windows/pdf_to_md_converter/" class="md-nav__link">
         Pdf to md converter
       </a>
     </li>
@@ -910,7 +1046,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pdftomarkdown/Readme/" class="md-nav__link">
+      <a href="../../../script/pdftomarkdown/Readme/" class="md-nav__link">
         Readme
       </a>
     </li>
@@ -924,7 +1060,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pdftomarkdown/scriptpdftomarkdown5/" class="md-nav__link">
+      <a href="../../../script/pdftomarkdown/scriptpdftomarkdown5/" class="md-nav__link">
         Scriptpdftomarkdown5
       </a>
     </li>
@@ -943,16 +1079,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
       
       
       
@@ -961,7 +1095,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_4_4">
           <span class="md-nav__icon md-icon"></span>
           Powershell
@@ -972,19 +1106,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../script/powershell/MVpdf/" class="md-nav__link">
         MVpdf
       </a>
-      
     </li>
   
 
@@ -996,7 +1122,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../mvpdf/" class="md-nav__link">
+      <a href="../../../script/powershell/mvpdf/" class="md-nav__link">
         Mvpdf
       </a>
     </li>
@@ -1044,7 +1170,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../traitement%20fichier%20cours/" class="md-nav__link">
+      <a href="../../../script/traitement%20fichier%20cours/" class="md-nav__link">
         Readme
       </a>
     </li>
@@ -1058,7 +1184,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../traitement%20fichier%20cours/IAmark2/" class="md-nav__link">
+      <a href="../../../script/traitement%20fichier%20cours/IAmark2/" class="md-nav__link">
         IAmark2
       </a>
     </li>
@@ -1096,6 +1222,111 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-bases-de-crontab" class="md-nav__link">
+    1. Bases de Crontab
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Bases de Crontab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-afficher-la-crontab" class="md-nav__link">
+    a. Afficher la Crontab
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-editer-la-crontab" class="md-nav__link">
+    b. Éditer la Crontab
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-syntaxe-des-taches-planifiees" class="md-nav__link">
+    2. Syntaxe des Tâches Planifiées
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-exemples-dutilisation" class="md-nav__link">
+    3. Exemples d'Utilisation
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Exemples d'Utilisation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-execution-dun-script-tous-les-jours-a-minuit" class="md-nav__link">
+    a. Exécution d'un script tous les jours à minuit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-execution-dune-commande-tous-les-lundis-a-7h30" class="md-nav__link">
+    b. Exécution d'une commande tous les lundis à 7h30
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#c-execution-dune-tache-toutes-les-heures" class="md-nav__link">
+    c. Exécution d'une tâche toutes les heures
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-astuces-supplementaires" class="md-nav__link">
+    4. Astuces Supplémentaires
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Astuces Supplémentaires">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-redirection-de-la-sortie-vers-un-fichier" class="md-nav__link">
+    a. Redirection de la sortie vers un fichier
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-supprimer-une-crontab" class="md-nav__link">
+    b. Supprimer une Crontab
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1110,24 +1341,61 @@
                   
 
 
-  <h1>MVpdf</h1>
-
-<pre><code># Définir le chemin du dossier source et du dossier de destination
-$sourceDir = &quot;C:\chemin\vers\le\dossier\source&quot;
-$destDir = &quot;C:\chemin\vers\le\dossier\destination&quot;
-
-# Rechercher tous les fichiers .pdf, à l'exclusion des .zip, et les copier vers le dossier de destination
-Get-ChildItem -Path $sourceDir -Recurse -File -Filter &quot;*.pdf&quot; | Where-Object { $_.Extension -ne &quot;.zip&quot; } | ForEach-Object {
-    $dest = $destDir + $_.FullName.Substring($sourceDir.Length)
-    $destFolder = Split-Path -Path $dest -Parent
-    if (-not (Test-Path $destFolder)) {
-        New-Item -Path $destFolder -ItemType Directory
-    }
-    Copy-Item -Path $_.FullName -Destination $dest
-}
-
-Write-Output &quot;Copie terminée.&quot;
-</code></pre>
+<h1 id="guide-dutilisation-de-crontab-sur-gnulinux">Guide d'Utilisation de Crontab sur GNU/Linux</h1>
+<p>`Crontab` est un outil utilisé pour planifier des tâches (communément appelées "cron jobs") sur votre système Unix/Linux. Ces tâches peuvent être planifiées pour s'exécuter à des intervalles réguliers.</p>
+<h2 id="1-bases-de-crontab">1. Bases de Crontab</h2>
+<h3 id="a-afficher-la-crontab">a. Afficher la Crontab</h3>
+<ul>
+<li>Pour afficher la crontab actuelle de l'utilisateur : 
+  ```
+  crontab -l
+  ```</li>
+</ul>
+<h3 id="b-editer-la-crontab">b. Éditer la Crontab</h3>
+<ul>
+<li>Pour éditer la crontab de l'utilisateur actuel : 
+  ```
+  crontab -e
+  ```</li>
+</ul>
+<h2 id="2-syntaxe-des-taches-planifiees">2. Syntaxe des Tâches Planifiées</h2>
+<p>Une entrée typique de crontab a le format suivant : </p>
+<p>```
+* * * * * /chemin/vers/la/commande
+```</p>
+<p>Chaque champ est représenté par une étoile ou une valeur :</p>
+<ol>
+<li>Minute (0 - 59)</li>
+<li>Heure (0 - 23)</li>
+<li>Jour du mois (1 - 31)</li>
+<li>Mois (1 - 12)</li>
+<li>Jour de la semaine (0 - 7) où 0 et 7 représentent tous deux le dimanche.</li>
+</ol>
+<h2 id="3-exemples-dutilisation">3. Exemples d'Utilisation</h2>
+<h3 id="a-execution-dun-script-tous-les-jours-a-minuit">a. Exécution d'un script tous les jours à minuit</h3>
+<p>```
+0 0 * * * /chemin/vers/le/script.sh
+```</p>
+<h3 id="b-execution-dune-commande-tous-les-lundis-a-7h30">b. Exécution d'une commande tous les lundis à 7h30</h3>
+<p>```
+30 7 * * 1 /chemin/vers/la/commande
+```</p>
+<h3 id="c-execution-dune-tache-toutes-les-heures">c. Exécution d'une tâche toutes les heures</h3>
+<p>```
+0 * * * * /chemin/vers/la/tâche
+```</p>
+<h2 id="4-astuces-supplementaires">4. Astuces Supplémentaires</h2>
+<h3 id="a-redirection-de-la-sortie-vers-un-fichier">a. Redirection de la sortie vers un fichier</h3>
+<p>Si vous souhaitez enregistrer la sortie de votre tâche planifiée, vous pouvez rediriger la sortie vers un fichier :</p>
+<p>```
+0 0 * * * /chemin/vers/le/script.sh &gt; /chemin/vers/fichier.log
+```</p>
+<h3 id="b-supprimer-une-crontab">b. Supprimer une Crontab</h3>
+<p>Pour supprimer la crontab de l'utilisateur actuel :</p>
+<p>```
+crontab -r
+```</p>
+<p>AV2023</p>
 
 
 
