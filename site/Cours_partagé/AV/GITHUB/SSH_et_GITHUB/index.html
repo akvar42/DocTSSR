@@ -1326,7 +1326,13 @@
 <p><strong>Ajoutez votre clé SSH au ssh-agent</strong>:
    <code>ssh-add ~/.ssh/id_rsa</code></p>
 </li>
+<li><strong>Explication</strong></li>
 </ol>
+<p>ssh-keygen: C'est la commande principale pour la génération de clés SSH.</p>
+<p>-t rsa: Cet argument spécifie le type de clé à créer. Dans ce cas, vous avez choisi RSA (Rivest-Shamir-Adleman), qui est un algorithme de chiffrement asymétrique largement utilisé.</p>
+<p>-b 4096: Cet argument définit la taille de la clé en bits. Ici, la taille de la clé est de 4096 bits, ce qui est considéré comme étant très sécurisé. Par défaut, si vous n'indiquez pas la taille de la clé avec -b, la taille sera de 3072 bits pour RSA (dans les versions plus récentes de SSH), mais cela peut varier selon la version et la configuration.</p>
+<p>-C: Cet argument permet de fournir un commentaire qui est attaché à la clé. Habituellement, le commentaire est utilisé pour identifier la clé, par exemple avec une adresse e-mail ou le nom de l'utilisateur. Après -C, vous devriez normalement fournir une valeur pour le commentaire, par exemple : ssh-keygen -t rsa -b 4096 -C "votre.email@example.com".</p>
+<p>En utilisant cette commande, vous générerez une paire de clés : une clé privée (normalement appelée id_rsa par défaut) et une clé publique (normalement appelée id_rsa.pub par défaut). La clé privée doit être gardée secrète et protégée, tandis que la clé publique peut être partagée ou ajoutée à des serveurs pour permettre une authentification sans mot de passe. </p>
 <h2 id="lier-la-cle-ssh-a-github">Lier la clé SSH à GitHub</h2>
 <ol>
 <li>
