@@ -19,7 +19,7 @@
     
     
       
-        <title>Guide d'Utilisation de Crontab sur GNU/Linux - DOC TSSR</title>
+        <title>Guide Avancé pour l'Utilisation de crontab sous Linux - DOC TSSR</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#guide-dutilisation-de-crontab-sur-gnulinux" class="md-skip">
+        <a href="#guide-avance-pour-lutilisation-de-crontab-sous-linux" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Guide d'Utilisation de Crontab sur GNU/Linux
+              Guide Avancé pour l'Utilisation de crontab sous Linux
             
           </span>
         </div>
@@ -294,12 +294,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Guide d'Utilisation de Crontab sur GNU/Linux
+          Guide Avancé pour l'Utilisation de crontab sous Linux
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Guide d'Utilisation de Crontab sur GNU/Linux
+        Guide Avancé pour l'Utilisation de crontab sous Linux
       </a>
       
         
@@ -318,98 +318,51 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-bases-de-crontab" class="md-nav__link">
-    1. Bases de Crontab
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Bases de Crontab">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-afficher-la-crontab" class="md-nav__link">
-    a. Afficher la Crontab
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-editer-la-crontab" class="md-nav__link">
-    b. Éditer la Crontab
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-syntaxe-des-taches-planifiees" class="md-nav__link">
-    2. Syntaxe des Tâches Planifiées
+  <a href="#1-syntaxe-de-base" class="md-nav__link">
+    1. Syntaxe de base
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-exemples-dutilisation" class="md-nav__link">
-    3. Exemples d'Utilisation
+  <a href="#2-exemples-dutilisation" class="md-nav__link">
+    2. Exemples d'utilisation
   </a>
-  
-    <nav class="md-nav" aria-label="3. Exemples d'Utilisation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-execution-dun-script-tous-les-jours-a-minuit" class="md-nav__link">
-    a. Exécution d'un script tous les jours à minuit
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-execution-dune-commande-tous-les-lundis-a-7h30" class="md-nav__link">
-    b. Exécution d'une commande tous les lundis à 7h30
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-execution-dune-tache-toutes-les-heures" class="md-nav__link">
-    c. Exécution d'une tâche toutes les heures
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-astuces-supplementaires" class="md-nav__link">
-    4. Astuces Supplémentaires
+  <a href="#3-commandes-utiles" class="md-nav__link">
+    3. Commandes utiles
   </a>
   
-    <nav class="md-nav" aria-label="4. Astuces Supplémentaires">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-gestion-des-logs-avec-logrotate" class="md-nav__link">
+    4. Gestion des logs avec logrotate
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Gestion des logs avec logrotate">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-redirection-de-la-sortie-vers-un-fichier" class="md-nav__link">
-    a. Redirection de la sortie vers un fichier
+  <a href="#a-configuration" class="md-nav__link">
+    a. Configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-supprimer-une-crontab" class="md-nav__link">
-    b. Supprimer une Crontab
+  <a href="#b-execution" class="md-nav__link">
+    b. Exécution
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-ressource" class="md-nav__link">
-    5 Ressource
+  <a href="#ressource" class="md-nav__link">
+    ressource
   </a>
   
 </li>
@@ -1309,98 +1262,51 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-bases-de-crontab" class="md-nav__link">
-    1. Bases de Crontab
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Bases de Crontab">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-afficher-la-crontab" class="md-nav__link">
-    a. Afficher la Crontab
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-editer-la-crontab" class="md-nav__link">
-    b. Éditer la Crontab
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-syntaxe-des-taches-planifiees" class="md-nav__link">
-    2. Syntaxe des Tâches Planifiées
+  <a href="#1-syntaxe-de-base" class="md-nav__link">
+    1. Syntaxe de base
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-exemples-dutilisation" class="md-nav__link">
-    3. Exemples d'Utilisation
+  <a href="#2-exemples-dutilisation" class="md-nav__link">
+    2. Exemples d'utilisation
   </a>
-  
-    <nav class="md-nav" aria-label="3. Exemples d'Utilisation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-execution-dun-script-tous-les-jours-a-minuit" class="md-nav__link">
-    a. Exécution d'un script tous les jours à minuit
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-execution-dune-commande-tous-les-lundis-a-7h30" class="md-nav__link">
-    b. Exécution d'une commande tous les lundis à 7h30
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-execution-dune-tache-toutes-les-heures" class="md-nav__link">
-    c. Exécution d'une tâche toutes les heures
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-astuces-supplementaires" class="md-nav__link">
-    4. Astuces Supplémentaires
+  <a href="#3-commandes-utiles" class="md-nav__link">
+    3. Commandes utiles
   </a>
   
-    <nav class="md-nav" aria-label="4. Astuces Supplémentaires">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-gestion-des-logs-avec-logrotate" class="md-nav__link">
+    4. Gestion des logs avec logrotate
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Gestion des logs avec logrotate">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-redirection-de-la-sortie-vers-un-fichier" class="md-nav__link">
-    a. Redirection de la sortie vers un fichier
+  <a href="#a-configuration" class="md-nav__link">
+    a. Configuration
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-supprimer-une-crontab" class="md-nav__link">
-    b. Supprimer une Crontab
+  <a href="#b-execution" class="md-nav__link">
+    b. Exécution
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#5-ressource" class="md-nav__link">
-    5 Ressource
+  <a href="#ressource" class="md-nav__link">
+    ressource
   </a>
   
 </li>
@@ -1425,54 +1331,80 @@
                   
 
 
-<h1 id="guide-dutilisation-de-crontab-sur-gnulinux">Guide d'Utilisation de Crontab sur GNU/Linux</h1>
-<p><code>Crontab</code> est un outil utilisé pour planifier des tâches (communément appelées "cron jobs") sur votre système Unix/Linux. Ces tâches peuvent être planifiées pour s'exécuter à des intervalles réguliers.</p>
-<h2 id="1-bases-de-crontab">1. Bases de Crontab</h2>
-<h3 id="a-afficher-la-crontab">a. Afficher la Crontab</h3>
+<h1 id="guide-avance-pour-lutilisation-de-crontab-sous-linux">Guide Avancé pour l'Utilisation de <code>crontab</code> sous Linux</h1>
+<p>Le système <code>cron</code> est un planificateur de tâches qui permet aux utilisateurs de Linux d'exécuter des commandes ou des scripts à des moments prédéfinis ou à des intervalles réguliers.</p>
+<h2 id="1-syntaxe-de-base">1. Syntaxe de base</h2>
+<p>Le format d'une entrée <code>crontab</code> est le suivant :</p>
+<pre><code>* * * * * /chemin/vers/la/commande arguments
+</code></pre>
+<p>Chaque champ est détaillé ci-dessous :
+- Minute (0 - 59)
+- Heure (0 - 23)
+- Jour du mois (1 - 31)
+- Mois (1 - 12)
+- Jour de la semaine (0 - 7) (0 et 7 sont tous les deux pour dimanche)</p>
+<h2 id="2-exemples-dutilisation">2. Exemples d'utilisation</h2>
 <ul>
-<li>Pour afficher la crontab actuelle de l'utilisateur : 
-  <code>crontab -l</code></li>
+<li><strong>Exécuter un script tous les jours à 2h30 du matin</strong> :</li>
 </ul>
-<h3 id="b-editer-la-crontab">b. Éditer la Crontab</h3>
+<pre><code>30 2 * * * /chemin/vers/le/script.sh
+</code></pre>
 <ul>
-<li>Pour éditer la crontab de l'utilisateur actuel : 
-  <code>crontab -e</code></li>
+<li><strong>Exécuter une tâche toutes les 5 minutes</strong> :</li>
 </ul>
-<h2 id="2-syntaxe-des-taches-planifiees">2. Syntaxe des Tâches Planifiées</h2>
-<p>Une entrée typique de crontab a le format suivant : </p>
-<pre><code>* * * * * /chemin/vers/la/commande
+<pre><code>*/5 * * * * /chemin/vers/la/commande
 </code></pre>
-<p>Chaque champ est représenté par une étoile ou une valeur :</p>
-<ol>
-<li>Minute (0 - 59)</li>
-<li>Heure (0 - 23)</li>
-<li>Jour du mois (1 - 31)</li>
-<li>Mois (1 - 12)</li>
-<li>Jour de la semaine (0 - 7) où 0 et 7 représentent tous deux le dimanche.</li>
-</ol>
-<h2 id="3-exemples-dutilisation">3. Exemples d'Utilisation</h2>
-<h3 id="a-execution-dun-script-tous-les-jours-a-minuit">a. Exécution d'un script tous les jours à minuit</h3>
-<pre><code>0 0 * * * /chemin/vers/le/script.sh
+<h2 id="3-commandes-utiles">3. Commandes utiles</h2>
+<ul>
+<li><strong>Éditer le fichier crontab pour l'utilisateur actuel</strong> :</li>
+</ul>
+<pre><code>crontab -e
 </code></pre>
-<h3 id="b-execution-dune-commande-tous-les-lundis-a-7h30">b. Exécution d'une commande tous les lundis à 7h30</h3>
-<pre><code>30 7 * * 1 /chemin/vers/la/commande
+<ul>
+<li><strong>Afficher le contenu du crontab pour l'utilisateur actuel</strong> :</li>
+</ul>
+<pre><code>crontab -l
 </code></pre>
-<h3 id="c-execution-dune-tache-toutes-les-heures">c. Exécution d'une tâche toutes les heures</h3>
-<pre><code>0 * * * * /chemin/vers/la/tâche
-</code></pre>
-<h2 id="4-astuces-supplementaires">4. Astuces Supplémentaires</h2>
-<h3 id="a-redirection-de-la-sortie-vers-un-fichier">a. Redirection de la sortie vers un fichier</h3>
-<p>Si vous souhaitez enregistrer la sortie de votre tâche planifiée, vous pouvez rediriger la sortie vers un fichier :</p>
-<pre><code>0 0 * * * /chemin/vers/le/script.sh &gt; /chemin/vers/fichier.log
-</code></pre>
-<h3 id="b-supprimer-une-crontab">b. Supprimer une Crontab</h3>
-<p>Pour supprimer la crontab de l'utilisateur actuel :</p>
+<ul>
+<li><strong>Supprimer le crontab de l'utilisateur actuel</strong> :</li>
+</ul>
 <pre><code>crontab -r
 </code></pre>
-<h3 id="5-ressource">5 Ressource</h3>
-<p>https://crontab.guru/</p>
-<p>Éditeur rapide et simple pour les expressions de planification</p>
-<p>AV2023</p>
+<h2 id="4-gestion-des-logs-avec-logrotate">4. Gestion des logs avec <code>logrotate</code></h2>
+<p>Lorsque vos scripts ou tâches génèrent des logs, ceux-ci peuvent rapidement consommer tout l'espace disque disponible. <code>logrotate</code> est un utilitaire pour simplifier l'administration des logs. </p>
+<h3 id="a-configuration">a. Configuration</h3>
+<p><code>logrotate</code> utilise un fichier de configuration pour définir la manière dont les logs doivent être tournés.</p>
+<p>Exemple de fichier de configuration :</p>
+<pre><code>/chemin/vers/les/logs/*.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 0640 user group
+    postrotate
+        /chemin/vers/un/script/après/rotation
+    endscript
+}
+</code></pre>
+<p>Explication des directives :
+- <code>daily</code> : Faire tourner les logs chaque jour.
+- <code>rotate 7</code> : Conserver 7 archives des logs.
+- <code>compress</code> : Compresser les logs.
+- <code>delaycompress</code> : Compresser le log une fois que la prochaine rotation est terminée.
+- <code>missingok</code> : Ne pas émettre d'erreur si un log est manquant.
+- <code>notifempty</code> : Ne pas faire tourner le log s'il est vide.
+- <code>create</code> : Créer un nouveau fichier log avec les permissions spécifiées.
+- <code>postrotate</code>/<code>endscript</code> : Exécuter le script spécifié après avoir fait tourner les logs.</p>
+<h3 id="b-execution">b. Exécution</h3>
+<p>Bien que <code>logrotate</code> puisse être exécuté manuellement, il est généralement exécuté via <code>cron</code>. Une tâche typique pourrait ressembler à :</p>
+<pre><code>0 0 * * * /usr/sbin/logrotate /etc/logrotate.conf
+</code></pre>
+<p>Cette commande exécuterait <code>logrotate</code> chaque jour à minuit en utilisant la configuration spécifiée dans <code>/etc/logrotate.conf</code>.</p>
+<h3 id="ressource">ressource</h3>
+<p>https://crontab.guru/
+Éditeur rapide et simple pour les expressions de planification cron - by Cronitor</p>
 
 
 
