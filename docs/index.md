@@ -1,11 +1,13 @@
-# Bienvenue sur le site de Documentation TSSR2023
+# Bienvenue sur le site de Documentation TSSR2023.
 
-N'hesitez pas à envoyer vos cours sur teams ils seront publié
+N'hésitez pas à envoyer vos cours sur Teams ; ils seront publiés.
+
 
 # Methodes
 
-- Envoyé vos cours en .md
-- Ne partagé pas de contenus sensible (nom,ip, info perso ect ...)
-- l'union fait la force
+- Envoyez vos cours en .md.
+- Ne partagez pas de contenus sensibles (nom, IP, infos perso, etc.).
+- **"L'union fait la force."**
+
 
 ## Merci
