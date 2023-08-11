@@ -72,5 +72,11 @@ Pour supprimer la crontab de l'utilisateur actuel :
 crontab -r
 ```
 
+### 5 Ressource
+
+https://crontab.guru/
+
+Éditeur rapide et simple pour les expressions de planification
+
 AV2023
 
