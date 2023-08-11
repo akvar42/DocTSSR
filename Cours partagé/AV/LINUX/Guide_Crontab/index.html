@@ -1412,27 +1412,22 @@
 
 
 <h1 id="guide-dutilisation-de-crontab-sur-gnulinux">Guide d'Utilisation de Crontab sur GNU/Linux</h1>
-<p>`Crontab` est un outil utilisé pour planifier des tâches (communément appelées "cron jobs") sur votre système Unix/Linux. Ces tâches peuvent être planifiées pour s'exécuter à des intervalles réguliers.</p>
+<p><code>Crontab</code> est un outil utilisé pour planifier des tâches (communément appelées "cron jobs") sur votre système Unix/Linux. Ces tâches peuvent être planifiées pour s'exécuter à des intervalles réguliers.</p>
 <h2 id="1-bases-de-crontab">1. Bases de Crontab</h2>
 <h3 id="a-afficher-la-crontab">a. Afficher la Crontab</h3>
 <ul>
 <li>Pour afficher la crontab actuelle de l'utilisateur : 
-  ```
-  crontab -l
-  ```</li>
+  <code>crontab -l</code></li>
 </ul>
 <h3 id="b-editer-la-crontab">b. Éditer la Crontab</h3>
 <ul>
 <li>Pour éditer la crontab de l'utilisateur actuel : 
-  ```
-  crontab -e
-  ```</li>
+  <code>crontab -e</code></li>
 </ul>
 <h2 id="2-syntaxe-des-taches-planifiees">2. Syntaxe des Tâches Planifiées</h2>
 <p>Une entrée typique de crontab a le format suivant : </p>
-<p>```
-* * * * * /chemin/vers/la/commande
-```</p>
+<pre><code>* * * * * /chemin/vers/la/commande
+</code></pre>
 <p>Chaque champ est représenté par une étoile ou une valeur :</p>
 <ol>
 <li>Minute (0 - 59)</li>
@@ -1443,28 +1438,23 @@
 </ol>
 <h2 id="3-exemples-dutilisation">3. Exemples d'Utilisation</h2>
 <h3 id="a-execution-dun-script-tous-les-jours-a-minuit">a. Exécution d'un script tous les jours à minuit</h3>
-<p>```
-0 0 * * * /chemin/vers/le/script.sh
-```</p>
+<pre><code>0 0 * * * /chemin/vers/le/script.sh
+</code></pre>
 <h3 id="b-execution-dune-commande-tous-les-lundis-a-7h30">b. Exécution d'une commande tous les lundis à 7h30</h3>
-<p>```
-30 7 * * 1 /chemin/vers/la/commande
-```</p>
+<pre><code>30 7 * * 1 /chemin/vers/la/commande
+</code></pre>
 <h3 id="c-execution-dune-tache-toutes-les-heures">c. Exécution d'une tâche toutes les heures</h3>
-<p>```
-0 * * * * /chemin/vers/la/tâche
-```</p>
+<pre><code>0 * * * * /chemin/vers/la/tâche
+</code></pre>
 <h2 id="4-astuces-supplementaires">4. Astuces Supplémentaires</h2>
 <h3 id="a-redirection-de-la-sortie-vers-un-fichier">a. Redirection de la sortie vers un fichier</h3>
 <p>Si vous souhaitez enregistrer la sortie de votre tâche planifiée, vous pouvez rediriger la sortie vers un fichier :</p>
-<p>```
-0 0 * * * /chemin/vers/le/script.sh &gt; /chemin/vers/fichier.log
-```</p>
+<pre><code>0 0 * * * /chemin/vers/le/script.sh &gt; /chemin/vers/fichier.log
+</code></pre>
 <h3 id="b-supprimer-une-crontab">b. Supprimer une Crontab</h3>
 <p>Pour supprimer la crontab de l'utilisateur actuel :</p>
-<p>```
-crontab -r
-```</p>
+<pre><code>crontab -r
+</code></pre>
 <p>AV2023</p>
 
 

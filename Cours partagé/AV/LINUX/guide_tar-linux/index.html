@@ -1415,31 +1415,25 @@
 <p><code>tar</code> est un outil de gestion d'archives sur les systèmes Unix. Voici quelques commandes courantes.</p>
 <h2 id="creation-dune-archive">Création d'une archive</h2>
 <h3 id="avec-compression-gzip-extension-targz-ou-tgz">Avec compression gzip (extension .tar.gz ou .tgz)</h3>
-<p>```
-tar -czvf nom_de_l_archive.tar.gz dossier_a_archiver/
-```</p>
+<pre><code>tar -czvf nom_de_l_archive.tar.gz dossier_a_archiver/
+</code></pre>
 <h3 id="avec-compression-bzip2-extension-tarbz2">Avec compression bzip2 (extension .tar.bz2)</h3>
-<p>```
-tar -cjvf nom_de_l_archive.tar.bz2 dossier_a_archiver/
-```</p>
+<pre><code>tar -cjvf nom_de_l_archive.tar.bz2 dossier_a_archiver/
+</code></pre>
 <h2 id="extraction-dune-archive">Extraction d'une archive</h2>
 <h3 id="archive-targz-ou-tgz">Archive .tar.gz ou .tgz</h3>
-<p>```
-tar -xzvf nom_de_l_archive.tar.gz
-```</p>
+<pre><code>tar -xzvf nom_de_l_archive.tar.gz
+</code></pre>
 <h3 id="archive-tarbz2">Archive .tar.bz2</h3>
-<p>```
-tar -xjvf nom_de_l_archive.tar.bz2
-```</p>
+<pre><code>tar -xjvf nom_de_l_archive.tar.bz2
+</code></pre>
 <h2 id="lister-le-contenu-dune-archive-sans-extraire">Lister le contenu d'une archive sans extraire</h2>
 <h3 id="archive-targz-ou-tgz_1">Archive .tar.gz ou .tgz</h3>
-<p>```
-tar -tzvf nom_de_l_archive.tar.gz
-```</p>
+<pre><code>tar -tzvf nom_de_l_archive.tar.gz
+</code></pre>
 <h3 id="archive-tarbz2_1">Archive .tar.bz2</h3>
-<p>```
-tar -tjvf nom_de_l_archive.tar.bz2
-```</p>
+<pre><code>tar -tjvf nom_de_l_archive.tar.bz2
+</code></pre>
 <h2 id="quelques-options-utiles">Quelques options utiles</h2>
 <ul>
 <li><code>-c</code>: Créer une nouvelle archive.</li>
@@ -1452,10 +1446,9 @@ tar -tjvf nom_de_l_archive.tar.bz2
 </ul>
 <p><strong>Note :</strong> Si vous archivez ou extrayez des fichiers/dossiers avec des permissions spécifiques, considérez utiliser l'option <code>-p</code> pour préserver ces permissions.</p>
 <h2 id="pour-plus-dinformations">Pour plus d'informations</h2>
-<p>Pour obtenir plus de détails sur les options disponibles, consultez la page de manuel avec la commande :
-```
-man tar
-```</p>
+<p>Pour obtenir plus de détails sur les options disponibles, consultez la page de manuel avec la commande :</p>
+<pre><code>man tar
+</code></pre>
 
 
 
