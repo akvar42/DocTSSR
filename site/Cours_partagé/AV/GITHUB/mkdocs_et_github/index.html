@@ -19,7 +19,7 @@
     
     
       
-        <title>mini site avec github et mkdocs - DOC TSSR</title>
+        <title>Mini site avec GitHub et MkDocs - DOC TSSR</title>
       
     
     
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              mini site avec github et mkdocs
+              Mini site avec GitHub et MkDocs
             
           </span>
         </div>
@@ -294,12 +294,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          mini site avec github et mkdocs
+          Mini site avec GitHub et MkDocs
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        mini site avec github et mkdocs
+        Mini site avec GitHub et MkDocs
       </a>
       
         
@@ -322,19 +322,26 @@
     Initialisation de Git
   </a>
   
-    <nav class="md-nav" aria-label="Initialisation de Git">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#publier-sur-github" class="md-nav__link">
     Publier sur GitHub
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#creation-du-site-avec-mkdocs" class="md-nav__link">
     Création du site avec MkDocs
+  </a>
+  
+    <nav class="md-nav" aria-label="Création du site avec MkDocs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-lenvironnement" class="md-nav__link">
+    Configuration de l'environnement
   </a>
   
 </li>
@@ -1278,19 +1285,26 @@
     Initialisation de Git
   </a>
   
-    <nav class="md-nav" aria-label="Initialisation de Git">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#publier-sur-github" class="md-nav__link">
     Publier sur GitHub
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#creation-du-site-avec-mkdocs" class="md-nav__link">
     Création du site avec MkDocs
+  </a>
+  
+    <nav class="md-nav" aria-label="Création du site avec MkDocs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-lenvironnement" class="md-nav__link">
+    Configuration de l'environnement
   </a>
   
 </li>
@@ -1322,134 +1336,102 @@
                   
 
 
-<h1 id="mini-site-avec-github-et-mkdocs">mini site avec github et mkdocs</h1>
+<h1 id="mini-site-avec-github-et-mkdocs">Mini site avec GitHub et MkDocs</h1>
 <h2 id="initialisation-de-git">Initialisation de Git</h2>
 <ol>
 <li>
-<p>Initialiser le répertoire actuel avec Git:</p>
-<blockquote>
-<p>git init</p>
-</blockquote>
+<p><strong>Initialisez le répertoire actuel avec Git</strong>:
+   <code>git init</code></p>
 </li>
 <li>
-<p>Configurer votre nom d'utilisateur et votre adresse e-mail pour Git :</p>
-<blockquote>
-<p>git config user.name "mon prenom"
-git config user.email "monemail@mail.com"</p>
-</blockquote>
+<p><strong>Configurez votre nom d'utilisateur et votre adresse e-mail pour Git</strong>:
+   <code>git config user.name "mon prenom"
+   git config user.email "monemail@mail.com"</code></p>
 </li>
 <li>
-<p>Vérifier le statut du répertoire :</p>
-<blockquote>
-<p>git status</p>
-</blockquote>
+<p><strong>Vérifiez le statut du répertoire</strong>:
+   <code>git status</code></p>
 </li>
 <li>
-<p>Ajouter un dossier pour le commit :</p>
-<blockquote>
-<p>git add mondossier/</p>
-</blockquote>
+<p><strong>Ajoutez un dossier pour le commit</strong>:
+   <code>git add mondossier/</code></p>
 </li>
 <li>
-<p>Créer un commit :</p>
-<blockquote>
-<p>git commit -m 'nomducommit'</p>
-</blockquote>
+<p><strong>Créez un commit</strong>:
+   <code>git commit -m 'nomducommit'</code></p>
 </li>
 <li>
-<p>Consulter l'historique des commits :</p>
-<blockquote>
-<p>git log</p>
-</blockquote>
+<p><strong>Consultez l'historique des commits</strong>:
+   <code>git log</code></p>
 </li>
 </ol>
-<h3 id="publier-sur-github">Publier sur GitHub</h3>
+<h2 id="publier-sur-github">Publier sur GitHub</h2>
 <ol>
 <li>
-<p>Créer un nouveau dépôt sur GitHub. Donner un nom + options appropriées.</p>
+<p><strong>Créez un nouveau dépôt sur GitHub</strong>. Donnez-lui un nom et configurez les options appropriées.</p>
 </li>
 <li>
-<p>Une fois le dépôt créé, liez-le à votre projet local :</p>
-<blockquote>
-<p>git remote add origin "adresse du dépôt"
-git push -u origin main</p>
-</blockquote>
+<p><strong>Une fois le dépôt créé, liez-le à votre projet local</strong>:
+   <code>git remote add origin "adresse du dépôt"
+   git push -u origin main</code></p>
 </li>
 </ol>
-<h3 id="creation-du-site-avec-mkdocs">Création du site avec MkDocs</h3>
-<p>Configuration de l'environnement</p>
+<h2 id="creation-du-site-avec-mkdocs">Création du site avec MkDocs</h2>
+<h3 id="configuration-de-lenvironnement">Configuration de l'environnement</h3>
 <ol>
 <li>
-<p>Installez python3-pip et python3-venv.</p>
+<p><strong>Installez python3-pip et python3-venv</strong>.</p>
 </li>
 <li>
-<p>Créez un environnement virtuel :</p>
-<blockquote>
-<p>python3 -m venv .venv</p>
-</blockquote>
+<p><strong>Créez un environnement virtuel</strong>:
+   <code>python3 -m venv .venv</code></p>
 </li>
 <li>
-<p>Pour éviter que Git suive le dossier .venv, créez un fichier .gitignore dans le dossier racine du projet avec le contenu suivant : </p>
+<p><strong>Pour éviter que Git suive le dossier .venv, créez un fichier .gitignore</strong> dans le dossier racine du projet avec le contenu suivant:
+   <code>.venv/</code></p>
 </li>
 <li>
-<blockquote>
-<p>.venv/</p>
-</blockquote>
+<p><strong>Ajoutez et validez ce fichier</strong>:
+   <code>git add .gitignore
+   git commit -m 'build: add .gitignore'</code></p>
 </li>
-</ol>
-<p>Ensuite, ajoutez et validez ce fichier :</p>
-<blockquote>
-<p>git add .gitignore
-git commit -m 'build: add .gitignore'</p>
-</blockquote>
-<ol>
-<li>Activez l'environnement virtuel :<blockquote>
-<p>source .venv/bin/activate</p>
-</blockquote>
+<li>
+<p><strong>Activez l'environnement virtuel</strong>:
+   <code>source .venv/bin/activate</code></p>
 </li>
 </ol>
 <h3 id="installation-et-utilisation-de-mkdocs">Installation et utilisation de MkDocs</h3>
 <ol>
 <li>
-<p>Installez MkDocs :</p>
-<blockquote>
-<p>pip install mkdocs</p>
-</blockquote>
+<p><strong>Installez MkDocs</strong>:
+   <code>pip install mkdocs</code></p>
 </li>
 <li>
-<p>Créez un nouveau projet MkDocs dans le répertoire courant :</p>
-<blockquote>
-<p>mkdocs new .</p>
-</blockquote>
+<p><strong>Créez un nouveau projet MkDocs dans le répertoire courant</strong>:
+   <code>mkdocs new .</code></p>
 </li>
 <li>
-<p>Lancer la documentation en local :</p>
-<blockquote>
-<p>mkdocs serve</p>
-</blockquote>
+<p><strong>Lancez la documentation en local</strong>:
+   <code>mkdocs serve</code></p>
 </li>
 <li>
-<p>Modifier le fichier de configuration mkdocs.yml pour y indiquer le nom de votre site :</p>
-<blockquote>
-<p>sitename: monsite</p>
-</blockquote>
+<p><strong>Modifiez le fichier de configuration <code>mkdocs.yml</code></strong> pour y indiquer le nom de votre site:
+   <code>sitename: monsite</code></p>
 </li>
 <li>
-<p>Ajouter modifications locales au dépôt :</p>
-<blockquote>
-<p>git add .
-git commit -m "Description du commit"
-git push origin main</p>
-</blockquote>
+<p><strong>Ajoutez les modifications locales au dépôt</strong>:
+   <code>git add .
+   git commit -m "Description du commit"
+   git push origin main</code></p>
 </li>
 <li>
-<p>Déployer documentation sur GitHub Pages :</p>
-<blockquote>
-<p>mkdocs gh-deploy</p>
-</blockquote>
+<p><strong>Déployez la documentation sur GitHub Pages</strong>:
+   <code>mkdocs gh-deploy</code></p>
+</li>
+<li>
+<p>Pour consulter votre site, allez sur GitHub, puis dans <strong>"Settings"</strong> -&gt; <strong>"Pages"</strong>. Vous trouverez le lien vers votre documentation hébergée.</p>
 </li>
 </ol>
-<p>Pour trouver le site aller dans "Settings" -&gt; "General" -&gt; "Pages" pour consulter le lien vers votre documentation hébergée.</p>
 
 
 
