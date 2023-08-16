@@ -9,7 +9,7 @@
    - On clique sur `Suivant`.
 
 3. **Renseignement de l'adresse IP** :
-   - Dans le champ `Nom d'hôte ou adresse IP`, on inscrit `172.16.63.251`.
+   - Dans le champ `Nom d'hôte ou adresse IP`, on inscrit l'ip.
    - On s'assure que l'option `Interroger l'imprimante et sélectionner automatiquement le pilote à utiliser` est activée.
    - On clique sur `Suivant`.
 
