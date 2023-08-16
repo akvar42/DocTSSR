@@ -89,16 +89,13 @@ foreach ($data in $usersData) {
     }
 }
 
-
-
-
-
 ```
 
 ## création utilisateurs et groupes pour Debian
 
-En suite je peux reutilisé mon fichier csv pour debian. En utilisant ce script bash que je rend executable avec la commande ```chmod +x utilisateur_et_group.csv```
-- j'execute le script avec ```./ scriptusergp.sh```
+En suite je peux reutilisé mon fichier csv pour debian. En utilisant ce script bash que je rend executable avec la commande:
+ ```chmod +x utilisateur_et_group.csv```
+  j'execute le script avec ```./ scriptusergp.sh```
 
 
 
@@ -131,23 +128,22 @@ while IFS=';' read -r prenom nom login mail password groupe description; do
     echo "Utilisateur $prenom $nom créé et ajouté au groupe $groupe."
 done < "$csvPath"
 
-echo "Tous les utilisateurs et groupes ont été créés."
-
-
+echo "Tous les utilisateurs et groupes ont été créés." 
 ```
+
+
+
 
 
 ## Ajouter un dossier procedure avec le réglement interieur.
 
 - je crée le dossier sur ma session avec le fichier réglement interieur, puis j'execute ce script afin d'évité de faire manuelement la procedure
 
-
- ``` Chemin de destination pour le nouveau dossier sur le bureau de chaque utilisateur
+```
+ Chemin de destination pour le nouveau dossier sur le bureau de chaque utilisateur
 $destinationPath = "C:\Users\*\Desktop\Procédures"
-
 # Chemin du fichier "Règlement intérieur" que vous avez préparé
 $sourceFile = "C:\temp\Règlement intérieur.txt"
-
 # Création du dossier "Procédures" sur le bureau de chaque utilisateur
 Get-ChildItem -Path "C:\Users\*" -Directory | ForEach-Object {
     $folderPath = Join-Path $_.FullName "Desktop\Procédures"
@@ -155,7 +151,6 @@ Get-ChildItem -Path "C:\Users\*" -Directory | ForEach-Object {
         New-Item -Path $folderPath -ItemType Directory
     }
 }
-
 # Copie du fichier "Règlement intérieur" dans le dossier "Procédures" de chaque utilisateur
 $sourceFile = "C:\temp\Règlement_intérieur.txt"
 
@@ -167,18 +162,19 @@ Get-ChildItem -Path "C:\Users\*" -Directory | ForEach-Object {
 }
 ```
 
+
+
 ou avec le script de bard
 
-```
+``` 
 $Users = Get-LocalUser
 foreach ($User in $Users) {
     New-Item -Path "C:\Users$User\Desktop\Procedure" -ItemType Directory
     New-Item -Path "C:\Users$User\Desktop\Procedure\Reglement interieur" -ItemType File
-}
+} 
 ```
 
-
-### pour le prestataire et son shell ksh
+### Pour le prestataire et son shell ksh
 
 ```
 useradd -c "Préstataire" prestataire -m -g informatique --shell /bin/ksh -p PMDP2023!
@@ -206,15 +202,17 @@ puis tape le nouveaux mot de passe
 ### Intégration du service informatique au groupe Administrateur
 -aprés avoir crée le groupe "Administrateurs"
 
-```Add-LocalGroupMember -Group "Administrateurs" -Member "Avincent"```
+```Add-LocalGroupMember -Group "Administrateurs" -Member "Avincent" ```
 
 ### Forçage du changement de mot de passe:
 - sur **windows 10** :sans la console MMC, dans utilisateur et groupe: clique droit sur l'utilisateur puis dans l'onglet général "l'utilisateur doit changer le mot de passe à la prochaine ouverture de session"
 - dans **Debian** 
-```
-chage Avincent -d 0
 
- ```
+
+
+```chage Avincent -d 0```
+
+
 
 
  ### restriction d'utilisation de périphérique windows 10

@@ -1600,14 +1600,11 @@ foreach ($data in $usersData) {
     }
 }
 
-
-
-
-
 </code></pre>
 <h2 id="creation-utilisateurs-et-groupes-pour-debian">création utilisateurs et groupes pour Debian</h2>
-<p>En suite je peux reutilisé mon fichier csv pour debian. En utilisant ce script bash que je rend executable avec la commande <code>chmod +x utilisateur_et_group.csv</code>
-- j'execute le script avec <code>./ scriptusergp.sh</code></p>
+<p>En suite je peux reutilisé mon fichier csv pour debian. En utilisant ce script bash que je rend executable avec la commande:
+ <code>chmod +x utilisateur_et_group.csv</code>
+  j'execute le script avec <code>./ scriptusergp.sh</code></p>
 <pre><code>
 #!/bin/bash
 
@@ -1636,79 +1633,67 @@ while IFS=';' read -r prenom nom login mail password groupe description; do
     echo &quot;Utilisateur $prenom $nom créé et ajouté au groupe $groupe.&quot;
 done &lt; &quot;$csvPath&quot;
 
-echo &quot;Tous les utilisateurs et groupes ont été créés.&quot;
-
-
+echo &quot;Tous les utilisateurs et groupes ont été créés.&quot; 
 </code></pre>
 <h2 id="ajouter-un-dossier-procedure-avec-le-reglement-interieur">Ajouter un dossier procedure avec le réglement interieur.</h2>
 <ul>
 <li>je crée le dossier sur ma session avec le fichier réglement interieur, puis j'execute ce script afin d'évité de faire manuelement la procedure</li>
 </ul>
-<p>``` Chemin de destination pour le nouveau dossier sur le bureau de chaque utilisateur
-$destinationPath = "C:\Users*\Desktop\Procédures"</p>
-<h1 id="chemin-du-fichier-reglement-interieur-que-vous-avez-prepare">Chemin du fichier "Règlement intérieur" que vous avez préparé</h1>
-<p>$sourceFile = "C:\temp\Règlement intérieur.txt"</p>
-<h1 id="creation-du-dossier-procedures-sur-le-bureau-de-chaque-utilisateur">Création du dossier "Procédures" sur le bureau de chaque utilisateur</h1>
-<p>Get-ChildItem -Path "C:\Users*" -Directory | ForEach-Object {
-    $folderPath = Join-Path $_.FullName "Desktop\Procédures"
+<pre><code> Chemin de destination pour le nouveau dossier sur le bureau de chaque utilisateur
+$destinationPath = &quot;C:\Users\*\Desktop\Procédures&quot;
+# Chemin du fichier &quot;Règlement intérieur&quot; que vous avez préparé
+$sourceFile = &quot;C:\temp\Règlement intérieur.txt&quot;
+# Création du dossier &quot;Procédures&quot; sur le bureau de chaque utilisateur
+Get-ChildItem -Path &quot;C:\Users\*&quot; -Directory | ForEach-Object {
+    $folderPath = Join-Path $_.FullName &quot;Desktop\Procédures&quot;
     if (-not (Test-Path $folderPath)) {
         New-Item -Path $folderPath -ItemType Directory
     }
-}</p>
-<h1 id="copie-du-fichier-reglement-interieur-dans-le-dossier-procedures-de-chaque-utilisateur">Copie du fichier "Règlement intérieur" dans le dossier "Procédures" de chaque utilisateur</h1>
-<p>$sourceFile = "C:\temp\Règlement_intérieur.txt"</p>
-<p>Get-ChildItem -Path "C:\Users*" -Directory | ForEach-Object {
-    $folderPath = Join-Path $_.FullName "Desktop\Procédures"
+}
+# Copie du fichier &quot;Règlement intérieur&quot; dans le dossier &quot;Procédures&quot; de chaque utilisateur
+$sourceFile = &quot;C:\temp\Règlement_intérieur.txt&quot;
+
+Get-ChildItem -Path &quot;C:\Users\*&quot; -Directory | ForEach-Object {
+    $folderPath = Join-Path $_.FullName &quot;Desktop\Procédures&quot;
     if (Test-Path $sourceFile) {
         Copy-Item -Path $sourceFile -Destination $folderPath
     }
-}</p>
-<pre><code>
-ou avec le script de bard
-
+}
 </code></pre>
-<p>$Users = Get-LocalUser
+<p>ou avec le script de bard</p>
+<pre><code>$Users = Get-LocalUser
 foreach ($User in $Users) {
-    New-Item -Path "C:\Users$User\Desktop\Procedure" -ItemType Directory
-    New-Item -Path "C:\Users$User\Desktop\Procedure\Reglement interieur" -ItemType File
-}</p>
-<pre><code>
-
-### pour le prestataire et son shell ksh
-
+    New-Item -Path &quot;C:\Users$User\Desktop\Procedure&quot; -ItemType Directory
+    New-Item -Path &quot;C:\Users$User\Desktop\Procedure\Reglement interieur&quot; -ItemType File
+} 
 </code></pre>
-<p>useradd -c "Préstataire" prestataire -m -g informatique --shell /bin/ksh -p PMDP2023!</p>
-<pre><code>
-
-
-
-## Contrainte suplémentaire windows 10 :
-## Securité mot de passe
-
-- dans l'invite de commande je lance secpol.msc
-- dans &quot;strategie mot de passe&quot; j'active &quot;exigence de complexité&quot;
-- dans longeur minimal je fixe à 12
-
-### Ajout nouveau compte administrateur pour le directeur
-- je lance powershell en administrateur puis
-- je fait 
-```net user admin rgrimes /add```
-
-```net user rgrimes * ```
-
-puis tape le nouveaux mot de passe
-
-### Intégration du service informatique au groupe Administrateur
--aprés avoir crée le groupe &quot;Administrateurs&quot;
-
-```Add-LocalGroupMember -Group &quot;Administrateurs&quot; -Member &quot;Avincent&quot;```
-
-### Forçage du changement de mot de passe:
-- sur **windows 10** :sans la console MMC, dans utilisateur et groupe: clique droit sur l'utilisateur puis dans l'onglet général &quot;l'utilisateur doit changer le mot de passe à la prochaine ouverture de session&quot;
-- dans **Debian** 
+<h3 id="pour-le-prestataire-et-son-shell-ksh">Pour le prestataire et son shell ksh</h3>
+<pre><code>useradd -c &quot;Préstataire&quot; prestataire -m -g informatique --shell /bin/ksh -p PMDP2023!
 </code></pre>
-<p>chage Avincent -d 0</p>
-<p>```</p>
+<h2 id="contrainte-suplementaire-windows-10">Contrainte suplémentaire windows 10 :</h2>
+<h2 id="securite-mot-de-passe">Securité mot de passe</h2>
+<ul>
+<li>dans l'invite de commande je lance secpol.msc</li>
+<li>dans "strategie mot de passe" j'active "exigence de complexité"</li>
+<li>dans longeur minimal je fixe à 12</li>
+</ul>
+<h3 id="ajout-nouveau-compte-administrateur-pour-le-directeur">Ajout nouveau compte administrateur pour le directeur</h3>
+<ul>
+<li>je lance powershell en administrateur puis</li>
+<li>je fait 
+<code>net user admin rgrimes /add</code></li>
+</ul>
+<p><code>net user rgrimes *</code></p>
+<p>puis tape le nouveaux mot de passe</p>
+<h3 id="integration-du-service-informatique-au-groupe-administrateur">Intégration du service informatique au groupe Administrateur</h3>
+<p>-aprés avoir crée le groupe "Administrateurs"</p>
+<p><code>Add-LocalGroupMember -Group "Administrateurs" -Member "Avincent"</code></p>
+<h3 id="forcage-du-changement-de-mot-de-passe">Forçage du changement de mot de passe:</h3>
+<ul>
+<li>sur <strong>windows 10</strong> :sans la console MMC, dans utilisateur et groupe: clique droit sur l'utilisateur puis dans l'onglet général "l'utilisateur doit changer le mot de passe à la prochaine ouverture de session"</li>
+<li>dans <strong>Debian</strong> </li>
+</ul>
+<p><code>chage Avincent -d 0</code></p>
 <p>### restriction d'utilisation de périphérique windows 10
  - Pour restreindre l'utilisation de périphérique, j'utilise le logitiel enfichagle disponible dans la console MMC: "éditeur d'objet et stratégie de groupe"</p>
 <ul>
