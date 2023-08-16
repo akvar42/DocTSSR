@@ -2614,6 +2614,196 @@ tar cf /root/ServicesBack.tar /services
 </ul>
 <h2 id="note">note:</h2>
 <p>On a désormais paramétré la protection du système pour le lecteur <strong>C:</strong> en réservant 8% de sa capacité pour les points de restauration et créé un point de restauration initial.</p>
+<h3 id="7-partitionnement-lvm">7 -  Partitionnement LVM</h3>
+<h3 id="faire-snaphot-avant-de-demarer-la-procedure">!!! Faire snaphot avant de demarer la procedure !!!</h3>
+<h2 id="montage-permanent-de-la-partition-logs-dans-le-dossier-varlog-sur-debian">Montage permanent de la partition « LOGS » dans le dossier « /var/log » sur Debian</h2>
+<h3 id="1-redemarrage-en-mode-maintenance">1. Redémarrage en mode maintenance:</h3>
+<p>Je commence par redémarrer en mode maintenance pour m'assurer qu'aucun processus n'utilise le dossier <code>/var/log</code> pendant le déplacement. </p>
+<pre><code class="language-bash">init 1
+</code></pre>
+<h3 id="2-creation-dun-dossier-temporaire-et-copie-des-logs">2. Création d'un dossier temporaire et copie des logs:</h3>
+<p>Une fois en mode maintenance, je crée un dossier temporaire pour stocker les logs existants et je copie le contenu de <code>/var/log</code> dans ce dossier tout en conservant les permissions.</p>
+<pre><code class="language-bash">mkdir /tmp/logs
+cp -rp /var/log/* /tmp/logs/
+</code></pre>
+<h3 id="3-modification-du-fichier-etcfstab">3. Modification du fichier <code>/etc/fstab</code>:</h3>
+<p>Je modifie ensuite le fichier <code>/etc/fstab</code> pour y ajouter la partition « LOGS ». Cela permettra de monter cette partition automatiquement au démarrage.</p>
+<pre><code class="language-bash">echo &quot;LABEL=LOGS /var/log xfs defaults 0 0&quot; &gt;&gt; /etc/fstab
+</code></pre>
+<p>Je vérifie ensuite que le montage se fait correctement avec la commande :</p>
+<pre><code class="language-bash">mount -a
+</code></pre>
+<h3 id="4-recopie-des-logs-dans-la-nouvelle-partition">4. Recopie des logs dans la nouvelle partition:</h3>
+<p>Je copie maintenant les logs du dossier temporaire vers la nouvelle partition.</p>
+<pre><code class="language-bash">cp -rp /tmp/logs/* /var/log/
+</code></pre>
+<h3 id="5-verification-du-contenu">5. Vérification du contenu:</h3>
+<p>Je vérifie que le contenu des deux dossiers est identique pour m'assurer que tout a été copié correctement.</p>
+<pre><code class="language-bash">ls -al /var/log/
+ls -al /tmp/logs/
+</code></pre>
+<h3 id="6-redemarrage-de-la-machine">6. Redémarrage de la machine:</h3>
+<p>Je redémarre la machine pour que les changements prennent effet.</p>
+<pre><code class="language-bash">reboot
+</code></pre>
+<h3 id="7-verification-des-nouvelles-inscriptions-dans-les-journaux">7. Vérification des nouvelles inscriptions dans les journaux:</h3>
+<p>Après le redémarrage, je m'assure que de nouvelles données ont été inscrites dans les journaux pendant ou après le démarrage du système.</p>
+<pre><code class="language-bash">tail /var/log/syslog
+</code></pre>
+<h2 id="monter-le-partage-support_info-depuis-debian">Monter le partage « Support_Info » depuis Debian</h2>
+<h3 id="1-prerequis-sur-mon-poste-windows-10">1. Prérequis sur mon poste Windows 10</h3>
+<ul>
+<li><strong>Activer le support du protocole SMB/CIFS</strong> :</li>
+<li>Je vais dans les "Fonctionnalités Windows" et je m'assure que la fonctionnalité "Support du partage de fichiers SMB 1.0/CIFS" est activée.</li>
+<li>
+<p>Note :  le protocole SMB1 est obsolète et peut présenter des risques de sécurité.</p>
+</li>
+<li>
+<p><strong>Configurer le partage "Support_Info"</strong> :</p>
+</li>
+<li>Je m'assure que le partage "Support_Info" est accessible et n'est pas caché (le nom ne doit pas se terminer par un $).</li>
+</ul>
+<h3 id="2-configuration-sur-debian">2. Configuration sur Debian</h3>
+<ul>
+<li>
+<p><strong>Installer les outils nécessaires</strong> :
+  <code>bash
+  apt install cifs-utils</code></p>
+</li>
+<li>
+<p><strong>Créer le répertoire de montage</strong> :
+  <code>bash
+  mkdir /home/loxton/support_info</code></p>
+</li>
+<li>
+<p><strong>Attribuer les droits nécessaires sur le répertoire</strong> :
+  <code>bash
+  chown loxton:informatique /home/loxton/support_info
+  chmod 770 /home/loxton/support_info</code></p>
+</li>
+<li>
+<p><strong>Configurer le montage automatique</strong> :</p>
+</li>
+<li>
+<p>J'édite le fichier <code>/etc/fstab</code> pour ajouter la ligne suivante :
+    <code>bash
+    //172.16.63.253/support_info /home/loxton/support_info cifs username=loxton,password=TLP4$$VV0rI),file_mode=0777,dir_mode=0777 0 0</code></p>
+</li>
+<li>
+<p><strong>Monter le partage</strong> :
+  <code>bash
+  mount -a</code></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Astuce</strong> : Pour des raisons de sécurité, il vaut mieux que je ne stocke pas de mots de passe en clair dans <code>/etc/fstab</code>. Je devrais envisager d'utiliser des options de montage sécurisées ou des fichiers de credentials séparés.</p>
+</blockquote>
+<h2 id="deplacement-du-fichier-de-pagination-swap-a-la-racine-du-lecteur-d-sur-windows">Déplacement du fichier de pagination (swap) à la racine du lecteur D: sur Windows</h2>
+<ol>
+<li><strong>Accéder au Panneau de Configuration</strong> :</li>
+<li>Je clique sur le bouton <strong>Démarrer</strong> ou j'appuie sur la touche Windows de mon clavier.</li>
+<li>
+<p>Dans la barre de recherche, je tape "Panneau de configuration" et je le sélectionne dans les résultats.</p>
+</li>
+<li>
+<p><strong>Entrer dans les Paramètres systèmes avancés</strong> :</p>
+</li>
+<li>Une fois dans le Panneau de Configuration, je clique sur "Système et Sécurité".</li>
+<li>Ensuite, je clique sur "Système".</li>
+<li>
+<p>Dans le menu latéral gauche, je clique sur "Paramètres système avancés".</p>
+</li>
+<li>
+<p><strong>Accéder aux Paramètres de performance</strong> :</p>
+</li>
+<li>
+<p>Dans la fenêtre des Propriétés Système qui s'affiche, sous l'onglet "Avancé", je trouve la section "Performances" et je clique sur le bouton "Paramètres...".</p>
+</li>
+<li>
+<p><strong>Modifier le fichier de pagination</strong> :</p>
+</li>
+<li>Sous l'onglet "Avancé" de la fenêtre qui s'affiche, je trouve la section "Mémoire virtuelle" et je clique sur le bouton "Modifier...".</li>
+<li>
+<p>Dans la fenêtre de la mémoire virtuelle, je décoche la case "Gestion automatique du fichier d'échange pour les lecteurs".</p>
+</li>
+<li>
+<p><strong>Configurer le fichier de pagination pour le lecteur D:</strong> :</p>
+</li>
+<li>Dans la liste des lecteurs, je sélectionne le lecteur <strong>C:</strong> et je choisis "Aucun fichier d'échange", puis je clique sur "Définir".</li>
+<li>Ensuite, je sélectionne le lecteur <strong>D:</strong>.</li>
+<li>Je coche l'option "Taille gérée par le système".</li>
+<li>
+<p>Je clique sur "Définir".</p>
+</li>
+<li>
+<p><strong>Valider les modifications</strong> :</p>
+</li>
+<li>Je clique sur "OK" pour fermer la fenêtre de la mémoire virtuelle.</li>
+<li>Je clique de nouveau sur "OK" pour fermer la fenêtre des Paramètres de performance.</li>
+<li>
+<p>Je clique une dernière fois sur "OK" pour fermer la fenêtre des Propriétés Système.</p>
+</li>
+<li>
+<p><strong>Redémarrer l'ordinateur</strong> :</p>
+</li>
+<li>Pour que les modifications soient prises en compte, je redémarre mon ordinateur.</li>
+<li>Je m'assure de sauvegarder tous mes travaux en cours avant de redémarrer.</li>
+</ol>
+<p>Après le redémarrage, le fichier de pagination (swap) sera déplacé à la racine du lecteur D:, et le système gérera sa taille automatiquement.</p>
+<h2 id="configuration-de-lvm-pour-le-dossier-opt-sur-debian">Configuration de LVM pour le dossier /opt sur Debian</h2>
+<p>Je travaille sur un poste Debian et j'ai décidé d'utiliser LVM pour gérer l'espace de stockage du dossier <code>/opt</code>, car plusieurs applications installées depuis les sources seront placées à cet emplacement. Voici les étapes détaillées pour réaliser cette configuration :</p>
+<ol>
+<li><strong>Ajout de disques SCSI</strong> :</li>
+<li>J'ajoute 2 nouveaux disques SCSI de 20Go à mon système.</li>
+<li>
+<p>Je redémarre la VM pour garantir la prise en compte des nouveaux disques.</p>
+</li>
+<li>
+<p><strong>Vérification de la détection des disques</strong> :</p>
+</li>
+<li>
+<p>Avant de configurer LVM, je m'assure que les disques sont correctement reconnus par le système.</p>
+</li>
+<li>
+<p><strong>Installation du gestionnaire LVM</strong> :</p>
+</li>
+<li>Je recherche le paquet associé à LVM : <code># apt search lvm</code></li>
+<li>
+<p>Je l'installe : <code># apt install lvm2</code></p>
+</li>
+<li>
+<p><strong>Préparation des disques pour LVM</strong> :</p>
+</li>
+<li>Je crée un volume physique sur chacun des deux disques : <code># pvcreate /dev/sdc /dev/sdd</code></li>
+<li>
+<p>Je vérifie le résultat avec : <code># pvdisplay</code></p>
+</li>
+<li>
+<p><strong>Création d'un groupe de volumes</strong> :</p>
+</li>
+<li>
+<p>Je groupe les deux disques en un seul groupe de volumes nommé "applications" : <code># vgcreate applications /dev/sdc /dev/sdd</code></p>
+</li>
+<li>
+<p><strong>Création d'un volume logique</strong> :</p>
+</li>
+<li>Au sein du groupe "applications", je crée un volume logique nommé "opt" avec une taille de 32Go : <code># lvcreate -n opt -L 32G applications</code></li>
+<li>
+<p>Je vérifie avec : <code># lvdisplay</code></p>
+</li>
+<li>
+<p><strong>Formatage du volume logique en ext4</strong> :</p>
+</li>
+<li>
+<p>Je formate le volume logique en ext4 : <code># mkfs.ext4 /dev/applications/opt</code></p>
+</li>
+<li>
+<p><strong>Montage permanent du volume logique dans /opt</strong> :</p>
+</li>
+<li>J'ajoute une entrée dans le fichier <code>/etc/fstab</code> pour monter automatiquement le volume au démarrage : <code># echo "/dev/mapper/applications-opt /opt ext4 defaults 0 0" &gt;&gt; /etc/fstab</code></li>
+<li>Je monte tous les systèmes de fichiers décrits dans <code>/etc/fstab</code> : <code># mount -a</code></li>
+</ol>
+<p>Après ces étapes, le dossier <code>/opt</code> est correctement configuré pour utiliser l'espace de stockage fourni par LVM et s'étend sur les deux disques physiques.</p>
 
 
 
