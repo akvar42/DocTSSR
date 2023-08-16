@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../sauvegarde%20et%20restauration/">
+        <link rel="prev" href="../installation%20de%20webmin/">
       
       
-        <link rel="next" href="../../../VIM/VIM/">
+        <link rel="next" href="../montage_partition%20_ar/">
       
       <link rel="icon" href="../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Script création utilisateur et groupe - DOC TSSR</title>
+        <title>Montage depuis debian - DOC TSSR</title>
       
     
     
@@ -60,6 +60,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#monter-le-partage-support_info-depuis-debian" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -91,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Script création utilisateur et groupe
+              Montage depuis debian
             
           </span>
         </div>
@@ -576,6 +581,91 @@
               
   
   
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Montage depuis debian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Montage depuis debian
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#monter-le-partage-support_info-depuis-debian" class="md-nav__link">
+    Monter le partage « Support_Info » depuis Debian
+  </a>
+  
+    <nav class="md-nav" aria-label="Monter le partage « Support_Info » depuis Debian">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prerequis-sur-mon-poste-windows-10" class="md-nav__link">
+    1. Prérequis sur mon poste Windows 10
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuration-sur-debian" class="md-nav__link">
+    2. Configuration sur Debian
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../montage_partition%20_ar/" class="md-nav__link">
+        Montage partition  ar
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
   
     <li class="md-nav__item">
       <a href="../partage_dossier_shell/" class="md-nav__link">
@@ -637,28 +727,6 @@
       <a href="../sauvegarde%20et%20restauration/" class="md-nav__link">
         Sauvegarde et restauration
       </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
-        Script création utilisateur et groupe
-      </a>
-      
     </li>
   
 
@@ -1486,6 +1554,41 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#monter-le-partage-support_info-depuis-debian" class="md-nav__link">
+    Monter le partage « Support_Info » depuis Debian
+  </a>
+  
+    <nav class="md-nav" aria-label="Monter le partage « Support_Info » depuis Debian">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-prerequis-sur-mon-poste-windows-10" class="md-nav__link">
+    1. Prérequis sur mon poste Windows 10
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuration-sur-debian" class="md-nav__link">
+    2. Configuration sur Debian
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1499,9 +1602,56 @@
                   
 
 
-  <h1>Script création utilisateur et groupe</h1>
+  <h1>Montage depuis debian</h1>
 
-
+<h2 id="monter-le-partage-support_info-depuis-debian">Monter le partage « Support_Info » depuis Debian</h2>
+<h3 id="1-prerequis-sur-mon-poste-windows-10">1. Prérequis sur mon poste Windows 10</h3>
+<ul>
+<li><strong>Activer le support du protocole SMB/CIFS</strong> :</li>
+<li>Je vais dans les "Fonctionnalités Windows" et je m'assure que la fonctionnalité "Support du partage de fichiers SMB 1.0/CIFS" est activée.</li>
+<li>
+<p>Note :  le protocole SMB1 est obsolète et peut présenter des risques de sécurité.</p>
+</li>
+<li>
+<p><strong>Configurer le partage "Support_Info"</strong> :</p>
+</li>
+<li>Je m'assure que le partage "Support_Info" est accessible et n'est pas caché (le nom ne doit pas se terminer par un $).</li>
+</ul>
+<h3 id="2-configuration-sur-debian">2. Configuration sur Debian</h3>
+<ul>
+<li>
+<p><strong>Installer les outils nécessaires</strong> :
+  <code>bash
+  apt install cifs-utils</code></p>
+</li>
+<li>
+<p><strong>Créer le répertoire de montage</strong> :
+  <code>bash
+  mkdir /home/loxton/support_info</code></p>
+</li>
+<li>
+<p><strong>Attribuer les droits nécessaires sur le répertoire</strong> :
+  <code>bash
+  chown loxton:informatique /home/loxton/support_info
+  chmod 770 /home/loxton/support_info</code></p>
+</li>
+<li>
+<p><strong>Configurer le montage automatique</strong> :</p>
+</li>
+<li>
+<p>J'édite le fichier <code>/etc/fstab</code> pour ajouter la ligne suivante :
+    <code>bash
+    //172.16.63.253/support_info /home/loxton/support_info cifs username=loxton,password=TLP4$$VV0rI),file_mode=0777,dir_mode=0777 0 0</code></p>
+</li>
+<li>
+<p><strong>Monter le partage</strong> :
+  <code>bash
+  mount -a</code></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Astuce</strong> : Pour des raisons de sécurité, il vaut mieux que je ne stocke pas de mots de passe en clair dans <code>/etc/fstab</code>. Je devrais envisager d'utiliser des options de montage sécurisées ou des fichiers de credentials séparés.</p>
+</blockquote>
 
 
 
