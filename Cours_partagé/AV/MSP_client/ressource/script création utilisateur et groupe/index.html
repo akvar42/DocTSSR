@@ -9,21 +9,21 @@
       
       
       
-        <link rel="prev" href="../../07%20-%20Gestion%20des%20espaces%20de%20stockage/07%20-%20Gestion%20des%20espaces%20de%20stockage/">
+        <link rel="prev" href="../sauvegarde%20et%20restauration/">
       
       
-        <link rel="next" href="../../09%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/Module%2009%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/">
+        <link rel="next" href="../../../VIM/VIM/">
       
-      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Gestion des espaces de stockage avancée - LVM - DOC TSSR</title>
+        <title>Script création utilisateur et groupe - DOC TSSR</title>
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.eebd395e.min.css">
       
       
 
@@ -39,7 +39,7 @@
       
     
     
-    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -60,11 +60,6 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
-        
-        <a href="#gestion-des-espaces-de-stockage-avancee-lvm" class="md-skip">
-          Skip to content
-        </a>
-      
     </div>
     <div data-md-component="announce">
       
@@ -77,7 +72,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../../.." title="DOC TSSR" class="md-header__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
+    <a href="../../../../.." title="DOC TSSR" class="md-header__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -96,7 +91,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gestion des espaces de stockage avancée - LVM
+              Script création utilisateur et groupe
             
           </span>
         </div>
@@ -163,7 +158,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../../.." title="DOC TSSR" class="md-nav__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
+    <a href="../../../../.." title="DOC TSSR" class="md-nav__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -182,7 +177,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         Bienvenue sur le site de Documentation TSSR2023.
       </a>
     </li>
@@ -224,14 +219,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
       
       
       
@@ -240,7 +237,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_1">
           <span class="md-nav__icon md-icon"></span>
           AV
@@ -280,7 +277,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/GITHUB/SSH_et_GITHUB/" class="md-nav__link">
+      <a href="../../../GITHUB/SSH_et_GITHUB/" class="md-nav__link">
         Créer une clé SSH et la lier à GitHub et au dépôt local
       </a>
     </li>
@@ -294,7 +291,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/GITHUB/mkdocs_et_github/" class="md-nav__link">
+      <a href="../../../GITHUB/mkdocs_et_github/" class="md-nav__link">
         Mini site avec GitHub et MkDocs
       </a>
     </li>
@@ -342,7 +339,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/LINUX/Guide_Crontab/" class="md-nav__link">
+      <a href="../../../LINUX/Guide_Crontab/" class="md-nav__link">
         Guide Avancé pour l'Utilisation de crontab sous Linux
       </a>
     </li>
@@ -356,7 +353,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/LINUX/Guide_information_system_LINUX/" class="md-nav__link">
+      <a href="../../../LINUX/Guide_information_system_LINUX/" class="md-nav__link">
         Guide Avancé sur les Informations Système sur GNU/Linux
       </a>
     </li>
@@ -370,7 +367,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/LINUX/Guide_veille_et_journalisation/" class="md-nav__link">
+      <a href="../../../LINUX/Guide_veille_et_journalisation/" class="md-nav__link">
         Guide de Veille et Journalisation sur GNU/Linux
       </a>
     </li>
@@ -384,7 +381,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/LINUX/guide_tar-linux/" class="md-nav__link">
+      <a href="../../../LINUX/guide_tar-linux/" class="md-nav__link">
         Guide d'utilisation de tar sur Debian
       </a>
     </li>
@@ -403,14 +400,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" checked>
       
       
       
@@ -419,7 +418,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_1_3">
           <span class="md-nav__icon md-icon"></span>
           MSP client
@@ -432,7 +431,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/Cr%C3%A9ation%20d%27utilisateurs%20et%20de%20groupes%20avec%20PowerShell/" class="md-nav__link">
+      <a href="../../Cr%C3%A9ation%20d%27utilisateurs%20et%20de%20groupes%20avec%20PowerShell/" class="md-nav__link">
         Création d'utilisateurs et de groupes avec PowerShell
       </a>
     </li>
@@ -446,7 +445,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/Cr%C3%A9er%20dossier%20pour%20tout%20les%20user/" class="md-nav__link">
+      <a href="../../Cr%C3%A9er%20dossier%20pour%20tout%20les%20user/" class="md-nav__link">
         Créer dossier pour tout les user
       </a>
     </li>
@@ -460,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/Desactiver%20les%20mise%20a%20jour%20win10/" class="md-nav__link">
+      <a href="../../Desactiver%20les%20mise%20a%20jour%20win10/" class="md-nav__link">
         Désactiver les Mises à Jour sur Windows 10
       </a>
     </li>
@@ -474,7 +473,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/mofifier%20masque%20sous%20reseau%20debian/" class="md-nav__link">
+      <a href="../../mofifier%20masque%20sous%20reseau%20debian/" class="md-nav__link">
         Modifier le masque de sous-réseau sous Debian
       </a>
     </li>
@@ -515,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/TP/Procedure%20complete%20MSP_client_TSSR/" class="md-nav__link">
+      <a href="../../TP/Procedure%20complete%20MSP_client_TSSR/" class="md-nav__link">
         procedure complete msp_client
       </a>
     </li>
@@ -534,14 +533,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3_6" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3_6" checked>
       
       
       
@@ -550,7 +551,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_3_6_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_3_6_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_1_3_6">
           <span class="md-nav__icon md-icon"></span>
           Ressource
@@ -563,7 +564,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/ressource/installation%20de%20webmin/" class="md-nav__link">
+      <a href="../installation%20de%20webmin/" class="md-nav__link">
         Installation de webmin
       </a>
     </li>
@@ -577,7 +578,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/ressource/partage_dossier_shell/" class="md-nav__link">
+      <a href="../partage_dossier_shell/" class="md-nav__link">
         Partage dossier shell
       </a>
     </li>
@@ -591,7 +592,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/ressource/partageimprimante/" class="md-nav__link">
+      <a href="../partageimprimante/" class="md-nav__link">
         Partageimprimante
       </a>
     </li>
@@ -605,7 +606,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/ressource/procedure%20installation%20remina/" class="md-nav__link">
+      <a href="../procedure%20installation%20remina/" class="md-nav__link">
         Procedure installation remina
       </a>
     </li>
@@ -619,7 +620,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/ressource/procedure%20pour%20mise%20a%20jour%20home/" class="md-nav__link">
+      <a href="../procedure%20pour%20mise%20a%20jour%20home/" class="md-nav__link">
         Procedure pour mise a jour home
       </a>
     </li>
@@ -633,7 +634,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/ressource/sauvegarde%20et%20restauration/" class="md-nav__link">
+      <a href="../sauvegarde%20et%20restauration/" class="md-nav__link">
         Sauvegarde et restauration
       </a>
     </li>
@@ -645,11 +646,19 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../../AV/MSP_client/ressource/script%20cr%C3%A9ation%20utilisateur%20et%20groupe/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Script création utilisateur et groupe
       </a>
+      
     </li>
   
 
@@ -702,7 +711,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/VIM/VIM/" class="md-nav__link">
+      <a href="../../../VIM/VIM/" class="md-nav__link">
         Résumé VIM
       </a>
     </li>
@@ -750,7 +759,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/VIRTUALISATION/GuideD%C3%A9pannageVmware/" class="md-nav__link">
+      <a href="../../../VIRTUALISATION/GuideD%C3%A9pannageVmware/" class="md-nav__link">
         Guide de dépannage pour VMware Workstation
       </a>
     </li>
@@ -764,7 +773,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../AV/VIRTUALISATION/InstallationVmware/" class="md-nav__link">
+      <a href="../../../VIRTUALISATION/InstallationVmware/" class="md-nav__link">
         Guide d'utilisation de VMware Workstation pour un technicien
       </a>
     </li>
@@ -790,16 +799,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
       
       
       
@@ -808,7 +815,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           Guigui
@@ -848,7 +855,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/" class="md-nav__link">
+      <a href="../../../../guigui/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/" class="md-nav__link">
         Module 05 – Gestion du réseau
       </a>
     </li>
@@ -896,7 +903,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../06%20-%20Gestion%20des%20paquets%20logiciels/06%20-%20Gestion%20des%20paquets%20logiciels/" class="md-nav__link">
+      <a href="../../../../guigui/06%20-%20Gestion%20des%20paquets%20logiciels/06%20-%20Gestion%20des%20paquets%20logiciels/" class="md-nav__link">
         Module 06 – Gestion des paquets logiciels
       </a>
     </li>
@@ -944,7 +951,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../07%20-%20Gestion%20des%20espaces%20de%20stockage/07%20-%20Gestion%20des%20espaces%20de%20stockage/" class="md-nav__link">
+      <a href="../../../../guigui/07%20-%20Gestion%20des%20espaces%20de%20stockage/07%20-%20Gestion%20des%20espaces%20de%20stockage/" class="md-nav__link">
         Module 07 – Gestion des espaces de stockage
       </a>
     </li>
@@ -963,16 +970,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
       
       
       
@@ -981,7 +986,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_2_4">
           <span class="md-nav__icon md-icon"></span>
           08   Gestion avancée des espaces de stockage   LVM
@@ -992,127 +997,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Gestion des espaces de stockage avancée - LVM
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../guigui/08%20-%20Gestion%20avanc%C3%A9e%20des%20espaces%20de%20stockage%20-%20LVM/Module%2008%20-%20Support%20de%20cours/" class="md-nav__link">
         Gestion des espaces de stockage avancée - LVM
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#objectifs" class="md-nav__link">
-    Objectifs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#presentation-de-lvm" class="md-nav__link">
-    Présentation de LVM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creer-des-lvm" class="md-nav__link">
-    Créer des LVM
-  </a>
-  
-    <nav class="md-nav" aria-label="Créer des LVM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lvm-prerequis" class="md-nav__link">
-    LVM : prérequis
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creer-des-partitions-lvm" class="md-nav__link">
-    Créer des partitions LVM
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#modifier-des-lvm" class="md-nav__link">
-    Modifier des LVM
-  </a>
-  
-    <nav class="md-nav" aria-label="Modifier des LVM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#agrandir-un-volume-group" class="md-nav__link">
-    Agrandir un Volume Group
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creer-des-partitions-lvm_1" class="md-nav__link">
-    Créer des partitions LVM
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#afficher-les-informations-lvm" class="md-nav__link">
-    Afficher les informations LVM
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1158,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../09%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/Module%2009%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/" class="md-nav__link">
+      <a href="../../../../guigui/09%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/Module%2009%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/" class="md-nav__link">
         Gestion des espaces de stockage – File System
       </a>
     </li>
@@ -1206,7 +1095,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../10%20-%20Gestion%20des%20utilisateurs%20et%20des%20groupes/Module%2010%20-%20Support%20de%20cours/" class="md-nav__link">
+      <a href="../../../../guigui/10%20-%20Gestion%20des%20utilisateurs%20et%20des%20groupes/Module%2010%20-%20Support%20de%20cours/" class="md-nav__link">
         Module 10 – Gestion des utilisateurs et groupes**
       </a>
     </li>
@@ -1296,7 +1185,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../script/githubdeploy/Read_me/" class="md-nav__link">
+      <a href="../../../../../script/githubdeploy/Read_me/" class="md-nav__link">
         Read me
       </a>
     </li>
@@ -1310,7 +1199,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../script/githubdeploy/deploy/" class="md-nav__link">
+      <a href="../../../../../script/githubdeploy/deploy/" class="md-nav__link">
         Deploy
       </a>
     </li>
@@ -1358,7 +1247,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../script/pdf_to_md_windows/Read-me/" class="md-nav__link">
+      <a href="../../../../../script/pdf_to_md_windows/Read-me/" class="md-nav__link">
         Read me
       </a>
     </li>
@@ -1372,7 +1261,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../script/pdf_to_md_windows/pdf_to_md_converter/" class="md-nav__link">
+      <a href="../../../../../script/pdf_to_md_windows/pdf_to_md_converter/" class="md-nav__link">
         Pdf to md converter
       </a>
     </li>
@@ -1420,7 +1309,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../script/pdftomarkdown/Readme/" class="md-nav__link">
+      <a href="../../../../../script/pdftomarkdown/Readme/" class="md-nav__link">
         Readme
       </a>
     </li>
@@ -1434,7 +1323,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../script/pdftomarkdown/scriptpdftomarkdown5/" class="md-nav__link">
+      <a href="../../../../../script/pdftomarkdown/scriptpdftomarkdown5/" class="md-nav__link">
         Scriptpdftomarkdown5
       </a>
     </li>
@@ -1482,7 +1371,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../script/powershell/MVpdf/" class="md-nav__link">
+      <a href="../../../../../script/powershell/MVpdf/" class="md-nav__link">
         MVpdf
       </a>
     </li>
@@ -1496,7 +1385,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../script/powershell/mvpdf/" class="md-nav__link">
+      <a href="../../../../../script/powershell/mvpdf/" class="md-nav__link">
         Mvpdf
       </a>
     </li>
@@ -1544,7 +1433,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../script/traitement%20fichier%20cours/" class="md-nav__link">
+      <a href="../../../../../script/traitement%20fichier%20cours/" class="md-nav__link">
         Readme
       </a>
     </li>
@@ -1558,7 +1447,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../../script/traitement%20fichier%20cours/IAmark2/" class="md-nav__link">
+      <a href="../../../../../script/traitement%20fichier%20cours/IAmark2/" class="md-nav__link">
         IAmark2
       </a>
     </li>
@@ -1596,98 +1485,6 @@
   
   
   
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#objectifs" class="md-nav__link">
-    Objectifs
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#presentation-de-lvm" class="md-nav__link">
-    Présentation de LVM
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#creer-des-lvm" class="md-nav__link">
-    Créer des LVM
-  </a>
-  
-    <nav class="md-nav" aria-label="Créer des LVM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#lvm-prerequis" class="md-nav__link">
-    LVM : prérequis
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creer-des-partitions-lvm" class="md-nav__link">
-    Créer des partitions LVM
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#modifier-des-lvm" class="md-nav__link">
-    Modifier des LVM
-  </a>
-  
-    <nav class="md-nav" aria-label="Modifier des LVM">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#agrandir-un-volume-group" class="md-nav__link">
-    Agrandir un Volume Group
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creer-des-partitions-lvm_1" class="md-nav__link">
-    Créer des partitions LVM
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#afficher-les-informations-lvm" class="md-nav__link">
-    Afficher les informations LVM
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#conclusion" class="md-nav__link">
-    Conclusion
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1702,131 +1499,9 @@
                   
 
 
-<h1 id="gestion-des-espaces-de-stockage-avancee-lvm">Gestion des espaces de stockage avancée - LVM</h1>
-<h2 id="objectifs">Objectifs</h2>
-<ul>
-<li>Comprendre le fonctionnement de LVM</li>
-<li>Préparer le stockage pour LVM</li>
-<li>Créer et modifier des groupes de volumes et volumes logiques</li>
-</ul>
-<blockquote>
-<p>Créer des partitions en mode « moderne »</p>
-</blockquote>
-<h2 id="presentation-de-lvm">Présentation de LVM</h2>
-<p>### LVM : Logical Volume Manager**</p>
-<ul>
-<li>Le <strong>LVM</strong> permet de s’affranchir des limites physiques des périphériques. LVM implémente une couche logique pour une gestion plus souple et plus évolutive des volumes de stockage</li>
-<li>On gère plusieurs types d’éléments :</li>
-<li>Les volumes physiques <strong>(PV)</strong> : désignent les périphériques intégrés dans LVM </li>
-<li>Les groupes de volumes <strong>(VG)</strong> : permettent de regrouper les volumes physiques </li>
-<li>
-<p>Les volumes logiques <strong>(LV)</strong> : désignent les unités définies au sein des groupes de volumes</p>
-</li>
-<li>
-<p>La création d’un ou plusieurs groupes de volumes sera faite à partir des volumes physiques <em>(partitions)</em> disponibles. Les groupes de volumes seront ensuite découpés en volumes logiques </p>
-</li>
-<li>Ces volumes logiques pourront alors être utilisés comme n'importe quel volume de stockage</li>
-</ul>
-<p><img alt="Alt text" src="../image.png" />
-<img alt="Alt text" src="../image-1.png" />
-<img alt="Alt text" src="../image-2.png" /></p>
-<ul>
-<li>Les commandes de gestion s'organisent autour de ces dénominations et respectent toujours la même logique. Pour la création, on aura par exemple :</li>
-<li><code>pvcreate</code> : création des volumes physiques </li>
-<li><code>vgcreate</code> : création des groupes de volumes </li>
-<li><code>lvcreate</code> : création des volumes logiques</li>
-<li>Il en sera de même pour toutes les autres directives : <code>display</code>, <code>extend</code>, <code>reduce</code>, <code>remove</code>...</li>
-</ul>
-<h2 id="creer-des-lvm">Créer des LVM</h2>
-<h3 id="lvm-prerequis">LVM : prérequis</h3>
-<p>Définir l'identifiant des partitions à utiliser avec fdisk, utiliser l'ID <strong>8e</strong> – Linux LVM :</p>
-<p><img alt="Alt text" src="../image-3.png" /></p>
-<h3 id="creer-des-partitions-lvm">Créer des partitions LVM</h3>
-<blockquote>
-<p>Créer des volumes physiques :<strong>pvcreate</strong></p>
-</blockquote>
-<pre><code>root@deb:~# pvcreate /dev/sdb1 /dev/sdb2 /dev/sdc1 /dev/sdd
-</code></pre>
-<p><img alt="Alt text" src="../image-4.png" /></p>
-<blockquote>
-<p>Créer des volumes groups :<strong>vgcreate</strong></p>
-</blockquote>
-<pre><code>root@deb:~# vgcreate vggroup1 /dev/sdb1 /dev/sdb2 /dev/sdc1
-</code></pre>
-<p><img alt="Alt text" src="../image-5.png" />
-<img alt="Alt text" src="../image-6.png" /></p>
-<blockquote>
-<p>Créer des volumes logiques : <strong>lvcreate</strong></p>
-</blockquote>
-<pre><code>root@deb:~# lvcreate -n lv1 -L 2G vggroup1 root@deb:~# lvcreate -n lv2 -L 512M vggroup1
-</code></pre>
-<p><img alt="Alt text" src="../image-7.png" /></p>
-<p>Il y aura deux chemins possibles pour manipuler le Volume Logique</p>
-<pre><code>/dev/vgsystem/lvhome
-</code></pre>
-<p>Ou</p>
-<pre><code>/dev/mapper/vgsystem-lvhome
-</code></pre>
-<h2 id="modifier-des-lvm">Modifier des LVM</h2>
-<h3 id="agrandir-un-volume-group">Agrandir un Volume Group</h3>
-<blockquote>
-<p>Ajouter des volumes physiques au VG : <strong>vgextend</strong></p>
-</blockquote>
-<pre><code>root@deb:~# vgextend vggroup1 /dev/sdd
-</code></pre>
-<p><img alt="Alt text" src="../image-8.png" />
-<img alt="Alt text" src="../image-9.png" /></p>
-<h3 id="creer-des-partitions-lvm_1">Créer des partitions LVM</h3>
-<blockquote>
-<p>Agrandir des volumes logiques : <strong>lvextend</strong></p>
-<p><img alt="Alt text" src="../image-10.png" />
-<img alt="Alt text" src="../image-11.png" /></p>
-</blockquote>
-<ul>
-<li>De la même façon, <code>lvreduce</code> permet de réduire la taille d'un volume logique</li>
-<li>Attention, le système de fichier ne prendra pas en compte automatiquement ces changements. Il faudra forcer un redimensionnement pour pouvoir utiliser tout l'espace. <em>&gt; plus compliqué et dangereux &gt; risque de destruction des données !</em></li>
-<li>La commande <code>resize2fs</code> qui permet de redimensionner un système de fichier sera étudiée dans le module suivant</li>
-</ul>
-<h3 id="afficher-les-informations-lvm">Afficher les informations LVM</h3>
-<ul>
-<li>Plusieurs commandes sont disponibles pour obtenir des informations sur les volumes LVM configurés</li>
-<li>On peut les regrouper en deux « familles »</li>
-<li>Informations résumées avec « s » : <strong>pvs</strong>, <strong>vgs</strong>, <strong>lvs</strong> <em>(s = summarize)</em></li>
-<li>Informations détaillées avec « display » : <strong>pvdisplay</strong>, <strong>vgdisplay</strong>, <strong>lvdisplay</strong></li>
-</ul>
-<blockquote>
-<p>Afficher les informations résumées sur tous les groupes de volumes : </p>
-</blockquote>
-<p><img alt="Alt text" src="../image-12.png" /></p>
-<blockquote>
-<p>Afficher les informations détaillées sur tous les groupes de volumes :</p>
-</blockquote>
-<p><img alt="Alt text" src="../image-13.png" /></p>
-<blockquote>
-<p>Afficher les informations détaillées sur un groupe de volumes :</p>
-</blockquote>
-<p><img alt="Alt text" src="../image-14.png" /></p>
-<blockquote>
-<p>Afficher les informations résumées sur tous les Volumes Logiques :</p>
-</blockquote>
-<p><img alt="Alt text" src="../image-15.png" /></p>
-<blockquote>
-<p>Afficher les informations détaillées sur tous les Volumes Logiques :</p>
-</blockquote>
-<p><img alt="Alt text" src="../image-16.png" /></p>
-<blockquote>
-<p>Afficher les informations détaillées sur un Volume Logique :</p>
-</blockquote>
-<p><img alt="Alt text" src="../image-17.png" /></p>
-<ul>
-<li>Toutes les commandes LVM sont également disponibles dans un shell dédié, accessible avec la commande <code>lvm</code></li>
-</ul>
-<h2 id="conclusion">Conclusion</h2>
-<ul>
-<li>Vous savez préparer des disques et partitions pour LVM</li>
-<li>Vous savez créer et modifier des Volumes Groups</li>
-<li>Vous savez créer et modifier des Logical Volumes</li>
-</ul>
+  <h1>Script création utilisateur et groupe</h1>
+
+
 
 
 
@@ -1864,10 +1539,10 @@
       <div class="md-dialog__inner md-typeset"></div>
     </div>
     
-    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
       
     
   </body>

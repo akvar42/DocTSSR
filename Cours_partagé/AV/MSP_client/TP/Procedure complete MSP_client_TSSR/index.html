@@ -1,0 +1,2661 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../mofifier%20masque%20sous%20reseau%20debian/">
+      
+      
+        <link rel="next" href="../../ressource/installation%20de%20webmin/">
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>procedure complete msp_client - DOC TSSR</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.eebd395e.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#procedure-complete-msp_client" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="DOC TSSR" class="md-header__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DOC TSSR
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              procedure complete msp_client
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="DOC TSSR" class="md-nav__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    DOC TSSR
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        Bienvenue sur le site de Documentation TSSR2023.
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Cours partagé
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cours partagé
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          AV
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          AV
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_1" id="__nav_2_1_1_label" tabindex="0">
+          GITHUB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          GITHUB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GITHUB/SSH_et_GITHUB/" class="md-nav__link">
+        Créer une clé SSH et la lier à GitHub et au dépôt local
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GITHUB/mkdocs_et_github/" class="md-nav__link">
+        Mini site avec GitHub et MkDocs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+          LINUX
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          LINUX
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LINUX/Guide_Crontab/" class="md-nav__link">
+        Guide Avancé pour l'Utilisation de crontab sous Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LINUX/Guide_information_system_LINUX/" class="md-nav__link">
+        Guide Avancé sur les Informations Système sur GNU/Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LINUX/Guide_veille_et_journalisation/" class="md-nav__link">
+        Guide de Veille et Journalisation sur GNU/Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LINUX/guide_tar-linux/" class="md-nav__link">
+        Guide d'utilisation de tar sur Debian
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_3" id="__nav_2_1_3_label" tabindex="0">
+          MSP client
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_3_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          MSP client
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cr%C3%A9ation%20d%27utilisateurs%20et%20de%20groupes%20avec%20PowerShell/" class="md-nav__link">
+        Création d'utilisateurs et de groupes avec PowerShell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Cr%C3%A9er%20dossier%20pour%20tout%20les%20user/" class="md-nav__link">
+        Créer dossier pour tout les user
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Desactiver%20les%20mise%20a%20jour%20win10/" class="md-nav__link">
+        Désactiver les Mises à Jour sur Windows 10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mofifier%20masque%20sous%20reseau%20debian/" class="md-nav__link">
+        Modifier le masque de sous-réseau sous Debian
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_3_5" id="__nav_2_1_3_5_label" tabindex="0">
+          TP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_3_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_1_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          TP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        procedure complete msp_client
+      </a>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_3_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_3_6" id="__nav_2_1_3_6_label" tabindex="0">
+          Ressource
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_1_3_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_3_6">
+          <span class="md-nav__icon md-icon"></span>
+          Ressource
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/installation%20de%20webmin/" class="md-nav__link">
+        Installation de webmin
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/partage_dossier_shell/" class="md-nav__link">
+        Partage dossier shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/partageimprimante/" class="md-nav__link">
+        Partageimprimante
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/procedure%20installation%20remina/" class="md-nav__link">
+        Procedure installation remina
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/procedure%20pour%20mise%20a%20jour%20home/" class="md-nav__link">
+        Procedure pour mise a jour home
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/sauvegarde%20et%20restauration/" class="md-nav__link">
+        Sauvegarde et restauration
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ressource/script%20cr%C3%A9ation%20utilisateur%20et%20groupe/" class="md-nav__link">
+        Script création utilisateur et groupe
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_4" id="__nav_2_1_4_label" tabindex="0">
+          VIM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          VIM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../VIM/VIM/" class="md-nav__link">
+        Résumé VIM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1_5" id="__nav_2_1_5_label" tabindex="0">
+          VIRTUALISATION
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          VIRTUALISATION
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../VIRTUALISATION/GuideD%C3%A9pannageVmware/" class="md-nav__link">
+        Guide de dépannage pour VMware Workstation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../VIRTUALISATION/InstallationVmware/" class="md-nav__link">
+        Guide d'utilisation de VMware Workstation pour un technicien
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          Guigui
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          Guigui
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_1" id="__nav_2_2_1_label" tabindex="0">
+          05   Gestion du réseau sous Debian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          05   Gestion du réseau sous Debian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guigui/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/" class="md-nav__link">
+        Module 05 – Gestion du réseau
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+          06   Gestion des paquets logiciels
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          06   Gestion des paquets logiciels
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guigui/06%20-%20Gestion%20des%20paquets%20logiciels/06%20-%20Gestion%20des%20paquets%20logiciels/" class="md-nav__link">
+        Module 06 – Gestion des paquets logiciels
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+          07   Gestion des espaces de stockage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          07   Gestion des espaces de stockage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guigui/07%20-%20Gestion%20des%20espaces%20de%20stockage/07%20-%20Gestion%20des%20espaces%20de%20stockage/" class="md-nav__link">
+        Module 07 – Gestion des espaces de stockage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_4" id="__nav_2_2_4_label" tabindex="0">
+          08   Gestion avancée des espaces de stockage   LVM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          08   Gestion avancée des espaces de stockage   LVM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guigui/08%20-%20Gestion%20avanc%C3%A9e%20des%20espaces%20de%20stockage%20-%20LVM/Module%2008%20-%20Support%20de%20cours/" class="md-nav__link">
+        Gestion des espaces de stockage avancée - LVM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_5" id="__nav_2_2_5_label" tabindex="0">
+          09   Gestion des espaces de stockage – File System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          09   Gestion des espaces de stockage – File System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guigui/09%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/Module%2009%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/" class="md-nav__link">
+        Gestion des espaces de stockage – File System
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2_6" id="__nav_2_2_6_label" tabindex="0">
+          10   Gestion des utilisateurs et des groupes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          10   Gestion des utilisateurs et des groupes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../guigui/10%20-%20Gestion%20des%20utilisateurs%20et%20des%20groupes/Module%2010%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 10 – Gestion des utilisateurs et groupes**
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Script
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Script
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          Githubdeploy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Githubdeploy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/githubdeploy/Read_me/" class="md-nav__link">
+        Read me
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/githubdeploy/deploy/" class="md-nav__link">
+        Deploy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          Pdf to md windows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pdf to md windows
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/pdf_to_md_windows/Read-me/" class="md-nav__link">
+        Read me
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/pdf_to_md_windows/pdf_to_md_converter/" class="md-nav__link">
+        Pdf to md converter
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Pdftomarkdown
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pdftomarkdown
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/pdftomarkdown/Readme/" class="md-nav__link">
+        Readme
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/pdftomarkdown/scriptpdftomarkdown5/" class="md-nav__link">
+        Scriptpdftomarkdown5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_4" id="__nav_3_4_label" tabindex="0">
+          Powershell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_4">
+          <span class="md-nav__icon md-icon"></span>
+          Powershell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/powershell/MVpdf/" class="md-nav__link">
+        MVpdf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/powershell/mvpdf/" class="md-nav__link">
+        Mvpdf
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_5" id="__nav_3_5_label" tabindex="0">
+          Traitement fichier cours
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_5">
+          <span class="md-nav__icon md-icon"></span>
+          Traitement fichier cours
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/traitement%20fichier%20cours/" class="md-nav__link">
+        Readme
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/traitement%20fichier%20cours/IAmark2/" class="md-nav__link">
+        IAmark2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="procedure-complete-msp_client">procedure complete msp_client</h1>
+<h1 id="1-installation-des-systemes">1.  Installation des systèmes</h1>
+<h2 id="1-installation">1 - installation</h2>
+<ul>
+<li>Aprés avoir installé les deux machines, avec des volumes logiques</li>
+<li>je déactive windows update via services.msc</li>
+<li>je modifie les plages ip pour faire correspondre leur masques reseau puis je teste leur conectivité. (ping)</li>
+<li>sous windows 10 avec l'outils : <strong>ncpa.cpl</strong></li>
+<li>
+<p>sous debian en éditant <strong>/etc/network/interfaces</strong>
+  Par soucis d'efficacité j'utilise le masque de sous reseau de l'hôte puisque les VM sont installé en bridge.</p>
+</li>
+<li>
+<p>Pour pourvoir utiliser le presse papier de mon hôte vers ma VM j'installe Vmware Tools</p>
+</li>
+</ul>
+<p><img alt="plan" src="../plan_reseau.png" /></p>
+<h1 id="2-configuration-des-utilisateurs-et-de-lenvironnement">2 – Configuration des utilisateurs et de l’environnement</h1>
+<ul>
+<li>
+<p>je crée un fichier .csv dans lequel j'ecris les utilisateur et les groupes auquel ils apartiennent. </p>
+</li>
+<li>
+<p>La création de ce fichier va me simplifier la tache pour les étapes suivante. Dans ce fichier je précise si les utilisateur sont interne ou intérimaire ( car des droit spécifique seront atribué à ces diferentes classes)</p>
+</li>
+</ul>
+<pre><code>
+ Prénom;Nom;login;mail;password;groupe;description
+Rick;Grimes;rgrimes;rickgrimes@gmail.com;RGMDP2023!;Direction;Interne
+Daryl;Dixon;ddixon;daryldixon@gmail.com;DDMDP2023!;Commercial;Interne
+Gabriel;Stokes;gstokes;gabrielstokes@gmail.com;GSMDP2023!;Commercial;Interne
+Maggie;Greene;mgreene;maggiegreene@gmail.com;MGMDP2023!;Commercial;Interne
+Eugene;Porter;eporter;eugeneporter@gmail.com;EPMDP2023!;Comptable;Interne
+Carol;Peletier;cpeletier;carolpeletier@gmail.com;CPMDP2023!;Comptable;intérimaire
+Adrien;vincent;Avincent;avincent@mail.com;AVMDP2023!;informatique;Interne
+Rosita;Espinosa;respinosa;rositaespinosa@gmail.com;REMDP2023!;Logistique;Interne
+Morgan;Jones;mjones;morganjones@gmail.com;MJMDP2023!;Logistique;Interne
+
+</code></pre>
+<h1 id="creation-des-groupes-et-des-utilisateurs-sur-windows-10-via-powershell">Creation des groupes et des Utilisateurs sur windows 10 via Powershell</h1>
+<ul>
+<li>
+<p>A l'aide de Chat GPT,  Je crée un script qui commencera par lire le fichier CSV.
+Pour chaque ligne, il vérifiera si le groupe existe ou non. S'il n'existe pas, il le créera. Ensuite, il créera l'utilisateur avec les détails fournis.</p>
+</li>
+<li>
+<p>je modifie la politique d'execution de  powershell pour executer le script avec  <code>Set-ExecutionPolicy Unrestricted</code></p>
+</li>
+<li>
+<p>Je lance le script avec powershell en mode administrateur</p>
+</li>
+</ul>
+<pre><code># Chemin vers votre fichier CSV
+$csvPath = &quot;C:\Users\AV\Documents\script\users.csv&quot;
+
+# Importer les données du CSV
+$usersData = Import-Csv -Path $csvPath -Delimiter ';'
+
+# Parcourir chaque utilisateur et créer l'utilisateur
+foreach ($data in $usersData) {
+    # Créer le nom complet
+    $FullName = &quot;$($data.Nom) $($data.Prénom)&quot;
+
+    # Convertir le mot de passe en SecureString
+    $securePassword = ConvertTo-SecureString -AsPlainText $data.password -Force
+
+    # Créer l'utilisateur
+    try {
+        New-LocalUser -FullName $FullName -Description $data.description -Name $data.login -Password $securePassword -ErrorAction Stop
+        Write-Host &quot;Utilisateur $FullName créé avec succès.&quot;
+    } catch {
+        Write-Warning &quot;Erreur lors de la création de l'utilisateur $FullName. Détails : $_&quot;
+    }
+
+    # Ajouter l'utilisateur au groupe si nécessaire
+    if ($data.groupe) {
+        try {
+            # Si le groupe n'existe pas, le créer
+            if (-not (Get-LocalGroup -Name $data.groupe -ErrorAction SilentlyContinue)) {
+                New-LocalGroup -Name $data.groupe -Description &quot;Groupe créé par script&quot;
+                Write-Host &quot;Groupe $($data.groupe) créé avec succès.&quot;
+            }
+
+            # Ajouter l'utilisateur au groupe
+            Add-LocalGroupMember -Group $data.groupe -Member $data.login
+            Write-Host &quot;Utilisateur $FullName ajouté au groupe $($data.groupe) avec succès.&quot;
+        } catch {
+            Write-Warning &quot;Erreur lors de l'ajout de l'utilisateur $FullName au groupe $($data.groupe). Détails : $_&quot;
+        }
+    }
+}
+
+
+
+
+
+</code></pre>
+<h2 id="creation-utilisateurs-et-groupes-pour-debian">création utilisateurs et groupes pour Debian</h2>
+<p>En suite je peux reutilisé mon fichier csv pour debian. En utilisant ce script bash que je rend executable avec la commande <code>chmod +x utilisateur_et_group.csv</code>
+- j'execute le script avec <code>./ scriptusergp.sh</code></p>
+<pre><code>
+#!/bin/bash
+
+# Chemin vers le fichier CSV
+csvPath=&quot;/chemin/vers/fichier.csv&quot;
+
+# Vérifie si le fichier CSV existe
+if [ ! -f &quot;$csvPath&quot; ]; then
+    echo &quot;Le fichier CSV n'existe pas au chemin spécifié.&quot;
+    exit 1
+fi
+
+# Lire chaque ligne du fichier CSV
+while IFS=';' read -r prenom nom login mail password groupe description; do
+    # Vérifier l'existence du groupe
+    if ! grep -q &quot;^$groupe:&quot; /etc/group; then
+        # Créer le groupe s'il n'existe pas
+        groupadd &quot;$groupe&quot;
+        echo &quot;Groupe $groupe créé.&quot;
+    fi
+
+    # Créer l'utilisateur
+    useradd -m -g &quot;$groupe&quot; -c &quot;$description&quot; -s /bin/bash &quot;$login&quot;
+    echo &quot;$password&quot; | passwd --stdin &quot;$login&quot;
+
+    echo &quot;Utilisateur $prenom $nom créé et ajouté au groupe $groupe.&quot;
+done &lt; &quot;$csvPath&quot;
+
+echo &quot;Tous les utilisateurs et groupes ont été créés.&quot;
+
+
+</code></pre>
+<h2 id="ajouter-un-dossier-procedure-avec-le-reglement-interieur">Ajouter un dossier procedure avec le réglement interieur.</h2>
+<ul>
+<li>je crée le dossier sur ma session avec le fichier réglement interieur, puis j'execute ce script afin d'évité de faire manuelement la procedure</li>
+</ul>
+<p>``` Chemin de destination pour le nouveau dossier sur le bureau de chaque utilisateur
+$destinationPath = "C:\Users*\Desktop\Procédures"</p>
+<h1 id="chemin-du-fichier-reglement-interieur-que-vous-avez-prepare">Chemin du fichier "Règlement intérieur" que vous avez préparé</h1>
+<p>$sourceFile = "C:\temp\Règlement intérieur.txt"</p>
+<h1 id="creation-du-dossier-procedures-sur-le-bureau-de-chaque-utilisateur">Création du dossier "Procédures" sur le bureau de chaque utilisateur</h1>
+<p>Get-ChildItem -Path "C:\Users*" -Directory | ForEach-Object {
+    $folderPath = Join-Path $_.FullName "Desktop\Procédures"
+    if (-not (Test-Path $folderPath)) {
+        New-Item -Path $folderPath -ItemType Directory
+    }
+}</p>
+<h1 id="copie-du-fichier-reglement-interieur-dans-le-dossier-procedures-de-chaque-utilisateur">Copie du fichier "Règlement intérieur" dans le dossier "Procédures" de chaque utilisateur</h1>
+<p>$sourceFile = "C:\temp\Règlement_intérieur.txt"</p>
+<p>Get-ChildItem -Path "C:\Users*" -Directory | ForEach-Object {
+    $folderPath = Join-Path $_.FullName "Desktop\Procédures"
+    if (Test-Path $sourceFile) {
+        Copy-Item -Path $sourceFile -Destination $folderPath
+    }
+}</p>
+<pre><code>
+ou avec le script de bard
+
+</code></pre>
+<p>$Users = Get-LocalUser
+foreach ($User in $Users) {
+    New-Item -Path "C:\Users$User\Desktop\Procedure" -ItemType Directory
+    New-Item -Path "C:\Users$User\Desktop\Procedure\Reglement interieur" -ItemType File
+}</p>
+<pre><code>
+### pour le prestataire et son shell ksh
+
+</code></pre>
+<h1 id="useradd-c-prestataire-prestataire-m-g-informatique-shell-binksh-">useradd -c "Préstataire" prestataire -m -g informatique --shell /bin/ksh -</h1>
+<p>p PMDP2023!</p>
+<pre><code>
+
+
+
+## Contrainte suplémentaire windows 10 :
+## Securité mot de passe
+
+- dans l'invite de commande je lance ```secpol.msc```
+- dans &quot;strategie mot de passe&quot; j'active &quot;exigence de complexité&quot;
+- dans longeur minimal je fixe à 12
+
+### Ajout nouveau compte administrateur pour le directeur
+- je lance powershell en administrateur puis
+- je fait 
+```net user admin rgrimes /add```
+
+```net user rgrimes * ```
+
+puis tape le nouveaux mot de passe
+
+### Intégration du service informatique au groupe Administrateur
+-aprés avoir crée le groupe &quot;Administrateurs&quot;
+
+```Add-LocalGroupMember -Group &quot;Administrateurs&quot; -Member &quot;Avincent&quot;```
+
+### Forçage du changement de mot de passe:
+- sur **windows 10** :sans la console MMC, dans utilisateur et groupe: clique droit sur l'utilisateur puis dans l'onglet général &quot;l'utilisateur doit changer le mot de passe à la prochaine ouverture de session&quot;
+- dans **Debian** 
+</code></pre>
+<p>chage Avincent -d 0</p>
+<p>```</p>
+<p>### restriction d'utilisation de périphérique windows 10
+ - Pour restreindre l'utilisation de périphérique, j'utilise le logitiel enfichagle disponible dans la console MMC: "éditeur d'objet et stratégie de groupe"</p>
+<ul>
+<li>
+<p>Dans "objet de stratégie de groupe" je séléctione "NON-adminstrateurs"</p>
+</li>
+<li>
+<p>Sous "Configuration utilisateur" - "Modèles d'administration" - "Accès au stockage
+amovible » : j'active "CD et DVD : refuser l'accès en lecture/écriture"</p>
+</li>
+<li>
+<p>Sous "Composant Windows" - "Windows Store", je  désactive l'application </p>
+</li>
+<li>
+<p>Sous "Modèles d'administration" - "Système", j'active "Empêche l'accès aux outils de modifications du Registre"</p>
+</li>
+<li>
+<p>Sous "Modèle d'administration" - "Bureau" -"Bureau", je configure "Papier peint du Bureau", j'ajoute le chemin d'accés à l'image de fond d'écran (fond noir)</p>
+</li>
+<li>
+<p>Sous "Configuration ordinateur" - "Paramètres de sécurité" - "Pare-feu Windows
+Defender" - "Propriétés du Pare-feu Windows" <strong>J'active</strong> le Pare-feux sur tous les profils (domaine, privé, public)</p>
+</li>
+</ul>
+<h3 id="verification">vérification</h3>
+<p>pour mettre a joour les mdoficication systeme
+<code>gpupdate</code>
+pour afficher les informations de résultat de stratégie de groupe (Group Policy) avec \r comme arguments pour resumé
+<code>gpresult \r</code></p>
+<h1 id="ajout-des-depots-debian-et-supression-de-commentaire-avec-vim">Ajout des depots Debian et supression de commentaire avec VIM</h1>
+<ul>
+<li>Directement depuis bash shell avec l'éditeur de flux sed:</li>
+</ul>
+<pre><code>sed -i '/^# deb-src/s/^# //' /chemin/vers/votre/sources.list
+</code></pre>
+<ul>
+<li>
+<p>Ou depuis vim avec la fonction g :</p>
+</li>
+<li>
+<p><code>vim /etc/pat/sources.list</code>
+en mode commande</p>
+</li>
+<li><code>:g:/^deb-src/s/^/#/gc</code></li>
+<li>
+<p><code>:wq</code> pour quitter et sauvegarder</p>
+</li>
+<li>
+<p>on peut ajouter le depot ftp</p>
+</li>
+<li>
+<p><code>deb-src http://ftp.fr.debian.org/debian/ main contrib non-free</code></p>
+</li>
+<li>
+<p>on met à jour la liste des depot et paquets
+-<code>apt update</code></p>
+</li>
+</ul>
+<h1 id="3-configuration-du-stockage-et-des-ressources">3 Configuration du stockage et des ressources</h1>
+<h2 id="creation-dune-partition-data-avec-diskpart-sur-windows-10">création d'une partition DATA avec DISKPART sur windows 10</h2>
+<ul>
+<li>Lancement de diskpart dans powershell en mode administrateur</li>
+</ul>
+<p><code>diskpart</code></p>
+<ul>
+<li>listage des disques</li>
+</ul>
+<p><code>list disk</code></p>
+<ul>
+<li>selection du disque à partitioner</li>
+</ul>
+<p><code>select disk 1</code></p>
+<ul>
+<li>on deconect le disque pour s'assuré qu'aucun service ne soit en train de l'utiliser</li>
+</ul>
+<p><code>offline disk</code></p>
+<ul>
+<li>on reconecte</li>
+</ul>
+<p><code>online disk</code></p>
+<ul>
+<li>on crée une table de partition mbr</li>
+</ul>
+<p><code>convert MBR</code></p>
+<ul>
+<li>on crée une partion de 15000 Mega octet (15 Giga)</li>
+</ul>
+<p><code>create partition primary size=15000</code></p>
+<ul>
+<li>on formate en ntfs en appellant la partion DATA</li>
+</ul>
+<p><code>create partition primary size=15000</code></p>
+<ul>
+<li>on attribue la lettre D au disque</li>
+</ul>
+<p><code>assign letter=D</code></p>
+<ul>
+<li>En faisant <code>list disk</code> on peut voir la modification qui s'est correctement effectué.</li>
+</ul>
+<h2 id="creation-de-partitions-sur-debian-avec-fdisk">création de partitions sur Debian avec fdisk</h2>
+<ul>
+<li>
+<p>On commence par lister les disques:
+<code>fdisk -l</code></p>
+</li>
+<li>
+<p>on selectionne le disque à partitionner
+<code>fdisk /dev/sdb</code></p>
+</li>
+</ul>
+<p><strong><em>on fait trois partitions:</em></strong></p>
+<ul>
+<li>
+<p>1ère partition :
+· n : créer une nouvelle partition
+· p : type de partition primaire
+· Laisser le numéro de partition par défaut
+· Laisser le premier secteur par défaut
+· +15G pour ajouter 15Go</p>
+</li>
+<li>
+<p>2ème partition:
+· n : créer une nouvelle partition
+· p : type de partition primaire
+· Laisser le numéro de partition par défaut
+· Laisser le premier secteur par défaut
+· +15G pour ajouter 15Go</p>
+</li>
+<li>
+<p>3ème partition:
+· n : créer une nouvelle partition
+· p : type de partition primaire
+· Laisser le numéro de partition par défaut
+· Laisser le premier secteur par défaut
+· Laisser le dernier secteur par défaut pour occuper tout l'espace restant</p>
+</li>
+<li>
+<p>on quitte fdisk avec <code>w</code></p>
+</li>
+</ul>
+<h3 id="formatage-des-partitions-avec-mkfs">Formatage des partitions avec mkfs</h3>
+<ul>
+<li>Pour formater la partion en xfs il faut installer xfsprogs</li>
+</ul>
+<p><code>apt install xfsprogs</code></p>
+<ul>
+<li>puis on formate avec mkfs en nomant les partitions en donnant un label avec l'argument -L
+<code>mkfs.ext4 -L PROFILS /dev/sdb1</code>
+<code>mkfs.ext4 -L DATA /dev/sdb2</code>
+ <code>mkfs.xfs -L LOGS /dev/sdb3</code></li>
+</ul>
+<h3 id="extention-du-dossier-home">Extention du dossier home</h3>
+<p>### methode 1  LVM: 
+  il reste de la place sur le groupe de volume logique et j'étend /home
+ -on verifie la place disponible:
+  <code>vgs</code>
+  -on etend le volume logique <em>LGV est le noms du groupe de volume, (-l +100%FREE) utilise tout l'espace libre du VG.</em>
+ <code>lvextend -l +100%FREE /dev/LGV/HOME</code></p>
+<h3 id="-methode-2-mise-a-jour-du-repertoire-home">- Methode 2 - Mise à jour du répertoire <code>/home</code></h3>
+<h3 id="preparation">Préparation</h3>
+<ol>
+<li><strong>Sauvegarde</strong> : </li>
+<li>
+<p>On s'assure d'avoir une sauvegarde complète de toutes les données, en particulier du répertoire <code>/home</code>.</p>
+</li>
+<li>
+<p><strong>Information des utilisateurs</strong>:</p>
+</li>
+<li>
+<p>On informe tous les utilisateurs qu'une maintenance est prévue. On précise la durée estimée de cette maintenance.</p>
+</li>
+<li>
+<p><strong>Désactivation de l'accès des utilisateurs</strong>:</p>
+</li>
+<li>Pour empêcher les connexions pendant la transition, on passe en mode de maintenance:
+   <code>systemctl isolate rescue.target</code></li>
+<li>Si le système est accessible via SSH, on désactive le service:
+   <code>systemctl stop sshd</code></li>
+<li>On crée un fichier <code>/etc/nologin</code> pour empêcher les utilisateurs non-root de se connecter:
+   <code>echo "Maintenance en cours, veuillez réessayer plus tard." &gt; /etc/nologin</code></li>
+</ol>
+<h3 id="processus-de-transition">Processus de transition</h3>
+<ol>
+<li>
+<p><strong>Copie temporaire de <code>/home</code></strong> :
+   <code>cp -rp /home /tmp/home-backup</code></p>
+</li>
+<li>
+<p><strong>Modification du fichier <code>/etc/fstab</code></strong> :
+   <code>vim /etc/fstab</code></p>
+</li>
+<li>On commente la ligne concernant <code>/home</code> en ajoutant un <code>#</code> devant :
+   <code>#UUID=4b59933b-136a-4287-8658-c97b2ec93603 /home ext4 defaults 0 2</code></li>
+<li>
+<p>On ajoute ensuite la ligne pour monter la partition <code>PROFILS</code> à <code>/home</code> :
+   <code>LABEL=PROFILS /home ext4 defaults 0 2</code></p>
+</li>
+<li>
+<p><strong>Montage des partitions</strong> :
+   <code>mount -a</code></p>
+</li>
+<li>
+<p><strong>Copie des données du backup vers le nouveau <code>/home</code></strong> :
+   <code>cp -rp /tmp/home-backup/* /home/</code></p>
+</li>
+</ol>
+<h3 id="verifications-post-transition">Vérifications post-transition</h3>
+<ol>
+<li><strong>Réactivation de l'accès des utilisateurs</strong>:</li>
+<li>On repasse en mode normal:
+   <code>systemctl isolate default.target</code></li>
+<li>Si le service SSH a été désactivé, on le réactive:
+   <code>systemctl start sshd</code></li>
+<li>
+<p>On supprime le fichier <code>/etc/nologin</code> pour permettre aux utilisateurs de se reconnecter:
+   <code>rm /etc/nologin</code></p>
+</li>
+<li>
+<p><strong>Vérification de la copie</strong> :</p>
+</li>
+<li>
+<p>On s'assure que toutes les données et permissions sont correctement copiées sur le nouveau volume.</p>
+</li>
+<li>
+<p><strong>Nettoyage</strong> :</p>
+</li>
+<li>
+<p>Après s'être assuré que tout est en ordre, on peut supprimer le répertoire de backup pour récupérer l'espace :
+   <code>rm -rf /tmp/home-backup</code></p>
+</li>
+<li>
+<p><strong>Test final</strong> :</p>
+</li>
+<li>On se connecte en tant qu'utilisateur pour s'assurer que tout est opérationnel.</li>
+</ol>
+<h2 id="mise-en-commun-du-volume-data-et-dossier-service-sur-le-client-debian">Mise en commun du volume DATA et dossier service sur le client Debian</h2>
+<ul>
+<li>on crée l'arborescence /services puis les dossiers la composant <em>l'argument -p permet de cre des repertoire parents</em></li>
+</ul>
+<p><code>mkdir -p /service/{commercial,comptabilite,direction,informatique,logistique}</code></p>
+<ul>
+<li>on fait correspondre la propriété de chaque dossier avec son groupe</li>
+</ul>
+<p>Dans le repertoire service on tape</p>
+<p><code>chown :commercial commercial
+ chown :comptabilite comptabilite
+ chown :direction direction
+ chown :informatique informatique
+ chown :logistique logistique</code></p>
+<ul>
+<li>Puis on donne aux propriétaires et au groupe propriétaire le droit de lire, écrire et exécuter tous les fichiers et répertoires du répertoire:</li>
+</ul>
+<p><code>chmod g+x *</code></p>
+<h2 id="modification-des-acces-au-dossier-sur-le-poste-windows-10">Modification des accés au dossier Sur le poste Windows 10</h2>
+<ul>
+<li>
+<p>Ces étapes garantissent que seul le groupe commercial (et le compte système pour des raisons d'administration) peut accéder au dossier « Commerciaux » et que toutes les autres autorisations sont supprimées.</p>
+</li>
+<li>
+<p>On commence par créer un dossier nommé « D:\données\ ». </p>
+</li>
+<li>À l'intérieur de « D:\données\ », on crée un sous-dossier appelé « Commerciaux ».</li>
+<li>Une fois le dossier créé, on fait un clic-droit dessus et on choisit l'option "Propriétés".</li>
+<li>Dans la fenêtre des propriétés qui s'ouvre, on se rend à l'onglet "Sécurité" puis on clique sur le bouton "Avancé".</li>
+<li>Dans la nouvelle fenêtre, on désactive l'option "héritage". Cela empêchera le dossier d'hériter des autorisations des dossiers parents.</li>
+<li>On supprime ensuite toutes les autorisations héritées pour s'assurer qu'aucun autre groupe ou utilisateur ne peut accéder au dossier.</li>
+<li>On valide les changements.</li>
+<li>On retourne à l'onglet "Sécurité", puis on clique sur "Ajouter..." suivi de "Sélectionnez un principal".</li>
+<li>Dans la liste, on choisit l'option “modification” ainsi que l'option “Appliquer ces autorisations...” avant de valider avec "OK".</li>
+<li>Enfin, on supprime tous les utilisateurs et groupes listés dans la fenêtre des autorisations, à l'exception du groupe L_commercial_W et du compte système. De cette façon, seuls les membres du groupe L_commercial_W auront accès au dossier, garantissant ainsi que l'accès est interdit à toute personne étrangère au service.</li>
+</ul>
+<h2 id="creation-de-partage-reseau">Creation de partage reseau:</h2>
+<h3 id="methode-graphique">méthode graphique:</h3>
+<ol>
+<li>On commence par sélectionner le dossier nommé « Support_Info » pour le partager.</li>
+<li>Afin de le rendre invisible aux autres utilisateurs pour des raisons de sécurité, on ajoute un « $ » à la fin du nom du partage.</li>
+<li>On effectue un clic gauche sur le dossier et on choisit "Propriétés" dans le menu contextuel.</li>
+<li>Dans la fenêtre des propriétés, on se dirige vers l'onglet "Partage".</li>
+<li>On clique ensuite sur "Partage avancé...".</li>
+<li>Dans la zone "Nom du partage", on ajoute le symbole "$" à la fin pour rendre le partage caché.</li>
+<li>On clique sur le bouton "Autorisations" pour définir les droits d'accès souhaités.</li>
+<li>Une fois les autorisations correctement définies, on valide en cliquant sur "OK".</li>
+<li>Pour confirmer la mise en place du partage, on ouvre l'invite de commande (<code>cmd</code>) et on liste les partages disponibles.</li>
+<li>En préparation pour des déploiements futurs, on recherchera l'équivalent des actions effectuées sous la forme de commandes PowerShell. Ces commandes seront conservées dans un fichier script PowerShell avec l'extension ".ps1".</li>
+</ol>
+<h3 id="en-ligne-de-commande">En ligne de commande:</h3>
+<ol>
+<li>
+<p>On commence par créer le partage en utilisant la commande PowerShell suivante :
+   <code>powershell
+   New-smbshare support_info$ -path d:support_info -changeaccess “utilisateurs authentifiés”</code></p>
+</li>
+<li>
+<p>Pour modifier les autorisations sur ce partage, on suit les étapes ci-dessous :</p>
+</li>
+</ol>
+<p>a. On récupère les autorisations actuelles (Access Control List, ou ACL) du dossier avec :
+   <code>powershell
+   $acl = get-acl D:support_info</code></p>
+<p>b. On définit une nouvelle règle (Access Control Entry, ou ACE) pour donner au groupe informatique le droit de modification :
+   <code>powershell
+   $ace = New-Object security.accesscontrol.filesystemaccessrule("L_informatique_RW", "Modify", "Allow")</code></p>
+<p>c. On applique cette nouvelle règle à la liste d'autorisations :
+   <code>powershell
+   $acl.addaccessrule($ace)</code></p>
+<p>d. On met à jour les autorisations du dossier avec la liste modifiée :
+   <code>powershell
+   set-acl D:support_info $acl</code></p>
+<ol>
+<li>
+<p>Pour voir la liste des dossiers partagés via la ligne de commande, on tape :
+   <code>net share</code></p>
+</li>
+<li>
+<p>Pour testé l'accés le binôme crée un lecteur U qui pointe sur le dossier: (avec l'ip de la VM)</p>
+</li>
+</ol>
+<p><code>net use U: \\10.107.200.80\Support_info$ /persistent:yes</code></p>
+<h1 id="gestion-des-imprimantes">Gestion des imprimantes</h1>
+<h3 id="installation-et-partage-de-limprimante-hp-laserjet-m9050-mfp">Installation et partage de l'imprimante HP LaserJet M9050 MFP</h3>
+<ol>
+<li><strong>Démarrage du gestionnaire d'ajout d'imprimante</strong> :</li>
+<li>On se rend dans <code>Panneau de configuration</code> &gt; <code>Matériel et audio</code> &gt; <code>Périphériques et imprimantes</code>.</li>
+<li>
+<p>On clique sur <code>Ajouter une imprimante</code>.</p>
+</li>
+<li>
+<p><strong>Choix du type d'imprimante</strong> :</p>
+</li>
+<li>Lorsqu'on est interrogé sur la manière d'installer l'imprimante, on choisit <code>Ajouter une imprimante en utilisant une adresse IP ou un nom d'hôte</code>.</li>
+<li>
+<p>On clique sur <code>Suivant</code>.</p>
+</li>
+<li>
+<p><strong>Renseignement de l'adresse IP</strong> :</p>
+</li>
+<li>Dans le champ <code>Nom d'hôte ou adresse IP</code>, on inscrit <code>l'IP de l'imprimante</code>.</li>
+<li>On s'assure que l'option <code>Interroger l'imprimante et sélectionner automatiquement le pilote à utiliser</code> est activée.</li>
+<li>
+<p>On clique sur <code>Suivant</code>.</p>
+</li>
+<li>
+<p><strong>Sélection du pilote</strong> :</p>
+</li>
+<li>Si Windows reconnaît l'imprimante, il peut proposer un pilote par défaut. Sinon, on va sur le site d'<a href="https://support.hp.com/fr-fr/drivers/">HP</a>
+  et on cherche dans la liste des pilotes.</li>
+<li>Si le pilote n'est pas listé dans windows, il faudra peut-être le télécharger depuis le site officiel de HP et l'installer manuellement.</li>
+<li>
+<p>On clique sur <code>Suivant</code>.</p>
+</li>
+<li>
+<p><strong>Nom de l'imprimante</strong> :</p>
+</li>
+<li>On donne un nom à l'imprimante, par exemple : "HP LaserJet M9050 MFP".</li>
+<li>
+<p>On clique sur <code>Suivant</code>.</p>
+</li>
+<li>
+<p><strong>Options de partage</strong> :</p>
+</li>
+<li>Quand l'option de partage est présentée, on coche <code>Partager cette imprimante</code>.</li>
+<li>Dans le champ <code>Nom de partage</code>, on indique un nom qui sera utilisé sur le réseau pour accéder à cette imprimante. Par exemple, "HPM9050_Shared".</li>
+<li>
+<p>On clique sur <code>Suivant</code>.</p>
+</li>
+<li>
+<p><strong>Finalisation</strong> :</p>
+</li>
+<li>Une page récapitulative est présentée. On vérifie toutes les informations.</li>
+<li>
+<p>On clique sur <code>Terminer</code>.</p>
+</li>
+<li>
+<p><strong>Test</strong> :</p>
+</li>
+<li>
+<p>Pour confirmer que tout est bien configuré, on imprime une page test.</p>
+</li>
+<li>
+<p><strong>Accès depuis un autre poste</strong> :</p>
+</li>
+<li>Depuis un autre ordinateur du réseau, on va dans <code>Périphériques et imprimantes</code>, puis on ajoute une imprimante.</li>
+<li>On recherche l'imprimante partagée par nom et l'ajoute à la liste des imprimantes de l'ordinateur.</li>
+</ol>
+<h3 id="configuration-des-permissions-pour-limprimante">Configuration des permissions pour l'imprimante</h3>
+<ol>
+<li><strong>Accès aux propriétés de l'imprimante</strong> :</li>
+<li>On ouvre le menu <code>Démarrer</code>, puis on clique sur <code>Périphériques et imprimantes</code>.</li>
+<li>
+<p>On trouve l'imprimante "HP LaserJet M9050 MFP" et on fait un clic droit dessus, puis on choisit <code>Propriétés</code>.</p>
+</li>
+<li>
+<p><strong>Modification des permissions</strong> :</p>
+</li>
+<li>
+<p>Dans la fenêtre des propriétés de l'imprimante, on se rend dans l'onglet <code>Sécurité</code>.</p>
+</li>
+<li>
+<p><strong>Permissions pour tous les utilisateurs</strong> :</p>
+</li>
+<li>On clique sur <code>Ajouter</code> et saisit "Utilisateurs" (ou le groupe qui représente tous les utilisateurs sur le système).</li>
+<li>On coche la permission <code>Imprimer</code>.</li>
+<li>
+<p>On clique sur <code>Appliquer</code>.</p>
+</li>
+<li>
+<p><strong>Permissions pour le service Comptabilité</strong> :</p>
+</li>
+<li>On clique sur <code>Ajouter</code> et saisit le nom du groupe ou de l'utilisateur représentant le service Comptabilité.</li>
+<li>On coche les permissions <code>Imprimer</code> et <code>Gérer les documents</code> (ce qui permettra de supprimer des impressions bloquées).</li>
+<li>
+<p>On clique sur <code>Appliquer</code>.</p>
+</li>
+<li>
+<p><strong>Permissions pour le service Informatique</strong> :</p>
+</li>
+<li>On clique sur <code>Ajouter</code> et saisit le nom du groupe ou de l'utilisateur représentant le service Informatique.</li>
+<li>On coche <code>Contrôle total</code> (qui accorde toutes les permissions).</li>
+<li>
+<p>On clique sur <code>Appliquer</code>.</p>
+</li>
+<li>
+<p><strong>Validation</strong> :</p>
+</li>
+<li>Une fois que toutes les permissions sont correctement configurées, on clique sur <code>OK</code> pour fermer les propriétés de l'imprimante.</li>
+</ol>
+<h3 id="creation-dun-pool-dimpression-pour-deux-imprimantes-xerox-office-color">Création d'un pool d'impression pour deux imprimantes Xerox Office Color</h3>
+<ol>
+<li><strong>Installation des imprimantes individuelles</strong> :</li>
+<li><strong>Accès au menu Ajouter une imprimante</strong> :<ul>
+<li>On ouvre le menu <code>Démarrer</code>, puis on clique sur <code>Périphériques et imprimantes</code>.</li>
+<li>On choisit <code>Ajouter une imprimante</code>.</li>
+</ul>
+</li>
+<li><strong>Ajout de la première imprimante (ip1)</strong> :<ul>
+<li>On choisit <code>Ajouter une imprimante en utilisant une adresse IP ou un nom d'hôte</code>.</li>
+<li>On saisit l'adresse IP "ip1" et on suit les étapes pour installer l'imprimante avec le pilote approprié.</li>
+</ul>
+</li>
+<li>
+<p><strong>Répétition pour la deuxième imprimante (ip2)</strong> :</p>
+<ul>
+<li>On répète les mêmes étapes pour ajouter la deuxième imprimante en utilisant l'adresse IP "ip2".</li>
+</ul>
+</li>
+<li>
+<p><strong>Création du pool d'impression</strong> :</p>
+</li>
+<li>On retourne à <code>Périphériques et imprimantes</code>.</li>
+<li>On fait un clic droit sur l'une des deux imprimantes Xerox que nous venons d'ajouter, et on choisit <code>Propriétés de l'imprimante</code>.</li>
+<li>Dans l'onglet <code>Ports</code>, on coche les ports correspondant aux adresses IP "ip1" et "ip2" pour les ajouter au pool.</li>
+<li>
+<p>On confirme en cliquant sur <code>Appliquer</code> ou <code>OK</code>.</p>
+</li>
+<li>
+<p><strong>Configuration des paramètres de pool</strong> :</p>
+</li>
+<li>Dans les <code>Propriétés de l'imprimante</code>, on se dirige vers l'onglet <code>Avancé</code>.</li>
+<li>On coche l'option <code>Activer le pool d'impression</code>.</li>
+<li>
+<p>On s'assure que les ports correspondant aux deux imprimantes sont sélectionnés.</p>
+</li>
+<li>
+<p><strong>Validation</strong> :</p>
+</li>
+<li>Pour tester le pool d'impression, on envoie un document à imprimer sur l'imprimante poolée.</li>
+<li>On vérifie que le document est imprimé par l'une des deux imprimantes Xerox.</li>
+<li>Si tout fonctionne correctement, le pool d'impression est prêt à être utilisé.</li>
+</ol>
+<h3 id="configuration-des-permissions-pour-les-imprimantes-sur-windows-10">Configuration des permissions pour les imprimantes sur Windows 10</h3>
+<ol>
+<li>
+<p><strong>Accéder aux propriétés de l'imprimante</strong> :</p>
+<ul>
+<li>On ouvre <code>Périphériques et imprimantes</code> depuis le Panneau de configuration.</li>
+<li>On fait un clic droit sur l'imprimante concernée, puis on sélectionne <code>Propriétés de l'imprimante</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ajustement des permissions</strong> :</p>
+<ul>
+<li>On va dans l'onglet <code>Sécurité</code>.</li>
+<li>On supprime le groupe <code>Tout le monde</code> en le sélectionnant et en cliquant sur <code>Supprimer</code>.</li>
+<li>On clique sur <code>Ajouter</code> pour ajouter le groupe ou les utilisateurs du service Comptabilité. Après avoir ajouté, on leur coche <code>Imprimer</code> dans la liste des permissions.</li>
+<li>On répète l'ajout pour le service <code>Informatique</code> et on leur accorde le <code>Contrôle total</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configurer les horaires d'utilisation</strong> :</p>
+<ul>
+<li>Sous l'onglet <code>Avancé</code>, on coche l'option <code>Disponible de</code>.</li>
+<li>On définit la tranche horaire de <code>19:00</code> à <code>03:00</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configuration des administrateurs</strong> :</p>
+<ul>
+<li>Retour dans l'onglet <code>Sécurité</code>.</li>
+<li>On sélectionne le groupe ou les utilisateurs du service <code>Informatique</code>.</li>
+<li>On coche <code>Contrôle total</code> dans la liste des permissions.</li>
+</ul>
+</li>
+<li>
+<p><strong>Validation</strong> :</p>
+<ul>
+<li>On valide les modifications en cliquant sur <code>OK</code>.</li>
+<li>Après avoir configuré les permissions et horaires, on teste pour s'assurer que tout fonctionne correctement.</li>
+<li>On essaie d'imprimer depuis un compte du service <code>Comptabilité</code> hors des horaires définis pour confirmer que la restriction fonctionne.</li>
+<li>On répète le test pendant les horaires définis pour s'assurer qu'ils peuvent imprimer.</li>
+<li>Enfin, on se connecte avec un compte du service <code>Informatique</code> pour s'assurer qu'ils ont un contrôle total sur l'imprimante.</li>
+</ul>
+</li>
+</ol>
+<h3 id="configuration-de-deux-files-dattente-pour-la-xerox-office-color-et-deplacement-du-pool-dans-d">Configuration de deux files d'attente pour la Xerox Office Color et deplacement du pool dans D:</h3>
+<ol>
+<li>
+<p><strong>Création de la première file d'attente</strong>:</p>
+<ul>
+<li>On ouvre <code>Périphériques et imprimantes</code> depuis le Panneau de configuration.</li>
+<li>On choisit <code>Ajouter une imprimante</code> puis on suit l'assistant pour ajouter la Xerox Office Color. Nommez cette file d'attente par exemple "Xerox Office Color - Directeurs".</li>
+</ul>
+</li>
+<li>
+<p><strong>Création de la deuxième file d'attente</strong>:</p>
+<ul>
+<li>On répète le processus d'ajout d'une nouvelle imprimante. Cette fois, on nomme la file d'attente, par exemple, "Xerox Office Color - Général".</li>
+</ul>
+</li>
+<li>
+<p><strong>Attribution de la priorité aux directeurs</strong>:</p>
+<ul>
+<li>Dans <code>Périphériques et imprimantes</code>, on fait un clic droit sur "Xerox Office Color - Directeurs", puis on sélectionne <code>Propriétés de l'imprimante</code>.</li>
+<li>Dans l'onglet <code>Avancé</code>, on modifie la <code>Priorité</code> en mettant une valeur élevée, par exemple 10.</li>
+<li>Pour "Xerox Office Color - Général", on répète le processus, mais on définit la priorité à une valeur plus basse, par exemple 5.</li>
+</ul>
+</li>
+<li>
+<p><strong>Déplacer le spool d'impression</strong>:</p>
+<ul>
+<li>Toujours dans <code>Périphériques et imprimantes</code>, on clique sur <code>Serveur d'impression</code> en haut de la fenêtre, puis on ouvre les <code>Propriétés</code>.</li>
+<li>Dans l'onglet <code>Avancé</code>, on repère l'option <code>Emplacement du spool</code>.</li>
+<li>On change le chemin actuel de "C:\Windows\System32\spool\PRINTERS" à "D:\spool\PRINTERS" </li>
+<li>crée le dossier "D:\spool\PRINTERS"  avant d'effectuer le changement.</li>
+</ul>
+</li>
+<li>
+<p><strong>Redémarrer le service d'impression</strong>:</p>
+<ul>
+<li>Pour que les modifications prennent effet, on doit redémarrer le service Spouleur d'impression. Pour ce faire, on peut ouvrir le <code>Gestionnaire de services</code> et redémarrer le service <code>Spouleur d'impression</code>, ou simplement redémarrer l'ordinateur.</li>
+</ul>
+</li>
+</ol>
+<p># 4 - Configuration avancée des systems
+ ## Modification du chargeur d'amorçage du grub à 2 seconde:</p>
+<ul>
+<li>on modifie GRUB_TIMEOUT avec valeur : 2</li>
+</ul>
+<p><code>vim  /etc/default/grub</code></p>
+<ul>
+<li>puis on met à jour le Grub:</li>
+</ul>
+<p><code>update-grub</code></p>
+<h3 id="redimensionnement-et-configuration-du-swap-sur-debian">Redimensionnement et configuration du swap sur Debian</h3>
+<p><strong>Remarque</strong>: Faire Snapshot avant la procedure !!!</p>
+<ol>
+<li>
+<p><strong>Désactivation du swap</strong>:</p>
+<ul>
+<li>Avant d'apporter des modifications à l'espace de swap, on s'assure qu'il est désactivé.
+<code>swapoff /dev/sda2</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Modification du partitionnement avec <code>fdisk</code></strong>:</p>
+<ul>
+<li>
+<p>On utilise l'outil <code>fdisk</code> pour ajuster le partitionnement de la partition <code>/dev/sda</code>.
+<code>fdisk /dev/sda</code></p>
+</li>
+<li>
+<p>Une fois dans <code>fdisk</code>:</p>
+<ul>
+<li>On choisit <code>p</code> pour afficher la table des partitions.</li>
+<li>On choisit <code>d</code> pour supprimer la partition de swap actuelle.</li>
+<li>On choisit <code>n</code> pour créer une nouvelle partition.</li>
+<li>On suit les invites pour spécifier la taille et le type (swap).</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Formatage de la partition en tant que swap</strong>:</p>
+<ul>
+<li>Une fois la partition correctement dimensionnée, on la formate pour le swap.
+<code>mkswap /dev/sda2</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Mise à jour du fichier <code>/etc/fstab</code></strong>:</p>
+<ul>
+<li>
+<p>Ce fichier permet au système de savoir où trouver les systèmes de fichiers lors du démarrage.
+<code>nano /etc/fstab</code></p>
+</li>
+<li>
+<p>Dans l'éditeur:</p>
+<ul>
+<li>On repère la ligne existante pour le swap et la commente en ajoutant un <code>#</code> au début de la ligne.</li>
+<li>On ajoute ensuite la nouvelle configuration pour le swap:
+<code>/dev/sda2 swap swap defaults 0 0</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Activation du swap</strong>:</p>
+<ul>
+<li>Avec la nouvelle configuration en place, on active le swap.
+<code>swapon /dev/sda2</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Mise à jour de Debian</strong>:</p>
+<ul>
+<li>Maintenant que le swap est correctement configuré, on procède à la mise à jour du système Debian.
+<code>apt update
+apt upgrade</code></li>
+</ul>
+</li>
+</ol>
+<blockquote></blockquote>
+<h3 id="activation-et-configuration-du-bureau-a-distance-sur-windows-10">Activation et configuration du bureau à distance sur Windows 10</h3>
+<ol>
+<li>
+<p><strong>Accéder au panneau de configuration</strong>:</p>
+<ul>
+<li>On ouvre le menu "Démarrer", on recherche "Panneau de configuration" et on le sélectionne.</li>
+</ul>
+</li>
+<li>
+<p><strong>Naviguer vers les paramètres du Bureau à distance</strong>:</p>
+<ul>
+<li>Dans le panneau de configuration, on clique sur "Système et sécurité", puis sur "Autoriser l'accès à distance" sous la section "Système".</li>
+</ul>
+</li>
+<li>
+<p><strong>Activer le Bureau à distance</strong>:</p>
+<ul>
+<li>On coche la case "Autoriser les connexions à distance à cet ordinateur".</li>
+<li>On s'assure que "Autoriser uniquement les connexions à partir d'ordinateurs exécutant le Bureau à distance avec authentification au niveau du réseau (recommandé)" est également coché.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ajouter le groupe des informaticiens aux utilisateurs du Bureau à distance</strong>:</p>
+<ul>
+<li>On ouvre l'invite de commandes PowerShell avec des droits administratifs. Pour ce faire, on clique droit sur le menu Démarrer et on choisit "Windows PowerShell (admin)".</li>
+<li>On saisit la commande suivante pour ajouter le groupe "informatique" aux utilisateurs autorisés du Bureau à distance :
+  <code>powershell
+  net localgroup "utilisateurs du bureau à distance" informatique /add</code></li>
+<li>On peut vérifier si l'opération a été réussie en entrant :
+  <code>powershell
+  net localgroup "utilisateurs du bureau à distance"</code>
+  On s'attend à voir "informatique" dans la liste des membres.</li>
+</ul>
+</li>
+<li>
+<p><strong>Vérification du numéro de port RDP</strong>:</p>
+<ul>
+<li>Pour connaître le numéro de port utilisé par le Bureau à distance, on utilise la commande :
+  <code>powershell
+  netstat -an | find "3389"</code>
+  Si le port 3389 apparaît dans les résultats, cela signifie que le Bureau à distance est correctement configuré pour utiliser ce port par défaut.</li>
+</ul>
+</li>
+<li>
+<p><strong>Finalisation</strong>:</p>
+<ul>
+<li>Une fois toutes ces étapes effectuées, on redémarre l'ordinateur pour que les modifications prennent effet. On teste ensuite la connexion à distance pour s'assurer que tout fonctionne correctement.</li>
+</ul>
+</li>
+</ol>
+<blockquote></blockquote>
+<h1 id="5-installation-dapplications">5 – Installation d’applications</h1>
+<h2 id="sur-windows-10">sur windows 10</h2>
+<h2 id="installation-silencieuse-de-7-zip">Installation silencieuse de 7-Zip</h2>
+<ol>
+<li><strong>Téléchargement du logiciel</strong>:</li>
+<li>
+<p>On se rend sur le site officiel de 7-Zip pour télécharger l'installateur du logiciel, soit en version 32 bits (x86) ou 64 bits (x64), en fonction de la version de Windows sur laquelle on souhaite installer.</p>
+</li>
+<li>
+<p><strong>Préparation de l'installation silencieuse</strong>:</p>
+</li>
+<li>
+<p>On s'assure d'avoir les droits administratifs sur la machine. Si ce n'est pas le cas, on doit exécuter l'installateur avec des droits élevés.</p>
+</li>
+<li>
+<p><strong>Lancement de l'installation silencieuse</strong>:</p>
+</li>
+<li>On ouvre l'invite de commandes (CMD) en tant qu'administrateur.</li>
+<li>
+<p>On navigue vers l'emplacement où se trouve l'installateur téléchargé à l'étape 1. Par exemple, si l'installateur est sur le bureau, on utilise la commande : 
+     <code>cd %AV%\Desktop</code></p>
+</li>
+<li>
+<p>Pour la version 64 bits (nom de fichier par défaut : <code>7zXXXX-x64.msi</code>):
+     <code>msiexec /i 7zXXXX-x64.msi /qn</code>
+     On remplace <code>XXXX</code> par le numéro de version approprié.</p>
+</li>
+<li>
+<p><strong>Vérification</strong>:</p>
+</li>
+<li>Après l'installation, on vérifie que 7-Zip est correctement installé. On peut le faire en ouvrant le menu Démarrer et en recherchant 7-Zip. Si l'application est présente, cela signifie que l'installation a été réussie.</li>
+</ol>
+<blockquote>
+<p><strong>Note</strong> : Le commutateur <code>/qn</code> signifie "quiet no UI". Il permet une installation silencieuse sans interface utilisateur. L'alerte UAC (Contrôle de compte utilisateur) pourrait toujours s'afficher pour demander l'autorisation d'installer le logiciel. </p>
+</blockquote>
+<h2 id="connexion-rdp-a-un-poste-windows-depuis-debianlinux">Connexion RDP à un poste Windows depuis Debian/Linux</h2>
+<h3 id="1-recherche-dapplications-gerant-le-protocole-rdp-avec-nla">1. Recherche d'applications gérant le protocole RDP avec NLA:</h3>
+<ul>
+<li>Avant d'installer tout logiciel, on vérifie les solutions disponibles dans les dépôts officiels pour gérer le protocole RDP :</li>
+</ul>
+<pre><code>apt search rdp
+apt search bureau à distance
+</code></pre>
+<p>ou</p>
+<pre><code>apt search remote desktop
+</code></pre>
+<h3 id="2-installation-de-remmina">2. Installation de Remmina:</h3>
+<ul>
+<li>Suite à la recherche, on détermine que <code>Remmina</code> est l'outil adapté à nos besoins, en particulier pour gérer l'authentification NLA.</li>
+</ul>
+<p>Pour installer Remmina :</p>
+<pre><code>apt install remmina
+</code></pre>
+<h3 id="3-configuration-et-utilisation-de-remmina">3. Configuration et utilisation de Remmina:</h3>
+<ul>
+<li>On ouvre l'interface graphique et lance <code>Remmina</code>.</li>
+<li>Dans Remmina, on clique sur l'option pour créer une nouvelle connexion.</li>
+<li>On sélectionne <code>RDP</code> comme protocole.</li>
+<li>On renseigne les informations nécessaires pour la connexion :</li>
+<li>Serveur: Adresse IP ou nom d'hôte du poste Windows.</li>
+<li>Nom d'utilisateur: Nom d'utilisateur pour la connexion.</li>
+<li>Mot de passe: Mot de passe associé.</li>
+<li>Domaine: Si nécessaire, on spécifie le domaine de connexion.</li>
+</ul>
+<p>Une fois les informations renseignées, on clique sur <code>Connexion</code> pour initier la session RDP.</p>
+<h2 id="installation-de-webmin-pour-la-gestion-via-une-interface-web">Installation de Webmin pour la gestion via une interface web</h2>
+<h3 id="1-installation-en-ligne">1. Installation en ligne :</h3>
+<p>On suit le guide disponible sur le site officiel de Webmin : <a href="https://www.webmin.com/deb.html">Guide d'installation de Webmin</a></p>
+<h3 id="2-gestion-des-dependances-manquantes">2. Gestion des dépendances manquantes :</h3>
+<p>Si des dépendances sont manquantes, on les installe en utilisant les commandes appropriées, par exemple :</p>
+<pre><code>apt install [nom_de_la_dépendance]
+</code></pre>
+<h3 id="3-reparation-de-webmin-si-necessaire">3. Réparation de Webmin si nécessaire :</h3>
+<p>Dans le cas où Webmin serait endommagé après l'installation, on utilise la commande suivante pour le réparer :</p>
+<pre><code>apt install --fix-broken
+</code></pre>
+<h3 id="4-acces-a-linterface-de-webmin">4. Accès à l'interface de Webmin :</h3>
+<p>Après l'installation, on ouvre un navigateur et se rend à l'adresse suivante : <code>https://[adresse_ip_du_serveur]:10000</code>
+Si une alerte de sécurité apparaît en raison du certificat SSL auto-signé, on choisit de "continuer" ou "accepter le risque" pour accéder à l'interface.</p>
+<h3 id="5-authentification">5. Authentification :</h3>
+<p>À la page de connexion, on s'authentifie en tant que <code>root</code> ou tout autre utilisateur disposant des droits d'administration.</p>
+<h3 id="6-verification">6. Vérification :</h3>
+<p>Une fois connecté, on peut voir l'interface de Webmin. Tout est en ordre si l'on peut naviguer sans problème.</p>
+<h1 id="6-sauvegarde-et-restauration">6 – Sauvegarde et restauration</h1>
+<h2 id="planification-dune-sauvegarde-quotidienne-et-duplication-des-fichiers">Planification d'une sauvegarde quotidienne et duplication des fichiers</h2>
+<h3 id="1-creation-du-script-de-sauvegarde">1. Création du script de sauvegarde :</h3>
+<ul>
+<li>On commence par créer un script pour réaliser la sauvegarde des données :</li>
+</ul>
+<pre><code>vim /root/script.sh
+</code></pre>
+<ul>
+<li>Dans ce script, on insère les commandes suivantes :</li>
+</ul>
+<pre><code>#!/bin/bash
+tar cf /root/HomeBack.tar /home
+tar cf /root/ServicesBack.tar /services
+</code></pre>
+<ul>
+<li>Ensuite, on modifie les permissions pour permettre l'exécution du script :</li>
+</ul>
+<pre><code>chmod u+x /root/script.sh
+</code></pre>
+<h3 id="2-planification-de-la-sauvegarde">2. Planification de la sauvegarde :</h3>
+<ul>
+<li>On planifie ensuite la sauvegarde à l'aide de <code>crontab</code> :</li>
+</ul>
+<pre><code>crontab -e
+</code></pre>
+<ul>
+<li>Puis, on ajoute la ligne suivante pour exécuter le script tous les jours de la semaine à 12h30 :</li>
+</ul>
+<pre><code>30 12 * * 1-5 /root/script.sh
+</code></pre>
+<h3 id="3-duplication-des-fichiers-avec-scp">3. Duplication des fichiers avec <code>scp</code> :</h3>
+<ul>
+<li>On vérifie si <code>scp</code> est installé sur le système :</li>
+</ul>
+<pre><code>apt-cache search scp
+</code></pre>
+<ul>
+<li>Si nécessaire, on installe le paquet correspondant.</li>
+<li>Dans <code>crontab</code>, on ajoute une ligne pour copier les sauvegardes vers une machine distante :</li>
+</ul>
+<pre><code>32 12 * * 1-5 scp /root/*.tar utilisateur@adresse_ip_du_binôme:/dossier_de_destination/
+</code></pre>
+<blockquote>
+<p><strong>Note</strong>: Pensez à utiliser une clé SSH pour une authentification sans mot de passe avec <code>scp</code>.</p>
+</blockquote>
+<p>Avec cette configuration, les données seront sauvegardées quotidiennement à 12h30 et dupliquées sur une autre machine à 12h32.</p>
+<h2 id="sauvegarde-sur-les-postes-windows-10">Sauvegarde sur les postes Windows 10</h2>
+<h3 id="1-ajout-dun-nouveau-disque-dur">1. Ajout d'un nouveau disque dur :</h3>
+<ul>
+<li>Si l'espace de stockage est insuffisant, on commence par ajouter un disque dur de 60 Go.</li>
+<li>On suit la procédure déjà fournie d’ajout de disque sous Vmware workstation.</li>
+</ul>
+<h3 id="2-creation-dune-image-systeme">2. Création d'une image système :</h3>
+<ul>
+<li>Aller dans <strong>Démarrer</strong> &gt; <strong>Paramètres</strong> &gt; <strong>Système</strong> &gt; <strong>Stockage</strong> &gt; <strong>Gestion des disques</strong>.</li>
+<li>Une fois dans le gestionnaire de disques :</li>
+<li>On repère le nouveau disque de 60 Go qui devrait apparaître comme "Non alloué".</li>
+<li>Faire un clic-droit sur ce disque puis choisir "Nouveau volume simple".</li>
+<li>Suivre l'assistant : choisir la taille maximale pour le volume, attribuer une lettre au disque, puis formater le volume avec le format NTFS et attribuer un nom de votre choix.</li>
+<li>Pour créer une image :</li>
+<li>Aller dans <strong>Panneau de configuration</strong> &gt; <strong>Système et sécurité</strong> &gt; <strong>Sauvegarder et restaurer</strong>.</li>
+<li>Dans le volet de gauche, choisir <strong>Créer une image système</strong>.</li>
+<li>Suivre l'assistant, choisir le disque nouvellement créé pour stocker l'image.</li>
+</ul>
+<h3 id="3-planification-dune-sauvegarde-journaliere">3. Planification d'une sauvegarde journalière :</h3>
+<ul>
+<li>Retourner dans <strong>Panneau de configuration</strong> &gt; <strong>Système et sécurité</strong> &gt; <strong>Sauvegarder et restaurer</strong>.</li>
+<li>Cliquer sur "Configurer la sauvegarde".</li>
+<li>Dans la nouvelle fenêtre, choisir "Enregistrer sur un réseau...".</li>
+<li>Une boîte de dialogue s'ouvre pour demander l'emplacement réseau. Entrer <code>\@ip_du_binôme\Support_Info</code> et fournir les informations d'identification nécessaires.</li>
+<li>Une fois l'emplacement réseau choisi, sélectionner "Me laisser choisir" pour choisir les dossiers à sauvegarder.</li>
+<li>Cocher uniquement le dossier "Support_Info" et décocher l'option "Inclure une image système de lecteurs".</li>
+<li>Passer à l'étape suivante et choisir "Modifier la planification". Choisir une sauvegarde quotidienne et régler l'heure sur 13:00.</li>
+</ul>
+<h3 id="4-ajustement-de-lheure-de-sauvegarde">4. Ajustement de l'heure de sauvegarde :</h3>
+<ul>
+<li>Pour une planification précise à 12h45, ouvrir le <strong>Planificateur des tâches</strong> à partir du menu Démarrer.</li>
+<li>Dans la fenêtre du Planificateur des tâches, chercher dans le volet central la tâche nommée "AutomaticBackup".</li>
+<li>Faire un double-clic dessus pour l'ouvrir.</li>
+<li>Aller dans l'onglet "Déclencheurs" et modifier le déclenchement existant.</li>
+<li>Régler l'heure sur 12h45 et confirmer.</li>
+</ul>
+<h2 id="conclusion">Conclusion :</h2>
+<p>Avec ces étapes, on assure que le système Windows 10 est correctement sauvegardé et que les données importantes sont sécurisées régulièrement.</p>
+<h2 id="parametrage-des-points-de-restauration-sur-le-volume-c-sous-windows-10">Paramétrage des points de restauration sur le volume « C: » sous Windows 10</h2>
+<h3 id="1-acces-a-la-gestion-des-points-de-restauration-systeme">1. Accès à la gestion des points de restauration système:</h3>
+<ul>
+<li>On commence par ouvrir le <strong>Panneau de configuration</strong>. </li>
+<li>
+<p>Pour ce faire, on clique sur le bouton <strong>Démarrer</strong>, tape "Panneau de configuration" dans la barre de recherche et sélectionne l'application correspondante parmi les résultats.</p>
+</li>
+<li>
+<p>Une fois dans le <strong>Panneau de configuration</strong>, on clique sur <strong>Système et sécurité</strong>.</p>
+</li>
+<li>
+<p>Dans la fenêtre suivante, on clique sur <strong>Système</strong>.</p>
+</li>
+<li>
+<p>Sur le volet de gauche, on sélectionne <strong>Protection du système</strong>. Cela ouvre une fenêtre nommée "Propriétés système", avec l'onglet "Protection du système" actif.</p>
+</li>
+</ul>
+<h3 id="2-configuration-des-points-de-restauration-pour-le-lecteur-c">2. Configuration des points de restauration pour le lecteur C:</h3>
+<ul>
+<li>
+<p>Sous l'onglet <strong>Protection du système</strong>, dans la section "Protection des paramètres", on repère le lecteur <strong>C:</strong>.</p>
+</li>
+<li>
+<p>Si la protection est désactivée pour le lecteur <strong>C:</strong>, on le sélectionne puis clique sur <strong>Configurer...</strong>.</p>
+</li>
+<li>
+<p>Dans la fenêtre qui s'affiche :</p>
+</li>
+<li>
+<p>On coche <strong>Activer la protection du système</strong>.</p>
+</li>
+<li>
+<p>Dans "Utilisation maximale", on définit l'espace disque à utiliser pour la protection du système à <strong>8%</strong>.</p>
+</li>
+<li>
+<p>On confirme les modifications en cliquant sur <strong>Appliquer</strong> puis <strong>OK</strong>.</p>
+</li>
+</ul>
+<h3 id="3-creation-dun-point-de-restauration-systeme">3. Création d'un point de restauration système:</h3>
+<ul>
+<li>
+<p>Toujours dans l'onglet <strong>Protection du système</strong>, avec le lecteur <strong>C:</strong> sélectionné, on clique sur <strong>Créer...</strong>.</p>
+</li>
+<li>
+<p>On nomme le point de restauration (par exemple, "Point initial") et clique sur <strong>Créer</strong>.</p>
+</li>
+<li>
+<p>Une fois le point de restauration créé, un message de confirmation apparaît.</p>
+</li>
+<li>
+<p>On ferme toutes les fenêtres ouvertes pour terminer la procédure.</p>
+</li>
+</ul>
+<h2 id="note">note:</h2>
+<p>On a désormais paramétré la protection du système pour le lecteur <strong>C:</strong> en réservant 8% de sa capacité pour les points de restauration et créé un point de restauration initial.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
