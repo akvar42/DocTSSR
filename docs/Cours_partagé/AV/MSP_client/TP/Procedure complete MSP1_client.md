@@ -175,13 +175,13 @@ foreach ($User in $Users) {
     New-Item -Path "C:\Users$User\Desktop\Procedure" -ItemType Directory
     New-Item -Path "C:\Users$User\Desktop\Procedure\Reglement interieur" -ItemType File
 }
-
 ```
+
 
 ### pour le prestataire et son shell ksh
 
 ```
- useradd -c "Préstataire" prestataire -m -g informatique --shell /bin/ksh -p PMDP2023!
+useradd -c "Préstataire" prestataire -m -g informatique --shell /bin/ksh -p PMDP2023!
 ```
 
 
@@ -190,7 +190,7 @@ foreach ($User in $Users) {
 ## Contrainte suplémentaire windows 10 :
 ## Securité mot de passe
 
-- dans l'invite de commande je lance ```secpol.msc```
+- dans l'invite de commande je lance secpol.msc
 - dans "strategie mot de passe" j'active "exigence de complexité"
 - dans longeur minimal je fixe à 12
 
