@@ -181,8 +181,7 @@ foreach ($User in $Users) {
 ### pour le prestataire et son shell ksh
 
 ```
-# useradd -c "Préstataire" prestataire -m -g informatique --shell /bin/ksh -
-p PMDP2023!
+ useradd -c "Préstataire" prestataire -m -g informatique --shell /bin/ksh -p PMDP2023!
 ```
 
 
