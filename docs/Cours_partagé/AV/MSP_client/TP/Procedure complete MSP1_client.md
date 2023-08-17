@@ -190,7 +190,49 @@ useradd -c "Préstataire" prestataire -m -g informatique --shell /bin/ksh -p PMD
 - dans "strategie mot de passe" j'active "exigence de complexité"
 - dans longeur minimal je fixe à 12
 
-### Ajout nouveau compte administrateur pour le directeur
+## Limiter l'accès pour l'utilisateur via la commande
+
+### Pour définir les heures de connexion pour l'utilisateur `cpeletier`, exécutez la commande suivante avec des droits administratifs :
+
+```
+bash
+net user cpeletier /times:L,Ma,Me,J,V,9:00-12:00
+```
+
+Les abréviations pour les jours en français sont : 
+- L pour Lundi
+- Ma pour Mardi
+- Me pour Mercredi
+- J pour Jeudi
+- V pour Vendredi 
+
+### Méthode graphique pour limiter l'accès
+**Ouvrez la gestion de l'ordinateur:**
+- Appuyez sur Win + R pour ouvrir la boîte de dialogue Exécuter.
+- Tapez compmgmt.msc et appuyez sur Entrée.
+
+**Naviguez jusqu'aux utilisateurs et groupes locaux:**
+
+- Dans le volet gauche, développez "Utilisateurs et groupes locaux" et cliquez sur "Utilisateurs".
+
+**Sélectionnez le compte utilisateur:**
+
+- Recherchez et double-cliquez sur le compte cpeletier.
+**Définissez les heures de connexion:**
+
+- Dans la boîte de dialogue des propriétés, allez à l'onglet "Heures de connexion".
+D- éfinissez les tranches horaires autorisées pour chaque jour de la semaine.
+A**ppliquez et fermez:**
+
+- Cliquez sur "OK" ou "Appliquer" pour sauvegarder les modifications.
+
+
+Note: Cette configuration ne déconnectera pas automatiquement un utilisateur déjà connecté en dehors des heures définies, mais empêchera les nouvelles connexions pendant les périodes non autorisées.
+
+
+
+
+## Ajout nouveau compte administrateur pour le directeur
 - je lance powershell en administrateur puis
 - je fait 
 ```net user admin rgrimes /add```
@@ -199,18 +241,20 @@ useradd -c "Préstataire" prestataire -m -g informatique --shell /bin/ksh -p PMD
 
 puis tape le nouveaux mot de passe
 
-### Intégration du service informatique au groupe Administrateur
+## Intégration du service informatique au groupe Administrateur
 -aprés avoir crée le groupe "Administrateurs"
 
 ```Add-LocalGroupMember -Group "Administrateurs" -Member "Avincent" ```
 
-### Forçage du changement de mot de passe:
+## Forçage du changement de mot de passe:
 - sur **windows 10** :sans la console MMC, dans utilisateur et groupe: clique droit sur l'utilisateur puis dans l'onglet général "l'utilisateur doit changer le mot de passe à la prochaine ouverture de session"
 - dans **Debian** 
 
 
 
-```chage Avincent -d 0```
+```
+chage Avincent -d 0
+```
 
 
 
