@@ -1653,36 +1653,36 @@ done &lt; &quot;$csvPath&quot;
 echo &quot;Tous les utilisateurs et groupes ont été créés.&quot; 
 </code></pre>
 <h2 id="ajouter-un-dossier-procedure-avec-le-reglement-interieur">Ajouter un dossier procedure avec le réglement interieur.</h2>
-<ul>
-<li>je crée le dossier sur ma session avec le fichier réglement interieur, puis j'execute ce script afin d'évité de faire manuelement la procedure</li>
-</ul>
-<pre><code> Chemin de destination pour le nouveau dossier sur le bureau de chaque utilisateur
-$destinationPath = &quot;C:\Users\*\Desktop\Procédures&quot;
-# Chemin du fichier &quot;Règlement intérieur&quot; que vous avez préparé
-$sourceFile = &quot;C:\temp\Règlement intérieur.txt&quot;
-# Création du dossier &quot;Procédures&quot; sur le bureau de chaque utilisateur
-Get-ChildItem -Path &quot;C:\Users\*&quot; -Directory | ForEach-Object {
-    $folderPath = Join-Path $_.FullName &quot;Desktop\Procédures&quot;
-    if (-not (Test-Path $folderPath)) {
-        New-Item -Path $folderPath -ItemType Directory
-    }
-}
-# Copie du fichier &quot;Règlement intérieur&quot; dans le dossier &quot;Procédures&quot; de chaque utilisateur
-$sourceFile = &quot;C:\temp\Règlement_intérieur.txt&quot;
+<p>-executer ce script ( attention aux chemin des dossier personel)</p>
+<pre><code> # Chemin vers le répertoire des utilisateurs
+$usersDirectory = &quot;C:\Users&quot;
 
-Get-ChildItem -Path &quot;C:\Users\*&quot; -Directory | ForEach-Object {
-    $folderPath = Join-Path $_.FullName &quot;Desktop\Procédures&quot;
-    if (Test-Path $sourceFile) {
-        Copy-Item -Path $sourceFile -Destination $folderPath
+# Obtenir la liste de tous les répertoires utilisateur
+$usersFolders = Get-ChildItem -Path $usersDirectory -Directory
+
+# Parcourir chaque répertoire utilisateur
+foreach ($userFolder in $usersFolders) {
+    # Chemin vers le dossier 'procedure' pour cet utilisateur
+    $procedureFolder = Join-Path -Path $userFolder.FullName -ChildPath &quot;procedure&quot;
+
+    # Vérifier si le dossier 'procedure' n'existe pas déjà
+    if (-not (Test-Path -Path $procedureFolder)) {
+        # Créer le dossier 'procedure'
+        New-Item -Path $procedureFolder -ItemType Directory
+    }
+
+    # Chemin vers le fichier 'réglement intérieur.txt' pour cet utilisateur
+    $reglementFile = Join-Path -Path $procedureFolder -ChildPath &quot;réglement intérieur.txt&quot;
+
+    # Vérifier si le fichier n'existe pas déjà
+    if (-not (Test-Path -Path $reglementFile)) {
+        # Créer le fichier 'réglement intérieur.txt'
+        New-Item -Path $reglementFile -ItemType File
     }
 }
-</code></pre>
-<p>ou avec le script de bard</p>
-<pre><code>$Users = Get-LocalUser
-foreach ($User in $Users) {
-    New-Item -Path &quot;C:\Users$User\Desktop\Procedure&quot; -ItemType Directory
-    New-Item -Path &quot;C:\Users$User\Desktop\Procedure\Reglement interieur&quot; -ItemType File
-} 
+
+Write-Output &quot;Le processus est terminé.&quot;
+
 </code></pre>
 <h3 id="pour-le-prestataire-et-son-shell-ksh">Pour le prestataire et son shell ksh</h3>
 <pre><code>useradd -c &quot;Préstataire&quot; prestataire -m -g informatique --shell /bin/ksh -p PMDP2023!
