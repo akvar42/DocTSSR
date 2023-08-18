@@ -1534,58 +1534,57 @@ Morgan;Jones;mjones;morganjones@gmail.com;MJMDP2023!;Logistique;Interne
 
 </code></pre>
 <h1 id="creation-des-groupes-et-des-utilisateurs-sur-windows-10-via-powershell">Creation des groupes et des Utilisateurs sur windows 10 via Powershell</h1>
+<h2 id="installer-avant-les-module-active-directory">installer avant les module active directory</h2>
 <ul>
-<li>
-<p>A l'aide de Chat GPT,  Je crée un script qui commencera par lire le fichier CSV.
-Pour chaque ligne, il vérifiera si le groupe existe ou non. S'il n'existe pas, il le créera. Ensuite, il créera l'utilisateur avec les détails fournis.</p>
-</li>
-<li>
-<p>je modifie la politique d'execution de  powershell pour executer le script avec  <code>Set-ExecutionPolicy Unrestricted</code></p>
-</li>
-<li>
-<p>Je lance le script avec powershell en mode administrateur</p>
-</li>
+<li>Ouvrez Paramètres.</li>
+<li>Allez à Applications.</li>
+<li>Sous Applications et fonctionnalités, cliquez sur Fonctionnalités facultatives.</li>
+<li>Cliquez sur Ajouter une fonctionnalité.</li>
+<li>Dans la liste, recherchez Outils RSAT : Outils AD DS et AD LDS et installez-le.</li>
+<li>Après l'installation, le module PowerShell pour Active Directory devrait être disponible.</li>
+<li>Une fois les outils RSAT installés:</li>
+<li>Ouvrez une session PowerShell (de préférence en tant qu'administrateur) et tapez la commande suivante pour importer le module :</li>
 </ul>
-<pre><code># Chemin vers votre fichier CSV
-$csvPath = &quot;C:\Users\AV\Documents\script\users.csv&quot;
+<pre><code class="language-powershell">
+Import-Module ActiveDirectory
+</code></pre>
+<h2 id="permettre-lexecution-de-script-dans-power-shell">Permettre l'execution de script dans power shell</h2>
+<ul>
+<li>verifier la politique active:</li>
+</ul>
+<pre><code>Get-ExecutionPolicy
 
-# Importer les données du CSV
-$usersData = Import-Csv -Path $csvPath -Delimiter ';'
 
-# Parcourir chaque utilisateur et créer l'utilisateur
-foreach ($data in $usersData) {
-    # Créer le nom complet
-    $FullName = &quot;$($data.Nom) $($data.Prénom)&quot;
+</code></pre>
+<p>changer la politique:</p>
+<pre><code>Set-ExecutionPolicy Unrestricted
 
-    # Convertir le mot de passe en SecureString
-    $securePassword = ConvertTo-SecureString -AsPlainText $data.password -Force
+</code></pre>
+<h2 id="creer-un-fichier-text-en-ps1-et-lexecuter-en-mode-adminitrateur">Créer un fichier text en .ps1 et l'executer en mode adminitrateur.</h2>
+<pre><code># Lit le fichier CSV
+$utilisateurs = Import-Csv &quot;chemin_vers_votre_fichier\utilisateurs.csv&quot; -Delimiter &quot;;&quot;
 
-    # Créer l'utilisateur
-    try {
-        New-LocalUser -FullName $FullName -Description $data.description -Name $data.login -Password $securePassword -ErrorAction Stop
-        Write-Host &quot;Utilisateur $FullName créé avec succès.&quot;
-    } catch {
-        Write-Warning &quot;Erreur lors de la création de l'utilisateur $FullName. Détails : $_&quot;
+# Pour chaque utilisateur dans le fichier CSV
+foreach ($utilisateur in $utilisateurs) {
+    # Crée le groupe s'il n'existe pas déjà
+    if (-not (Get-LocalGroup -Name $utilisateur.groupe -ErrorAction SilentlyContinue)) {
+        New-LocalGroup -Name $utilisateur.groupe -Description $utilisateur.description
     }
 
-    # Ajouter l'utilisateur au groupe si nécessaire
-    if ($data.groupe) {
-        try {
-            # Si le groupe n'existe pas, le créer
-            if (-not (Get-LocalGroup -Name $data.groupe -ErrorAction SilentlyContinue)) {
-                New-LocalGroup -Name $data.groupe -Description &quot;Groupe créé par script&quot;
-                Write-Host &quot;Groupe $($data.groupe) créé avec succès.&quot;
-            }
+    # Crée l'utilisateur
+    $passwordSecure = ConvertTo-SecureString $utilisateur.password -AsPlainText -Force
+    New-LocalUser -Name $utilisateur.login `
+                  -GivenName $utilisateur.Prénom `
+                  -Surname $utilisateur.Nom `
+                  -Description $utilisateur.description `
+                  -Password $passwordSecure `
+                  -UserMayNotChangePassword $false `
+                  -PasswordNeverExpires $false `
+                  -FullName &quot;$($utilisateur.Prénom) $($utilisateur.Nom)&quot;
 
-            # Ajouter l'utilisateur au groupe
-            Add-LocalGroupMember -Group $data.groupe -Member $data.login
-            Write-Host &quot;Utilisateur $FullName ajouté au groupe $($data.groupe) avec succès.&quot;
-        } catch {
-            Write-Warning &quot;Erreur lors de l'ajout de l'utilisateur $FullName au groupe $($data.groupe). Détails : $_&quot;
-        }
-    }
+    # Ajoute l'utilisateur au groupe
+    Add-LocalGroupMember -Group $utilisateur.groupe -Member $utilisateur.login
 }
-
 </code></pre>
 <h2 id="creation-utilisateurs-et-groupes-pour-debian">création utilisateurs et groupes pour Debian</h2>
 <p>En suite je peux reutilisé mon fichier csv pour debian. En utilisant ce script bash que je rend executable avec la commande:
