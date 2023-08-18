@@ -217,7 +217,7 @@ Write-Output "Le processus est terminé."
 
 
 
-### Pour le prestataire et son shell ksh
+### Pour le prestataire et son shell ksh sur debian
 
 ```
 useradd -c "Préstataire" prestataire -m -g informatique --shell /bin/ksh -p PMDP2023!
@@ -249,7 +249,7 @@ Les abréviations pour les jours en français sont :
 - J pour Jeudi
 - V pour Vendredi 
 
-### Méthode graphique pour limiter l'accès
+### Méthode graphique pour limiter l'accès (pas dispo sur toute les version)
 **Ouvrez la gestion de l'ordinateur:**
 - Appuyez sur Win + R pour ouvrir la boîte de dialogue Exécuter.
 - Tapez compmgmt.msc et appuyez sur Entrée.
@@ -264,8 +264,8 @@ Les abréviations pour les jours en français sont :
 **Définissez les heures de connexion:**
 
 - Dans la boîte de dialogue des propriétés, allez à l'onglet "Heures de connexion".
-D- éfinissez les tranches horaires autorisées pour chaque jour de la semaine.
-A**ppliquez et fermez:**
+- Définissez les tranches horaires autorisées pour chaque jour de la semaine.
+**Appliquez et fermez:**
 
 - Cliquez sur "OK" ou "Appliquer" pour sauvegarder les modifications.
 
@@ -280,29 +280,29 @@ Note: Cette configuration ne déconnectera pas automatiquement un utilisateur d�
 - je fait 
 ```net user admin rgrimes /add```
 
-```net user rgrimes * ```
+```
+net user rgrimes * 
+```
 
 puis tape le nouveaux mot de passe
-
+```
+Add-LocalGroupMember -Group "Administrateurs" -Member "rgrimes"
+```
 ## Intégration du service informatique au groupe Administrateur
 -aprés avoir crée le groupe "Administrateurs"
 
-```Add-LocalGroupMember -Group "Administrateurs" -Member "Avincent" ```
+```
+Add-LocalGroupMember -Group "Administrateurs" -Member "Avincent"
+ ```
 
 ## Forçage du changement de mot de passe:
 - sur **windows 10** :sans la console MMC, dans utilisateur et groupe: clique droit sur l'utilisateur puis dans l'onglet général "l'utilisateur doit changer le mot de passe à la prochaine ouverture de session"
 - dans **Debian** 
 
-
-
 ```
 chage Avincent -d 0
 ```
-
-
-
-
- ### restriction d'utilisation de périphérique windows 10
+### restriction d'utilisation de périphérique windows 10
  - Pour restreindre l'utilisation de périphérique, j'utilise le logitiel enfichagle disponible dans la console MMC: "éditeur d'objet et stratégie de groupe"
 
 - Dans "objet de stratégie de groupe" je séléctione "NON-adminstrateurs"
@@ -591,7 +591,7 @@ exit
 7. On valide les changements.
 8. On retourne à l'onglet "Sécurité", puis on clique sur "Ajouter..." suivi de "Sélectionnez un principal".
 9. Dans la liste, on choisit l'option “modification” ainsi que l'option “Appliquer ces autorisations...” avant de valider avec "OK".
-10. Enfin, on supprime tous les utilisateurs et groupes listés dans la fenêtre des autorisations, à l'exception du groupe L_commercial_W et du compte système. De cette façon, seuls les membres du groupe L_commercial_W auront accès au dossier, garantissant ainsi que l'accès est interdit à toute personne étrangère au service.
+10. Enfin, on supprime tous les utilisateurs et groupes listés dans la fenêtre des autorisations, à l'exception du groupe commercial et du compte système. De cette façon, seuls les membres du groupe commercial auront accès au dossier, garantissant ainsi que l'accès est interdit à toute personne étrangère au service.
 
 
 
@@ -606,8 +606,10 @@ exit
 6. Dans la zone "Nom du partage", on ajoute le symbole "$" à la fin pour rendre le partage caché.
 7. On clique sur le bouton "Autorisations" pour définir les droits d'accès souhaités.
 8. Une fois les autorisations correctement définies, on valide en cliquant sur "OK".
-9. Pour confirmer la mise en place du partage, on ouvre l'invite de commande (`cmd`) et on liste les partages disponibles.
-10. En préparation pour des déploiements futurs, on recherchera l'équivalent des actions effectuées sous la forme de commandes PowerShell. Ces commandes seront conservées dans un fichier script PowerShell avec l'extension ".ps1".
+9. Pour confirmer la mise en place du partage;
+```
+net share
+```
 
 ### En ligne de commande:
 
