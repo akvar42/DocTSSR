@@ -1779,854 +1779,762 @@ en mode commande</p>
 <ul>
 <li>Lancement de diskpart dans powershell en mode administrateur</li>
 </ul>
-<p><code>diskpart</code></p>
+<pre><code>diskpart
+</code></pre>
 <ul>
 <li>listage des disques</li>
 </ul>
-<p><code>list disk</code></p>
+<pre><code>list disk
+</code></pre>
 <ul>
 <li>selection du disque à partitioner</li>
 </ul>
-<p><code>select disk 1</code></p>
+<pre><code>select disk 1
+</code></pre>
 <ul>
 <li>on deconect le disque pour s'assuré qu'aucun service ne soit en train de l'utiliser</li>
 </ul>
-<p><code>offline disk</code></p>
+<pre><code>offline disk
+</code></pre>
 <ul>
 <li>on reconecte</li>
 </ul>
-<p><code>online disk</code></p>
+<pre><code>online disk
+</code></pre>
 <ul>
 <li>on crée une table de partition mbr</li>
 </ul>
-<p><code>convert MBR</code></p>
+<pre><code>convert MBR
+</code></pre>
 <ul>
 <li>on crée une partion de 15000 Mega octet (15 Giga)</li>
 </ul>
-<p><code>create partition primary size=15000</code></p>
+<pre><code>create partition primary size=15000
+</code></pre>
 <ul>
 <li>on formate en ntfs en appellant la partion DATA</li>
 </ul>
-<p><code>create partition primary size=15000</code></p>
-<ul>
-<li>on attribue la lettre D au disque</li>
-</ul>
-<p><code>assign letter=D</code></p>
-<ul>
-<li>En faisant <code>list disk</code> on peut voir la modification qui s'est correctement effectué.</li>
-</ul>
-<h2 id="creation-de-partitions-sur-debian-avec-fdisk">création de partitions sur Debian avec fdisk</h2>
-<ul>
-<li>
-<p>On commence par lister les disques:
-<code>fdisk -l</code></p>
-</li>
-<li>
-<p>on selectionne le disque à partitionner
-<code>fdisk /dev/sdb</code></p>
-</li>
-</ul>
-<p><strong><em>on fait trois partitions:</em></strong></p>
-<ul>
-<li>
-<p>1ère partition :
+<pre><code>format fs=ntfs label=&quot;DATA&quot; quick
+ ```
+
+- on attribue la lettre D au disque
+
+</code></pre>
+<p>assign letter=D</p>
+<pre><code>
+- En faisant ``` list disk ``` on peut voir la modification qui s'est correctement effectué.
+
+</code></pre>
+<p>exit</p>
+<pre><code>
+
+
+## création de partitions sur Debian avec fdisk
+
+- On commence par lister les disques:
+```fdisk -l```
+
+- on selectionne le disque à partitionner
+```fdisk /dev/sdb```
+
+***on fait trois partitions:***
+
+- 1ère partition :
 · n : créer une nouvelle partition
 · p : type de partition primaire
 · Laisser le numéro de partition par défaut
 · Laisser le premier secteur par défaut
-· +15G pour ajouter 15Go</p>
-</li>
-<li>
-<p>2ème partition:
+· +15G pour ajouter 15Go
+
+- 2ème partition:
 · n : créer une nouvelle partition
 · p : type de partition primaire
 · Laisser le numéro de partition par défaut
 · Laisser le premier secteur par défaut
-· +15G pour ajouter 15Go</p>
-</li>
-<li>
-<p>3ème partition:
+· +15G pour ajouter 15Go
+
+- 3ème partition:
 · n : créer une nouvelle partition
 · p : type de partition primaire
 · Laisser le numéro de partition par défaut
 · Laisser le premier secteur par défaut
-· Laisser le dernier secteur par défaut pour occuper tout l'espace restant</p>
-</li>
-<li>
-<p>on quitte fdisk avec <code>w</code></p>
-</li>
-</ul>
-<h3 id="formatage-des-partitions-avec-mkfs">Formatage des partitions avec mkfs</h3>
-<ul>
-<li>Pour formater la partion en xfs il faut installer xfsprogs</li>
-</ul>
-<p><code>apt install xfsprogs</code></p>
-<ul>
-<li>puis on formate avec mkfs en nomant les partitions en donnant un label avec l'argument -L
-<code>mkfs.ext4 -L PROFILS /dev/sdb1</code>
-<code>mkfs.ext4 -L DATA /dev/sdb2</code>
- <code>mkfs.xfs -L LOGS /dev/sdb3</code></li>
-</ul>
-<h3 id="extention-du-dossier-home">Extention du dossier home</h3>
-<p>### methode 1  LVM: 
+· Laisser le dernier secteur par défaut pour occuper tout l'espace restant
+
+
+- on quitte fdisk avec ```w```
+
+### Formatage des partitions avec mkfs
+- Pour formater la partion en xfs il faut installer xfsprogs
+
+``` apt install xfsprogs ```
+
+- puis on formate avec mkfs en nomant les partitions en donnant un label avec l'argument -L
+```mkfs.ext4 -L PROFILS /dev/sdb1```
+```mkfs.ext4 -L DATA /dev/sdb2 ```
+ ```mkfs.xfs -L LOGS /dev/sdb3```
+
+
+### Extention du dossier home
+  ### methode 1  LVM: 
   il reste de la place sur le groupe de volume logique et j'étend /home
  -on verifie la place disponible:
-  <code>vgs</code>
-  -on etend le volume logique <em>LGV est le noms du groupe de volume, (-l +100%FREE) utilise tout l'espace libre du VG.</em>
- <code>lvextend -l +100%FREE /dev/LGV/HOME</code></p>
-<h3 id="-methode-2-mise-a-jour-du-repertoire-home">- Methode 2 - Mise à jour du répertoire <code>/home</code></h3>
-<h3 id="preparation">Préparation</h3>
-<ol>
-<li><strong>Sauvegarde</strong> : </li>
-<li>
-<p>On s'assure d'avoir une sauvegarde complète de toutes les données, en particulier du répertoire <code>/home</code>.</p>
-</li>
-<li>
-<p><strong>Information des utilisateurs</strong>:</p>
-</li>
-<li>
-<p>On informe tous les utilisateurs qu'une maintenance est prévue. On précise la durée estimée de cette maintenance.</p>
-</li>
-<li>
-<p><strong>Désactivation de l'accès des utilisateurs</strong>:</p>
-</li>
-<li>Pour empêcher les connexions pendant la transition, on passe en mode de maintenance:
-   <code>systemctl isolate rescue.target</code></li>
-<li>Si le système est accessible via SSH, on désactive le service:
-   <code>systemctl stop sshd</code></li>
-<li>On crée un fichier <code>/etc/nologin</code> pour empêcher les utilisateurs non-root de se connecter:
-   <code>echo "Maintenance en cours, veuillez réessayer plus tard." &gt; /etc/nologin</code></li>
-</ol>
-<h3 id="processus-de-transition">Processus de transition</h3>
-<ol>
-<li>
-<p><strong>Copie temporaire de <code>/home</code></strong> :
-   <code>cp -rp /home /tmp/home-backup</code></p>
-</li>
-<li>
-<p><strong>Modification du fichier <code>/etc/fstab</code></strong> :
-   <code>vim /etc/fstab</code></p>
-</li>
-<li>On commente la ligne concernant <code>/home</code> en ajoutant un <code>#</code> devant :
-   <code>#UUID=4b59933b-136a-4287-8658-c97b2ec93603 /home ext4 defaults 0 2</code></li>
-<li>
-<p>On ajoute ensuite la ligne pour monter la partition <code>PROFILS</code> à <code>/home</code> :
-   <code>LABEL=PROFILS /home ext4 defaults 0 2</code></p>
-</li>
-<li>
-<p><strong>Montage des partitions</strong> :
-   <code>mount -a</code></p>
-</li>
-<li>
-<p><strong>Copie des données du backup vers le nouveau <code>/home</code></strong> :
-   <code>cp -rp /tmp/home-backup/* /home/</code></p>
-</li>
-</ol>
-<h3 id="verifications-post-transition">Vérifications post-transition</h3>
-<ol>
-<li><strong>Réactivation de l'accès des utilisateurs</strong>:</li>
-<li>On repasse en mode normal:
-   <code>systemctl isolate default.target</code></li>
-<li>Si le service SSH a été désactivé, on le réactive:
-   <code>systemctl start sshd</code></li>
-<li>
-<p>On supprime le fichier <code>/etc/nologin</code> pour permettre aux utilisateurs de se reconnecter:
-   <code>rm /etc/nologin</code></p>
-</li>
-<li>
-<p><strong>Vérification de la copie</strong> :</p>
-</li>
-<li>
-<p>On s'assure que toutes les données et permissions sont correctement copiées sur le nouveau volume.</p>
-</li>
-<li>
-<p><strong>Nettoyage</strong> :</p>
-</li>
-<li>
-<p>Après s'être assuré que tout est en ordre, on peut supprimer le répertoire de backup pour récupérer l'espace :
-   <code>rm -rf /tmp/home-backup</code></p>
-</li>
-<li>
-<p><strong>Test final</strong> :</p>
-</li>
-<li>On se connecte en tant qu'utilisateur pour s'assurer que tout est opérationnel.</li>
-</ol>
-<h2 id="mise-en-commun-du-volume-data-et-dossier-service-sur-le-client-debian">Mise en commun du volume DATA et dossier service sur le client Debian</h2>
-<ul>
-<li>on crée l'arborescence /services puis les dossiers la composant <em>l'argument -p permet de cre des repertoire parents</em></li>
-</ul>
-<p><code>mkdir -p /service/{commercial,comptabilite,direction,informatique,logistique}</code></p>
-<ul>
-<li>on fait correspondre la propriété de chaque dossier avec son groupe</li>
-</ul>
-<p>Dans le repertoire service on tape</p>
-<p><code>chown :commercial commercial
+  ```vgs```
+  -on etend le volume logique *LGV est le noms du groupe de volume, (-l +100%FREE) utilise tout l'espace libre du VG.*
+ ``` lvextend -l +100%FREE /dev/LGV/HOME```
+
+
+
+
+### - Methode 2 - Mise à jour du répertoire `/home`
+
+### Préparation
+
+1. **Sauvegarde** : 
+   - On s'assure d'avoir une sauvegarde complète de toutes les données, en particulier du répertoire `/home`.
+
+2. **Information des utilisateurs**:
+   - On informe tous les utilisateurs qu'une maintenance est prévue. On précise la durée estimée de cette maintenance.
+
+3. **Désactivation de l'accès des utilisateurs**:
+   - Pour empêcher les connexions pendant la transition, on passe en mode de maintenance:
+   ```
+   systemctl isolate rescue.target
+   ```
+   - Si le système est accessible via SSH, on désactive le service:
+   ```
+   systemctl stop sshd
+   ```
+   - On crée un fichier `/etc/nologin` pour empêcher les utilisateurs non-root de se connecter:
+   ```
+   echo &quot;Maintenance en cours, veuillez réessayer plus tard.&quot; &gt; /etc/nologin
+   ```
+
+### Processus de transition
+
+1. **Copie temporaire de `/home`** :
+   ```
+   cp -rp /home /tmp/home-backup
+   ```
+
+2. **Modification du fichier `/etc/fstab`** :
+   ```
+   vim /etc/fstab
+   ```
+   - On commente la ligne concernant `/home` en ajoutant un `#` devant :
+   ```
+   #UUID=4b59933b-136a-4287-8658-c97b2ec93603 /home ext4 defaults 0 2
+   ```
+   - On ajoute ensuite la ligne pour monter la partition `PROFILS` à `/home` :
+   ```
+   LABEL=PROFILS /home ext4 defaults 0 2
+   ```
+
+3. **Montage des partitions** :
+   ```
+   mount -a
+   ```
+
+4. **Copie des données du backup vers le nouveau `/home`** :
+   ```
+   cp -rp /tmp/home-backup/* /home/
+   ```
+
+### Vérifications post-transition
+
+1. **Réactivation de l'accès des utilisateurs**:
+   - On repasse en mode normal:
+   ```
+   systemctl isolate default.target
+   ```
+   - Si le service SSH a été désactivé, on le réactive:
+   ```
+   systemctl start sshd
+   ```
+   - On supprime le fichier `/etc/nologin` pour permettre aux utilisateurs de se reconnecter:
+   ```
+   rm /etc/nologin
+   ```
+
+2. **Vérification de la copie** :
+   - On s'assure que toutes les données et permissions sont correctement copiées sur le nouveau volume.
+
+3. **Nettoyage** :
+   - Après s'être assuré que tout est en ordre, on peut supprimer le répertoire de backup pour récupérer l'espace :
+   ```
+   rm -rf /tmp/home-backup
+   ```
+
+4. **Test final** :
+   - On se connecte en tant qu'utilisateur pour s'assurer que tout est opérationnel.
+
+## Mise en commun du volume DATA et dossier service sur le client Debian
+
+- on crée l'arborescence /services puis les dossiers la composant *l'argument -p permet de cre des repertoire parents*
+
+```mkdir -p /service/{commercial,comptabilite,direction,informatique,logistique}```
+
+- on fait correspondre la propriété de chaque dossier avec son groupe
+
+ Dans le repertoire service on tape
+
+ ```
+ chown :commercial commercial
  chown :comptabilite comptabilite
  chown :direction direction
  chown :informatique informatique
- chown :logistique logistique</code></p>
-<ul>
-<li>Puis on donne aux propriétaires et au groupe propriétaire le droit de lire, écrire et exécuter tous les fichiers et répertoires du répertoire:</li>
-</ul>
-<p><code>chmod g+x *</code></p>
-<h2 id="modification-des-acces-au-dossier-sur-le-poste-windows-10">Modification des accés au dossier Sur le poste Windows 10</h2>
-<ul>
-<li>
-<p>Ces étapes garantissent que seul le groupe commercial (et le compte système pour des raisons d'administration) peut accéder au dossier « Commerciaux » et que toutes les autres autorisations sont supprimées.</p>
-</li>
-<li>
-<p>On commence par créer un dossier nommé « D:\données\ ». </p>
-</li>
-<li>À l'intérieur de « D:\données\ », on crée un sous-dossier appelé « Commerciaux ».</li>
-<li>Une fois le dossier créé, on fait un clic-droit dessus et on choisit l'option "Propriétés".</li>
-<li>Dans la fenêtre des propriétés qui s'ouvre, on se rend à l'onglet "Sécurité" puis on clique sur le bouton "Avancé".</li>
-<li>Dans la nouvelle fenêtre, on désactive l'option "héritage". Cela empêchera le dossier d'hériter des autorisations des dossiers parents.</li>
-<li>On supprime ensuite toutes les autorisations héritées pour s'assurer qu'aucun autre groupe ou utilisateur ne peut accéder au dossier.</li>
-<li>On valide les changements.</li>
-<li>On retourne à l'onglet "Sécurité", puis on clique sur "Ajouter..." suivi de "Sélectionnez un principal".</li>
-<li>Dans la liste, on choisit l'option “modification” ainsi que l'option “Appliquer ces autorisations...” avant de valider avec "OK".</li>
-<li>Enfin, on supprime tous les utilisateurs et groupes listés dans la fenêtre des autorisations, à l'exception du groupe L_commercial_W et du compte système. De cette façon, seuls les membres du groupe L_commercial_W auront accès au dossier, garantissant ainsi que l'accès est interdit à toute personne étrangère au service.</li>
-</ul>
-<h2 id="creation-de-partage-reseau">Creation de partage reseau:</h2>
-<h3 id="methode-graphique">méthode graphique:</h3>
-<ol>
-<li>On commence par sélectionner le dossier nommé « Support_Info » pour le partager.</li>
-<li>Afin de le rendre invisible aux autres utilisateurs pour des raisons de sécurité, on ajoute un « $ » à la fin du nom du partage.</li>
-<li>On effectue un clic gauche sur le dossier et on choisit "Propriétés" dans le menu contextuel.</li>
-<li>Dans la fenêtre des propriétés, on se dirige vers l'onglet "Partage".</li>
-<li>On clique ensuite sur "Partage avancé...".</li>
-<li>Dans la zone "Nom du partage", on ajoute le symbole "$" à la fin pour rendre le partage caché.</li>
-<li>On clique sur le bouton "Autorisations" pour définir les droits d'accès souhaités.</li>
-<li>Une fois les autorisations correctement définies, on valide en cliquant sur "OK".</li>
-<li>Pour confirmer la mise en place du partage, on ouvre l'invite de commande (<code>cmd</code>) et on liste les partages disponibles.</li>
-<li>En préparation pour des déploiements futurs, on recherchera l'équivalent des actions effectuées sous la forme de commandes PowerShell. Ces commandes seront conservées dans un fichier script PowerShell avec l'extension ".ps1".</li>
-</ol>
-<h3 id="en-ligne-de-commande">En ligne de commande:</h3>
-<ol>
-<li>
-<p>On commence par créer le partage en utilisant la commande PowerShell suivante :
-   <code>powershell
-   New-smbshare support_info$ -path d:support_info -changeaccess “utilisateurs authentifiés”</code></p>
-</li>
-<li>
-<p>Pour modifier les autorisations sur ce partage, on suit les étapes ci-dessous :</p>
-</li>
-</ol>
-<p>a. On récupère les autorisations actuelles (Access Control List, ou ACL) du dossier avec :
-   <code>powershell
-   $acl = get-acl D:support_info</code></p>
-<p>b. On définit une nouvelle règle (Access Control Entry, ou ACE) pour donner au groupe informatique le droit de modification :
-   <code>powershell
-   $ace = New-Object security.accesscontrol.filesystemaccessrule("L_informatique_RW", "Modify", "Allow")</code></p>
-<p>c. On applique cette nouvelle règle à la liste d'autorisations :
-   <code>powershell
-   $acl.addaccessrule($ace)</code></p>
-<p>d. On met à jour les autorisations du dossier avec la liste modifiée :
-   <code>powershell
-   set-acl D:support_info $acl</code></p>
-<ol>
-<li>
-<p>Pour voir la liste des dossiers partagés via la ligne de commande, on tape :
-   <code>net share</code></p>
-</li>
-<li>
-<p>Pour testé l'accés le binôme crée un lecteur U qui pointe sur le dossier: (avec l'ip de la VM)</p>
-</li>
-</ol>
-<p><code>net use U: \\10.107.200.80\Support_info$ /persistent:yes</code></p>
-<h1 id="gestion-des-imprimantes">Gestion des imprimantes</h1>
-<h3 id="installation-et-partage-de-limprimante-hp-laserjet-m9050-mfp">Installation et partage de l'imprimante HP LaserJet M9050 MFP</h3>
-<ol>
-<li><strong>Démarrage du gestionnaire d'ajout d'imprimante</strong> :</li>
-<li>On se rend dans <code>Panneau de configuration</code> &gt; <code>Matériel et audio</code> &gt; <code>Périphériques et imprimantes</code>.</li>
-<li>
-<p>On clique sur <code>Ajouter une imprimante</code>.</p>
-</li>
-<li>
-<p><strong>Choix du type d'imprimante</strong> :</p>
-</li>
-<li>Lorsqu'on est interrogé sur la manière d'installer l'imprimante, on choisit <code>Ajouter une imprimante en utilisant une adresse IP ou un nom d'hôte</code>.</li>
-<li>
-<p>On clique sur <code>Suivant</code>.</p>
-</li>
-<li>
-<p><strong>Renseignement de l'adresse IP</strong> :</p>
-</li>
-<li>Dans le champ <code>Nom d'hôte ou adresse IP</code>, on inscrit <code>l'IP de l'imprimante</code>.</li>
-<li>On s'assure que l'option <code>Interroger l'imprimante et sélectionner automatiquement le pilote à utiliser</code> est activée.</li>
-<li>
-<p>On clique sur <code>Suivant</code>.</p>
-</li>
-<li>
-<p><strong>Sélection du pilote</strong> :</p>
-</li>
-<li>Si Windows reconnaît l'imprimante, il peut proposer un pilote par défaut. Sinon, on va sur le site d'<a href="https://support.hp.com/fr-fr/drivers/">HP</a>
-  et on cherche dans la liste des pilotes.</li>
-<li>Si le pilote n'est pas listé dans windows, il faudra peut-être le télécharger depuis le site officiel de HP et l'installer manuellement.</li>
-<li>
-<p>On clique sur <code>Suivant</code>.</p>
-</li>
-<li>
-<p><strong>Nom de l'imprimante</strong> :</p>
-</li>
-<li>On donne un nom à l'imprimante, par exemple : "HP LaserJet M9050 MFP".</li>
-<li>
-<p>On clique sur <code>Suivant</code>.</p>
-</li>
-<li>
-<p><strong>Options de partage</strong> :</p>
-</li>
-<li>Quand l'option de partage est présentée, on coche <code>Partager cette imprimante</code>.</li>
-<li>Dans le champ <code>Nom de partage</code>, on indique un nom qui sera utilisé sur le réseau pour accéder à cette imprimante. Par exemple, "HPM9050_Shared".</li>
-<li>
-<p>On clique sur <code>Suivant</code>.</p>
-</li>
-<li>
-<p><strong>Finalisation</strong> :</p>
-</li>
-<li>Une page récapitulative est présentée. On vérifie toutes les informations.</li>
-<li>
-<p>On clique sur <code>Terminer</code>.</p>
-</li>
-<li>
-<p><strong>Test</strong> :</p>
-</li>
-<li>
-<p>Pour confirmer que tout est bien configuré, on imprime une page test.</p>
-</li>
-<li>
-<p><strong>Accès depuis un autre poste</strong> :</p>
-</li>
-<li>Depuis un autre ordinateur du réseau, on va dans <code>Périphériques et imprimantes</code>, puis on ajoute une imprimante.</li>
-<li>On recherche l'imprimante partagée par nom et l'ajoute à la liste des imprimantes de l'ordinateur.</li>
-</ol>
-<h3 id="configuration-des-permissions-pour-limprimante">Configuration des permissions pour l'imprimante</h3>
-<ol>
-<li><strong>Accès aux propriétés de l'imprimante</strong> :</li>
-<li>On ouvre le menu <code>Démarrer</code>, puis on clique sur <code>Périphériques et imprimantes</code>.</li>
-<li>
-<p>On trouve l'imprimante "HP LaserJet M9050 MFP" et on fait un clic droit dessus, puis on choisit <code>Propriétés</code>.</p>
-</li>
-<li>
-<p><strong>Modification des permissions</strong> :</p>
-</li>
-<li>
-<p>Dans la fenêtre des propriétés de l'imprimante, on se rend dans l'onglet <code>Sécurité</code>.</p>
-</li>
-<li>
-<p><strong>Permissions pour tous les utilisateurs</strong> :</p>
-</li>
-<li>On clique sur <code>Ajouter</code> et saisit "Utilisateurs" (ou le groupe qui représente tous les utilisateurs sur le système).</li>
-<li>On coche la permission <code>Imprimer</code>.</li>
-<li>
-<p>On clique sur <code>Appliquer</code>.</p>
-</li>
-<li>
-<p><strong>Permissions pour le service Comptabilité</strong> :</p>
-</li>
-<li>On clique sur <code>Ajouter</code> et saisit le nom du groupe ou de l'utilisateur représentant le service Comptabilité.</li>
-<li>On coche les permissions <code>Imprimer</code> et <code>Gérer les documents</code> (ce qui permettra de supprimer des impressions bloquées).</li>
-<li>
-<p>On clique sur <code>Appliquer</code>.</p>
-</li>
-<li>
-<p><strong>Permissions pour le service Informatique</strong> :</p>
-</li>
-<li>On clique sur <code>Ajouter</code> et saisit le nom du groupe ou de l'utilisateur représentant le service Informatique.</li>
-<li>On coche <code>Contrôle total</code> (qui accorde toutes les permissions).</li>
-<li>
-<p>On clique sur <code>Appliquer</code>.</p>
-</li>
-<li>
-<p><strong>Validation</strong> :</p>
-</li>
-<li>Une fois que toutes les permissions sont correctement configurées, on clique sur <code>OK</code> pour fermer les propriétés de l'imprimante.</li>
-</ol>
-<h3 id="creation-dun-pool-dimpression-pour-deux-imprimantes-xerox-office-color">Création d'un pool d'impression pour deux imprimantes Xerox Office Color</h3>
-<ol>
-<li><strong>Installation des imprimantes individuelles</strong> :</li>
-<li><strong>Accès au menu Ajouter une imprimante</strong> :<ul>
-<li>On ouvre le menu <code>Démarrer</code>, puis on clique sur <code>Périphériques et imprimantes</code>.</li>
-<li>On choisit <code>Ajouter une imprimante</code>.</li>
-</ul>
-</li>
-<li><strong>Ajout de la première imprimante (ip1)</strong> :<ul>
-<li>On choisit <code>Ajouter une imprimante en utilisant une adresse IP ou un nom d'hôte</code>.</li>
-<li>On saisit l'adresse IP "ip1" et on suit les étapes pour installer l'imprimante avec le pilote approprié.</li>
-</ul>
-</li>
-<li>
-<p><strong>Répétition pour la deuxième imprimante (ip2)</strong> :</p>
-<ul>
-<li>On répète les mêmes étapes pour ajouter la deuxième imprimante en utilisant l'adresse IP "ip2".</li>
-</ul>
-</li>
-<li>
-<p><strong>Création du pool d'impression</strong> :</p>
-</li>
-<li>On retourne à <code>Périphériques et imprimantes</code>.</li>
-<li>On fait un clic droit sur l'une des deux imprimantes Xerox que nous venons d'ajouter, et on choisit <code>Propriétés de l'imprimante</code>.</li>
-<li>Dans l'onglet <code>Ports</code>, on coche les ports correspondant aux adresses IP "ip1" et "ip2" pour les ajouter au pool.</li>
-<li>
-<p>On confirme en cliquant sur <code>Appliquer</code> ou <code>OK</code>.</p>
-</li>
-<li>
-<p><strong>Configuration des paramètres de pool</strong> :</p>
-</li>
-<li>Dans les <code>Propriétés de l'imprimante</code>, on se dirige vers l'onglet <code>Avancé</code>.</li>
-<li>On coche l'option <code>Activer le pool d'impression</code>.</li>
-<li>
-<p>On s'assure que les ports correspondant aux deux imprimantes sont sélectionnés.</p>
-</li>
-<li>
-<p><strong>Validation</strong> :</p>
-</li>
-<li>Pour tester le pool d'impression, on envoie un document à imprimer sur l'imprimante poolée.</li>
-<li>On vérifie que le document est imprimé par l'une des deux imprimantes Xerox.</li>
-<li>Si tout fonctionne correctement, le pool d'impression est prêt à être utilisé.</li>
-</ol>
-<h3 id="configuration-des-permissions-pour-les-imprimantes-sur-windows-10">Configuration des permissions pour les imprimantes sur Windows 10</h3>
-<ol>
-<li>
-<p><strong>Accéder aux propriétés de l'imprimante</strong> :</p>
-<ul>
-<li>On ouvre <code>Périphériques et imprimantes</code> depuis le Panneau de configuration.</li>
-<li>On fait un clic droit sur l'imprimante concernée, puis on sélectionne <code>Propriétés de l'imprimante</code>.</li>
-</ul>
-</li>
-<li>
-<p><strong>Ajustement des permissions</strong> :</p>
-<ul>
-<li>On va dans l'onglet <code>Sécurité</code>.</li>
-<li>On supprime le groupe <code>Tout le monde</code> en le sélectionnant et en cliquant sur <code>Supprimer</code>.</li>
-<li>On clique sur <code>Ajouter</code> pour ajouter le groupe ou les utilisateurs du service Comptabilité. Après avoir ajouté, on leur coche <code>Imprimer</code> dans la liste des permissions.</li>
-<li>On répète l'ajout pour le service <code>Informatique</code> et on leur accorde le <code>Contrôle total</code>.</li>
-</ul>
-</li>
-<li>
-<p><strong>Configurer les horaires d'utilisation</strong> :</p>
-<ul>
-<li>Sous l'onglet <code>Avancé</code>, on coche l'option <code>Disponible de</code>.</li>
-<li>On définit la tranche horaire de <code>19:00</code> à <code>03:00</code>.</li>
-</ul>
-</li>
-<li>
-<p><strong>Configuration des administrateurs</strong> :</p>
-<ul>
-<li>Retour dans l'onglet <code>Sécurité</code>.</li>
-<li>On sélectionne le groupe ou les utilisateurs du service <code>Informatique</code>.</li>
-<li>On coche <code>Contrôle total</code> dans la liste des permissions.</li>
-</ul>
-</li>
-<li>
-<p><strong>Validation</strong> :</p>
-<ul>
-<li>On valide les modifications en cliquant sur <code>OK</code>.</li>
-<li>Après avoir configuré les permissions et horaires, on teste pour s'assurer que tout fonctionne correctement.</li>
-<li>On essaie d'imprimer depuis un compte du service <code>Comptabilité</code> hors des horaires définis pour confirmer que la restriction fonctionne.</li>
-<li>On répète le test pendant les horaires définis pour s'assurer qu'ils peuvent imprimer.</li>
-<li>Enfin, on se connecte avec un compte du service <code>Informatique</code> pour s'assurer qu'ils ont un contrôle total sur l'imprimante.</li>
-</ul>
-</li>
-</ol>
-<h3 id="configuration-de-deux-files-dattente-pour-la-xerox-office-color-et-deplacement-du-pool-dans-d">Configuration de deux files d'attente pour la Xerox Office Color et deplacement du pool dans D:</h3>
-<ol>
-<li>
-<p><strong>Création de la première file d'attente</strong>:</p>
-<ul>
-<li>On ouvre <code>Périphériques et imprimantes</code> depuis le Panneau de configuration.</li>
-<li>On choisit <code>Ajouter une imprimante</code> puis on suit l'assistant pour ajouter la Xerox Office Color. Nommez cette file d'attente par exemple "Xerox Office Color - Directeurs".</li>
-</ul>
-</li>
-<li>
-<p><strong>Création de la deuxième file d'attente</strong>:</p>
-<ul>
-<li>On répète le processus d'ajout d'une nouvelle imprimante. Cette fois, on nomme la file d'attente, par exemple, "Xerox Office Color - Général".</li>
-</ul>
-</li>
-<li>
-<p><strong>Attribution de la priorité aux directeurs</strong>:</p>
-<ul>
-<li>Dans <code>Périphériques et imprimantes</code>, on fait un clic droit sur "Xerox Office Color - Directeurs", puis on sélectionne <code>Propriétés de l'imprimante</code>.</li>
-<li>Dans l'onglet <code>Avancé</code>, on modifie la <code>Priorité</code> en mettant une valeur élevée, par exemple 10.</li>
-<li>Pour "Xerox Office Color - Général", on répète le processus, mais on définit la priorité à une valeur plus basse, par exemple 5.</li>
-</ul>
-</li>
-<li>
-<p><strong>Déplacer le spool d'impression</strong>:</p>
-<ul>
-<li>Toujours dans <code>Périphériques et imprimantes</code>, on clique sur <code>Serveur d'impression</code> en haut de la fenêtre, puis on ouvre les <code>Propriétés</code>.</li>
-<li>Dans l'onglet <code>Avancé</code>, on repère l'option <code>Emplacement du spool</code>.</li>
-<li>On change le chemin actuel de "C:\Windows\System32\spool\PRINTERS" à "D:\spool\PRINTERS" </li>
-<li>crée le dossier "D:\spool\PRINTERS"  avant d'effectuer le changement.</li>
-</ul>
-</li>
-<li>
-<p><strong>Redémarrer le service d'impression</strong>:</p>
-<ul>
-<li>Pour que les modifications prennent effet, on doit redémarrer le service Spouleur d'impression. Pour ce faire, on peut ouvrir le <code>Gestionnaire de services</code> et redémarrer le service <code>Spouleur d'impression</code>, ou simplement redémarrer l'ordinateur.</li>
-</ul>
-</li>
-</ol>
-<p># 4 - Configuration avancée des systems
- ## Modification du chargeur d'amorçage du grub à 2 seconde:</p>
-<ul>
-<li>on modifie GRUB_TIMEOUT avec valeur : 2</li>
-</ul>
-<p><code>vim  /etc/default/grub</code></p>
-<ul>
-<li>puis on met à jour le Grub:</li>
-</ul>
-<p><code>update-grub</code></p>
-<h3 id="redimensionnement-et-configuration-du-swap-sur-debian">Redimensionnement et configuration du swap sur Debian</h3>
-<p><strong>Remarque</strong>: Faire Snapshot avant la procedure !!!</p>
-<ol>
-<li>
-<p><strong>Désactivation du swap</strong>:</p>
-<ul>
-<li>Avant d'apporter des modifications à l'espace de swap, on s'assure qu'il est désactivé.
-<code>swapoff /dev/sda2</code></li>
-</ul>
-</li>
-<li>
-<p><strong>Modification du partitionnement avec <code>fdisk</code></strong>:</p>
-<ul>
-<li>
-<p>On utilise l'outil <code>fdisk</code> pour ajuster le partitionnement de la partition <code>/dev/sda</code>.
-<code>fdisk /dev/sda</code></p>
-</li>
-<li>
-<p>Une fois dans <code>fdisk</code>:</p>
-<ul>
-<li>On choisit <code>p</code> pour afficher la table des partitions.</li>
-<li>On choisit <code>d</code> pour supprimer la partition de swap actuelle.</li>
-<li>On choisit <code>n</code> pour créer une nouvelle partition.</li>
-<li>On suit les invites pour spécifier la taille et le type (swap).</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Formatage de la partition en tant que swap</strong>:</p>
-<ul>
-<li>Une fois la partition correctement dimensionnée, on la formate pour le swap.
-<code>mkswap /dev/sda2</code></li>
-</ul>
-</li>
-<li>
-<p><strong>Mise à jour du fichier <code>/etc/fstab</code></strong>:</p>
-<ul>
-<li>
-<p>Ce fichier permet au système de savoir où trouver les systèmes de fichiers lors du démarrage.
-<code>nano /etc/fstab</code></p>
-</li>
-<li>
-<p>Dans l'éditeur:</p>
-<ul>
-<li>On repère la ligne existante pour le swap et la commente en ajoutant un <code>#</code> au début de la ligne.</li>
-<li>On ajoute ensuite la nouvelle configuration pour le swap:
-<code>/dev/sda2 swap swap defaults 0 0</code></li>
-</ul>
-</li>
-</ul>
-</li>
-<li>
-<p><strong>Activation du swap</strong>:</p>
-<ul>
-<li>Avec la nouvelle configuration en place, on active le swap.
-<code>swapon /dev/sda2</code></li>
-</ul>
-</li>
-<li>
-<p><strong>Mise à jour de Debian</strong>:</p>
-<ul>
-<li>Maintenant que le swap est correctement configuré, on procède à la mise à jour du système Debian.
-<code>apt update
-apt upgrade</code></li>
-</ul>
-</li>
-</ol>
-<blockquote></blockquote>
-<h3 id="activation-et-configuration-du-bureau-a-distance-sur-windows-10">Activation et configuration du bureau à distance sur Windows 10</h3>
-<ol>
-<li>
-<p><strong>Accéder au panneau de configuration</strong>:</p>
-<ul>
-<li>On ouvre le menu "Démarrer", on recherche "Panneau de configuration" et on le sélectionne.</li>
-</ul>
-</li>
-<li>
-<p><strong>Naviguer vers les paramètres du Bureau à distance</strong>:</p>
-<ul>
-<li>Dans le panneau de configuration, on clique sur "Système et sécurité", puis sur "Autoriser l'accès à distance" sous la section "Système".</li>
-</ul>
-</li>
-<li>
-<p><strong>Activer le Bureau à distance</strong>:</p>
-<ul>
-<li>On coche la case "Autoriser les connexions à distance à cet ordinateur".</li>
-<li>On s'assure que "Autoriser uniquement les connexions à partir d'ordinateurs exécutant le Bureau à distance avec authentification au niveau du réseau (recommandé)" est également coché.</li>
-</ul>
-</li>
-<li>
-<p><strong>Ajouter le groupe des informaticiens aux utilisateurs du Bureau à distance</strong>:</p>
-<ul>
-<li>On ouvre l'invite de commandes PowerShell avec des droits administratifs. Pour ce faire, on clique droit sur le menu Démarrer et on choisit "Windows PowerShell (admin)".</li>
-<li>On saisit la commande suivante pour ajouter le groupe "informatique" aux utilisateurs autorisés du Bureau à distance :
-  <code>powershell
-  net localgroup "utilisateurs du bureau à distance" informatique /add</code></li>
-<li>On peut vérifier si l'opération a été réussie en entrant :
-  <code>powershell
-  net localgroup "utilisateurs du bureau à distance"</code>
-  On s'attend à voir "informatique" dans la liste des membres.</li>
-</ul>
-</li>
-<li>
-<p><strong>Vérification du numéro de port RDP</strong>:</p>
-<ul>
-<li>Pour connaître le numéro de port utilisé par le Bureau à distance, on utilise la commande :
-  <code>powershell
-  netstat -an | find "3389"</code>
-  Si le port 3389 apparaît dans les résultats, cela signifie que le Bureau à distance est correctement configuré pour utiliser ce port par défaut.</li>
-</ul>
-</li>
-<li>
-<p><strong>Finalisation</strong>:</p>
-<ul>
-<li>Une fois toutes ces étapes effectuées, on redémarre l'ordinateur pour que les modifications prennent effet. On teste ensuite la connexion à distance pour s'assurer que tout fonctionne correctement.</li>
-</ul>
-</li>
-</ol>
-<blockquote></blockquote>
-<h1 id="5-installation-dapplications">5 – Installation d’applications</h1>
-<h2 id="sur-windows-10">sur windows 10</h2>
-<h2 id="installation-silencieuse-de-7-zip">Installation silencieuse de 7-Zip</h2>
-<ol>
-<li><strong>Téléchargement du logiciel</strong>:</li>
-<li>
-<p>On se rend sur le site officiel de 7-Zip pour télécharger l'installateur du logiciel, soit en version 32 bits (x86) ou 64 bits (x64), en fonction de la version de Windows sur laquelle on souhaite installer.</p>
-</li>
-<li>
-<p><strong>Préparation de l'installation silencieuse</strong>:</p>
-</li>
-<li>
-<p>On s'assure d'avoir les droits administratifs sur la machine. Si ce n'est pas le cas, on doit exécuter l'installateur avec des droits élevés.</p>
-</li>
-<li>
-<p><strong>Lancement de l'installation silencieuse</strong>:</p>
-</li>
-<li>On ouvre l'invite de commandes (CMD) en tant qu'administrateur.</li>
-<li>
-<p>On navigue vers l'emplacement où se trouve l'installateur téléchargé à l'étape 1. Par exemple, si l'installateur est sur le bureau, on utilise la commande : 
-     <code>cd %AV%\Desktop</code></p>
-</li>
-<li>
-<p>Pour la version 64 bits (nom de fichier par défaut : <code>7zXXXX-x64.msi</code>):
-     <code>msiexec /i 7zXXXX-x64.msi /qn</code>
-     On remplace <code>XXXX</code> par le numéro de version approprié.</p>
-</li>
-<li>
-<p><strong>Vérification</strong>:</p>
-</li>
-<li>Après l'installation, on vérifie que 7-Zip est correctement installé. On peut le faire en ouvrant le menu Démarrer et en recherchant 7-Zip. Si l'application est présente, cela signifie que l'installation a été réussie.</li>
-</ol>
-<blockquote>
-<p><strong>Note</strong> : Le commutateur <code>/qn</code> signifie "quiet no UI". Il permet une installation silencieuse sans interface utilisateur. L'alerte UAC (Contrôle de compte utilisateur) pourrait toujours s'afficher pour demander l'autorisation d'installer le logiciel. </p>
-</blockquote>
-<h2 id="connexion-rdp-a-un-poste-windows-depuis-debianlinux">Connexion RDP à un poste Windows depuis Debian/Linux</h2>
-<h3 id="1-recherche-dapplications-gerant-le-protocole-rdp-avec-nla">1. Recherche d'applications gérant le protocole RDP avec NLA:</h3>
-<ul>
-<li>Avant d'installer tout logiciel, on vérifie les solutions disponibles dans les dépôts officiels pour gérer le protocole RDP :</li>
-</ul>
-<pre><code>apt search rdp
-apt search bureau à distance
+ chown :logistique logistique
+ ```
+
+
+
+- Puis on donne aux propriétaires et au groupe propriétaire le droit de lire, écrire et exécuter tous les fichiers et répertoires du répertoire:
+
+``` chmod g+x *```
+
+## Modification des accés au dossier Sur le poste Windows 10
+
+- Ces étapes garantissent que seul le groupe commercial (et le compte système pour des raisons d'administration) peut accéder au dossier « Commerciaux » et que toutes les autres autorisations sont supprimées.
+
+
+1. On commence par créer un dossier nommé « D:\données\ ». 
+2. À l'intérieur de « D:\données\ », on crée un sous-dossier appelé « Commerciaux ».
+3. Une fois le dossier créé, on fait un clic-droit dessus et on choisit l'option &quot;Propriétés&quot;.
+4. Dans la fenêtre des propriétés qui s'ouvre, on se rend à l'onglet &quot;Sécurité&quot; puis on clique sur le bouton &quot;Avancé&quot;.
+5. Dans la nouvelle fenêtre, on désactive l'option &quot;héritage&quot;. Cela empêchera le dossier d'hériter des autorisations des dossiers parents.
+6. On supprime ensuite toutes les autorisations héritées pour s'assurer qu'aucun autre groupe ou utilisateur ne peut accéder au dossier.
+7. On valide les changements.
+8. On retourne à l'onglet &quot;Sécurité&quot;, puis on clique sur &quot;Ajouter...&quot; suivi de &quot;Sélectionnez un principal&quot;.
+9. Dans la liste, on choisit l'option “modification” ainsi que l'option “Appliquer ces autorisations...” avant de valider avec &quot;OK&quot;.
+10. Enfin, on supprime tous les utilisateurs et groupes listés dans la fenêtre des autorisations, à l'exception du groupe L_commercial_W et du compte système. De cette façon, seuls les membres du groupe L_commercial_W auront accès au dossier, garantissant ainsi que l'accès est interdit à toute personne étrangère au service.
+
+
+
+
+## Creation de partage reseau:
+### méthode graphique:
+1. On commence par sélectionner le dossier nommé « Support_Info » pour le partager.
+2. Afin de le rendre invisible aux autres utilisateurs pour des raisons de sécurité, on ajoute un « $ » à la fin du nom du partage.
+3. On effectue un clic gauche sur le dossier et on choisit &quot;Propriétés&quot; dans le menu contextuel.
+4. Dans la fenêtre des propriétés, on se dirige vers l'onglet &quot;Partage&quot;.
+5. On clique ensuite sur &quot;Partage avancé...&quot;.
+6. Dans la zone &quot;Nom du partage&quot;, on ajoute le symbole &quot;$&quot; à la fin pour rendre le partage caché.
+7. On clique sur le bouton &quot;Autorisations&quot; pour définir les droits d'accès souhaités.
+8. Une fois les autorisations correctement définies, on valide en cliquant sur &quot;OK&quot;.
+9. Pour confirmer la mise en place du partage, on ouvre l'invite de commande (`cmd`) et on liste les partages disponibles.
+10. En préparation pour des déploiements futurs, on recherchera l'équivalent des actions effectuées sous la forme de commandes PowerShell. Ces commandes seront conservées dans un fichier script PowerShell avec l'extension &quot;.ps1&quot;.
+
+### En ligne de commande:
+
+1. On commence par créer le partage en utilisant la commande PowerShell suivante :
+   ```powershell
+   New-smbshare support_info$ -path d:support_info -changeaccess “utilisateurs authentifiés”
+   ```
+
+2. Pour modifier les autorisations sur ce partage, on suit les étapes ci-dessous :
+
+   a. On récupère les autorisations actuelles (Access Control List, ou ACL) du dossier avec :
+   ```powershell
+   $acl = get-acl D:support_info
+   ```
+
+   b. On définit une nouvelle règle (Access Control Entry, ou ACE) pour donner au groupe informatique le droit de modification :
+   ```powershell
+   $ace = New-Object security.accesscontrol.filesystemaccessrule(&quot;L_informatique_RW&quot;, &quot;Modify&quot;, &quot;Allow&quot;)
+   ```
+
+   c. On applique cette nouvelle règle à la liste d'autorisations :
+   ```powershell
+   $acl.addaccessrule($ace)
+   ```
+
+   d. On met à jour les autorisations du dossier avec la liste modifiée :
+   ```powershell
+   set-acl D:support_info $acl
+   ```
+
+3. Pour voir la liste des dossiers partagés via la ligne de commande, on tape :
+   ```
+   net share
+   ```
+
+
+
+- Pour testé l'accés le binôme crée un lecteur U qui pointe sur le dossier: (avec l'ip de la VM)
+
+```net use U: \\10.107.200.80\Support_info$ /persistent:yes```
+
+
+# Gestion des imprimantes
+
+### Installation et partage de l'imprimante HP LaserJet M9050 MFP
+
+1. **Démarrage du gestionnaire d'ajout d'imprimante** :
+   - On se rend dans `Panneau de configuration` &gt; `Matériel et audio` &gt; `Périphériques et imprimantes`.
+   - On clique sur `Ajouter une imprimante`.
+
+2. **Choix du type d'imprimante** :
+   - Lorsqu'on est interrogé sur la manière d'installer l'imprimante, on choisit `Ajouter une imprimante en utilisant une adresse IP ou un nom d'hôte`.
+   - On clique sur `Suivant`.
+
+3. **Renseignement de l'adresse IP** :
+   - Dans le champ `Nom d'hôte ou adresse IP`, on inscrit `l'IP de l'imprimante`.
+   - On s'assure que l'option `Interroger l'imprimante et sélectionner automatiquement le pilote à utiliser` est activée.
+   - On clique sur `Suivant`.
+
+4. **Sélection du pilote** :
+   - Si Windows reconnaît l'imprimante, il peut proposer un pilote par défaut. Sinon, on va sur le site d'[HP](https://support.hp.com/fr-fr/drivers/)
+  et on cherche dans la liste des pilotes.
+   - Si le pilote n'est pas listé dans windows, il faudra peut-être le télécharger depuis le site officiel de HP et l'installer manuellement.
+   - On clique sur `Suivant`.
+
+1. **Nom de l'imprimante** :
+   - On donne un nom à l'imprimante, par exemple : &quot;HP LaserJet M9050 MFP&quot;.
+   - On clique sur `Suivant`.
+
+2. **Options de partage** :
+   - Quand l'option de partage est présentée, on coche `Partager cette imprimante`.
+   - Dans le champ `Nom de partage`, on indique un nom qui sera utilisé sur le réseau pour accéder à cette imprimante. Par exemple, &quot;HPM9050_Shared&quot;.
+   - On clique sur `Suivant`.
+
+3. **Finalisation** :
+   - Une page récapitulative est présentée. On vérifie toutes les informations.
+   - On clique sur `Terminer`.
+
+4. **Test** :
+   - Pour confirmer que tout est bien configuré, on imprime une page test.
+
+5. **Accès depuis un autre poste** :
+   - Depuis un autre ordinateur du réseau, on va dans `Périphériques et imprimantes`, puis on ajoute une imprimante.
+   - On recherche l'imprimante partagée par nom et l'ajoute à la liste des imprimantes de l'ordinateur.
+
+
+### Configuration des permissions pour l'imprimante
+
+1. **Accès aux propriétés de l'imprimante** :
+   - On ouvre le menu `Démarrer`, puis on clique sur `Périphériques et imprimantes`.
+   - On trouve l'imprimante &quot;HP LaserJet M9050 MFP&quot; et on fait un clic droit dessus, puis on choisit `Propriétés`.
+
+2. **Modification des permissions** :
+   - Dans la fenêtre des propriétés de l'imprimante, on se rend dans l'onglet `Sécurité`.
+
+3. **Permissions pour tous les utilisateurs** :
+   - On clique sur `Ajouter` et saisit &quot;Utilisateurs&quot; (ou le groupe qui représente tous les utilisateurs sur le système).
+   - On coche la permission `Imprimer`.
+   - On clique sur `Appliquer`.
+
+4. **Permissions pour le service Comptabilité** :
+   - On clique sur `Ajouter` et saisit le nom du groupe ou de l'utilisateur représentant le service Comptabilité.
+   - On coche les permissions `Imprimer` et `Gérer les documents` (ce qui permettra de supprimer des impressions bloquées).
+   - On clique sur `Appliquer`.
+
+5. **Permissions pour le service Informatique** :
+   - On clique sur `Ajouter` et saisit le nom du groupe ou de l'utilisateur représentant le service Informatique.
+   - On coche `Contrôle total` (qui accorde toutes les permissions).
+   - On clique sur `Appliquer`.
+
+6. **Validation** :
+   - Une fois que toutes les permissions sont correctement configurées, on clique sur `OK` pour fermer les propriétés de l'imprimante.
+
+### Création d'un pool d'impression pour deux imprimantes Xerox Office Color
+
+1. **Installation des imprimantes individuelles** :
+   - **Accès au menu Ajouter une imprimante** :
+     - On ouvre le menu `Démarrer`, puis on clique sur `Périphériques et imprimantes`.
+     - On choisit `Ajouter une imprimante`.
+   - **Ajout de la première imprimante (ip1)** :
+     - On choisit `Ajouter une imprimante en utilisant une adresse IP ou un nom d'hôte`.
+     - On saisit l'adresse IP &quot;ip1&quot; et on suit les étapes pour installer l'imprimante avec le pilote approprié.
+   - **Répétition pour la deuxième imprimante (ip2)** :
+     - On répète les mêmes étapes pour ajouter la deuxième imprimante en utilisant l'adresse IP &quot;ip2&quot;.
+
+2. **Création du pool d'impression** :
+   - On retourne à `Périphériques et imprimantes`.
+   - On fait un clic droit sur l'une des deux imprimantes Xerox que nous venons d'ajouter, et on choisit `Propriétés de l'imprimante`.
+   - Dans l'onglet `Ports`, on coche les ports correspondant aux adresses IP &quot;ip1&quot; et &quot;ip2&quot; pour les ajouter au pool.
+   - On confirme en cliquant sur `Appliquer` ou `OK`.
+
+3. **Configuration des paramètres de pool** :
+   - Dans les `Propriétés de l'imprimante`, on se dirige vers l'onglet `Avancé`.
+   - On coche l'option `Activer le pool d'impression`.
+   - On s'assure que les ports correspondant aux deux imprimantes sont sélectionnés.
+
+4. **Validation** :
+   - Pour tester le pool d'impression, on envoie un document à imprimer sur l'imprimante poolée.
+   - On vérifie que le document est imprimé par l'une des deux imprimantes Xerox.
+   - Si tout fonctionne correctement, le pool d'impression est prêt à être utilisé.
+
+
+### Configuration des permissions pour les imprimantes sur Windows 10
+
+1. **Accéder aux propriétés de l'imprimante** :
+    - On ouvre `Périphériques et imprimantes` depuis le Panneau de configuration.
+    - On fait un clic droit sur l'imprimante concernée, puis on sélectionne `Propriétés de l'imprimante`.
+
+2. **Ajustement des permissions** :
+    - On va dans l'onglet `Sécurité`.
+    - On supprime le groupe `Tout le monde` en le sélectionnant et en cliquant sur `Supprimer`.
+    - On clique sur `Ajouter` pour ajouter le groupe ou les utilisateurs du service Comptabilité. Après avoir ajouté, on leur coche `Imprimer` dans la liste des permissions.
+    - On répète l'ajout pour le service `Informatique` et on leur accorde le `Contrôle total`.
+
+3. **Configurer les horaires d'utilisation** :
+    - Sous l'onglet `Avancé`, on coche l'option `Disponible de`.
+    - On définit la tranche horaire de `19:00` à `03:00`.
+
+4. **Configuration des administrateurs** :
+    - Retour dans l'onglet `Sécurité`.
+    - On sélectionne le groupe ou les utilisateurs du service `Informatique`.
+    - On coche `Contrôle total` dans la liste des permissions.
+
+5. **Validation** :
+    - On valide les modifications en cliquant sur `OK`.
+    - Après avoir configuré les permissions et horaires, on teste pour s'assurer que tout fonctionne correctement.
+    - On essaie d'imprimer depuis un compte du service `Comptabilité` hors des horaires définis pour confirmer que la restriction fonctionne.
+    - On répète le test pendant les horaires définis pour s'assurer qu'ils peuvent imprimer.
+    - Enfin, on se connecte avec un compte du service `Informatique` pour s'assurer qu'ils ont un contrôle total sur l'imprimante.
+
+### Configuration de deux files d'attente pour la Xerox Office Color et deplacement du pool dans D:
+
+1. **Création de la première file d'attente**:
+    - On ouvre `Périphériques et imprimantes` depuis le Panneau de configuration.
+    - On choisit `Ajouter une imprimante` puis on suit l'assistant pour ajouter la Xerox Office Color. Nommez cette file d'attente par exemple &quot;Xerox Office Color - Directeurs&quot;.
+
+2. **Création de la deuxième file d'attente**:
+    - On répète le processus d'ajout d'une nouvelle imprimante. Cette fois, on nomme la file d'attente, par exemple, &quot;Xerox Office Color - Général&quot;.
+
+3. **Attribution de la priorité aux directeurs**:
+    - Dans `Périphériques et imprimantes`, on fait un clic droit sur &quot;Xerox Office Color - Directeurs&quot;, puis on sélectionne `Propriétés de l'imprimante`.
+    - Dans l'onglet `Avancé`, on modifie la `Priorité` en mettant une valeur élevée, par exemple 10.
+    - Pour &quot;Xerox Office Color - Général&quot;, on répète le processus, mais on définit la priorité à une valeur plus basse, par exemple 5.
+
+4. **Déplacer le spool d'impression**:
+    - Toujours dans `Périphériques et imprimantes`, on clique sur `Serveur d'impression` en haut de la fenêtre, puis on ouvre les `Propriétés`.
+    - Dans l'onglet `Avancé`, on repère l'option `Emplacement du spool`.
+    - On change le chemin actuel de &quot;C:\Windows\System32\spool\PRINTERS&quot; à &quot;D:\spool\PRINTERS&quot; 
+    - crée le dossier &quot;D:\spool\PRINTERS&quot;  avant d'effectuer le changement.
+
+5. **Redémarrer le service d'impression**:
+    - Pour que les modifications prennent effet, on doit redémarrer le service Spouleur d'impression. Pour ce faire, on peut ouvrir le `Gestionnaire de services` et redémarrer le service `Spouleur d'impression`, ou simplement redémarrer l'ordinateur.
+
+
+ # 4 - Configuration avancée des systems
+ ## Modification du chargeur d'amorçage du grub à 2 seconde:
+
+- on modifie GRUB_TIMEOUT avec valeur : 2
+
+``` vim  /etc/default/grub ```
+
+- puis on met à jour le Grub:
+
+```update-grub```
+
+
+
+### Redimensionnement et configuration du swap sur Debian
+
+**Remarque**: Faire Snapshot avant la procedure !!!
+
+1. **Désactivation du swap**:
+    - Avant d'apporter des modifications à l'espace de swap, on s'assure qu'il est désactivé.
+    ```
+    swapoff /dev/sda2
+    ```
+
+2. **Modification du partitionnement avec `fdisk`**:
+    - On utilise l'outil `fdisk` pour ajuster le partitionnement de la partition `/dev/sda`.
+    ```
+    fdisk /dev/sda
+    ```
+
+    - Une fois dans `fdisk`:
+        - On choisit `p` pour afficher la table des partitions.
+        - On choisit `d` pour supprimer la partition de swap actuelle.
+        - On choisit `n` pour créer une nouvelle partition.
+        - On suit les invites pour spécifier la taille et le type (swap).
+
+3. **Formatage de la partition en tant que swap**:
+    - Une fois la partition correctement dimensionnée, on la formate pour le swap.
+    ```
+    mkswap /dev/sda2
+    ```
+
+4. **Mise à jour du fichier `/etc/fstab`**:
+    - Ce fichier permet au système de savoir où trouver les systèmes de fichiers lors du démarrage.
+    ```
+    nano /etc/fstab
+    ```
+
+    - Dans l'éditeur:
+        - On repère la ligne existante pour le swap et la commente en ajoutant un `#` au début de la ligne.
+        - On ajoute ensuite la nouvelle configuration pour le swap:
+        ```
+        /dev/sda2 swap swap defaults 0 0
+        ```
+
+5. **Activation du swap**:
+    - Avec la nouvelle configuration en place, on active le swap.
+    ```
+    swapon /dev/sda2
+    ```
+
+6. **Mise à jour de Debian**:
+    - Maintenant que le swap est correctement configuré, on procède à la mise à jour du système Debian.
+    ```
+    apt update
+    apt upgrade
+    ```
+
+&gt;
+
+### Activation et configuration du bureau à distance sur Windows 10
+
+1. **Accéder au panneau de configuration**:
+    - On ouvre le menu &quot;Démarrer&quot;, on recherche &quot;Panneau de configuration&quot; et on le sélectionne.
+
+2. **Naviguer vers les paramètres du Bureau à distance**:
+    - Dans le panneau de configuration, on clique sur &quot;Système et sécurité&quot;, puis sur &quot;Autoriser l'accès à distance&quot; sous la section &quot;Système&quot;.
+
+3. **Activer le Bureau à distance**:
+    - On coche la case &quot;Autoriser les connexions à distance à cet ordinateur&quot;.
+    - On s'assure que &quot;Autoriser uniquement les connexions à partir d'ordinateurs exécutant le Bureau à distance avec authentification au niveau du réseau (recommandé)&quot; est également coché.
+
+4. **Ajouter le groupe des informaticiens aux utilisateurs du Bureau à distance**:
+    - On ouvre l'invite de commandes PowerShell avec des droits administratifs. Pour ce faire, on clique droit sur le menu Démarrer et on choisit &quot;Windows PowerShell (admin)&quot;.
+    - On saisit la commande suivante pour ajouter le groupe &quot;informatique&quot; aux utilisateurs autorisés du Bureau à distance :
+      ```powershell
+      net localgroup &quot;utilisateurs du bureau à distance&quot; informatique /add
+      ```
+    - On peut vérifier si l'opération a été réussie en entrant :
+      ```powershell
+      net localgroup &quot;utilisateurs du bureau à distance&quot;
+      ```
+      On s'attend à voir &quot;informatique&quot; dans la liste des membres.
+
+5. **Vérification du numéro de port RDP**:
+    - Pour connaître le numéro de port utilisé par le Bureau à distance, on utilise la commande :
+      ```powershell
+      netstat -an | find &quot;3389&quot;
+      ```
+      Si le port 3389 apparaît dans les résultats, cela signifie que le Bureau à distance est correctement configuré pour utiliser ce port par défaut.
+
+6. **Finalisation**:
+    - Une fois toutes ces étapes effectuées, on redémarre l'ordinateur pour que les modifications prennent effet. On teste ensuite la connexion à distance pour s'assurer que tout fonctionne correctement.
+
+&gt;
+
+# 5 – Installation d’applications
+## sur windows 10
+## Installation silencieuse de 7-Zip
+
+1. **Téléchargement du logiciel**:
+   - On se rend sur le site officiel de 7-Zip pour télécharger l'installateur du logiciel, soit en version 32 bits (x86) ou 64 bits (x64), en fonction de la version de Windows sur laquelle on souhaite installer.
+
+2. **Préparation de l'installation silencieuse**:
+   - On s'assure d'avoir les droits administratifs sur la machine. Si ce n'est pas le cas, on doit exécuter l'installateur avec des droits élevés.
+
+3. **Lancement de l'installation silencieuse**:
+   - On ouvre l'invite de commandes (CMD) en tant qu'administrateur.
+   - On navigue vers l'emplacement où se trouve l'installateur téléchargé à l'étape 1. Par exemple, si l'installateur est sur le bureau, on utilise la commande : 
+     ```
+     cd %AV%\Desktop
+     ```
+
+
+   - Pour la version 64 bits (nom de fichier par défaut : `7zXXXX-x64.msi`):
+     ```
+     msiexec /i 7zXXXX-x64.msi /qn
+     ```
+     On remplace `XXXX` par le numéro de version approprié.
+
+4. **Vérification**:
+   - Après l'installation, on vérifie que 7-Zip est correctement installé. On peut le faire en ouvrant le menu Démarrer et en recherchant 7-Zip. Si l'application est présente, cela signifie que l'installation a été réussie.
+
+&gt; **Note** : Le commutateur `/qn` signifie &quot;quiet no UI&quot;. Il permet une installation silencieuse sans interface utilisateur. L'alerte UAC (Contrôle de compte utilisateur) pourrait toujours s'afficher pour demander l'autorisation d'installer le logiciel. 
+
+
+## Connexion RDP à un poste Windows depuis Debian/Linux
+
+### 1. Recherche d'applications gérant le protocole RDP avec NLA:
+- Avant d'installer tout logiciel, on vérifie les solutions disponibles dans les dépôts officiels pour gérer le protocole RDP :
 </code></pre>
-<p>ou</p>
-<pre><code>apt search remote desktop
+<p>apt search rdp
+apt search bureau à distance</p>
+<pre><code>ou
 </code></pre>
-<h3 id="2-installation-de-remmina">2. Installation de Remmina:</h3>
-<ul>
-<li>Suite à la recherche, on détermine que <code>Remmina</code> est l'outil adapté à nos besoins, en particulier pour gérer l'authentification NLA.</li>
-</ul>
-<p>Pour installer Remmina :</p>
-<pre><code>apt install remmina
+<p>apt search remote desktop</p>
+<pre><code>
+### 2. Installation de Remmina:
+- Suite à la recherche, on détermine que `Remmina` est l'outil adapté à nos besoins, en particulier pour gérer l'authentification NLA.
+
+Pour installer Remmina :
 </code></pre>
-<h3 id="3-configuration-et-utilisation-de-remmina">3. Configuration et utilisation de Remmina:</h3>
-<ul>
-<li>On ouvre l'interface graphique et lance <code>Remmina</code>.</li>
-<li>Dans Remmina, on clique sur l'option pour créer une nouvelle connexion.</li>
-<li>On sélectionne <code>RDP</code> comme protocole.</li>
-<li>On renseigne les informations nécessaires pour la connexion :</li>
-<li>Serveur: Adresse IP ou nom d'hôte du poste Windows.</li>
-<li>Nom d'utilisateur: Nom d'utilisateur pour la connexion.</li>
-<li>Mot de passe: Mot de passe associé.</li>
-<li>Domaine: Si nécessaire, on spécifie le domaine de connexion.</li>
-</ul>
-<p>Une fois les informations renseignées, on clique sur <code>Connexion</code> pour initier la session RDP.</p>
-<h2 id="installation-de-webmin-pour-la-gestion-via-une-interface-web">Installation de Webmin pour la gestion via une interface web</h2>
-<h3 id="1-installation-en-ligne">1. Installation en ligne :</h3>
-<p>On suit le guide disponible sur le site officiel de Webmin : <a href="https://www.webmin.com/deb.html">Guide d'installation de Webmin</a></p>
-<h3 id="2-gestion-des-dependances-manquantes">2. Gestion des dépendances manquantes :</h3>
-<p>Si des dépendances sont manquantes, on les installe en utilisant les commandes appropriées, par exemple :</p>
-<pre><code>apt install [nom_de_la_dépendance]
+<p>apt install remmina</p>
+<pre><code>
+### 3. Configuration et utilisation de Remmina:
+- On ouvre l'interface graphique et lance `Remmina`.
+- Dans Remmina, on clique sur l'option pour créer une nouvelle connexion.
+- On sélectionne `RDP` comme protocole.
+- On renseigne les informations nécessaires pour la connexion :
+  - Serveur: Adresse IP ou nom d'hôte du poste Windows.
+  - Nom d'utilisateur: Nom d'utilisateur pour la connexion.
+  - Mot de passe: Mot de passe associé.
+  - Domaine: Si nécessaire, on spécifie le domaine de connexion.
+
+Une fois les informations renseignées, on clique sur `Connexion` pour initier la session RDP.
+
+## Installation de Webmin pour la gestion via une interface web
+
+### 1. Installation en ligne :
+On suit le guide disponible sur le site officiel de Webmin : [Guide d'installation de Webmin](https://www.webmin.com/deb.html)
+
+### 2. Gestion des dépendances manquantes :
+Si des dépendances sont manquantes, on les installe en utilisant les commandes appropriées, par exemple :
 </code></pre>
-<h3 id="3-reparation-de-webmin-si-necessaire">3. Réparation de Webmin si nécessaire :</h3>
-<p>Dans le cas où Webmin serait endommagé après l'installation, on utilise la commande suivante pour le réparer :</p>
-<pre><code>apt install --fix-broken
+<p>apt install [nom_de_la_dépendance]</p>
+<pre><code>
+### 3. Réparation de Webmin si nécessaire :
+Dans le cas où Webmin serait endommagé après l'installation, on utilise la commande suivante pour le réparer :
 </code></pre>
-<h3 id="4-acces-a-linterface-de-webmin">4. Accès à l'interface de Webmin :</h3>
-<p>Après l'installation, on ouvre un navigateur et se rend à l'adresse suivante : <code>https://[adresse_ip_du_serveur]:10000</code>
-Si une alerte de sécurité apparaît en raison du certificat SSL auto-signé, on choisit de "continuer" ou "accepter le risque" pour accéder à l'interface.</p>
-<h3 id="5-authentification">5. Authentification :</h3>
-<p>À la page de connexion, on s'authentifie en tant que <code>root</code> ou tout autre utilisateur disposant des droits d'administration.</p>
-<h3 id="6-verification">6. Vérification :</h3>
-<p>Une fois connecté, on peut voir l'interface de Webmin. Tout est en ordre si l'on peut naviguer sans problème.</p>
-<h1 id="6-sauvegarde-et-restauration">6 – Sauvegarde et restauration</h1>
-<h2 id="planification-dune-sauvegarde-quotidienne-et-duplication-des-fichiers">Planification d'une sauvegarde quotidienne et duplication des fichiers</h2>
-<h3 id="1-creation-du-script-de-sauvegarde">1. Création du script de sauvegarde :</h3>
-<ul>
-<li>On commence par créer un script pour réaliser la sauvegarde des données :</li>
-</ul>
-<pre><code>vim /root/script.sh
+<p>apt install --fix-broken</p>
+<pre><code>
+### 4. Accès à l'interface de Webmin :
+Après l'installation, on ouvre un navigateur et se rend à l'adresse suivante : `https://[adresse_ip_du_serveur]:10000`
+Si une alerte de sécurité apparaît en raison du certificat SSL auto-signé, on choisit de &quot;continuer&quot; ou &quot;accepter le risque&quot; pour accéder à l'interface.
+
+### 5. Authentification :
+À la page de connexion, on s'authentifie en tant que `root` ou tout autre utilisateur disposant des droits d'administration.
+
+### 6. Vérification :
+Une fois connecté, on peut voir l'interface de Webmin. Tout est en ordre si l'on peut naviguer sans problème.
+
+# 6 – Sauvegarde et restauration
+
+## Planification d'une sauvegarde quotidienne et duplication des fichiers
+
+### 1. Création du script de sauvegarde :
+
+- On commence par créer un script pour réaliser la sauvegarde des données :
 </code></pre>
-<ul>
-<li>Dans ce script, on insère les commandes suivantes :</li>
-</ul>
-<pre><code>#!/bin/bash
-tar cf /root/HomeBack.tar /home
-tar cf /root/ServicesBack.tar /services
+<p>vim /root/script.sh</p>
+<pre><code>- Dans ce script, on insère les commandes suivantes :
 </code></pre>
-<ul>
-<li>Ensuite, on modifie les permissions pour permettre l'exécution du script :</li>
-</ul>
-<pre><code>chmod u+x /root/script.sh
+<h1 id="binbash">!/bin/bash</h1>
+<p>tar cf /root/HomeBack.tar /home
+tar cf /root/ServicesBack.tar /services</p>
+<pre><code>- Ensuite, on modifie les permissions pour permettre l'exécution du script :
 </code></pre>
-<h3 id="2-planification-de-la-sauvegarde">2. Planification de la sauvegarde :</h3>
-<ul>
-<li>On planifie ensuite la sauvegarde à l'aide de <code>crontab</code> :</li>
-</ul>
-<pre><code>crontab -e
+<p>chmod u+x /root/script.sh</p>
+<pre><code>
+### 2. Planification de la sauvegarde :
+
+- On planifie ensuite la sauvegarde à l'aide de `crontab` :
 </code></pre>
-<ul>
-<li>Puis, on ajoute la ligne suivante pour exécuter le script tous les jours de la semaine à 12h30 :</li>
-</ul>
-<pre><code>30 12 * * 1-5 /root/script.sh
+<p>crontab -e</p>
+<pre><code>- Puis, on ajoute la ligne suivante pour exécuter le script tous les jours de la semaine à 12h30 :
 </code></pre>
-<h3 id="3-duplication-des-fichiers-avec-scp">3. Duplication des fichiers avec <code>scp</code> :</h3>
-<ul>
-<li>On vérifie si <code>scp</code> est installé sur le système :</li>
-</ul>
-<pre><code>apt-cache search scp
+<p>30 12 * * 1-5 /root/script.sh</p>
+<pre><code>
+### 3. Duplication des fichiers avec `scp` :
+
+- On vérifie si `scp` est installé sur le système :
 </code></pre>
-<ul>
-<li>Si nécessaire, on installe le paquet correspondant.</li>
-<li>Dans <code>crontab</code>, on ajoute une ligne pour copier les sauvegardes vers une machine distante :</li>
-</ul>
-<pre><code>32 12 * * 1-5 scp /root/*.tar utilisateur@adresse_ip_du_binôme:/dossier_de_destination/
+<p>apt-cache search scp</p>
+<pre><code>- Si nécessaire, on installe le paquet correspondant.
+- Dans `crontab`, on ajoute une ligne pour copier les sauvegardes vers une machine distante :
 </code></pre>
-<blockquote>
-<p><strong>Note</strong>: Pensez à utiliser une clé SSH pour une authentification sans mot de passe avec <code>scp</code>.</p>
-</blockquote>
-<p>Avec cette configuration, les données seront sauvegardées quotidiennement à 12h30 et dupliquées sur une autre machine à 12h32.</p>
-<h2 id="sauvegarde-sur-les-postes-windows-10">Sauvegarde sur les postes Windows 10</h2>
-<h3 id="1-ajout-dun-nouveau-disque-dur">1. Ajout d'un nouveau disque dur :</h3>
-<ul>
-<li>Si l'espace de stockage est insuffisant, on commence par ajouter un disque dur de 60 Go.</li>
-<li>On suit la procédure déjà fournie d’ajout de disque sous Vmware workstation.</li>
-</ul>
-<h3 id="2-creation-dune-image-systeme">2. Création d'une image système :</h3>
-<ul>
-<li>Aller dans <strong>Démarrer</strong> &gt; <strong>Paramètres</strong> &gt; <strong>Système</strong> &gt; <strong>Stockage</strong> &gt; <strong>Gestion des disques</strong>.</li>
-<li>Une fois dans le gestionnaire de disques :</li>
-<li>On repère le nouveau disque de 60 Go qui devrait apparaître comme "Non alloué".</li>
-<li>Faire un clic-droit sur ce disque puis choisir "Nouveau volume simple".</li>
-<li>Suivre l'assistant : choisir la taille maximale pour le volume, attribuer une lettre au disque, puis formater le volume avec le format NTFS et attribuer un nom de votre choix.</li>
-<li>Pour créer une image :</li>
-<li>Aller dans <strong>Panneau de configuration</strong> &gt; <strong>Système et sécurité</strong> &gt; <strong>Sauvegarder et restaurer</strong>.</li>
-<li>Dans le volet de gauche, choisir <strong>Créer une image système</strong>.</li>
-<li>Suivre l'assistant, choisir le disque nouvellement créé pour stocker l'image.</li>
-</ul>
-<h3 id="3-planification-dune-sauvegarde-journaliere">3. Planification d'une sauvegarde journalière :</h3>
-<ul>
-<li>Retourner dans <strong>Panneau de configuration</strong> &gt; <strong>Système et sécurité</strong> &gt; <strong>Sauvegarder et restaurer</strong>.</li>
-<li>Cliquer sur "Configurer la sauvegarde".</li>
-<li>Dans la nouvelle fenêtre, choisir "Enregistrer sur un réseau...".</li>
-<li>Une boîte de dialogue s'ouvre pour demander l'emplacement réseau. Entrer <code>\@ip_du_binôme\Support_Info</code> et fournir les informations d'identification nécessaires.</li>
-<li>Une fois l'emplacement réseau choisi, sélectionner "Me laisser choisir" pour choisir les dossiers à sauvegarder.</li>
-<li>Cocher uniquement le dossier "Support_Info" et décocher l'option "Inclure une image système de lecteurs".</li>
-<li>Passer à l'étape suivante et choisir "Modifier la planification". Choisir une sauvegarde quotidienne et régler l'heure sur 13:00.</li>
-</ul>
-<h3 id="4-ajustement-de-lheure-de-sauvegarde">4. Ajustement de l'heure de sauvegarde :</h3>
-<ul>
-<li>Pour une planification précise à 12h45, ouvrir le <strong>Planificateur des tâches</strong> à partir du menu Démarrer.</li>
-<li>Dans la fenêtre du Planificateur des tâches, chercher dans le volet central la tâche nommée "AutomaticBackup".</li>
-<li>Faire un double-clic dessus pour l'ouvrir.</li>
-<li>Aller dans l'onglet "Déclencheurs" et modifier le déclenchement existant.</li>
-<li>Régler l'heure sur 12h45 et confirmer.</li>
-</ul>
-<h2 id="conclusion">Conclusion :</h2>
-<p>Avec ces étapes, on assure que le système Windows 10 est correctement sauvegardé et que les données importantes sont sécurisées régulièrement.</p>
-<h2 id="parametrage-des-points-de-restauration-sur-le-volume-c-sous-windows-10">Paramétrage des points de restauration sur le volume « C: » sous Windows 10</h2>
-<h3 id="1-acces-a-la-gestion-des-points-de-restauration-systeme">1. Accès à la gestion des points de restauration système:</h3>
-<ul>
-<li>On commence par ouvrir le <strong>Panneau de configuration</strong>. </li>
-<li>
-<p>Pour ce faire, on clique sur le bouton <strong>Démarrer</strong>, tape "Panneau de configuration" dans la barre de recherche et sélectionne l'application correspondante parmi les résultats.</p>
-</li>
-<li>
-<p>Une fois dans le <strong>Panneau de configuration</strong>, on clique sur <strong>Système et sécurité</strong>.</p>
-</li>
-<li>
-<p>Dans la fenêtre suivante, on clique sur <strong>Système</strong>.</p>
-</li>
-<li>
-<p>Sur le volet de gauche, on sélectionne <strong>Protection du système</strong>. Cela ouvre une fenêtre nommée "Propriétés système", avec l'onglet "Protection du système" actif.</p>
-</li>
-</ul>
-<h3 id="2-configuration-des-points-de-restauration-pour-le-lecteur-c">2. Configuration des points de restauration pour le lecteur C:</h3>
-<ul>
-<li>
-<p>Sous l'onglet <strong>Protection du système</strong>, dans la section "Protection des paramètres", on repère le lecteur <strong>C:</strong>.</p>
-</li>
-<li>
-<p>Si la protection est désactivée pour le lecteur <strong>C:</strong>, on le sélectionne puis clique sur <strong>Configurer...</strong>.</p>
-</li>
-<li>
-<p>Dans la fenêtre qui s'affiche :</p>
-</li>
-<li>
-<p>On coche <strong>Activer la protection du système</strong>.</p>
-</li>
-<li>
-<p>Dans "Utilisation maximale", on définit l'espace disque à utiliser pour la protection du système à <strong>8%</strong>.</p>
-</li>
-<li>
-<p>On confirme les modifications en cliquant sur <strong>Appliquer</strong> puis <strong>OK</strong>.</p>
-</li>
-</ul>
-<h3 id="3-creation-dun-point-de-restauration-systeme">3. Création d'un point de restauration système:</h3>
-<ul>
-<li>
-<p>Toujours dans l'onglet <strong>Protection du système</strong>, avec le lecteur <strong>C:</strong> sélectionné, on clique sur <strong>Créer...</strong>.</p>
-</li>
-<li>
-<p>On nomme le point de restauration (par exemple, "Point initial") et clique sur <strong>Créer</strong>.</p>
-</li>
-<li>
-<p>Une fois le point de restauration créé, un message de confirmation apparaît.</p>
-</li>
-<li>
-<p>On ferme toutes les fenêtres ouvertes pour terminer la procédure.</p>
-</li>
-</ul>
-<h2 id="note">note:</h2>
-<p>On a désormais paramétré la protection du système pour le lecteur <strong>C:</strong> en réservant 8% de sa capacité pour les points de restauration et créé un point de restauration initial.</p>
-<h3 id="7-partitionnement-lvm">7 -  Partitionnement LVM</h3>
-<h3 id="faire-snaphot-avant-de-demarer-la-procedure">!!! Faire snaphot avant de demarer la procedure !!!</h3>
-<h2 id="montage-permanent-de-la-partition-logs-dans-le-dossier-varlog-sur-debian">Montage permanent de la partition « LOGS » dans le dossier « /var/log » sur Debian</h2>
-<h3 id="1-redemarrage-en-mode-maintenance">1. Redémarrage en mode maintenance:</h3>
-<p>Je commence par redémarrer en mode maintenance pour m'assurer qu'aucun processus n'utilise le dossier <code>/var/log</code> pendant le déplacement. </p>
-<pre><code class="language-bash">init 1
+<p>32 12 * * 1-5 scp /root/*.tar utilisateur@adresse_ip_du_binôme:/dossier_de_destination/</p>
+<pre><code>&gt; **Note**: Pensez à utiliser une clé SSH pour une authentification sans mot de passe avec `scp`.
+
+
+
+Avec cette configuration, les données seront sauvegardées quotidiennement à 12h30 et dupliquées sur une autre machine à 12h32.
+
+## Sauvegarde sur les postes Windows 10
+
+### 1. Ajout d'un nouveau disque dur :
+- Si l'espace de stockage est insuffisant, on commence par ajouter un disque dur de 60 Go.
+  - On suit la procédure déjà fournie d’ajout de disque sous Vmware workstation.
+
+### 2. Création d'une image système :
+- Aller dans **Démarrer** &gt; **Paramètres** &gt; **Système** &gt; **Stockage** &gt; **Gestion des disques**.
+- Une fois dans le gestionnaire de disques :
+  - On repère le nouveau disque de 60 Go qui devrait apparaître comme &quot;Non alloué&quot;.
+  - Faire un clic-droit sur ce disque puis choisir &quot;Nouveau volume simple&quot;.
+  - Suivre l'assistant : choisir la taille maximale pour le volume, attribuer une lettre au disque, puis formater le volume avec le format NTFS et attribuer un nom de votre choix.
+- Pour créer une image :
+  - Aller dans **Panneau de configuration** &gt; **Système et sécurité** &gt; **Sauvegarder et restaurer**.
+  - Dans le volet de gauche, choisir **Créer une image système**.
+  - Suivre l'assistant, choisir le disque nouvellement créé pour stocker l'image.
+
+### 3. Planification d'une sauvegarde journalière :
+- Retourner dans **Panneau de configuration** &gt; **Système et sécurité** &gt; **Sauvegarder et restaurer**.
+  - Cliquer sur &quot;Configurer la sauvegarde&quot;.
+  - Dans la nouvelle fenêtre, choisir &quot;Enregistrer sur un réseau...&quot;.
+  - Une boîte de dialogue s'ouvre pour demander l'emplacement réseau. Entrer `\@ip_du_binôme\Support_Info` et fournir les informations d'identification nécessaires.
+  - Une fois l'emplacement réseau choisi, sélectionner &quot;Me laisser choisir&quot; pour choisir les dossiers à sauvegarder.
+  - Cocher uniquement le dossier &quot;Support_Info&quot; et décocher l'option &quot;Inclure une image système de lecteurs&quot;.
+  - Passer à l'étape suivante et choisir &quot;Modifier la planification&quot;. Choisir une sauvegarde quotidienne et régler l'heure sur 13:00.
+
+### 4. Ajustement de l'heure de sauvegarde :
+- Pour une planification précise à 12h45, ouvrir le **Planificateur des tâches** à partir du menu Démarrer.
+  - Dans la fenêtre du Planificateur des tâches, chercher dans le volet central la tâche nommée &quot;AutomaticBackup&quot;.
+  - Faire un double-clic dessus pour l'ouvrir.
+  - Aller dans l'onglet &quot;Déclencheurs&quot; et modifier le déclenchement existant.
+  - Régler l'heure sur 12h45 et confirmer.
+
+## Conclusion :
+Avec ces étapes, on assure que le système Windows 10 est correctement sauvegardé et que les données importantes sont sécurisées régulièrement.
+
+## Paramétrage des points de restauration sur le volume « C: » sous Windows 10
+
+### 1. Accès à la gestion des points de restauration système:
+
+- On commence par ouvrir le **Panneau de configuration**. 
+  - Pour ce faire, on clique sur le bouton **Démarrer**, tape &quot;Panneau de configuration&quot; dans la barre de recherche et sélectionne l'application correspondante parmi les résultats.
+
+- Une fois dans le **Panneau de configuration**, on clique sur **Système et sécurité**.
+
+- Dans la fenêtre suivante, on clique sur **Système**.
+
+- Sur le volet de gauche, on sélectionne **Protection du système**. Cela ouvre une fenêtre nommée &quot;Propriétés système&quot;, avec l'onglet &quot;Protection du système&quot; actif.
+
+### 2. Configuration des points de restauration pour le lecteur C:
+
+- Sous l'onglet **Protection du système**, dans la section &quot;Protection des paramètres&quot;, on repère le lecteur **C:**.
+
+- Si la protection est désactivée pour le lecteur **C:**, on le sélectionne puis clique sur **Configurer...**.
+
+- Dans la fenêtre qui s'affiche :
+  - On coche **Activer la protection du système**.
+
+  - Dans &quot;Utilisation maximale&quot;, on définit l'espace disque à utiliser pour la protection du système à **8%**.
+
+  - On confirme les modifications en cliquant sur **Appliquer** puis **OK**.
+
+### 3. Création d'un point de restauration système:
+
+- Toujours dans l'onglet **Protection du système**, avec le lecteur **C:** sélectionné, on clique sur **Créer...**.
+
+- On nomme le point de restauration (par exemple, &quot;Point initial&quot;) et clique sur **Créer**.
+
+- Une fois le point de restauration créé, un message de confirmation apparaît.
+
+- On ferme toutes les fenêtres ouvertes pour terminer la procédure.
+
+## note:
+On a désormais paramétré la protection du système pour le lecteur **C:** en réservant 8% de sa capacité pour les points de restauration et créé un point de restauration initial.
+
+
+### 7 -  Partitionnement LVM
+
+### !!! Faire snaphot avant de demarer la procedure !!!
+
+
+## Montage permanent de la partition « LOGS » dans le dossier « /var/log » sur Debian
+
+### 1. Redémarrage en mode maintenance:
+Je commence par redémarrer en mode maintenance pour m'assurer qu'aucun processus n'utilise le dossier `/var/log` pendant le déplacement. 
+```bash
+init 1
 </code></pre>
 <h3 id="2-creation-dun-dossier-temporaire-et-copie-des-logs">2. Création d'un dossier temporaire et copie des logs:</h3>
 <p>Une fois en mode maintenance, je crée un dossier temporaire pour stocker les logs existants et je copie le contenu de <code>/var/log</code> dans ce dossier tout en conservant les permissions.</p>
