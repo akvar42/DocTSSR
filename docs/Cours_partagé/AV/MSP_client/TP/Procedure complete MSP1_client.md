@@ -312,41 +312,63 @@ en mode commande
 
 - Lancement de diskpart dans powershell en mode administrateur
 
-```diskpart```
+```
+diskpart
+```
 
 - listage des disques
 
-```list disk```
+```
+list disk
+```
 
 - selection du disque à partitioner
 
-```select disk 1```
+```
+select disk 1
+```
 
 - on deconect le disque pour s'assuré qu'aucun service ne soit en train de l'utiliser
 
-```offline disk```
+```
+offline disk
+```
 
 - on reconecte
 
-```online disk```
+```
+online disk
+```
 
 - on crée une table de partition mbr
   
-``` convert MBR```
+``` 
+convert MBR
+```
   
 - on crée une partion de 15000 Mega octet (15 Giga)
 
-``` create partition primary size=15000```
+``` 
+create partition primary size=15000
+```
 
 - on formate en ntfs en appellant la partion DATA
   
-```create partition primary size=15000 ```
+```
+format fs=ntfs label="DATA" quick
+ ```
 
 - on attribue la lettre D au disque
 
-```assign letter=D```
+```
+assign letter=D
+```
 
 - En faisant ``` list disk ``` on peut voir la modification qui s'est correctement effectué.
+
+```
+exit
+```
 
 
 
