@@ -40,56 +40,67 @@ Morgan;Jones;mjones;morganjones@gmail.com;MJMDP2023!;Logistique;Interne
 
 #  Creation des groupes et des Utilisateurs sur windows 10 via Powershell
 
-- A l'aide de Chat GPT,  Je crée un script qui commencera par lire le fichier CSV.
-Pour chaque ligne, il vérifiera si le groupe existe ou non. S'il n'existe pas, il le créera. Ensuite, il créera l'utilisateur avec les détails fournis.
+## installer avant les module active directory
 
-- je modifie la politique d'execution de  powershell pour executer le script avec  ``` Set-ExecutionPolicy Unrestricted ```
 
-- Je lance le script avec powershell en mode administrateur
+- Ouvrez Paramètres.
+- Allez à Applications.
+- Sous Applications et fonctionnalités, cliquez sur Fonctionnalités facultatives.
+- Cliquez sur Ajouter une fonctionnalité.
+- Dans la liste, recherchez Outils RSAT : Outils AD DS et AD LDS et installez-le.
+- Après l'installation, le module PowerShell pour Active Directory devrait être disponible.
+- Une fois les outils RSAT installés:
+- Ouvrez une session PowerShell (de préférence en tant qu'administrateur) et tapez la commande suivante pour importer le module :
+
+```powershell
+
+Import-Module ActiveDirectory
+```
+
+## Permettre l'execution de script dans power shell
+- verifier la politique active:
+``` 
+Get-ExecutionPolicy
 
 
 ```
-# Chemin vers votre fichier CSV
-$csvPath = "C:\Users\AV\Documents\script\users.csv"
+changer la politique:
 
-# Importer les données du CSV
-$usersData = Import-Csv -Path $csvPath -Delimiter ';'
+```
+Set-ExecutionPolicy Unrestricted
 
-# Parcourir chaque utilisateur et créer l'utilisateur
-foreach ($data in $usersData) {
-    # Créer le nom complet
-    $FullName = "$($data.Nom) $($data.Prénom)"
+```
 
-    # Convertir le mot de passe en SecureString
-    $securePassword = ConvertTo-SecureString -AsPlainText $data.password -Force
+## Créer un fichier text en .ps1 et l'executer en mode adminitrateur.
 
-    # Créer l'utilisateur
-    try {
-        New-LocalUser -FullName $FullName -Description $data.description -Name $data.login -Password $securePassword -ErrorAction Stop
-        Write-Host "Utilisateur $FullName créé avec succès."
-    } catch {
-        Write-Warning "Erreur lors de la création de l'utilisateur $FullName. Détails : $_"
+```
+# Lit le fichier CSV
+$utilisateurs = Import-Csv "chemin_vers_votre_fichier\utilisateurs.csv" -Delimiter ";"
+
+# Pour chaque utilisateur dans le fichier CSV
+foreach ($utilisateur in $utilisateurs) {
+    # Crée le groupe s'il n'existe pas déjà
+    if (-not (Get-LocalGroup -Name $utilisateur.groupe -ErrorAction SilentlyContinue)) {
+        New-LocalGroup -Name $utilisateur.groupe -Description $utilisateur.description
     }
 
-    # Ajouter l'utilisateur au groupe si nécessaire
-    if ($data.groupe) {
-        try {
-            # Si le groupe n'existe pas, le créer
-            if (-not (Get-LocalGroup -Name $data.groupe -ErrorAction SilentlyContinue)) {
-                New-LocalGroup -Name $data.groupe -Description "Groupe créé par script"
-                Write-Host "Groupe $($data.groupe) créé avec succès."
-            }
+    # Crée l'utilisateur
+    $passwordSecure = ConvertTo-SecureString $utilisateur.password -AsPlainText -Force
+    New-LocalUser -Name $utilisateur.login `
+                  -GivenName $utilisateur.Prénom `
+                  -Surname $utilisateur.Nom `
+                  -Description $utilisateur.description `
+                  -Password $passwordSecure `
+                  -UserMayNotChangePassword $false `
+                  -PasswordNeverExpires $false `
+                  -FullName "$($utilisateur.Prénom) $($utilisateur.Nom)"
 
-            # Ajouter l'utilisateur au groupe
-            Add-LocalGroupMember -Group $data.groupe -Member $data.login
-            Write-Host "Utilisateur $FullName ajouté au groupe $($data.groupe) avec succès."
-        } catch {
-            Write-Warning "Erreur lors de l'ajout de l'utilisateur $FullName au groupe $($data.groupe). Détails : $_"
-        }
-    }
+    # Ajoute l'utilisateur au groupe
+    Add-LocalGroupMember -Group $utilisateur.groupe -Member $utilisateur.login
 }
-
 ```
+
+
 
 ## création utilisateurs et groupes pour Debian
 
