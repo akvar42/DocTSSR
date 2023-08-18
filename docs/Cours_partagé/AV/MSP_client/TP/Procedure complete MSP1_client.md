@@ -25,15 +25,24 @@
 
 ```
 
- Prénom;Nom;login;mail;password;groupe;description
+Prenom;Nom;login;mail;password;groupe;description
+
 Rick;Grimes;rgrimes;rickgrimes@gmail.com;RGMDP2023!;Direction;Interne
+
 Daryl;Dixon;ddixon;daryldixon@gmail.com;DDMDP2023!;Commercial;Interne
+
 Gabriel;Stokes;gstokes;gabrielstokes@gmail.com;GSMDP2023!;Commercial;Interne
+
 Maggie;Greene;mgreene;maggiegreene@gmail.com;MGMDP2023!;Commercial;Interne
+
 Eugene;Porter;eporter;eugeneporter@gmail.com;EPMDP2023!;Comptable;Interne
-Carol;Peletier;cpeletier;carolpeletier@gmail.com;CPMDP2023!;Comptable;intérimaire
-Adrien;vincent;Avincent;avincent@mail.com;AVMDP2023!;informatique;Interne
+
+Carol;Peletier;cpeletier;carolpeletier@gmail.com;CPMDP2023!;Comptable;interimaire
+
+Adrien;vincent;Avincent;avincent@mail.com;AVMDP2023!;administratrice;Interne
+
 Rosita;Espinosa;respinosa;rositaespinosa@gmail.com;REMDP2023!;Logistique;Interne
+
 Morgan;Jones;mjones;morganjones@gmail.com;MJMDP2023!;Logistique;Interne
 
 ```
@@ -75,29 +84,67 @@ Set-ExecutionPolicy Unrestricted
 
 ```
 # Lit le fichier CSV
-$utilisateurs = Import-Csv "chemin_vers_votre_fichier\utilisateurs.csv" -Delimiter ";"
+$utilisateurs = Import-Csv "C:\Partage1\Scripts\utilisateurs_et_group.csv" -Delimiter ";" -Encoding UTF8
 
 # Pour chaque utilisateur dans le fichier CSV
 foreach ($utilisateur in $utilisateurs) {
-    # Crée le groupe s'il n'existe pas déjà
-    if (-not (Get-LocalGroup -Name $utilisateur.groupe -ErrorAction SilentlyContinue)) {
-        New-LocalGroup -Name $utilisateur.groupe -Description $utilisateur.description
+    
+    $utilisateur.Prenom = $utilisateur.Prenom.Trim()
+    $utilisateur.Nom = $utilisateur.Nom.Trim()
+    $utilisateur.login = $utilisateur.login.Trim()
+    $utilisateur.mail = $utilisateur.mail.Trim()
+    $utilisateur.password = $utilisateur.password.Trim()
+    $utilisateur.groupe = $utilisateur.groupe.Trim()
+    $utilisateur.description = $utilisateur.description.Trim()
+
+    Write-Host "Traitement de l'utilisateur $($utilisateur.login)..."
+    
+    # Vérifie la présence du mot de passe
+    if (-not $utilisateur.password) {
+        Write-Host "Erreur : Pas de mot de passe fourni pour l'utilisateur $($utilisateur.login)"
+        continue
     }
 
+    # Affiche le mot de passe pour le débogage
+    Write-Host "Password for $($utilisateur.login): $($utilisateur.password)"
+
+    # Crée le groupe s'il n'existe pas déjà
+    if (-not (Get-LocalGroup -Name $utilisateur.groupe -ErrorAction SilentlyContinue)) {
+        try {
+            New-LocalGroup -Name $utilisateur.groupe -Description $utilisateur.description
+        } catch {
+            Write-Host "Erreur lors de la création du groupe $($utilisateur.groupe) : $_"
+            continue
+        }
+    }
+    
     # Crée l'utilisateur
-    $passwordSecure = ConvertTo-SecureString $utilisateur.password -AsPlainText -Force
-    New-LocalUser -Name $utilisateur.login `
-                  -GivenName $utilisateur.Prénom `
-                  -Surname $utilisateur.Nom `
-                  -Description $utilisateur.description `
-                  -Password $passwordSecure `
-                  -UserMayNotChangePassword $false `
-                  -PasswordNeverExpires $false `
-                  -FullName "$($utilisateur.Prénom) $($utilisateur.Nom)"
+    try {
+        $userInfo = @{
+            Name                   = $utilisateur.login
+            GivenName              = $utilisateur.Prenom
+            Surname                = $utilisateur.Nom
+            Description            = $utilisateur.description
+            Password               = $utilisateur.password
+            UserMayNotChangePassword = $false
+            PasswordNeverExpires   = $false
+            FullName               = "$($utilisateur.Prenom) $($utilisateur.Nom)"
+        }
+
+        New-LocalUser @userInfo
+    } catch {
+        Write-Host "Erreur lors de la création de l'utilisateur $($utilisateur.login) : $_"
+        continue
+    }
 
     # Ajoute l'utilisateur au groupe
-    Add-LocalGroupMember -Group $utilisateur.groupe -Member $utilisateur.login
+    try {
+        Add-LocalGroupMember -Group $utilisateur.groupe -Member $utilisateur.login
+    } catch {
+        Write-Host "Erreur lors de l'ajout de l'utilisateur $($utilisateur.login) au groupe $($utilisateur.groupe) : $_"
+    }
 }
+
 ```
 
 

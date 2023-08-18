@@ -1521,15 +1521,24 @@
 </li>
 </ul>
 <pre><code>
- Prénom;Nom;login;mail;password;groupe;description
+Prenom;Nom;login;mail;password;groupe;description
+
 Rick;Grimes;rgrimes;rickgrimes@gmail.com;RGMDP2023!;Direction;Interne
+
 Daryl;Dixon;ddixon;daryldixon@gmail.com;DDMDP2023!;Commercial;Interne
+
 Gabriel;Stokes;gstokes;gabrielstokes@gmail.com;GSMDP2023!;Commercial;Interne
+
 Maggie;Greene;mgreene;maggiegreene@gmail.com;MGMDP2023!;Commercial;Interne
+
 Eugene;Porter;eporter;eugeneporter@gmail.com;EPMDP2023!;Comptable;Interne
-Carol;Peletier;cpeletier;carolpeletier@gmail.com;CPMDP2023!;Comptable;intérimaire
-Adrien;vincent;Avincent;avincent@mail.com;AVMDP2023!;informatique;Interne
+
+Carol;Peletier;cpeletier;carolpeletier@gmail.com;CPMDP2023!;Comptable;interimaire
+
+Adrien;vincent;Avincent;avincent@mail.com;AVMDP2023!;administratrice;Interne
+
 Rosita;Espinosa;respinosa;rositaespinosa@gmail.com;REMDP2023!;Logistique;Interne
+
 Morgan;Jones;mjones;morganjones@gmail.com;MJMDP2023!;Logistique;Interne
 
 </code></pre>
@@ -1562,29 +1571,67 @@ Import-Module ActiveDirectory
 </code></pre>
 <h2 id="creer-un-fichier-text-en-ps1-et-lexecuter-en-mode-adminitrateur">Créer un fichier text en .ps1 et l'executer en mode adminitrateur.</h2>
 <pre><code># Lit le fichier CSV
-$utilisateurs = Import-Csv &quot;chemin_vers_votre_fichier\utilisateurs.csv&quot; -Delimiter &quot;;&quot;
+$utilisateurs = Import-Csv &quot;C:\Partage1\Scripts\utilisateurs_et_group.csv&quot; -Delimiter &quot;;&quot; -Encoding UTF8
 
 # Pour chaque utilisateur dans le fichier CSV
 foreach ($utilisateur in $utilisateurs) {
+
+    $utilisateur.Prenom = $utilisateur.Prenom.Trim()
+    $utilisateur.Nom = $utilisateur.Nom.Trim()
+    $utilisateur.login = $utilisateur.login.Trim()
+    $utilisateur.mail = $utilisateur.mail.Trim()
+    $utilisateur.password = $utilisateur.password.Trim()
+    $utilisateur.groupe = $utilisateur.groupe.Trim()
+    $utilisateur.description = $utilisateur.description.Trim()
+
+    Write-Host &quot;Traitement de l'utilisateur $($utilisateur.login)...&quot;
+
+    # Vérifie la présence du mot de passe
+    if (-not $utilisateur.password) {
+        Write-Host &quot;Erreur : Pas de mot de passe fourni pour l'utilisateur $($utilisateur.login)&quot;
+        continue
+    }
+
+    # Affiche le mot de passe pour le débogage
+    Write-Host &quot;Password for $($utilisateur.login): $($utilisateur.password)&quot;
+
     # Crée le groupe s'il n'existe pas déjà
     if (-not (Get-LocalGroup -Name $utilisateur.groupe -ErrorAction SilentlyContinue)) {
-        New-LocalGroup -Name $utilisateur.groupe -Description $utilisateur.description
+        try {
+            New-LocalGroup -Name $utilisateur.groupe -Description $utilisateur.description
+        } catch {
+            Write-Host &quot;Erreur lors de la création du groupe $($utilisateur.groupe) : $_&quot;
+            continue
+        }
     }
 
     # Crée l'utilisateur
-    $passwordSecure = ConvertTo-SecureString $utilisateur.password -AsPlainText -Force
-    New-LocalUser -Name $utilisateur.login `
-                  -GivenName $utilisateur.Prénom `
-                  -Surname $utilisateur.Nom `
-                  -Description $utilisateur.description `
-                  -Password $passwordSecure `
-                  -UserMayNotChangePassword $false `
-                  -PasswordNeverExpires $false `
-                  -FullName &quot;$($utilisateur.Prénom) $($utilisateur.Nom)&quot;
+    try {
+        $userInfo = @{
+            Name                   = $utilisateur.login
+            GivenName              = $utilisateur.Prenom
+            Surname                = $utilisateur.Nom
+            Description            = $utilisateur.description
+            Password               = $utilisateur.password
+            UserMayNotChangePassword = $false
+            PasswordNeverExpires   = $false
+            FullName               = &quot;$($utilisateur.Prenom) $($utilisateur.Nom)&quot;
+        }
+
+        New-LocalUser @userInfo
+    } catch {
+        Write-Host &quot;Erreur lors de la création de l'utilisateur $($utilisateur.login) : $_&quot;
+        continue
+    }
 
     # Ajoute l'utilisateur au groupe
-    Add-LocalGroupMember -Group $utilisateur.groupe -Member $utilisateur.login
+    try {
+        Add-LocalGroupMember -Group $utilisateur.groupe -Member $utilisateur.login
+    } catch {
+        Write-Host &quot;Erreur lors de l'ajout de l'utilisateur $($utilisateur.login) au groupe $($utilisateur.groupe) : $_&quot;
+    }
 }
+
 </code></pre>
 <h2 id="creation-utilisateurs-et-groupes-pour-debian">création utilisateurs et groupes pour Debian</h2>
 <p>En suite je peux reutilisé mon fichier csv pour debian. En utilisant ce script bash que je rend executable avec la commande:
