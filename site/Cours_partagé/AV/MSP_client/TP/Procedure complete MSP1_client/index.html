@@ -1576,24 +1576,7 @@ $utilisateurs = Import-Csv &quot;C:\Partage1\Scripts\utilisateurs_et_group.csv&q
 # Pour chaque utilisateur dans le fichier CSV
 foreach ($utilisateur in $utilisateurs) {
 
-    $utilisateur.Prenom = $utilisateur.Prenom.Trim()
-    $utilisateur.Nom = $utilisateur.Nom.Trim()
-    $utilisateur.login = $utilisateur.login.Trim()
-    $utilisateur.mail = $utilisateur.mail.Trim()
-    $utilisateur.password = $utilisateur.password.Trim()
-    $utilisateur.groupe = $utilisateur.groupe.Trim()
-    $utilisateur.description = $utilisateur.description.Trim()
-
     Write-Host &quot;Traitement de l'utilisateur $($utilisateur.login)...&quot;
-
-    # Vérifie la présence du mot de passe
-    if (-not $utilisateur.password) {
-        Write-Host &quot;Erreur : Pas de mot de passe fourni pour l'utilisateur $($utilisateur.login)&quot;
-        continue
-    }
-
-    # Affiche le mot de passe pour le débogage
-    Write-Host &quot;Password for $($utilisateur.login): $($utilisateur.password)&quot;
 
     # Crée le groupe s'il n'existe pas déjà
     if (-not (Get-LocalGroup -Name $utilisateur.groupe -ErrorAction SilentlyContinue)) {
@@ -1605,20 +1588,21 @@ foreach ($utilisateur in $utilisateurs) {
         }
     }
 
+    # Convertir le mot de passe en SecureString
+    $passwordSecure = $utilisateur.password | ConvertTo-SecureString -AsPlainText -Force
+    Write-Host &quot;Password for $($utilisateur.login): $($utilisateur.password)&quot;
+
     # Crée l'utilisateur
     try {
-        $userInfo = @{
+        $userParams = @{
             Name                   = $utilisateur.login
-            GivenName              = $utilisateur.Prenom
-            Surname                = $utilisateur.Nom
             Description            = $utilisateur.description
-            Password               = $utilisateur.password
+            Password               = $passwordSecure
             UserMayNotChangePassword = $false
             PasswordNeverExpires   = $false
             FullName               = &quot;$($utilisateur.Prenom) $($utilisateur.Nom)&quot;
         }
-
-        New-LocalUser @userInfo
+        New-LocalUser @userParams
     } catch {
         Write-Host &quot;Erreur lors de la création de l'utilisateur $($utilisateur.login) : $_&quot;
         continue
@@ -1631,6 +1615,7 @@ foreach ($utilisateur in $utilisateurs) {
         Write-Host &quot;Erreur lors de l'ajout de l'utilisateur $($utilisateur.login) au groupe $($utilisateur.groupe) : $_&quot;
     }
 }
+
 
 </code></pre>
 <h2 id="creation-utilisateurs-et-groupes-pour-debian">création utilisateurs et groupes pour Debian</h2>
