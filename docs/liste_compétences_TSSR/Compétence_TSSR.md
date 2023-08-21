@@ -7,13 +7,6 @@
 - Configuration et administration de DHCP et DNS.
 - Administration de services réseaux sous Linux.
 
-## Office 365 – Outils collaboratifs
-- Maîtrise de l'environnement Microsoft 365.
-- Édition de documents avec Word.
-- Utilisation des fonctions de base d'Excel.
-- Gestion de la messagerie avec Outlook.
-- Collaboration en équipe avec Teams.
-- Stockage et partage de documents avec OneDrive.
 
 ## Virtualisation des serveurs
 - Connaissance des principes de la virtualisation.
@@ -56,3 +49,11 @@
 ## Administration GLPI
 - Installation et configuration de GLPI.
 - Gestion des incidents et du parc informatique avec GLPI.
+
+## Office 365 – Outils collaboratifs
+- Maîtrise de l'environnement Microsoft 365.
+- Édition de documents avec Word.
+- Utilisation des fonctions de base d'Excel.
+- Gestion de la messagerie avec Outlook.
+- Collaboration en équipe avec Teams.
+- Stockage et partage de documents avec OneDrive.
