@@ -1,12 +1,10 @@
-# Compétences  Technicien Supérieur Systèmes et Réseaux 
-
+# Compétences Technicien Supérieur Systèmes et Réseaux
 
 ## Services réseaux en environnement Microsoft et Linux
 - Administration de Windows Server.
 - Gestion des ressources réseau.
 - Configuration et administration de DHCP et DNS.
 - Administration de services réseaux sous Linux.
-
 
 ## Virtualisation des serveurs
 - Connaissance des principes de la virtualisation.
@@ -57,3 +55,19 @@
 - Gestion de la messagerie avec Outlook.
 - Collaboration en équipe avec Teams.
 - Stockage et partage de documents avec OneDrive.
+
+## Exploitation et supervision d'une infrastructure
+- Supervision des équipements réseau et serveurs.
+- Utilisation d'outils de monitoring comme Nagios ou Zabbix.
+- Planification et automatisation des tâches de maintenance.
+
+## Services transverses Microsoft (RDS/WDS)
+- Mise en place et gestion de Remote Desktop Services.
+- Configuration et déploiement avec Windows Deployment Services.
+- Gestion des politiques de groupe liées à RDS/WDS.
+
+## Cloud et Microsoft 365 avancé
+- Administration des services Azure.
+- Gestion de l'identité et des accès avec Azure AD.
+- Compréhension de l'architecture du Cloud.
+- Configuration avancée des services Microsoft 365 (comme Power BI, SharePoint).
