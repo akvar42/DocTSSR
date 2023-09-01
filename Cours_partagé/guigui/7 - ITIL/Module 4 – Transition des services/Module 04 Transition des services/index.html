@@ -1,0 +1,3861 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../Module%203%20%E2%80%93%20Strat%C3%A9gie%20et%20Conception%20des%20services/Module%2003%20-%20Strat%C3%A9gie%20et%20Conception%20des%20services/">
+      
+      
+        <link rel="next" href="../../Module%205%20%E2%80%93%20D%C3%A9couverte%20de%20GLPI/Module%2005%20%E2%80%93%20D%C3%A9couverte%20de%20GLPI/">
+      
+      <link rel="icon" href="../../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>Module 04 – Transition des services - DOC TSSR</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.eebd395e.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#module-04-transition-des-services" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="DOC TSSR" class="md-header__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DOC TSSR
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Module 04 – Transition des services
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="DOC TSSR" class="md-nav__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    DOC TSSR
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        Bienvenue sur le site de Documentation TSSR2023.
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Cours partagé
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cours partagé
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          GITHUB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          GITHUB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../GITHUB/SSH_et_GITHUB/" class="md-nav__link">
+        Créer une clé SSH et la lier à GitHub et au dépôt local
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../GITHUB/mkdocs_et_github/" class="md-nav__link">
+        Mini site avec GitHub et MkDocs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          LINUX
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          LINUX
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINUX/Guide_Crontab/" class="md-nav__link">
+        Guide Avancé pour l'Utilisation de crontab sous Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINUX/Guide_information_system_LINUX/" class="md-nav__link">
+        Guide Avancé sur les Informations Système sur GNU/Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINUX/Guide_veille_et_journalisation/" class="md-nav__link">
+        Guide de Veille et Journalisation sur GNU/Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../LINUX/guide_tar-linux/" class="md-nav__link">
+        Guide d'utilisation de tar sur Debian
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          MSP client
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          MSP client
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+          TP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          TP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MSP_client/TP/Procedure%20complete%20MSP1_client/" class="md-nav__link">
+        procedure complete msp_client
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+          Ressource
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Ressource
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MSP_client/ressource/Cr%C3%A9ation%20d%27utilisateurs%20et%20de%20groupes%20avec%20PowerShell/" class="md-nav__link">
+        Création d'utilisateurs et de groupes avec PowerShell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MSP_client/ressource/Cr%C3%A9er%20dossier%20pour%20tout%20les%20user/" class="md-nav__link">
+        Créer dossier pour tout les user
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MSP_client/ressource/Desactiver%20les%20mise%20a%20jour%20win10/" class="md-nav__link">
+        Désactiver les Mises à Jour sur Windows 10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MSP_client/ressource/mofifier%20masque%20sous%20reseau%20debian/" class="md-nav__link">
+        Modifier le masque de sous-réseau sous Debian
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MSP_client/ressource/montage_depuis_debian/" class="md-nav__link">
+        Montage depuis debian
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MSP_client/ressource/montage_partition%20_LOGS/" class="md-nav__link">
+        montage partition  LOGS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MSP_client/ressource/partage_dossier_shell/" class="md-nav__link">
+        Partage dossier shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MSP_client/ressource/partageimprimante/" class="md-nav__link">
+        Partageimprimante
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MSP_client/ressource/procedure%20pour%20mise%20a%20jour%20home/" class="md-nav__link">
+        Procedure pour mise a jour home
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../MSP_client/ressource/sauvegarde%20et%20restauration/" class="md-nav__link">
+        Sauvegarde et restauration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          RESEAU ET CISCO
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          RESEAU ET CISCO
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../RESEAU_ET_CISCO/BASE_RESEAU/" class="md-nav__link">
+        BASE RESEAU
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../RESEAU_ET_CISCO/Commande_IOS/" class="md-nav__link">
+        Commande IOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../RESEAU_ET_CISCO/Commande_IOS2/" class="md-nav__link">
+        Commande IOS2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../RESEAU_ET_CISCO/Commande_IOS3/" class="md-nav__link">
+        Commande IOS3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          VIM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          VIM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../VIM/VIM/" class="md-nav__link">
+        Résumé VIM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+          VIRTUALISATION
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          VIRTUALISATION
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../VIRTUALISATION/GuideD%C3%A9pannageVmware/" class="md-nav__link">
+        Guide de dépannage pour VMware Workstation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../VIRTUALISATION/InstallationVmware/" class="md-nav__link">
+        Guide d'utilisation de VMware Workstation pour un technicien
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+          Guigui
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Guigui
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1" id="__nav_2_7_1_label" tabindex="0">
+          1   Office 365
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          1   Office 365
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1_1" id="__nav_2_7_1_1_label" tabindex="0">
+          01   Module 1   Office 365
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          01   Module 1   Office 365
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20-%20Office%20365/01%20-%20Module%201%20-%20Office%20365/Office%20365%20-%20Module%201/" class="md-nav__link">
+        Découverte de Microsoft 365
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1_2" id="__nav_2_7_1_2_label" tabindex="0">
+          02   Module 2   Word
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          02   Module 2   Word
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20-%20Office%20365/02%20-%20Module%202%20-%20Word/Module%2002%20-%20Support%20de%20cours/" class="md-nav__link">
+        Connaissances des notions de base Word
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1_3" id="__nav_2_7_1_3_label" tabindex="0">
+          03   Module 3   Excel
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          03   Module 3   Excel
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20-%20Office%20365/03%20-%20Module%203%20-%20Excel/Module%2003%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 03   Support de cours
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1_4" id="__nav_2_7_1_4_label" tabindex="0">
+          04   Module 4   Outlook
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_1_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          04   Module 4   Outlook
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20-%20Office%20365/04%20-%20Module%204%20-%20Outlook/Module%2004%20-%20Support%20de%20cours/" class="md-nav__link">
+        Exploiter Outlook et savoir le dépanner
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1_5" id="__nav_2_7_1_5_label" tabindex="0">
+          05   Module 5   Teams Sharepoint Onedrive
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          05   Module 5   Teams Sharepoint Onedrive
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../1%20-%20Office%20365/05%20-%20Module%205%20-%20Teams%20Sharepoint%20Onedrive/Module%2005%20-%20Support%20de%20cours/" class="md-nav__link">
+        Exploiter Teams, SharePoint et OneDrive dans un contexte collaboratif
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2" id="__nav_2_7_2_label" tabindex="0">
+          2   Bases des réseaux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          2   Bases des réseaux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2_1" id="__nav_2_7_2_1_label" tabindex="0">
+          01   Le modèle OSI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          01   Le modèle OSI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2%20-%20Bases%20des%20r%C3%A9seaux/01%20-%20Le%20mod%C3%A8le%20OSI/Module%2001%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 01 - le Modèle OSI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2_2" id="__nav_2_7_2_2_label" tabindex="0">
+          02   Les unités informatiques
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          02   Les unités informatiques
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2%20-%20Bases%20des%20r%C3%A9seaux/02%20-%20Les%20unit%C3%A9s%20informatiques/Module%2002%20-%20les%20unit%C3%A9s%20informatiques/" class="md-nav__link">
+        Cours sur les bases des réseaux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2_3" id="__nav_2_7_2_3_label" tabindex="0">
+          03   L'adressage IPv4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          03   L'adressage IPv4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2%20-%20Bases%20des%20r%C3%A9seaux/03%20-%20L%27adressage%20IPv4/Module%2003%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 03 - L'adressage IPv4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2_4" id="__nav_2_7_2_4_label" tabindex="0">
+          04   La communication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          04   La communication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2%20-%20Bases%20des%20r%C3%A9seaux/04%20-%20La%20communication/Module%2004%20%E2%80%93%20La%20communication/" class="md-nav__link">
+        Base des réseaux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2_5" id="__nav_2_7_2_5_label" tabindex="0">
+          05   Les premières commandes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          05   Les premières commandes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../2%20-%20Bases%20des%20r%C3%A9seaux/05%20-%20Les%20premi%C3%A8res%20commandes/Module%2005%20-%20Les%20premi%C3%A8res%20commandes/" class="md-nav__link">
+        Les premières commandes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_3" id="__nav_2_7_3_label" tabindex="0">
+          5   Administration Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          5   Administration Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_3_1" id="__nav_2_7_3_1_label" tabindex="0">
+          10   Gestion des utilisateurs et des groupes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          10   Gestion des utilisateurs et des groupes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5%20-%20Administration%20Linux/10%20-%20Gestion%20des%20utilisateurs%20et%20des%20groupes/Module%2010%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 10 – Gestion des utilisateurs et groupes**
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_3_2" id="__nav_2_7_3_2_label" tabindex="0">
+          11   Droits sur les fichiers et répertoires
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          11   Droits sur les fichiers et répertoires
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5%20-%20Administration%20Linux/11%20-%20Droits%20sur%20les%20fichiers%20et%20r%C3%A9pertoires/Module%2011%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 11 – Droits sur les fichiers et répertoires
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_3_3" id="__nav_2_7_3_3_label" tabindex="0">
+          12   Maintenance d'un système en production
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          12   Maintenance d'un système en production
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../5%20-%20Administration%20Linux/12%20-%20Maintenance%20d%27un%20syst%C3%A8me%20en%20production/Module%2012%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 12 – Maintenance d’un système en production
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_4" id="__nav_2_7_4_label" tabindex="0">
+          6   Mise en Situation Pro
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          6   Mise en Situation Pro
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../6%20-%20Mise%20en%20Situation%20Pro/R%C3%A9vision%20test/" class="md-nav__link">
+        LINUX
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5" id="__nav_2_7_5_label" tabindex="0">
+          7   ITIL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          7   ITIL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../acronymes_ITIL/" class="md-nav__link">
+        acronymes ITIL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_2" id="__nav_2_7_5_2_label" tabindex="0">
+          Module 1 – Présentation d’ITIL et historique
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Module 1 – Présentation d’ITIL et historique
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Module%201%20%E2%80%93%20Pr%C3%A9sentation%20d%E2%80%99ITIL%20et%20historique/Module%2001%20-%20Pr%C3%A9sentation%20d%E2%80%99ITIL%20et%20historique/" class="md-nav__link">
+        Module 01 – Présentation d’ITIL et historique
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_3" id="__nav_2_7_5_3_label" tabindex="0">
+          Module 2 – La gestion des services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Module 2 – La gestion des services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Module%202%20%E2%80%93%20La%20gestion%20des%20services/Module%2002%20%E2%80%93%20La%20gestion%20des%20services/" class="md-nav__link">
+        Sensibilisation ITIL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_4" id="__nav_2_7_5_4_label" tabindex="0">
+          Module 3 – Stratégie et Conception des services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Module 3 – Stratégie et Conception des services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Module%203%20%E2%80%93%20Strat%C3%A9gie%20et%20Conception%20des%20services/Module%2003%20-%20Strat%C3%A9gie%20et%20Conception%20des%20services/" class="md-nav__link">
+        Module 03 – Les publications centrales
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_5" id="__nav_2_7_5_5_label" tabindex="0">
+          Module 4 – Transition des services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_7_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Module 4 – Transition des services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Module 04 – Transition des services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Module 04 – Transition des services
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    Objectifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-publications-centrales-transition-des-services" class="md-nav__link">
+    Les publications centrales « Transition des services »
+  </a>
+  
+    <nav class="md-nav" aria-label="Les publications centrales « Transition des services »">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectif" class="md-nav__link">
+    Objectif
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#son-role" class="md-nav__link">
+    Son rôle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-transition-des-services" class="md-nav__link">
+    La transition des services
+  </a>
+  
+    <nav class="md-nav" aria-label="La transition des services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-changements-change-management" class="md-nav__link">
+    Gestion des changements (Change Management)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-actifs-de-services-et-des-configurations-asset-and-configuration-management" class="md-nav__link">
+    Gestion des actifs de services et des configurations (Asset and Configuration Management)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-la-planification-et-support-a-la-transition-transition-planning-and-support" class="md-nav__link">
+    Gestion de la planification et support à la transition (Transition Planning and Support)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-levaluation-des-changements-change-evaluation" class="md-nav__link">
+    Gestion de l’évaluation des changements (Change Evaluation)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-validation-et-les-tests-validation-and-testing" class="md-nav__link">
+    La validation et les tests (Validation and Testing)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-deploiements-et-des-mises-en-production-release-and-deployment-management" class="md-nav__link">
+    Gestion des déploiements et des mises en production (Release and Deployment Management)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-la-connaissance-knowledge-management" class="md-nav__link">
+    Gestion de la connaissance (Knowledge Management)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-des-changements" class="md-nav__link">
+    La gestion des changements
+  </a>
+  
+    <nav class="md-nav" aria-label="La gestion des changements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-7-r-de-la-gestion-des-changements" class="md-nav__link">
+    Les « 7 R » de la gestion des changements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-origines-dun-changement-peuvent-inclure" class="md-nav__link">
+    Les origines d’un changement peuvent inclure :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-demande-de-changement" class="md-nav__link">
+    La demande de changement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-gestion-de-la-priorite-dune-demande-de-changement" class="md-nav__link">
+    La gestion de la priorité d’une demande de changement
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-publications-centrales-transition-des-services_1" class="md-nav__link">
+    Les publications centrales « Transition des services »
+  </a>
+  
+    <nav class="md-nav" aria-label="Les publications centrales « Transition des services »">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-types-de-changement" class="md-nav__link">
+    Les types de changement
+  </a>
+  
+    <nav class="md-nav" aria-label="Les types de changement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-changement-standard" class="md-nav__link">
+    Le changement standard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-changement-normal" class="md-nav__link">
+    Le changement normal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-changement-urgent" class="md-nav__link">
+    Le changement urgent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cycle-de-vie-dun-changement" class="md-nav__link">
+    Cycle de vie d’un changement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminologie-liee-a-la-gestion-des-changements" class="md-nav__link">
+    Terminologie liée à la gestion des changements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-des-actifs-de-services-et-des-configurations" class="md-nav__link">
+    La gestion des actifs de services et des configurations
+  </a>
+  
+    <nav class="md-nav" aria-label="La gestion des actifs de services et des configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#element-de-configuration-ci-configuration-item" class="md-nav__link">
+    Élément de configuration (CI - Configuration Item)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemples-delements-de-configuration" class="md-nav__link">
+    Exemples d'éléments de configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activites-de-gestion-des-actifs-de-services-et-des-configurations" class="md-nav__link">
+    Activités de gestion des actifs de services et des configurations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outils-de-gestion-des-actifs-de-services-et-des-configurations" class="md-nav__link">
+    Outils de gestion des actifs de services et des configurations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-des-mises-en-production-et-des-deploiements" class="md-nav__link">
+    La gestion des mises en production et des déploiements
+  </a>
+  
+    <nav class="md-nav" aria-label="La gestion des mises en production et des déploiements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fonctions-et-activites" class="md-nav__link">
+    Fonctions et activités
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modes-de-deploiement" class="md-nav__link">
+    Modes de déploiement
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-de-levaluation-des-changements" class="md-nav__link">
+    La gestion de l'évaluation des changements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-validation-et-les-tests" class="md-nav__link">
+    La validation et les tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-de-la-planification-et-le-support-a-la-transition" class="md-nav__link">
+    La gestion de la planification et le support à la transition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-de-la-connaissance" class="md-nav__link">
+    La gestion de la connaissance
+  </a>
+  
+    <nav class="md-nav" aria-label="La gestion de la connaissance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skms-service-knowledge-management-system" class="md-nav__link">
+    SKMS - Service Knowledge Management System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonne-utilisation-de-la-base" class="md-nav__link">
+    Bonne utilisation de la base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_6" id="__nav_2_7_5_6_label" tabindex="0">
+          Module 5 – Découverte de GLPI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Module 5 – Découverte de GLPI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Module%205%20%E2%80%93%20D%C3%A9couverte%20de%20GLPI/Module%2005%20%E2%80%93%20D%C3%A9couverte%20de%20GLPI/" class="md-nav__link">
+        Sensibilisation ITIL et gestion de parc
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_7" id="__nav_2_7_5_7_label" tabindex="0">
+          Module 6   Exploitation des services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          Module 6   Exploitation des services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Module%206%20-%20Exploitation%20des%20services/Module%2006%20%E2%80%93%20Exploitation%20des%20services/" class="md-nav__link">
+        Sensibilisation ITIL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_8" id="__nav_2_7_5_8_label" tabindex="0">
+          Module 7   Amélioration continue des services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_8">
+          <span class="md-nav__icon md-icon"></span>
+          Module 7   Amélioration continue des services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Module%207%20-%20Am%C3%A9lioration%20continue%20des%20services/Module%2007%20-%20Am%C3%A9lioration%20continue%20des%20services/" class="md-nav__link">
+        Sensibilisation ITIL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_9" id="__nav_2_7_5_9_label" tabindex="0">
+          Module 8   Savoirs, savoir faire et savoir être
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Module 8   Savoirs, savoir faire et savoir être
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Module%208%20-%20Savoirs%2C%20savoir-faire%20et%20savoir-%C3%AAtre/Module%2008%20-%20Savoirs%2C%20savoir-faire%20et%20savoir-%C3%AAtre/" class="md-nav__link">
+        Sensibilisation ITIL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_10" id="__nav_2_7_5_10_label" tabindex="0">
+          Module 9 – Assistance avec GLPI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_10">
+          <span class="md-nav__icon md-icon"></span>
+          Module 9 – Assistance avec GLPI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Module%209%20%E2%80%93%20Assistance%20avec%20GLPI/Module%2009%20%E2%80%93%20Assistance%20avec%20GLPI/" class="md-nav__link">
+        Sensibilisation ITIL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_11" id="__nav_2_7_5_11_label" tabindex="0">
+          Révisions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_11">
+          <span class="md-nav__icon md-icon"></span>
+          Révisions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../R%C3%A9visions/ITIL%20r%C3%A9visions/" class="md-nav__link">
+        Résumé des principaux termes importants dans ITIL:
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../R%C3%A9visions/R%C3%A9sum%C3%A9_des_acronymes_par_phases/" class="md-nav__link">
+        Résumé des acronymes par phases
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6" id="__nav_2_7_6_label" tabindex="0">
+          Linux debian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux debian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_1" id="__nav_2_7_6_1_label" tabindex="0">
+          05   Gestion du réseau sous Debian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          05   Gestion du réseau sous Debian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux_debian/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/" class="md-nav__link">
+        Module 05 – Gestion du réseau
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_2" id="__nav_2_7_6_2_label" tabindex="0">
+          06   Gestion des paquets logiciels
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          06   Gestion des paquets logiciels
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux_debian/06%20-%20Gestion%20des%20paquets%20logiciels/06%20-%20Gestion%20des%20paquets%20logiciels/" class="md-nav__link">
+        Module 06 – Gestion des paquets logiciels
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_3" id="__nav_2_7_6_3_label" tabindex="0">
+          07   Gestion des espaces de stockage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          07   Gestion des espaces de stockage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux_debian/07%20-%20Gestion%20des%20espaces%20de%20stockage/07%20-%20Gestion%20des%20espaces%20de%20stockage/" class="md-nav__link">
+        Module 07 – Gestion des espaces de stockage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_4" id="__nav_2_7_6_4_label" tabindex="0">
+          08   Gestion avancée des espaces de stockage   LVM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          08   Gestion avancée des espaces de stockage   LVM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux_debian/08%20-%20Gestion%20avanc%C3%A9e%20des%20espaces%20de%20stockage%20-%20LVM/Module%2008%20-%20Support%20de%20cours/" class="md-nav__link">
+        Gestion des espaces de stockage avancée - LVM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_5" id="__nav_2_7_6_5_label" tabindex="0">
+          09   Gestion des espaces de stockage – File System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          09   Gestion des espaces de stockage – File System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux_debian/09%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/Module%2009%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/" class="md-nav__link">
+        Gestion des espaces de stockage – File System
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_6" id="__nav_2_7_6_6_label" tabindex="0">
+          10   Gestion des utilisateurs et des groupes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_6">
+          <span class="md-nav__icon md-icon"></span>
+          10   Gestion des utilisateurs et des groupes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../linux_debian/10%20-%20Gestion%20des%20utilisateurs%20et%20des%20groupes/Module%2010%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 10 – Gestion des utilisateurs et groupes**
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          liste compétences TSSR
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          liste compétences TSSR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../liste_comp%C3%A9tences_TSSR/Comp%C3%A9tence_TSSR/" class="md-nav__link">
+        Compétences Technicien Supérieur Systèmes et Réseaux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Script
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Script
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          Githubdeploy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Githubdeploy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/githubdeploy/Read_me/" class="md-nav__link">
+        Read me
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/githubdeploy/deploy/" class="md-nav__link">
+        Deploy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          Pdf to md windows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pdf to md windows
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/pdf_to_md_windows/Read-me/" class="md-nav__link">
+        Read me
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/pdf_to_md_windows/pdf_to_md_converter/" class="md-nav__link">
+        Pdf to md converter
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          Pdftomarkdown
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pdftomarkdown
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/pdftomarkdown/Readme/" class="md-nav__link">
+        Readme
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/pdftomarkdown/scriptpdftomarkdown5/" class="md-nav__link">
+        Scriptpdftomarkdown5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          Powershell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Powershell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/powershell/MVpdf/" class="md-nav__link">
+        MVpdf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/powershell/mvpdf/" class="md-nav__link">
+        Mvpdf
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          Traitement fichier cours
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Traitement fichier cours
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/traitement%20fichier%20cours/" class="md-nav__link">
+        Readme
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../script/traitement%20fichier%20cours/IAmark2/" class="md-nav__link">
+        IAmark2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#objectifs" class="md-nav__link">
+    Objectifs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-publications-centrales-transition-des-services" class="md-nav__link">
+    Les publications centrales « Transition des services »
+  </a>
+  
+    <nav class="md-nav" aria-label="Les publications centrales « Transition des services »">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectif" class="md-nav__link">
+    Objectif
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#son-role" class="md-nav__link">
+    Son rôle
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-transition-des-services" class="md-nav__link">
+    La transition des services
+  </a>
+  
+    <nav class="md-nav" aria-label="La transition des services">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-changements-change-management" class="md-nav__link">
+    Gestion des changements (Change Management)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-actifs-de-services-et-des-configurations-asset-and-configuration-management" class="md-nav__link">
+    Gestion des actifs de services et des configurations (Asset and Configuration Management)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-la-planification-et-support-a-la-transition-transition-planning-and-support" class="md-nav__link">
+    Gestion de la planification et support à la transition (Transition Planning and Support)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-levaluation-des-changements-change-evaluation" class="md-nav__link">
+    Gestion de l’évaluation des changements (Change Evaluation)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-validation-et-les-tests-validation-and-testing" class="md-nav__link">
+    La validation et les tests (Validation and Testing)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-des-deploiements-et-des-mises-en-production-release-and-deployment-management" class="md-nav__link">
+    Gestion des déploiements et des mises en production (Release and Deployment Management)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gestion-de-la-connaissance-knowledge-management" class="md-nav__link">
+    Gestion de la connaissance (Knowledge Management)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-des-changements" class="md-nav__link">
+    La gestion des changements
+  </a>
+  
+    <nav class="md-nav" aria-label="La gestion des changements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-7-r-de-la-gestion-des-changements" class="md-nav__link">
+    Les « 7 R » de la gestion des changements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#les-origines-dun-changement-peuvent-inclure" class="md-nav__link">
+    Les origines d’un changement peuvent inclure :
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-demande-de-changement" class="md-nav__link">
+    La demande de changement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#la-gestion-de-la-priorite-dune-demande-de-changement" class="md-nav__link">
+    La gestion de la priorité d’une demande de changement
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-publications-centrales-transition-des-services_1" class="md-nav__link">
+    Les publications centrales « Transition des services »
+  </a>
+  
+    <nav class="md-nav" aria-label="Les publications centrales « Transition des services »">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#les-types-de-changement" class="md-nav__link">
+    Les types de changement
+  </a>
+  
+    <nav class="md-nav" aria-label="Les types de changement">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#le-changement-standard" class="md-nav__link">
+    Le changement standard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-changement-normal" class="md-nav__link">
+    Le changement normal
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#le-changement-urgent" class="md-nav__link">
+    Le changement urgent
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cycle-de-vie-dun-changement" class="md-nav__link">
+    Cycle de vie d’un changement
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#terminologie-liee-a-la-gestion-des-changements" class="md-nav__link">
+    Terminologie liée à la gestion des changements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-des-actifs-de-services-et-des-configurations" class="md-nav__link">
+    La gestion des actifs de services et des configurations
+  </a>
+  
+    <nav class="md-nav" aria-label="La gestion des actifs de services et des configurations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#element-de-configuration-ci-configuration-item" class="md-nav__link">
+    Élément de configuration (CI - Configuration Item)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exemples-delements-de-configuration" class="md-nav__link">
+    Exemples d'éléments de configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#activites-de-gestion-des-actifs-de-services-et-des-configurations" class="md-nav__link">
+    Activités de gestion des actifs de services et des configurations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#outils-de-gestion-des-actifs-de-services-et-des-configurations" class="md-nav__link">
+    Outils de gestion des actifs de services et des configurations
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-des-mises-en-production-et-des-deploiements" class="md-nav__link">
+    La gestion des mises en production et des déploiements
+  </a>
+  
+    <nav class="md-nav" aria-label="La gestion des mises en production et des déploiements">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#fonctions-et-activites" class="md-nav__link">
+    Fonctions et activités
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modes-de-deploiement" class="md-nav__link">
+    Modes de déploiement
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-de-levaluation-des-changements" class="md-nav__link">
+    La gestion de l'évaluation des changements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-validation-et-les-tests" class="md-nav__link">
+    La validation et les tests
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-de-la-planification-et-le-support-a-la-transition" class="md-nav__link">
+    La gestion de la planification et le support à la transition
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#la-gestion-de-la-connaissance" class="md-nav__link">
+    La gestion de la connaissance
+  </a>
+  
+    <nav class="md-nav" aria-label="La gestion de la connaissance">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#skms-service-knowledge-management-system" class="md-nav__link">
+    SKMS - Service Knowledge Management System
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonne-utilisation-de-la-base" class="md-nav__link">
+    Bonne utilisation de la base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="module-04-transition-des-services">Module 04 – Transition des services</h1>
+<h2 id="objectifs">Objectifs</h2>
+<ul>
+<li>Comprendre le rôle crucial de la transition des services dans la gestion des services informatiques.</li>
+<li>Identifier les différents processus impliqués dans la transition des services.</li>
+<li>Définir ce qu'est un changement (Change).</li>
+<li>Définir un CI (Configuration Item).</li>
+<li>Identifier les outils utilisés dans la transition des services.</li>
+<li>Comprendre le concept de gestion de la connaissance dans ce contexte.</li>
+</ul>
+<h2 id="les-publications-centrales-transition-des-services">Les publications centrales « Transition des services »</h2>
+<p><img alt="Alt text" src="../image-8.png" />  <img alt="Alt text" src="../image-9.png" /></p>
+<h3 id="objectif">Objectif</h3>
+<p>Le module "Transition des services" se concentre sur la mise en production de nouveaux services ou sur l'amélioration de ceux existants.</p>
+<h3 id="son-role">Son rôle</h3>
+<ul>
+<li>La mise en production de services doit respecter les livrables produits par la conception des services, tout en maîtrisant les coûts.</li>
+<li>La phase de transition implique la réalisation, la construction, les tests, la validation et le déploiement des services.</li>
+<li>Il est essentiel de prévoir et de gérer efficacement les ressources nécessaires, de produire une documentation complète et de surveiller en permanence les services en production.</li>
+<li>La transition des services doit également garantir le respect des critères de qualité, de sécurité et des délais lors de la fourniture des services.</li>
+<li>La satisfaction du client est un aspect crucial à prendre en compte et à améliorer tout au long du processus.</li>
+</ul>
+<h2 id="la-transition-des-services">La transition des services</h2>
+<p>La phase de transition des services est cruciale dans le cycle de vie des services informatiques. Elle assure la mise en production réussie des services nouvellement conçus ou améliorés. Voici un aperçu des principaux processus impliqués :</p>
+<p><img alt="Alt text" src="../image.png" /></p>
+<h3 id="gestion-des-changements-change-management">Gestion des changements (Change Management)</h3>
+<p>La gestion des changements est le point de départ de la transition des services. Elle débute par une RFC (Request For Change), une demande de changement.</p>
+<h3 id="gestion-des-actifs-de-services-et-des-configurations-asset-and-configuration-management">Gestion des actifs de services et des configurations (Asset and Configuration Management)</h3>
+<p>Ce processus garantit que les modifications apportées aux CI (Configuration Items) sont bien enregistrées dans le CMS (Content Management System). La gestion de la configuration est essentielle pour suivre l'évolution des éléments du système d'information.</p>
+<h3 id="gestion-de-la-planification-et-support-a-la-transition-transition-planning-and-support">Gestion de la planification et support à la transition (Transition Planning and Support)</h3>
+<p>Cette étape consiste à planifier minutieusement chaque aspect de la transition, y compris la coordination des équipes, la gestion des ressources et la communication avec les parties prenantes.</p>
+<h3 id="gestion-de-levaluation-des-changements-change-evaluation">Gestion de l’évaluation des changements (Change Evaluation)</h3>
+<p>L'évaluation des changements vise à s'assurer que les procédures et les méthodes pour traiter les changements sont efficaces et efficientes. Elle contribue à minimiser les risques d'interruption de service et à maximiser la valeur fournie.</p>
+<h3 id="la-validation-et-les-tests-validation-and-testing">La validation et les tests (Validation and Testing)</h3>
+<p>Ce processus inclut les tests fonctionnels et de performance pour s'assurer que les services fonctionnent conformément aux spécifications.</p>
+<h3 id="gestion-des-deploiements-et-des-mises-en-production-release-and-deployment-management">Gestion des déploiements et des mises en production (Release and Deployment Management)</h3>
+<p>Il est chargé de coordonner et d'exécuter le déploiement des nouveaux services ou des mises à jour des services existants.</p>
+<h3 id="gestion-de-la-connaissance-knowledge-management">Gestion de la connaissance (Knowledge Management)</h3>
+<p>La gestion de la connaissance consiste à recueillir, stocker et diffuser les connaissances et les leçons apprises tout au long de la transition des services, afin d'améliorer les futurs processus.</p>
+<h2 id="la-gestion-des-changements">La gestion des changements</h2>
+<p>La gestion des changements est un processus fondamental de la transition des services. Voici quelques détails supplémentaires sur ce processus :</p>
+<h3 id="les-7-r-de-la-gestion-des-changements">Les « 7 R » de la gestion des changements</h3>
+<ul>
+<li>Raised : Qui a fait la demande ?</li>
+<li>Reason : Pour quelle raison ?</li>
+<li>Return : Quel est le retour attendu ?</li>
+<li>Risks : Quels sont les risques ?</li>
+<li>Resources : Quelles seront les ressources ?</li>
+<li>Responsible : Qui est le responsable ?</li>
+<li>Relationship : Quelles sont les relations avec les autres changements ?</li>
+</ul>
+<p><img alt="Alt text" src="../image-1.png" /></p>
+<h3 id="les-origines-dun-changement-peuvent-inclure">Les origines d’un changement peuvent inclure :</h3>
+<ul>
+<li>Les correctifs (événement, incident, problème…).</li>
+<li>La législation.</li>
+<li>L’organisation.</li>
+<li>Des directives ou des standards.</li>
+<li>Des évolutions des services existants.</li>
+<li>Des nouveaux services.</li>
+<li>Un nouveau modèle de sourcing.</li>
+<li>Une innovation technologique…</li>
+</ul>
+<h3 id="la-demande-de-changement">La demande de changement</h3>
+<p>Tous les clients sont habilités à émettre une demande de changement, mais cela ne garantit pas son acceptation. Toute demande de changement doit être formalisée par une RFC (Request For Change).</p>
+<p>Une RFC doit contenir des informations essentielles telles qu'un identifiant unique, une date de demande, le nom du demandeur, une proposition de priorité de changement (priorité = impact x urgence), une description du changement, les risques potentiels, les dates de mise en place du changement, et une estimation des ressources nécessaires (humaines, matérielles, etc.).</p>
+<h3 id="la-gestion-de-la-priorite-dune-demande-de-changement">La gestion de la priorité d’une demande de changement</h3>
+<p>La gestion de la priorité se base souvent sur une matrice qui combine l'impact et l'urgence du changement. Cela permet de définir la priorité de traitement du changement.</p>
+<table>
+<thead>
+<tr>
+<th>Code de priorité</th>
+<th>Urgence</th>
+<th>Impact</th>
+<th>Priorité de changement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Très haute</td>
+<td>Très élevé</td>
+<td>Très haute</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Haute</td>
+<td>Elevé</td>
+<td>Haute</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Moyenne</td>
+<td>Moyen</td>
+<td>Moyenne</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Basse</td>
+<td>Faible</td>
+<td>Basse</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Très basse</td>
+<td>Très faible</td>
+<td>Très basse</td>
+</tr>
+</tbody>
+</table>
+<p><img alt="Alt text" src="../image-2.png" /></p>
+<p>La priorisation aide à traiter efficacement les changements en fonction de leur impact potentiel sur l'organisation.</p>
+<h2 id="les-publications-centrales-transition-des-services_1">Les publications centrales « Transition des services »</h2>
+<h3 id="les-types-de-changement">Les types de changement</h3>
+<h4 id="le-changement-standard">Le changement standard</h4>
+<ul>
+<li>Ce type de changement concerne des actions connues, documentées, déjà réalisées, et testées. Les risques associés sont faibles et bien maîtrisés. Ils sont généralement préapprouvés, maîtrisés et associés à des procédures établies. Ils sont référencés dans un mini-catalogue de changements préautorisés.</li>
+</ul>
+<h4 id="le-changement-normal">Le changement normal</h4>
+<ul>
+<li>Les changements normaux nécessitent une évaluation complète et une autorisation avant leur réalisation par le CAB (Change Advisory Board) (<em>cabinet de changement</em>).</li>
+</ul>
+<h4 id="le-changement-urgent">Le changement urgent</h4>
+<ul>
+<li>Les changements urgents sont liés à des situations exceptionnelles et doivent être validés et autorisés par l'ECAB (Emergency Change Advisory Board). Ils impliquent souvent le court-circuitage des procédures normales, y compris la réalisation, la mise en œuvre, la documentation et les tests.</li>
+</ul>
+<h3 id="cycle-de-vie-dun-changement">Cycle de vie d’un changement</h3>
+<p>Le cycle de vie d'un changement comprend plusieurs étapes, de la demande initiale à la clôture :
+- Demandeur
+- Gestion des changements
+- Gestion de la mise en production
+- Gestion des actifs et des configurations
+- Clôture</p>
+<p><img alt="Alt text" src="../image-3.png" /></p>
+<p>Le processus commence généralement par une "Request For Change" (RFC), passe par des étapes de filtrage, de classification, de priorisation, de préparation, de création de script de procédure, de tests, d'exploitabilité, d'utilisabilité, de bilan de test, implique le CAB, et se termine par une mise en production, suivie d'une mise à jour de la CMDB (Configuration Management Database) et d'un rapport final. Si nécessaire, le changement peut être abandonné à certaines étapes du processus.</p>
+<h3 id="terminologie-liee-a-la-gestion-des-changements">Terminologie liée à la gestion des changements</h3>
+<ul>
+<li>CI - Configuration Item : un composant du système d'information qui contribue à la fourniture de services.</li>
+<li>CMS - Content Management System : un logiciel de gestion des CI et de la base de connaissances.</li>
+<li>CAB - Change Advisory Board : un comité consultatif qui évalue et donne un avis sur les changements normaux.</li>
+<li>ECAB - Emergency Change Advisory Board : un comité qui autorise les changements urgents.</li>
+<li>PIR - Post Implementation Review : un comité qui analyse les résultats des mises en production des changements.</li>
+</ul>
+<h2 id="la-gestion-des-actifs-de-services-et-des-configurations">La gestion des actifs de services et des configurations</h2>
+<h3 id="element-de-configuration-ci-configuration-item">Élément de configuration (CI - Configuration Item)</h3>
+<ul>
+<li>Un CI est un composant du système d'information qui contribue à la fourniture d'un ou plusieurs services. Il est identifiable par un type et un ensemble d'attributs qui le décrivent. De plus, il peut avoir des relations avec d'autres CIs, qu'elles soient de nature situationnelle, physique ou fonctionnelle.</li>
+</ul>
+<h3 id="exemples-delements-de-configuration">Exemples d'éléments de configuration</h3>
+<p>Les CIs peuvent être de différents types, tels que :
+- Composants matériels
+- Composants logiciels
+- Équipements réseau
+- Équipements téléphoniques
+- Contrats de service
+- Composants d'infrastructure
+- Ressources utilisateurs
+- Éléments environnementaux
+- Documentations
+- Procédures d'exploitation</p>
+<p><img alt="Alt text" src="../image-4.png" /></p>
+<h3 id="activites-de-gestion-des-actifs-de-services-et-des-configurations">Activités de gestion des actifs de services et des configurations</h3>
+<p>La gestion des actifs de services et des configurations comprend plusieurs activités, notamment :
+- Planification initiale : définir le périmètre, la stratégie et la politique de gestion des éléments de configuration.
+- Analyse de l'existant : connaître les outils et les données des différents composants existants.
+- Sélection, configuration et modélisation du CMS/CMDB : déterminer le type de CI, les attributs et les relations.
+- Chargement initial : introduire les données initiales dans le système.
+- Nomination du propriétaire et des acteurs clés : attribuer des responsabilités.
+- Formation des collaborateurs : assurer que le personnel est formé à la gestion des actifs.</p>
+<h3 id="outils-de-gestion-des-actifs-de-services-et-des-configurations">Outils de gestion des actifs de services et des configurations</h3>
+<p>Plusieurs outils sont utilisés dans la gestion des actifs de services et des configurations, notamment :
+- CMDB (Configuration Management Database) : une base de données qui contient des enregistrements de CI.
+- CMS (Configuration Management System) : un ensemble d'outils pour gérer les données de configuration.
+- DML (Definitive Media Library) : un lieu de stockage sécurisé pour les CIs logiciels, y compris les médias, les documentations et les clés de licence associées.</p>
+<p><img alt="Alt text" src="../image-5.png" /></p>
+<h2 id="la-gestion-des-mises-en-production-et-des-deploiements">La gestion des mises en production et des déploiements</h2>
+<h3 id="fonctions-et-activites">Fonctions et activités</h3>
+<p>Ce processus de gestion vise à valider, organiser et planifier le déploiement des services (nouveaux ou mis à jour) de manière "industrielle", tout en garantissant la valeur ajoutée, le respect des SLA (Service Level Agreements) et la création de documentation pour l'exploitation des services. Il implique également la gestion des versions, la convention de nommage, le modèle R.A.C.I et la gestion des délais.</p>
+<p><img alt="Alt text" src="../image-6.png" /></p>
+<h3 id="modes-de-deploiement">Modes de déploiement</h3>
+<p>Les déploiements peuvent se faire de différentes manières, notamment :
+- Manuel : avec l'aide du personnel de la DSI, avec contrôles et surveillance.
+- Automatique : sans l'aide du personnel de la DSI, fortement conseillé.
+- Mode Push : le déploiement est initié par un centre vers les sites utilisateurs cibles.
+- Mode Pull : le déploiement est mis à disposition des utilisateurs sur un serveur, et ces derniers initient le déploiement à leur convenance.
+- Big Bang : le déploiement est effectué en une seule opération vers tous les utilisateurs.
+- Par phase : le déploiement se fait selon un plan en tenant compte des périmètres définis par le client.</p>
+<p><img alt="Alt text" src="../image-7.png" /></p>
+<h2 id="la-gestion-de-levaluation-des-changements">La gestion de l'évaluation des changements</h2>
+<p>La gestion de l'évaluation des changements mesure l'impact des changements en évaluant les effets et les risques. Elle crée également la revue de post-implémentation (PIR), qui est indépendante de la gestion des changements.</p>
+<h2 id="la-validation-et-les-tests">La validation et les tests</h2>
+<p>Cette fonction est chargée de garantir le bon fonctionnement des services (nouveaux et mis à jour) et de gérer les erreurs découvertes pendant les phases d'intégration, de préproduction et de post-mise en production. Elle crée des procès-verbaux de recette pour différents aspects, tels que la fonctionnalité, la performance, l'exploitabilité et le service régulier.</p>
+<h2 id="la-gestion-de-la-planification-et-le-support-a-la-transition">La gestion de la planification et le support à la transition</h2>
+<p>Cette fonction organise les changements de services (nouveaux ou mis à jour) et gère les ressources nécessaires, qu'elles soient humaines ou matérielles.</p>
+<h2 id="la-gestion-de-la-connaissance">La gestion de la connaissance</h2>
+<h3 id="skms-service-knowledge-management-system">SKMS - Service Knowledge Management System</h3>
+<ul>
+<li>La gestion de la connaissance a pour objectif de fournir des informations à un collaborateur avec la granularité dont il a besoin, de manière compréhensible et fiable. Elle permet de prendre des décisions optimales et d'enregistrer les situations déjà connues. La gestion de la connaissance comprend la mise en place et la gestion d'un système de gestion de la connaissance, tel que le SKMS (Service Knowledge Management System).</li>
+<li>Elle implique la gestion de l'information, l'assurance de l'utilisation adéquate de la base de connaissances, et l'évaluation de la performance des bases de connaissances.</li>
+</ul>
+<h3 id="bonne-utilisation-de-la-base">Bonne utilisation de la base</h3>
+<ul>
+<li>Il est essentiel de s'assurer que la base de connaissances est utilisée de manière efficace. Cela signifie comprendre qui utilise la connaissance, qui la partage, et qui capitalise la connaissance au sein de l'entreprise. Une base de connaissances efficace n'est pas simplement une base contenant beaucoup d'informations, mais une base qui est effectivement utilisée.</li>
+<li>La promotion, l'information et la formation sur l'utilisation des bases de connaissances sont également importantes pour garantir leur utilisation optimale.</li>
+</ul>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../../..", "features": [], "search": "../../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
