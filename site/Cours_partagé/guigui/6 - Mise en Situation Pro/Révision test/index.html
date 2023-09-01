@@ -1,0 +1,3696 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../5%20-%20Administration%20Linux/12%20-%20Maintenance%20d%27un%20syst%C3%A8me%20en%20production/Module%2012%20-%20Support%20de%20cours/">
+      
+      
+        <link rel="next" href="../../7%20-%20ITIL/acronymes_ITIL/">
+      
+      <link rel="icon" href="../../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
+    
+    
+      
+        <title>LINUX - DOC TSSR</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.eebd395e.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#linux" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../.." title="DOC TSSR" class="md-header__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DOC TSSR
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              LINUX
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../.." title="DOC TSSR" class="md-nav__button md-logo" aria-label="DOC TSSR" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    DOC TSSR
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
+        Bienvenue sur le site de Documentation TSSR2023.
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          Cours partagé
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Cours partagé
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          GITHUB
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          GITHUB
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GITHUB/SSH_et_GITHUB/" class="md-nav__link">
+        Créer une clé SSH et la lier à GitHub et au dépôt local
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../GITHUB/mkdocs_et_github/" class="md-nav__link">
+        Mini site avec GitHub et MkDocs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          LINUX
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          LINUX
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LINUX/Guide_Crontab/" class="md-nav__link">
+        Guide Avancé pour l'Utilisation de crontab sous Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LINUX/Guide_information_system_LINUX/" class="md-nav__link">
+        Guide Avancé sur les Informations Système sur GNU/Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LINUX/Guide_veille_et_journalisation/" class="md-nav__link">
+        Guide de Veille et Journalisation sur GNU/Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../LINUX/guide_tar-linux/" class="md-nav__link">
+        Guide d'utilisation de tar sur Debian
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          MSP client
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          MSP client
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_1" id="__nav_2_3_1_label" tabindex="0">
+          TP
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          TP
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSP_client/TP/Procedure%20complete%20MSP1_client/" class="md-nav__link">
+        procedure complete msp_client
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+          Ressource
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          Ressource
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSP_client/ressource/Cr%C3%A9ation%20d%27utilisateurs%20et%20de%20groupes%20avec%20PowerShell/" class="md-nav__link">
+        Création d'utilisateurs et de groupes avec PowerShell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSP_client/ressource/Cr%C3%A9er%20dossier%20pour%20tout%20les%20user/" class="md-nav__link">
+        Créer dossier pour tout les user
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSP_client/ressource/Desactiver%20les%20mise%20a%20jour%20win10/" class="md-nav__link">
+        Désactiver les Mises à Jour sur Windows 10
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSP_client/ressource/mofifier%20masque%20sous%20reseau%20debian/" class="md-nav__link">
+        Modifier le masque de sous-réseau sous Debian
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSP_client/ressource/montage_depuis_debian/" class="md-nav__link">
+        Montage depuis debian
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSP_client/ressource/montage_partition%20_LOGS/" class="md-nav__link">
+        montage partition  LOGS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSP_client/ressource/partage_dossier_shell/" class="md-nav__link">
+        Partage dossier shell
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSP_client/ressource/partageimprimante/" class="md-nav__link">
+        Partageimprimante
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSP_client/ressource/procedure%20pour%20mise%20a%20jour%20home/" class="md-nav__link">
+        Procedure pour mise a jour home
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../MSP_client/ressource/sauvegarde%20et%20restauration/" class="md-nav__link">
+        Sauvegarde et restauration
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          RESEAU ET CISCO
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          RESEAU ET CISCO
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RESEAU_ET_CISCO/BASE_RESEAU/" class="md-nav__link">
+        BASE RESEAU
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RESEAU_ET_CISCO/Commande_IOS/" class="md-nav__link">
+        Commande IOS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RESEAU_ET_CISCO/Commande_IOS2/" class="md-nav__link">
+        Commande IOS2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../RESEAU_ET_CISCO/Commande_IOS3/" class="md-nav__link">
+        Commande IOS3
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          VIM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          VIM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../VIM/VIM/" class="md-nav__link">
+        Résumé VIM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+          VIRTUALISATION
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_6">
+          <span class="md-nav__icon md-icon"></span>
+          VIRTUALISATION
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../VIRTUALISATION/GuideD%C3%A9pannageVmware/" class="md-nav__link">
+        Guide de dépannage pour VMware Workstation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../VIRTUALISATION/InstallationVmware/" class="md-nav__link">
+        Guide d'utilisation de VMware Workstation pour un technicien
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+          Guigui
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_7">
+          <span class="md-nav__icon md-icon"></span>
+          Guigui
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1" id="__nav_2_7_1_label" tabindex="0">
+          1   Office 365
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1">
+          <span class="md-nav__icon md-icon"></span>
+          1   Office 365
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1_1" id="__nav_2_7_1_1_label" tabindex="0">
+          01   Module 1   Office 365
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_1_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1_1">
+          <span class="md-nav__icon md-icon"></span>
+          01   Module 1   Office 365
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20-%20Office%20365/01%20-%20Module%201%20-%20Office%20365/Office%20365%20-%20Module%201/" class="md-nav__link">
+        Découverte de Microsoft 365
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1_2" id="__nav_2_7_1_2_label" tabindex="0">
+          02   Module 2   Word
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_1_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1_2">
+          <span class="md-nav__icon md-icon"></span>
+          02   Module 2   Word
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20-%20Office%20365/02%20-%20Module%202%20-%20Word/Module%2002%20-%20Support%20de%20cours/" class="md-nav__link">
+        Connaissances des notions de base Word
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1_3" id="__nav_2_7_1_3_label" tabindex="0">
+          03   Module 3   Excel
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          03   Module 3   Excel
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20-%20Office%20365/03%20-%20Module%203%20-%20Excel/Module%2003%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 03   Support de cours
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1_4" id="__nav_2_7_1_4_label" tabindex="0">
+          04   Module 4   Outlook
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_1_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          04   Module 4   Outlook
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20-%20Office%20365/04%20-%20Module%204%20-%20Outlook/Module%2004%20-%20Support%20de%20cours/" class="md-nav__link">
+        Exploiter Outlook et savoir le dépanner
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_1_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_1_5" id="__nav_2_7_1_5_label" tabindex="0">
+          05   Module 5   Teams Sharepoint Onedrive
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_1_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_1_5">
+          <span class="md-nav__icon md-icon"></span>
+          05   Module 5   Teams Sharepoint Onedrive
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../1%20-%20Office%20365/05%20-%20Module%205%20-%20Teams%20Sharepoint%20Onedrive/Module%2005%20-%20Support%20de%20cours/" class="md-nav__link">
+        Exploiter Teams, SharePoint et OneDrive dans un contexte collaboratif
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2" id="__nav_2_7_2_label" tabindex="0">
+          2   Bases des réseaux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2">
+          <span class="md-nav__icon md-icon"></span>
+          2   Bases des réseaux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2_1" id="__nav_2_7_2_1_label" tabindex="0">
+          01   Le modèle OSI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          01   Le modèle OSI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20-%20Bases%20des%20r%C3%A9seaux/01%20-%20Le%20mod%C3%A8le%20OSI/Module%2001%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 01 - le Modèle OSI
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2_2" id="__nav_2_7_2_2_label" tabindex="0">
+          02   Les unités informatiques
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          02   Les unités informatiques
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20-%20Bases%20des%20r%C3%A9seaux/02%20-%20Les%20unit%C3%A9s%20informatiques/Module%2002%20-%20les%20unit%C3%A9s%20informatiques/" class="md-nav__link">
+        Cours sur les bases des réseaux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2_3" id="__nav_2_7_2_3_label" tabindex="0">
+          03   L'adressage IPv4
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          03   L'adressage IPv4
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20-%20Bases%20des%20r%C3%A9seaux/03%20-%20L%27adressage%20IPv4/Module%2003%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 03 - L'adressage IPv4
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2_4" id="__nav_2_7_2_4_label" tabindex="0">
+          04   La communication
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          04   La communication
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20-%20Bases%20des%20r%C3%A9seaux/04%20-%20La%20communication/Module%2004%20%E2%80%93%20La%20communication/" class="md-nav__link">
+        Base des réseaux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_2_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_2_5" id="__nav_2_7_2_5_label" tabindex="0">
+          05   Les premières commandes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_2_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          05   Les premières commandes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../2%20-%20Bases%20des%20r%C3%A9seaux/05%20-%20Les%20premi%C3%A8res%20commandes/Module%2005%20-%20Les%20premi%C3%A8res%20commandes/" class="md-nav__link">
+        Les premières commandes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_3" id="__nav_2_7_3_label" tabindex="0">
+          5   Administration Linux
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_3">
+          <span class="md-nav__icon md-icon"></span>
+          5   Administration Linux
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_3_1" id="__nav_2_7_3_1_label" tabindex="0">
+          10   Gestion des utilisateurs et des groupes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          10   Gestion des utilisateurs et des groupes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20-%20Administration%20Linux/10%20-%20Gestion%20des%20utilisateurs%20et%20des%20groupes/Module%2010%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 10 – Gestion des utilisateurs et groupes**
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_3_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_3_2" id="__nav_2_7_3_2_label" tabindex="0">
+          11   Droits sur les fichiers et répertoires
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_3_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_3_2">
+          <span class="md-nav__icon md-icon"></span>
+          11   Droits sur les fichiers et répertoires
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20-%20Administration%20Linux/11%20-%20Droits%20sur%20les%20fichiers%20et%20r%C3%A9pertoires/Module%2011%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 11 – Droits sur les fichiers et répertoires
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_3_3" id="__nav_2_7_3_3_label" tabindex="0">
+          12   Maintenance d'un système en production
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          12   Maintenance d'un système en production
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../5%20-%20Administration%20Linux/12%20-%20Maintenance%20d%27un%20syst%C3%A8me%20en%20production/Module%2012%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 12 – Maintenance d’un système en production
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_4" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_4" id="__nav_2_7_4_label" tabindex="0">
+          6   Mise en Situation Pro
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_4_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_7_4">
+          <span class="md-nav__icon md-icon"></span>
+          6   Mise en Situation Pro
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          LINUX
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        LINUX
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fhs-linux-arborescence" class="md-nav__link">
+    FHS linux : arborescence ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-comment-compter-des-mots-lignes" class="md-nav__link">
+    Linux : comment compter des mots, lignes ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-gestion-utilisateur-et-mdp" class="md-nav__link">
+    Linux : gestion utilisateur et mdp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-archives-avec-tar" class="md-nav__link">
+    Gestion des archives avec tar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afficher-le-contenu-dun-fichier-y-compris-le-debut-ou-la-fin" class="md-nav__link">
+    Afficher le contenu d'un fichier, y compris le debut ou la fin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-droits-avec-chmod" class="md-nav__link">
+    gestion des droits avec chmod
+  </a>
+  
+    <nav class="md-nav" aria-label="gestion des droits avec chmod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-de-la-commande-chmod-664-homehk1fictxt" class="md-nav__link">
+    Exemple de la commande : chmod 664 /home/hk1/fic.txt
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grep-et-find-difference-et-utilisation" class="md-nav__link">
+    grep et find, différence et utilisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vim-faire-des-recherches-de-mots" class="md-nav__link">
+    Vim : faire des recherches de mots ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vim-afficher-les-numeros-de-lignes" class="md-nav__link">
+    Vim : afficher les numéros de lignes ?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5" id="__nav_2_7_5_label" tabindex="0">
+          7   ITIL
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5">
+          <span class="md-nav__icon md-icon"></span>
+          7   ITIL
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/acronymes_ITIL/" class="md-nav__link">
+        acronymes ITIL
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_2" id="__nav_2_7_5_2_label" tabindex="0">
+          Module 1 – Présentation d’ITIL et historique
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_2">
+          <span class="md-nav__icon md-icon"></span>
+          Module 1 – Présentation d’ITIL et historique
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/Module%201%20%E2%80%93%20Pr%C3%A9sentation%20d%E2%80%99ITIL%20et%20historique/Module%2001%20-%20Pr%C3%A9sentation%20d%E2%80%99ITIL%20et%20historique/" class="md-nav__link">
+        Module 01 – Présentation d’ITIL et historique
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_3" id="__nav_2_7_5_3_label" tabindex="0">
+          Module 2 – La gestion des services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_3">
+          <span class="md-nav__icon md-icon"></span>
+          Module 2 – La gestion des services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/Module%202%20%E2%80%93%20La%20gestion%20des%20services/Module%2002%20%E2%80%93%20La%20gestion%20des%20services/" class="md-nav__link">
+        Sensibilisation ITIL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_4" id="__nav_2_7_5_4_label" tabindex="0">
+          Module 3 – Stratégie et Conception des services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_4">
+          <span class="md-nav__icon md-icon"></span>
+          Module 3 – Stratégie et Conception des services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/Module%203%20%E2%80%93%20Strat%C3%A9gie%20et%20Conception%20des%20services/Module%2003%20-%20Strat%C3%A9gie%20et%20Conception%20des%20services/" class="md-nav__link">
+        Module 03 – Les publications centrales
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_5" id="__nav_2_7_5_5_label" tabindex="0">
+          Module 4 – Transition des services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_5">
+          <span class="md-nav__icon md-icon"></span>
+          Module 4 – Transition des services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/Module%204%20%E2%80%93%20Transition%20des%20services/Module%2004%20Transition%20des%20services/" class="md-nav__link">
+        Module 04 – Transition des services
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_6" id="__nav_2_7_5_6_label" tabindex="0">
+          Module 5 – Découverte de GLPI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_6">
+          <span class="md-nav__icon md-icon"></span>
+          Module 5 – Découverte de GLPI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/Module%205%20%E2%80%93%20D%C3%A9couverte%20de%20GLPI/Module%2005%20%E2%80%93%20D%C3%A9couverte%20de%20GLPI/" class="md-nav__link">
+        Sensibilisation ITIL et gestion de parc
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_7" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_7" id="__nav_2_7_5_7_label" tabindex="0">
+          Module 6   Exploitation des services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_7_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_7">
+          <span class="md-nav__icon md-icon"></span>
+          Module 6   Exploitation des services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/Module%206%20-%20Exploitation%20des%20services/Module%2006%20%E2%80%93%20Exploitation%20des%20services/" class="md-nav__link">
+        Sensibilisation ITIL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_8" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_8" id="__nav_2_7_5_8_label" tabindex="0">
+          Module 7   Amélioration continue des services
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_8_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_8">
+          <span class="md-nav__icon md-icon"></span>
+          Module 7   Amélioration continue des services
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/Module%207%20-%20Am%C3%A9lioration%20continue%20des%20services/Module%2007%20-%20Am%C3%A9lioration%20continue%20des%20services/" class="md-nav__link">
+        Sensibilisation ITIL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_9" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_9" id="__nav_2_7_5_9_label" tabindex="0">
+          Module 8   Savoirs, savoir faire et savoir être
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_9_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_9">
+          <span class="md-nav__icon md-icon"></span>
+          Module 8   Savoirs, savoir faire et savoir être
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/Module%208%20-%20Savoirs%2C%20savoir-faire%20et%20savoir-%C3%AAtre/Module%2008%20-%20Savoirs%2C%20savoir-faire%20et%20savoir-%C3%AAtre/" class="md-nav__link">
+        Sensibilisation ITIL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_10" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_10" id="__nav_2_7_5_10_label" tabindex="0">
+          Module 9 – Assistance avec GLPI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_10_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_10">
+          <span class="md-nav__icon md-icon"></span>
+          Module 9 – Assistance avec GLPI
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/Module%209%20%E2%80%93%20Assistance%20avec%20GLPI/Module%2009%20%E2%80%93%20Assistance%20avec%20GLPI/" class="md-nav__link">
+        Sensibilisation ITIL
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_5_11" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_5_11" id="__nav_2_7_5_11_label" tabindex="0">
+          Révisions
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_5_11_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_5_11">
+          <span class="md-nav__icon md-icon"></span>
+          Révisions
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/R%C3%A9visions/ITIL%20r%C3%A9visions/" class="md-nav__link">
+        Résumé des principaux termes importants dans ITIL:
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../7%20-%20ITIL/R%C3%A9visions/R%C3%A9sum%C3%A9_des_acronymes_par_phases/" class="md-nav__link">
+        Résumé des acronymes par phases
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6" id="__nav_2_7_6_label" tabindex="0">
+          Linux debian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_7_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6">
+          <span class="md-nav__icon md-icon"></span>
+          Linux debian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_1" id="__nav_2_7_6_1_label" tabindex="0">
+          05   Gestion du réseau sous Debian
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_1">
+          <span class="md-nav__icon md-icon"></span>
+          05   Gestion du réseau sous Debian
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_debian/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/05%20-%20Gestion%20du%20r%C3%A9seau%20sous%20Debian/" class="md-nav__link">
+        Module 05 – Gestion du réseau
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_2" id="__nav_2_7_6_2_label" tabindex="0">
+          06   Gestion des paquets logiciels
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_2">
+          <span class="md-nav__icon md-icon"></span>
+          06   Gestion des paquets logiciels
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_debian/06%20-%20Gestion%20des%20paquets%20logiciels/06%20-%20Gestion%20des%20paquets%20logiciels/" class="md-nav__link">
+        Module 06 – Gestion des paquets logiciels
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_3" id="__nav_2_7_6_3_label" tabindex="0">
+          07   Gestion des espaces de stockage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_3">
+          <span class="md-nav__icon md-icon"></span>
+          07   Gestion des espaces de stockage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_debian/07%20-%20Gestion%20des%20espaces%20de%20stockage/07%20-%20Gestion%20des%20espaces%20de%20stockage/" class="md-nav__link">
+        Module 07 – Gestion des espaces de stockage
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_4" id="__nav_2_7_6_4_label" tabindex="0">
+          08   Gestion avancée des espaces de stockage   LVM
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_4">
+          <span class="md-nav__icon md-icon"></span>
+          08   Gestion avancée des espaces de stockage   LVM
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_debian/08%20-%20Gestion%20avanc%C3%A9e%20des%20espaces%20de%20stockage%20-%20LVM/Module%2008%20-%20Support%20de%20cours/" class="md-nav__link">
+        Gestion des espaces de stockage avancée - LVM
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_5" id="__nav_2_7_6_5_label" tabindex="0">
+          09   Gestion des espaces de stockage – File System
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_5">
+          <span class="md-nav__icon md-icon"></span>
+          09   Gestion des espaces de stockage – File System
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_debian/09%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/Module%2009%20-%20Gestion%20des%20espaces%20de%20stockage%20%E2%80%93%20File%20System/" class="md-nav__link">
+        Gestion des espaces de stockage – File System
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7_6_6" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_7_6_6" id="__nav_2_7_6_6_label" tabindex="0">
+          10   Gestion des utilisateurs et des groupes
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_7_6_6_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_7_6_6">
+          <span class="md-nav__icon md-icon"></span>
+          10   Gestion des utilisateurs et des groupes
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../linux_debian/10%20-%20Gestion%20des%20utilisateurs%20et%20des%20groupes/Module%2010%20-%20Support%20de%20cours/" class="md-nav__link">
+        Module 10 – Gestion des utilisateurs et groupes**
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          liste compétences TSSR
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          liste compétences TSSR
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../liste_comp%C3%A9tences_TSSR/Comp%C3%A9tence_TSSR/" class="md-nav__link">
+        Compétences Technicien Supérieur Systèmes et Réseaux
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+          Script
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Script
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+          Githubdeploy
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_1">
+          <span class="md-nav__icon md-icon"></span>
+          Githubdeploy
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/githubdeploy/Read_me/" class="md-nav__link">
+        Read me
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/githubdeploy/deploy/" class="md-nav__link">
+        Deploy
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+          Pdf to md windows
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_2">
+          <span class="md-nav__icon md-icon"></span>
+          Pdf to md windows
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/pdf_to_md_windows/Read-me/" class="md-nav__link">
+        Read me
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/pdf_to_md_windows/pdf_to_md_converter/" class="md-nav__link">
+        Pdf to md converter
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+          Pdftomarkdown
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_3">
+          <span class="md-nav__icon md-icon"></span>
+          Pdftomarkdown
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/pdftomarkdown/Readme/" class="md-nav__link">
+        Readme
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/pdftomarkdown/scriptpdftomarkdown5/" class="md-nav__link">
+        Scriptpdftomarkdown5
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_4" id="__nav_4_4_label" tabindex="0">
+          Powershell
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_4">
+          <span class="md-nav__icon md-icon"></span>
+          Powershell
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/powershell/MVpdf/" class="md-nav__link">
+        MVpdf
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/powershell/mvpdf/" class="md-nav__link">
+        Mvpdf
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_5" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4_5" id="__nav_4_5_label" tabindex="0">
+          Traitement fichier cours
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_5_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_4_5">
+          <span class="md-nav__icon md-icon"></span>
+          Traitement fichier cours
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/traitement%20fichier%20cours/" class="md-nav__link">
+        Readme
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../script/traitement%20fichier%20cours/IAmark2/" class="md-nav__link">
+        IAmark2
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#fhs-linux-arborescence" class="md-nav__link">
+    FHS linux : arborescence ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-comment-compter-des-mots-lignes" class="md-nav__link">
+    Linux : comment compter des mots, lignes ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linux-gestion-utilisateur-et-mdp" class="md-nav__link">
+    Linux : gestion utilisateur et mdp
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-archives-avec-tar" class="md-nav__link">
+    Gestion des archives avec tar
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#afficher-le-contenu-dun-fichier-y-compris-le-debut-ou-la-fin" class="md-nav__link">
+    Afficher le contenu d'un fichier, y compris le debut ou la fin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gestion-des-droits-avec-chmod" class="md-nav__link">
+    gestion des droits avec chmod
+  </a>
+  
+    <nav class="md-nav" aria-label="gestion des droits avec chmod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemple-de-la-commande-chmod-664-homehk1fictxt" class="md-nav__link">
+    Exemple de la commande : chmod 664 /home/hk1/fic.txt
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grep-et-find-difference-et-utilisation" class="md-nav__link">
+    grep et find, différence et utilisation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vim-faire-des-recherches-de-mots" class="md-nav__link">
+    Vim : faire des recherches de mots ?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vim-afficher-les-numeros-de-lignes" class="md-nav__link">
+    Vim : afficher les numéros de lignes ?
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="linux">LINUX</h1>
+<h2 id="fhs-linux-arborescence">FHS linux : arborescence ?</h2>
+<p>Le FHS (Filesystem Hierarchy Standard) est un ensemble de normes et de conventions utilisées dans les systèmes d'exploitation Linux et d'autres systèmes Unix-like pour organiser la structure des répertoires et des fichiers sur le système de fichiers. Cette structure normalisée permet de garantir la cohérence et la compatibilité entre différentes distributions Linux et d'assurer que les applications et les services fonctionnent de manière prévisible.</p>
+<p>L'arborescence du FHS est basée sur plusieurs répertoires principaux, chacun ayant un rôle spécifique. Voici les répertoires les plus importants dans l'arborescence du FHS :</p>
+<ol>
+<li>
+<p><strong>/bin</strong> : Contient les fichiers binaires (programmes exécutables) nécessaires au démarrage du système et à la maintenance de base. Ces programmes sont essentiels, même si le système de fichiers principal n'est pas monté.</p>
+</li>
+<li>
+<p><strong>/sbin</strong> : Similaire à <code>/bin</code>, mais contient des programmes exécutables réservés à l'administration système. Ces programmes nécessitent souvent des privilèges administratifs.</p>
+</li>
+<li>
+<p><strong>/usr</strong> : Contient la majorité des programmes et des fichiers utilisés par les utilisateurs, y compris les bibliothèques partagées, la documentation et les en-têtes de développement.</p>
+</li>
+<li>
+<p><strong>/usr/bin</strong> : Programmes et exécutables pour les utilisateurs.</p>
+</li>
+<li><strong>/usr/sbin</strong> : Programmes exécutables réservés à l'administration système dans l'arborescence <code>/usr</code>.</li>
+<li><strong>/usr/lib</strong> : Bibliothèques partagées pour les programmes dans <code>/usr/bin</code> et <code>/usr/sbin</code>.</li>
+<li><strong>/usr/include</strong> : Fichiers d'en-tête utilisés pour le développement.</li>
+<li>
+<p><strong>/usr/share</strong> : Données partagées utilisées par différentes applications.</p>
+</li>
+<li>
+<p><strong>/etc</strong> : Contient les fichiers de configuration du système et des applications. Les fichiers dans ce répertoire permettent de personnaliser le comportement du système et des logiciels.</p>
+</li>
+<li>
+<p><strong>/var</strong> : Contient des données variables qui peuvent être modifiées pendant l'exécution du système. Cela inclut des fichiers de journaux, des bases de données, des spools d'impression, etc.</p>
+</li>
+<li>
+<p><strong>/tmp</strong> : Un répertoire temporaire où les programmes et les utilisateurs peuvent stocker des fichiers temporaires. Les fichiers dans ce répertoire sont généralement supprimés au redémarrage.</p>
+</li>
+<li>
+<p><strong>/home</strong> : Les répertoires personnels des utilisateurs sont généralement situés ici. Chaque utilisateur a un répertoire séparé pour stocker ses fichiers personnels.</p>
+</li>
+<li>
+<p><strong>/root</strong> : Le répertoire personnel de l'utilisateur root, l'administrateur du système.</p>
+</li>
+<li>
+<p><strong>/boot</strong> : Contient les fichiers nécessaires au démarrage du système, tels que les fichiers du chargeur de démarrage (bootloader) et le noyau du système d'exploitation.</p>
+</li>
+<li>
+<p><strong>/lib</strong> : Contient les bibliothèques partagées nécessaires au démarrage du système.</p>
+</li>
+</ol>
+<p>Il existe de nombreux autres répertoires dans l'arborescence du FHS, chacun ayant un but spécifique. Cette structure standardisée facilite le développement, la maintenance et la portabilité des applications et des systèmes entre différentes distributions Linux.</p>
+<h2 id="linux-comment-compter-des-mots-lignes">Linux : comment compter des mots, lignes ?</h2>
+<p>Sur un système Linux, il existe plusieurs commandes en ligne que vous pouvez utiliser pour compter des mots, des lignes et d'autres statistiques dans un fichier texte. Voici quelques-unes des commandes les plus couramment utilisées à cette fin :</p>
+<ol>
+<li>
+<p><strong>wc</strong> : La commande "wc" (word count) est très polyvalente et peut compter les mots, les lignes et les caractères dans un fichier. Voici comment l'utiliser :</p>
+</li>
+<li>
+<p>Pour compter le nombre de lignes, de mots et de caractères dans un fichier :
+     <code>wc fichier.txt</code></p>
+</li>
+<li>
+<p>Pour compter uniquement le nombre de lignes :
+     <code>wc -l fichier.txt</code></p>
+</li>
+<li>
+<p>Pour compter uniquement le nombre de mots :
+     <code>wc -w fichier.txt</code></p>
+</li>
+<li>
+<p>Pour compter uniquement le nombre de caractères :
+     <code>wc -c fichier.txt</code></p>
+</li>
+<li>
+<p><strong>grep et wc</strong> : Vous pouvez combiner la commande "grep" avec "wc" pour compter des occurrences spécifiques dans un fichier. Par exemple, pour compter le nombre de lignes contenant un mot particulier "motif" dans un fichier :</p>
+</li>
+</ol>
+<p><code>grep -c "motif" fichier.txt</code></p>
+<ol>
+<li><strong>cat et wc</strong> : Si vous voulez compter le nombre de lignes dans un fichier sans afficher son contenu, vous pouvez utiliser la commande "cat" en combinaison avec "wc" :</li>
+</ol>
+<p><code>cat fichier.txt | wc -l</code></p>
+<ol>
+<li><strong>sed et wc</strong> : Pour compter le nombre de lignes correspondant à un certain critère (par exemple, lignes vides) dans un fichier, vous pouvez utiliser "sed" avec "wc" :</li>
+</ol>
+<p><code>sed '/^$/d' fichier.txt | wc -l</code></p>
+<p>Ces commandes sont très utiles pour obtenir des statistiques rapides sur les fichiers texte. Assurez-vous de remplacer "fichier.txt" par le chemin et le nom de fichier réel que vous souhaitez analyser.</p>
+<h2 id="linux-gestion-utilisateur-et-mdp">Linux : gestion utilisateur et mdp</h2>
+<p>La gestion des utilisateurs et des mots de passe est un aspect important de la sécurité et de l'administration d'un système Linux. Linux propose des outils et des commandes pour créer, modifier, supprimer et gérer les comptes d'utilisateurs ainsi que les mots de passe associés. Voici comment cela fonctionne :</p>
+<ol>
+<li>
+<p><strong>Création d'utilisateurs</strong> :
+   Pour créer un nouvel utilisateur, vous pouvez utiliser la commande <code>useradd</code> suivie du nom d'utilisateur. Par exemple, pour créer un utilisateur nommé "john", vous pouvez saisir :
+   <code>sudo useradd john</code>
+   Cela créera un compte utilisateur avec les paramètres par défaut.</p>
+</li>
+<li>
+<p><strong>Définition de mots de passe</strong> :
+   Une fois qu'un utilisateur est créé, vous devez définir un mot de passe pour ce compte. Utilisez la commande <code>passwd</code> suivie du nom d'utilisateur pour définir un mot de passe :
+   <code>sudo passwd john</code>
+   Vous serez invité à saisir et confirmer le nouveau mot de passe.</p>
+</li>
+<li>
+<p><strong>Modification d'utilisateurs et de mots de passe</strong> :
+   Pour modifier les informations d'un utilisateur existant, vous pouvez utiliser la commande <code>usermod</code>. Par exemple, pour changer le nom d'utilisateur de "john" en "jane", vous pouvez saisir :
+   <code>sudo usermod -l jane john</code>
+   Pour modifier le mot de passe d'un utilisateur, utilisez à nouveau la commande <code>passwd</code> suivie du nom d'utilisateur.</p>
+</li>
+<li>
+<p><strong>Suppression d'utilisateurs</strong> :
+   Pour supprimer un utilisateur, utilisez la commande <code>userdel</code> suivie du nom d'utilisateur. Par exemple, pour supprimer l'utilisateur "jane" :
+   <code>sudo userdel jane</code>
+   Notez que cela supprimera également le répertoire personnel de l'utilisateur, sauf si vous utilisez l'option <code>-r</code>.</p>
+</li>
+<li>
+<p><strong>Gestion des groupes</strong> :
+   Les utilisateurs peuvent être regroupés en groupes, ce qui facilite la gestion des permissions. Utilisez la commande <code>groupadd</code> pour créer un groupe et la commande <code>usermod</code> pour ajouter un utilisateur existant à un groupe.</p>
+</li>
+<li>
+<p><strong>Utilisation de sudo</strong> :
+   Les tâches d'administration nécessitent souvent des privilèges élevés. La commande <code>sudo</code> permet à un utilisateur autorisé d'exécuter des commandes avec ces privilèges. L'ajout d'un utilisateur au groupe "sudo" permet généralement l'utilisation de cette commande.</p>
+</li>
+<li>
+<p><strong>Gestion des fichiers et des permissions</strong> :
+   Chaque utilisateur possède un répertoire personnel dans <code>/home</code> où il peut stocker ses fichiers. Les permissions sur les fichiers et les répertoires sont gérées par des attributs comme le propriétaire, le groupe propriétaire et les permissions de lecture, écriture et exécution.</p>
+</li>
+</ol>
+<p>La gestion des utilisateurs et des mots de passe est un aspect crucial de l'administration système, et une bonne compréhension de ces concepts est essentielle pour maintenir la sécurité et l'efficacité d'un système Linux.</p>
+<h2 id="gestion-des-archives-avec-tar">Gestion des archives avec tar</h2>
+<p>La commande <code>tar</code> (pour "tape archive") est utilisée pour créer et manipuler des archives dans les systèmes Unix et Linux. Une archive est un fichier unique contenant un ou plusieurs fichiers ou répertoires, généralement compressés pour économiser de l'espace disque ou faciliter le transfert. Voici comment fonctionne la gestion des archives avec <code>tar</code> :</p>
+<p><strong>Créer une archive :</strong>
+La commande de base pour créer une archive est la suivante :</p>
+<pre><code class="language-bash">tar -cvf archive.tar fichier1 fichier2 dossier1 dossier2
+</code></pre>
+<ul>
+<li><code>-c</code> : Créer une nouvelle archive.</li>
+<li><code>-v</code> : Afficher le détail des fichiers ajoutés à l'archive (verbose).</li>
+<li><code>-f</code> : Spécifier le nom de l'archive.</li>
+</ul>
+<p>Vous pouvez également ajouter des options de compression pour créer une archive compressée. Par exemple, pour créer une archive compressée au format gzip :</p>
+<pre><code class="language-bash">tar -czvf archive.tar.gz fichier1 fichier2 dossier1 dossier2
+</code></pre>
+<p><strong>Extraire une archive :</strong>
+Pour extraire le contenu d'une archive, utilisez la commande suivante :</p>
+<pre><code class="language-bash">tar -xvf archive.tar
+</code></pre>
+<ul>
+<li><code>-x</code> : Extraire le contenu de l'archive.</li>
+<li>Les autres options sont les mêmes que lors de la création d'une archive.</li>
+</ul>
+<p>Si l'archive est compressée, vous devez spécifier l'option de décompression correspondante. Par exemple, pour extraire une archive au format gzip :</p>
+<pre><code class="language-bash">tar -xzvf archive.tar.gz
+</code></pre>
+<p><strong>Lister le contenu d'une archive :</strong>
+Pour afficher la liste des fichiers contenus dans une archive sans extraire son contenu, utilisez l'option <code>-t</code> :</p>
+<pre><code class="language-bash">tar -tvf archive.tar
+</code></pre>
+<p><strong>Ajouter des fichiers à une archive existante :</strong>
+Si vous souhaitez ajouter des fichiers à une archive existante, utilisez l'option <code>-r</code> :</p>
+<pre><code class="language-bash">tar -rvf archive.tar nouveau_fichier
+</code></pre>
+<p><strong>Supprimer des fichiers d'une archive :</strong>
+La suppression de fichiers d'une archive est un peu plus complexe. Vous devez extraire l'archive, supprimer les fichiers nécessaires et ensuite recréer l'archive mise à jour. Voici un exemple :</p>
+<pre><code class="language-bash">tar -xvf archive.tar
+rm fichier_a_supprimer
+tar -cvf archive.tar fichier1 fichier2 dossier1 dossier2
+</code></pre>
+<p>La commande <code>tar</code> offre de nombreuses autres options pour gérer les archives, telles que la spécification de répertoires de travail, l'exclusion de certains fichiers, etc. Vous pouvez en savoir plus en consultant la page de manuel avec la commande <code>man tar</code> ou en consultant des ressources en ligne.</p>
+<h2 id="afficher-le-contenu-dun-fichier-y-compris-le-debut-ou-la-fin">Afficher le contenu d'un fichier, y compris le debut ou la fin</h2>
+<p>Pour afficher le contenu d'un fichier, y compris le début ou la fin, sous Linux, vous avez plusieurs options. Voici quelques commandes couramment utilisées pour effectuer cette tâche :</p>
+<p><strong>1. Afficher tout le contenu d'un fichier :</strong>
+Pour afficher le contenu complet d'un fichier, vous pouvez utiliser la commande <code>cat</code> :</p>
+<pre><code class="language-bash">cat nom_fichier
+</code></pre>
+<p><strong>2. Afficher le début d'un fichier :</strong>
+La commande <code>head</code> permet d'afficher les premières lignes d'un fichier. Par défaut, elle affiche les 10 premières lignes, mais vous pouvez spécifier un nombre différent en utilisant l'option <code>-n</code> :</p>
+<pre><code class="language-bash">head -n 20 nom_fichier  # Affiche les 20 premières lignes du fichier
+</code></pre>
+<p><strong>3. Afficher la fin d'un fichier :</strong>
+La commande <code>tail</code> affiche les dernières lignes d'un fichier. Par défaut, elle affiche les 10 dernières lignes, mais comme avec <code>head</code>, vous pouvez spécifier un nombre différent avec <code>-n</code> :</p>
+<pre><code class="language-bash">tail -n 15 nom_fichier  # Affiche les 15 dernières lignes du fichier
+</code></pre>
+<p><strong>4. Afficher le début ou la fin avec <code>less</code> :</strong>
+La commande <code>less</code> permet de visualiser le contenu d'un fichier de manière paginée, ce qui signifie que vous pouvez faire défiler le contenu vers le haut et vers le bas. Pour voir le début du fichier, vous pouvez simplement lancer <code>less</code> suivi du nom du fichier :</p>
+<pre><code class="language-bash">less nom_fichier
+</code></pre>
+<p>Une fois dans l'interface <code>less</code>, vous pouvez utiliser les touches fléchées ou d'autres commandes pour naviguer. Par exemple, appuyez sur la touche "G" pour aller à la fin du fichier et sur "q" pour quitter.</p>
+<p><strong>5. Afficher le début ou la fin avec <code>more</code> :</strong>
+La commande <code>more</code> est similaire à <code>less</code>, mais elle est moins interactive. Pour afficher le début d'un fichier avec <code>more</code> :</p>
+<pre><code class="language-bash">more nom_fichier
+</code></pre>
+<p>Pour naviguer, utilisez la touche Espace pour faire défiler une page à la fois et la touche "q" pour quitter.</p>
+<p>Ces commandes sont utiles pour afficher différentes parties d'un fichier, que ce soit le début, la fin ou le contenu complet, en fonction de vos besoins.</p>
+<h2 id="gestion-des-droits-avec-chmod">gestion des droits avec chmod</h2>
+<h3 id="exemple-de-la-commande-chmod-664-homehk1fictxt">Exemple de la commande : <code>chmod 664 /home/hk1/fic.txt</code></h3>
+<p>La commande <code>chmod</code> est utilisée pour modifier les permissions (droits) d'accès aux fichiers et aux répertoires sous les systèmes Unix et Linux. Les permissions sont divisées en trois catégories principales : le propriétaire (user), le groupe (group) et les autres utilisateurs (others). Chaque catégorie a des droits spécifiques qui peuvent être activés ou désactivés. Voici comment comprendre et interpréter la commande <code>chmod 664 /home/hk1/fic.txt</code> :</p>
+<ul>
+<li><code>chmod</code> : Commande pour modifier les permissions.</li>
+<li><code>664</code> : Les trois chiffres représentent les droits d'accès pour différentes catégories, dans l'ordre : propriétaire, groupe, autres.</li>
+<li>Le premier chiffre (6) représente les droits du propriétaire.</li>
+<li>Le deuxième chiffre (6) représente les droits du groupe.</li>
+<li>Le troisième chiffre (4) représente les droits des autres utilisateurs.</li>
+</ul>
+<p>Les droits d'accès sont représentés par des combinaisons de trois chiffres (ou bits) :
+- 4 : Lecture (r)
+- 2 : Écriture (w)
+- 1 : Exécution (x)</p>
+<p>Dans l'exemple (<code>chmod 664 /home/hk1/fic.txt</code>), les droits sont définis comme suit :</p>
+<ul>
+<li>Propriétaire : Lecture (r) + Écriture (w) = 6</li>
+<li>Groupe : Lecture (r) + Écriture (w) = 6</li>
+<li>Autres utilisateurs : Lecture (r) = 4</li>
+</ul>
+<p>Cela signifie que le propriétaire et le groupe ont la permission de lire et d'écrire le fichier <code>fic.txt</code>, tandis que les autres utilisateurs ont uniquement la permission de le lire.</p>
+<p>Il est important de noter que les chiffres dans la commande <code>chmod</code> sont généralement octaux, ce qui signifie qu'ils sont basés sur la notation en base 8. Les combinaisons de 3 chiffres (4, 2, 1) sont utilisées pour représenter les droits de lecture, écriture et exécution. Pour calculer les chiffres, additionnez les valeurs correspondantes (4 pour lecture, 2 pour écriture, 1 pour exécution).</p>
+<p>L'exemple donné (<code>chmod 664 /home/hk1/fic.txt</code>) est un exemple courant où les droits de lecture et d'écriture sont accordés au propriétaire et au groupe, tandis que les autres utilisateurs ont seulement le droit de lecture.</p>
+<h2 id="grep-et-find-difference-et-utilisation">grep et find, différence et utilisation</h2>
+<p><code>grep</code> et <code>find</code> sont deux commandes largement utilisées dans les systèmes Unix et Linux pour rechercher des fichiers ou des lignes de texte dans des fichiers. Bien qu'ils soient tous les deux des outils de recherche, ils ont des utilisations légèrement différentes.</p>
+<p><strong>1. <code>grep</code> :</strong></p>
+<p><code>grep</code> est utilisé pour rechercher des motifs spécifiques (chaînes de caractères) dans le contenu des fichiers texte. Il est principalement utilisé pour rechercher des lignes de texte correspondant à un modèle donné.</p>
+<p><strong>Syntaxe de base :</strong></p>
+<pre><code class="language-bash">grep motif fichier
+</code></pre>
+<p>Exemple :</p>
+<pre><code class="language-bash">grep &quot;motif&quot; fichier.txt
+</code></pre>
+<p><code>grep</code> peut également être utilisé avec des options pour des recherches plus avancées, comme ignorer la casse (<code>-i</code>), afficher le numéro de ligne (<code>-n</code>), rechercher récursivement dans les répertoires (<code>-r</code>), etc.</p>
+<p><strong>2. <code>find</code> :</strong></p>
+<p><code>find</code> est utilisé pour rechercher des fichiers et des répertoires en fonction de critères tels que le nom du fichier, la taille, la date de modification, etc. Il permet de trouver des fichiers en fonction de leurs attributs.</p>
+<p><strong>Syntaxe de base :</strong></p>
+<pre><code class="language-bash">find répertoire -options critères
+</code></pre>
+<p>Exemple :</p>
+<pre><code class="language-bash">find /chemin/vers/repertoire -name &quot;nom_du_fichier.txt&quot;
+</code></pre>
+<p><code>find</code> peut être combiné avec plusieurs options pour effectuer des recherches complexes. Par exemple, vous pouvez rechercher des fichiers de taille spécifique, des fichiers modifiés dans une plage de temps donnée, etc.</p>
+<p><strong>Différences et utilisations :</strong></p>
+<ul>
+<li><code>grep</code> est principalement utilisé pour rechercher du contenu dans les fichiers texte. Il se concentre sur les motifs à l'intérieur des fichiers.</li>
+<li><code>find</code> est utilisé pour rechercher des fichiers en fonction de leurs attributs, comme le nom du fichier, la taille, les permissions, etc. Il est utile pour trouver des fichiers qui correspondent à certains critères.</li>
+</ul>
+<p>En résumé, utilisez <code>grep</code> lorsque vous souhaitez rechercher des lignes de texte correspondant à un motif particulier à l'intérieur des fichiers. Utilisez <code>find</code> lorsque vous voulez rechercher des fichiers en fonction de leurs attributs tels que le nom, la taille ou la date de modification.</p>
+<h2 id="vim-faire-des-recherches-de-mots">Vim : faire des recherches de mots ?</h2>
+<p>Dans l'éditeur de texte Vim, vous pouvez effectuer des recherches de mots à l'aide de la commande <code>/</code>. Voici comment faire des recherches de mots dans Vim :</p>
+<ol>
+<li>
+<p><strong>Ouvrir un fichier dans Vim :</strong>
+   Pour ouvrir un fichier dans Vim, ouvrez votre terminal et entrez :
+   <code>bash
+   vim nom_du_fichier</code></p>
+</li>
+<li>
+<p><strong>Rechercher un mot :</strong>
+   Une fois dans Vim, vous pouvez commencer une recherche en mode normal (c'est-à-dire en appuyant sur la touche <code>Esc</code> si vous n'êtes pas déjà en mode normal) et en utilisant la commande <code>/</code>. Ensuite, saisissez le mot que vous souhaitez rechercher et appuyez sur <code>Entrée</code>. Par exemple, pour rechercher le mot "recherche", entrez :
+   <code>/recherche</code></p>
+</li>
+</ol>
+<p>Vim va mettre en surbrillance la première occurrence du mot "recherche" dans le fichier.</p>
+<ol>
+<li>
+<p><strong>Naviguer dans les résultats :</strong>
+   Une fois que vous avez effectué une recherche, vous pouvez utiliser les touches <code>n</code> et <code>N</code> pour naviguer entre les résultats. La touche <code>n</code> vous emmène vers la prochaine occurrence du mot recherché, tandis que la touche <code>N</code> vous emmène vers l'occurrence précédente.</p>
+</li>
+<li>
+<p><strong>Quitter le mode de recherche :</strong>
+   Pour quitter le mode de recherche et revenir au mode normal, appuyez sur <code>Esc</code>.</p>
+</li>
+<li>
+<p><strong>Rechercher et remplacer :</strong>
+   En plus de rechercher des mots, Vim permet également de remplacer des mots dans un fichier. Pour ce faire, vous pouvez utiliser la commande <code>:%s/ancien_mot/nouveau_mot/g</code>, où "ancien_mot" est le mot que vous souhaitez remplacer et "nouveau_mot" est le mot de remplacement. Le <code>g</code> à la fin de la commande signifie que le remplacement doit être effectué globalement (pour toutes les occurrences du mot).</p>
+</li>
+</ol>
+<p>Par exemple, pour remplacer toutes les occurrences du mot "vieux" par "nouveau", utilisez la commande :
+   <code>:%s/vieux/nouveau/g</code></p>
+<ol>
+<li><strong>Rechercher en arrière :</strong>
+   Pour rechercher en arrière dans un fichier, utilisez la commande <code>?</code> au lieu de <code>/</code>. Par exemple, pour rechercher le mot "recherche" en arrière, entrez :
+   <code>?recherche</code></li>
+</ol>
+<p>Ces commandes de recherche sont très utiles pour naviguer et éditer efficacement dans Vim.</p>
+<h2 id="vim-afficher-les-numeros-de-lignes">Vim : afficher les numéros de lignes ?</h2>
+<p>Pour afficher les numéros de lignes dans l'éditeur de texte Vim, vous pouvez activer cette fonctionnalité en utilisant la commande <code>:set number</code> ou son équivalent court <code>:set nu</code>.</p>
+<p>Voici comment faire pour afficher les numéros de lignes dans Vim :</p>
+<ol>
+<li>Ouvrez un fichier dans Vim en utilisant la commande suivante dans votre terminal :</li>
+</ol>
+<p><code>bash
+   vim nom_du_fichier</code></p>
+<ol>
+<li>
+<p>Une fois dans Vim, assurez-vous d'être en mode normal en appuyant sur la touche <code>Esc</code>.</p>
+</li>
+<li>
+<p>Pour activer l'affichage des numéros de lignes, tapez l'une des commandes suivantes dans le mode normal et appuyez sur <code>Entrée</code> :</p>
+</li>
+</ol>
+<p><code>bash
+   :set number</code>
+   ou</p>
+<p><code>bash
+   :set nu</code></p>
+<p>Les numéros de lignes seront affichés à gauche de chaque ligne du fichier.</p>
+<ol>
+<li>Pour désactiver l'affichage des numéros de lignes, vous pouvez utiliser la commande <code>:set nonumber</code> ou <code>:set nonu</code>.</li>
+</ol>
+<p><code>bash
+   :set nonumber</code>
+   ou</p>
+<p><code>bash
+   :set nonu</code></p>
+<p>Cela supprimera les numéros de lignes de l'affichage.</p>
+<ol>
+<li>Pour enregistrer vos modifications et quitter Vim, appuyez sur <code>Esc</code> pour passer en mode normal, puis tapez <code>:wq</code> suivi de la touche <code>Entrée</code>.</li>
+</ol>
+<p>L'affichage des numéros de lignes dans Vim est particulièrement utile pour se repérer dans un fichier et pour référencer des lignes spécifiques lors de l'édition.</p>
+<h1 id="windows">WINDOWS</h1>
+<h2 id="gestion-carte-reseau-sous-workstation-pro-nat-bridge-host-only">Gestion carte réseau sous workstation pro, nat, bridge, host only...</h2>
+<p>Dans VMware Workstation Pro, vous pouvez configurer différentes méthodes de gestion de la carte réseau de vos machines virtuelles (VMs) pour les connecter au réseau physique et aux autres machines virtuelles. Les trois modes principaux de gestion de la carte réseau dans VMware Workstation Pro sont : NAT, Bridge et Host-Only.</p>
+<ol>
+<li><strong>NAT (Network Address Translation)</strong> :
+   Dans le mode NAT, votre machine virtuelle est connectée à un réseau privé virtuel. La machine virtuelle partage l'adresse IP de votre ordinateur hôte via un processus de traduction d'adresse (NAT). Cela permet à la machine virtuelle d'accéder à Internet et aux ressources du réseau local de votre hôte. Cependant, les autres machines de votre réseau ne peuvent pas accéder directement à la machine virtuelle.</li>
+</ol>
+<p>Ce mode est utile lorsque vous souhaitez fournir un accès à Internet à vos VMs, mais vous ne voulez pas qu'elles soient directement visibles sur le réseau.</p>
+<ol>
+<li><strong>Bridge (Pont)</strong> :
+   Dans le mode Bridge, la machine virtuelle utilise la carte réseau physique de votre ordinateur hôte pour se connecter directement au réseau local. Cela signifie que la machine virtuelle obtient sa propre adresse IP sur le réseau local et peut être vue par d'autres machines du réseau comme si elle était un ordinateur physique distinct.</li>
+</ol>
+<p>Le mode Bridge est utile lorsque vous voulez que vos VMs soient directement accessibles sur le réseau local, comme si elles étaient des machines physiques.</p>
+<ol>
+<li><strong>Host-Only (Hôte seulement)</strong> :
+   Le mode Host-Only crée un réseau virtuel isolé entre toutes les machines virtuelles et l'hôte. Les VMs peuvent communiquer entre elles et avec l'hôte, mais elles n'ont pas accès au réseau local ni à Internet.</li>
+</ol>
+<p>Ce mode est utile pour des scénarios où vous voulez créer un environnement isolé pour le développement ou les tests.</p>
+<p>Chaque mode de gestion de carte réseau a ses avantages et ses cas d'utilisation spécifiques. Le choix dépend de vos besoins et de la manière dont vous souhaitez configurer vos machines virtuelles dans votre environnement. Lorsque vous créez ou configurez une VM dans VMware Workstation Pro, vous pouvez sélectionner le mode de gestion de carte réseau approprié en fonction de vos besoins spécifiques.</p>
+<h2 id="licence-oem-retail-kmsmak-cest-quoi">Licence oem, retail, KMS/MAK, c'est quoi ?</h2>
+<p>Les termes mentionnés - licence OEM, licence Retail, KMS (Key Management Service) et MAK (Multiple Activation Key) - sont tous liés à la manière dont les licences logicielles sont gérées et distribuées dans le contexte du système d'exploitation Windows de Microsoft. Chacun de ces types de licences a ses propres caractéristiques et conditions d'utilisation. Voici ce que chacun d'entre eux signifie :</p>
+<ol>
+<li>
+<p><strong>Licence OEM (Original Equipment Manufacturer)</strong> :
+   Une licence OEM est généralement fournie avec un nouvel ordinateur lors de l'achat. Elle est liée au matériel spécifique sur lequel elle a été préinstallée par le fabricant (OEM). Ces licences ne peuvent pas être transférées d'un ordinateur à un autre. Elles sont généralement moins chères que les autres types de licences, mais elles sont également plus restrictives en termes de transférabilité.</p>
+</li>
+<li>
+<p><strong>Licence Retail</strong> :
+   Une licence Retail est conçue pour les utilisateurs finaux individuels. Elle peut être achetée séparément et installée sur un ordinateur. Contrairement à une licence OEM, elle peut être transférée d'un ordinateur à un autre, mais uniquement sur un seul ordinateur à la fois. Si vous achetez un nouvel ordinateur, vous ne pouvez pas transférer la licence Retail de l'ancien ordinateur vers le nouveau et continuer à utiliser les deux en même temps.</p>
+</li>
+<li>
+<p><strong>KMS (Key Management Service)</strong> :
+   Le KMS est un service de gestion de clés utilisé par les grandes organisations pour activer un grand nombre de machines sous Windows. Plutôt que d'activer chaque machine individuellement, le KMS permet d'activer automatiquement les machines en se connectant périodiquement au serveur KMS de l'organisation. Cette méthode est couramment utilisée pour les déploiements en entreprise.</p>
+</li>
+<li>
+<p><strong>MAK (Multiple Activation Key)</strong> :
+   Le MAK est une autre méthode d'activation en volume pour les organisations. Contrairement au KMS, où les machines se connectent au serveur KMS, un MAK utilise une clé d'activation spécifique pour chaque machine. Chaque clé MAK a un nombre limité d'activations autorisées, généralement lié au contrat de licence.</p>
+</li>
+</ol>
+<p>En résumé, ces différents types de licences et méthodes d'activation sont utilisés pour gérer la distribution et l'utilisation légale du système d'exploitation Windows. Les licences OEM et Retail sont plus adaptées aux utilisateurs individuels, tandis que les méthodes KMS et MAK sont conçues pour les organisations qui gèrent un grand nombre de machines. Il est important de respecter les termes de licence appropriés pour chaque type de licence afin de rester en conformité avec les règles de Microsoft.</p>
+<h2 id="quel-outil-pour-voir-le-journal-des-evenements-systeme">Quel outil pour voir le journal des événements système ?</h2>
+<p>Pour afficher le journal des événements système dans Windows, vous pouvez utiliser l'outil "Observateur d'événements" (Event Viewer). Cet outil est intégré à Windows et vous permet de visualiser et d'analyser les journaux d'événements enregistrés par le système d'exploitation et les applications.</p>
+<p>Voici comment ouvrir l'Observateur d'événements et accéder au journal des événements système :</p>
+<ol>
+<li>
+<p><strong>Ouverture de l'Observateur d'événements</strong> :
+   Vous pouvez ouvrir l'Observateur d'événements de plusieurs manières, dont les suivantes :</p>
+</li>
+<li>
+<p>Appuyez sur les touches <code>Windows + R</code> pour ouvrir la boîte de dialogue "Exécuter". Tapez <code>eventvwr.msc</code> et appuyez sur Entrée.</p>
+</li>
+<li>
+<p>Recherchez "Observateur d'événements" dans le menu Démarrer et cliquez dessus pour lancer l'application.</p>
+</li>
+<li>
+<p><strong>Navigation vers le journal des événements système</strong> :
+   Une fois l'Observateur d'événements ouvert, vous verrez une structure arborescente dans la colonne de gauche. Développez "Journaux Windows" pour voir différents types de journaux, dont "Système".</p>
+</li>
+<li>
+<p><strong>Affichage des événements système</strong> :
+   Cliquez avec le bouton droit sur "Système" dans la colonne de gauche et choisissez "Toutes les tâches" &gt; "Afficher les journaux" pour afficher les événements enregistrés dans le journal des événements système.</p>
+</li>
+</ol>
+<p>Vous verrez la liste des événements système enregistrés, tels que les erreurs, les avertissements et les informations.</p>
+<ol>
+<li>
+<p><strong>Filtrage et recherche d'événements</strong> :
+   Vous pouvez utiliser les options de filtrage et de recherche pour cibler des événements spécifiques en fonction de la date, du type d'événement, des sources, etc.</p>
+</li>
+<li>
+<p><strong>Visualisation des détails de l'événement</strong> :
+   Double-cliquez sur un événement pour afficher ses détails, y compris la description, la source, la date et l'heure, etc.</p>
+</li>
+</ol>
+<p>L'Observateur d'événements est un outil puissant pour diagnostiquer les problèmes système, surveiller les performances et suivre les activités du système. Cependant, la compréhension des événements peut nécessiter une certaine expertise, car certains messages peuvent être techniques et complexes.</p>
+<h2 id="dans-quel-fichier-sont-stockes-les-utilisateurs-locaux">Dans quel fichier sont stockés les utilisateurs locaux ?</h2>
+<p>Sous Windows, les informations sur les utilisateurs locaux sont stockées dans une base de données appelée le "Registre" (Registry). Le Registre est une base de données hiérarchique utilisée par Windows pour stocker les paramètres, les configurations et les informations système.</p>
+<p>Plus précisément, les détails des utilisateurs locaux, tels que les noms d'utilisateur, les mots de passe hachés (en utilisant des mécanismes de hachage et de chiffrement), les groupes auxquels ils appartiennent et d'autres paramètres associés, sont stockés dans le Registre sous la clé :</p>
+<pre><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList
+</code></pre>
+<p>Il est important de noter que les informations stockées dans le Registre sont généralement cryptées et protégées pour des raisons de sécurité. L'accès au Registre nécessite généralement des privilèges administratifs, car la modification incorrecte des données peut avoir un impact important sur le système.</p>
+<p>Si vous cherchez à gérer les utilisateurs locaux, il est recommandé d'utiliser les outils et les interfaces utilisateur fournis par Windows, tels que l'interface graphique de gestion des utilisateurs dans le Panneau de configuration ou la console de gestion des utilisateurs "<code>lusrmgr.msc</code>". Ces outils permettent de gérer les comptes utilisateurs de manière plus sécurisée et conviviale.</p>
+<h2 id="comment-activer-le-bureau-a-distance-puis-autoriser-un-utilisateur-nomme-hk-par-exemple-a-se-connecter-dessus">Comment activer le bureau a distance puis autoriser un utilisateur nommé "hk" (par exemple) a se connecter dessus ?</h2>
+<h3 id="via-linterface-graphique">Via l'interface graphique :</h3>
+<p>Pour activer le Bureau à distance et autoriser un utilisateur spécifique à s'y connecter sur un ordinateur Windows, suivez ces étapes :</p>
+<ol>
+<li><strong>Activer le Bureau à distance :</strong></li>
+</ol>
+<p>a. Cliquez avec le bouton droit sur l'icône "Ce PC" (ou "Ordinateur" sur les versions plus anciennes de Windows) sur le bureau ou dans le menu Démarrer, puis sélectionnez "Propriétés".</p>
+<p>b. Dans la fenêtre "Propriétés système", cliquez sur "Paramètres système avancés" dans le volet de gauche.</p>
+<p>c. Dans l'onglet "Avancé", sous la section "Performances", cliquez sur "Paramètres...".</p>
+<p>d. Dans l'onglet "Avancé", sous la section "Utilisation à distance", cochez l'option "Autoriser les connexions Bureau à distance vers cet ordinateur".</p>
+<ol>
+<li><strong>Autoriser un utilisateur à se connecter via le Bureau à distance :</strong></li>
+</ol>
+<p>a. Après avoir activé le Bureau à distance, cliquez sur le bouton "Sélecteurs distants" dans la section "Utilisation à distance" de la fenêtre "Propriétés système".</p>
+<p>b. Dans la fenêtre "Sélecteurs distants", cliquez sur "Ajouter..." pour sélectionner les utilisateurs qui sont autorisés à se connecter via le Bureau à distance.</p>
+<p>c. Tapez le nom d'utilisateur dans la zone de texte, cliquez sur "Vérifier noms" pour vous assurer que le nom d'utilisateur est correct, puis cliquez sur "OK" pour fermer la fenêtre de sélection d'utilisateurs.</p>
+<p>d. Dans la fenêtre "Sélecteurs distants", le nom d'utilisateur que vous avez ajouté apparaîtra dans la liste. Assurez-vous qu'il est coché, puis cliquez sur "OK" pour fermer la fenêtre.</p>
+<ol>
+<li><strong>Appliquer les changements et redémarrer si nécessaire :</strong></li>
+</ol>
+<p>Après avoir ajouté l'utilisateur et activé le Bureau à distance, assurez-vous d'enregistrer les modifications et redémarrez l'ordinateur si cela vous est demandé pour que les modifications prennent effet.</p>
+<p>Une fois ces étapes terminées, l'utilisateur "hk" sera autorisé à se connecter au Bureau à distance de l'ordinateur. Assurez-vous que l'utilisateur possède un mot de passe sécurisé, car les connexions Bureau à distance impliquent des problèmes de sécurité importants.</p>
+<h3 id="en-ligne-de-commande">En ligne de commande :</h3>
+<p>Voici comment activer le Bureau à distance et autoriser un utilisateur à s'y connecter en utilisant des commandes en ligne de commande dans Windows. Assurez-vous d'exécuter ces commandes avec des privilèges d'administrateur.</p>
+<ol>
+<li><strong>Activer le Bureau à distance :</strong></li>
+</ol>
+<p>Pour activer le Bureau à distance, vous pouvez utiliser la commande <code>reg add</code> pour modifier la base de registre. Ouvrez une fenêtre de commande avec des privilèges d'administrateur et exécutez la commande suivante :</p>
+<p><code>bash
+   reg add "HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f</code></p>
+<ol>
+<li><strong>Autoriser un utilisateur à se connecter via le Bureau à distance :</strong></li>
+</ol>
+<p>Pour autoriser un utilisateur spécifique à se connecter via le Bureau à distance, vous pouvez utiliser la commande <code>net localgroup</code> pour ajouter cet utilisateur au groupe "Utilisateurs du Bureau à distance". Exécutez la commande suivante :</p>
+<p><code>bash
+   net localgroup "Utilisateurs du Bureau à distance" "nom_du_computer\nom_utilisateur" /add</code></p>
+<p>Remplacez "nom_du_computer" par le nom de votre ordinateur et "nom_utilisateur" par le nom de l'utilisateur que vous souhaitez autoriser.</p>
+<ol>
+<li><strong>Redémarrer le service de Bureau à distance :</strong></li>
+</ol>
+<p>Pour que les modifications prennent effet, vous devrez peut-être redémarrer le service de Bureau à distance. Exécutez la commande suivante pour redémarrer le service :</p>
+<p><code>bash
+   net stop termservice &amp;&amp; net start termservice</code></p>
+<p>Une fois ces étapes terminées, l'utilisateur spécifié sera autorisé à se connecter via le Bureau à distance sur l'ordinateur. Assurez-vous de suivre les bonnes pratiques de sécurité en matière de configuration du Bureau à distance et de gestion des utilisateurs.</p>
+<h2 id="pare-feu-windows-comment-autoriser-un-ping">Pare-feu Windows : comment autoriser un ping ?</h2>
+<p>Pour autoriser les requêtes Ping (ICMP) à travers le pare-feu Windows, vous pouvez utiliser les commandes en ligne de commande ou l'interface utilisateur du Pare-feu Windows. Voici comment faire :</p>
+<p><strong>Méthode 1 : Utilisation de l'interface utilisateur du Pare-feu Windows</strong></p>
+<ol>
+<li>Ouvrez le Panneau de configuration.</li>
+<li>Accédez à la section "Système et sécurité", puis cliquez sur "Pare-feu Windows".</li>
+<li>Dans le volet de gauche, cliquez sur "Paramètres avancés".</li>
+<li>Dans la fenêtre "Pare-feu Windows avec fonctions de sécurité avancées", cliquez sur "Règles de trafic entrant".</li>
+<li>Dans le volet de droite, cliquez sur "Nouvelle règle..." pour démarrer l'Assistant Nouvelle règle de sécurité.</li>
+<li>Sélectionnez "Personnalisée" et cliquez sur "Suivant".</li>
+<li>Cochez la case "Ce programme de chemin d'accès", puis cliquez sur "Suivant".</li>
+<li>Dans la page "Quels programmes voulez-vous autoriser ?", laissez les options par défaut ou spécifiez "Tous les programmes" si vous souhaitez autoriser le Ping depuis n'importe quel programme. Cliquez sur "Suivant".</li>
+<li>Sélectionnez "Cela protocole : ICMPv4" et cochez la case "Autoriser la connexion". Cliquez sur "Suivant".</li>
+<li>Choisissez "Quels types de sources de port voulez-vous autoriser ?", laissez l'option par défaut "Tous" ou spécifiez les sources de votre choix. Cliquez sur "Suivant".</li>
+<li>Donnez un nom à la règle (par exemple, "Autoriser le Ping") et ajoutez une description si nécessaire. Cliquez sur "Suivant".</li>
+<li>Révisez les paramètres de la règle et cliquez sur "Terminer" pour créer la règle.</li>
+</ol>
+<p><strong>Méthode 2 : Utilisation de commandes en ligne de commande</strong></p>
+<p>Ouvrez une fenêtre de commande avec des privilèges d'administrateur et exécutez la commande suivante pour autoriser le Ping à travers le pare-feu :</p>
+<pre><code class="language-bash">netsh advfirewall firewall add rule name=&quot;Autoriser le Ping&quot; protocol=icmpv4:8,any dir=in action=allow
+</code></pre>
+<p>Cela ajoute une règle au pare-feu pour autoriser les requêtes Ping entrantes.</p>
+<p>Après avoir suivi l'une de ces méthodes, les requêtes Ping devraient être autorisées à travers le pare-feu Windows, et vous devriez pouvoir Pinguer votre ordinateur à partir d'autres appareils du réseau. Assurez-vous toujours de prendre en compte les considérations de sécurité appropriées lors de la configuration de règles de pare-feu.</p>
+<h2 id="une-ip-en-169254-cest-bon-signe">Une ip en 169.254, c'est bon signe ?</h2>
+<p>Non, une adresse IP en plage <code>169.254.x.x</code> n'est généralement pas un bon signe. Les adresses IP dans la plage 169.254.x.x sont automatiquement attribuées par le système d'exploitation lorsqu'il ne peut pas obtenir une adresse IP valide via un serveur DHCP (Dynamic Host Configuration Protocol).</p>
+<p>Cette plage d'adresses IP est connue sous le nom d'"<code>APIPA</code>" (Automatic Private IP Addressing) et est utilisée lorsque votre appareil tente de se connecter à un réseau mais ne parvient pas à obtenir une adresse IP valable. Cela peut se produire lorsque le serveur DHCP est indisponible ou que la configuration réseau est incorrecte.</p>
+<p>En bref, une adresse IP en plage 169.254.x.x indique que votre appareil n'a pas réussi à obtenir une adresse IP valide via le réseau, ce qui peut entraîner des problèmes de connectivité. Pour résoudre ce problème, vous devrez généralement vérifier votre configuration réseau, vous assurer que le serveur DHCP est accessible et fonctionne correctement, et que votre appareil est correctement configuré pour obtenir une adresse IP automatiquement via DHCP.</p>
+<h2 id="une-gateway-cest-vraiment-utile">Une gateway c'est vraiment utile ?</h2>
+<p>Oui, une passerelle (gateway en anglais) est un élément essentiel dans une infrastructure réseau et joue un rôle crucial pour permettre la connectivité entre différents réseaux. Voici pourquoi une passerelle est vraiment utile :</p>
+<ol>
+<li>
+<p><strong>Routage entre réseaux :</strong> Une passerelle permet de faire transiter les données entre différents réseaux, qu'il s'agisse de réseaux locaux (LAN) ou de réseaux étendus (WAN). Elle joue un rôle clé dans le routage des paquets de données d'un réseau à un autre.</p>
+</li>
+<li>
+<p><strong>Accès à Internet :</strong> Dans un réseau domestique ou professionnel, la passerelle est souvent utilisée pour fournir un accès à Internet. Toutes les données provenant des dispositifs connectés passent par la passerelle avant d'atteindre Internet et vice versa.</p>
+</li>
+<li>
+<p><strong>Gestion du trafic :</strong> Les passerelles peuvent prendre en charge des fonctionnalités de gestion du trafic, telles que le contrôle de bande passante, la priorisation du trafic et la mise en place de règles de sécurité pour filtrer ou bloquer certaines données.</p>
+</li>
+<li>
+<p><strong>Sécurité :</strong> Les passerelles peuvent inclure des pare-feu, des systèmes de détection d'intrusion (IDS) et d'autres mécanismes de sécurité pour protéger le réseau local contre les menaces provenant d'Internet ou d'autres réseaux.</p>
+</li>
+<li>
+<p><strong>Interconnexion de réseaux d'entreprise :</strong> Dans le contexte des entreprises, les passerelles sont utilisées pour interconnecter des réseaux locaux distincts, tels que différents bureaux, succursales ou centres de données. Elles permettent aux employés de différents sites de communiquer et d'accéder aux ressources partagées.</p>
+</li>
+<li>
+<p><strong>VPN (Virtual Private Network) :</strong> Les passerelles VPN permettent de créer des connexions sécurisées entre des réseaux distants ou des utilisateurs éloignés. Cela permet un accès sécurisé aux ressources internes de l'entreprise, même à partir de réseaux publics comme Internet.</p>
+</li>
+</ol>
+<p>En résumé, une passerelle est un élément fondamental pour assurer la connectivité, la communication et la sécurité entre différents réseaux. Elle joue un rôle central dans la gestion du trafic, la sécurité des données et la facilitation de l'accès à Internet et aux ressources réseau.</p>
+<h2 id="droit-de-securite-sur-un-repertoire-acl">Droit de sécurité sur un repertoire, acl</h2>
+<p>Les droits de sécurité sur un répertoire, également connus sous le nom de contrôle d'accès (ACL - Access Control List en anglais), sont utilisés pour définir les niveaux d'accès et les permissions que les utilisateurs et les groupes ont sur ce répertoire et son contenu. Les ACL permettent de spécifier qui peut lire, écrire, exécuter ou effectuer d'autres opérations sur les fichiers et les sous-répertoires à l'intérieur du répertoire en question.</p>
+<p>Voici comment fonctionnent les ACL et comment elles sont gérées :</p>
+<ol>
+<li>
+<p><strong>Liste de contrôle d'accès (ACL) :</strong>
+   Une ACL est une liste structurée qui associe des utilisateurs et des groupes avec des permissions spécifiques sur un objet, comme un répertoire. Chaque entrée dans l'ACL (appelée une "entrée ACL") répertorie un utilisateur ou un groupe et les permissions qui leur sont attribuées.</p>
+</li>
+<li>
+<p><strong>Permissions :</strong>
+   Les permissions typiques incluent :</p>
+</li>
+<li>Lecture (Read) : Autorise la consultation du contenu des fichiers et répertoires.</li>
+<li>Écriture (Write) : Autorise la modification ou la création de nouveaux fichiers et répertoires.</li>
+<li>Exécution (Execute) : Autorise l'exécution de fichiers ou l'accès à des répertoires.</li>
+<li>
+<p>Listage (List) : Autorise la visualisation du contenu d'un répertoire.</p>
+</li>
+<li>
+<p><strong>Gestion des ACL :</strong>
+   Les ACL peuvent être gérées à l'aide d'outils de ligne de commande ou d'interfaces graphiques, en fonction du système d'exploitation que vous utilisez. Par exemple, sur Linux, la commande <code>chmod</code> peut être utilisée pour gérer les ACL, tandis que sur Windows, l'interface graphique des propriétés de fichiers permet de gérer les autorisations.</p>
+</li>
+<li>
+<p><strong>Héritage des autorisations :</strong>
+   Les autorisations d'un répertoire peuvent être transmises aux fichiers et aux sous-répertoires qu'il contient, dans le cas de l'héritage des autorisations. Cela signifie que les autorisations définies au niveau d'un répertoire parent peuvent être automatiquement appliquées aux éléments enfants, sauf si elles sont explicitement modifiées.</p>
+</li>
+<li>
+<p><strong>Meilleures pratiques de sécurité :</strong>
+   Il est important de suivre les meilleures pratiques de sécurité lors de la configuration des ACL. Cela implique de donner des autorisations strictement nécessaires aux utilisateurs et aux groupes, de limiter l'accès aux ressources sensibles et de mettre en œuvre une politique de moindre privilège.</p>
+</li>
+</ol>
+<p>Les ACL sont un moyen puissant de gérer la sécurité des fichiers et répertoires, permettant un contrôle fin sur qui peut accéder à quelles ressources et ce qu'ils peuvent faire avec ces ressources.</p>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../../..", "features": [], "search": "../../../../assets/javascripts/workers/search.74e28a9f.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../../assets/javascripts/bundle.220ee61c.min.js"></script>
+      
+    
+  </body>
+</html>
