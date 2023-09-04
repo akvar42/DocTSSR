@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../Guide_information_system_LINUX/">
+        <link rel="prev" href="../Commande_IOS3/">
       
       
-        <link rel="next" href="../guide_tar-linux/">
+        <link rel="next" href="../note_SSH_ACL_Radius/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Guide de Veille et Journalisation sur GNU/Linux - DOC TSSR</title>
+        <title>Résumé des Commandes pour la Configuration du Matériel Cisco - DOC TSSR</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#guide-de-veille-et-journalisation-sur-gnulinux" class="md-skip">
+        <a href="#resume-des-commandes-pour-la-configuration-du-materiel-cisco" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Guide de Veille et Journalisation sur GNU/Linux
+              Résumé des Commandes pour la Configuration du Matériel Cisco
             
           </span>
         </div>
@@ -286,16 +286,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
       
       
       
@@ -304,7 +302,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           LINUX
@@ -317,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Guide_Crontab/" class="md-nav__link">
+      <a href="../../LINUX/Guide_Crontab/" class="md-nav__link">
         Guide Avancé pour l'Utilisation de crontab sous Linux
       </a>
     </li>
@@ -331,7 +329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Guide_information_system_LINUX/" class="md-nav__link">
+      <a href="../../LINUX/Guide_information_system_LINUX/" class="md-nav__link">
         Guide Avancé sur les Informations Système sur GNU/Linux
       </a>
     </li>
@@ -343,167 +341,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Guide de Veille et Journalisation sur GNU/Linux
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../LINUX/Guide_veille_et_journalisation/" class="md-nav__link">
         Guide de Veille et Journalisation sur GNU/Linux
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-informations-sur-le-systeme" class="md-nav__link">
-    1. Informations sur le système
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Informations sur le système">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-memoire-et-charge-systeme" class="md-nav__link">
-    a. Mémoire et Charge Système
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-informations-sur-le-processeur" class="md-nav__link">
-    b. Informations sur le processeur
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-espace-disque" class="md-nav__link">
-    c. Espace disque
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-veille-systeme" class="md-nav__link">
-    2. Veille système
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Veille système">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-journaux-systeme-avec-journalctl" class="md-nav__link">
-    a. Journaux système avec journalctl
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-audit-du-systeme-avec-auditd" class="md-nav__link">
-    b. Audit du système avec auditd
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-logs-de-connexion-et-dauthentification" class="md-nav__link">
-    c. Logs de connexion et d'authentification
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-journalisation" class="md-nav__link">
-    3. Journalisation
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Journalisation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-configurer-rsyslog" class="md-nav__link">
-    a. Configurer rsyslog
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-rotation-des-journaux-avec-logrotate" class="md-nav__link">
-    b. Rotation des journaux avec logrotate
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-surveillance-en-temps-reel" class="md-nav__link">
-    4. Surveillance en temps réel
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Surveillance en temps réel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-utilisez-tail" class="md-nav__link">
-    a. Utilisez tail
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-outils-de-surveillance" class="md-nav__link">
-    b. Outils de surveillance
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -515,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide_tar-linux/" class="md-nav__link">
+      <a href="../../LINUX/guide_tar-linux/" class="md-nav__link">
         Guide d'utilisation de tar sur Debian
       </a>
     </li>
@@ -790,14 +632,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
       
       
       
@@ -806,7 +650,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
           RESEAU ET CISCO
@@ -819,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/BASE_RESEAU/" class="md-nav__link">
+      <a href="../BASE_RESEAU/" class="md-nav__link">
         BASE RESEAU
       </a>
     </li>
@@ -833,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/Commande_IOS/" class="md-nav__link">
+      <a href="../Commande_IOS/" class="md-nav__link">
         Commande IOS
       </a>
     </li>
@@ -847,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/Commande_IOS2/" class="md-nav__link">
+      <a href="../Commande_IOS2/" class="md-nav__link">
         Commande IOS2
       </a>
     </li>
@@ -861,7 +705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/Commande_IOS3/" class="md-nav__link">
+      <a href="../Commande_IOS3/" class="md-nav__link">
         Commande IOS3
       </a>
     </li>
@@ -873,11 +717,228 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/Note/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Résumé des Commandes pour la Configuration du Matériel Cisco
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Résumé des Commandes pour la Configuration du Matériel Cisco
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#modes-de-la-cli-cisco" class="md-nav__link">
+    Modes de la CLI Cisco
+  </a>
+  
+    <nav class="md-nav" aria-label="Modes de la CLI Cisco">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#commandes-de-base" class="md-nav__link">
+    Commandes de Base
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-du-routeur" class="md-nav__link">
+    Configuration du Routeur
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration du Routeur">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ajout-dun-hostname" class="md-nav__link">
+    Ajout d'un Hostname
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verification-de-la-configuration" class="md-nav__link">
+    Vérification de la Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fonctionnalites-de-la-cli" class="md-nav__link">
+    Fonctionnalités de la CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-des-interfaces" class="md-nav__link">
+    Configuration des Interfaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sauvegarde-de-configuration" class="md-nav__link">
+    Sauvegarde de Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switchs-et-vlans" class="md-nav__link">
+    Switchs et VLANs
+  </a>
+  
+    <nav class="md-nav" aria-label="Switchs et VLANs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-vlan" class="md-nav__link">
+    Configuration de VLAN
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-des-protocoles" class="md-nav__link">
+    Configuration des Protocoles
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration des Protocoles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dhcp" class="md-nav__link">
+    DHCP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ntp" class="md-nav__link">
+    NTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nat" class="md-nav__link">
+    NAT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spanning-tree-protocol-stp" class="md-nav__link">
+    Spanning Tree Protocol (STP)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocoles-de-routage" class="md-nav__link">
+    Protocoles de Routage
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocoles de Routage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-deigrp" class="md-nav__link">
+    Configuration d'EIGRP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lancer-ospf" class="md-nav__link">
+    Lancer OSPF
+  </a>
+  
+    <nav class="md-nav" aria-label="Lancer OSPF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verifier-la-configuration-ospf" class="md-nav__link">
+    Vérifier la Configuration OSPF
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurer-un-abr-area-border-router" class="md-nav__link">
+    Configurer un ABR (Area Border Router)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurer-un-asbr-autonomous-system-border-router" class="md-nav__link">
+    Configurer un ASBR (Autonomous System Border Router)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -889,7 +950,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/note_SSH_ACL_Radius/" class="md-nav__link">
+      <a href="../note_SSH_ACL_Radius/" class="md-nav__link">
         note SSH ACL Radius
       </a>
     </li>
@@ -3017,30 +3078,16 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-informations-sur-le-systeme" class="md-nav__link">
-    1. Informations sur le système
+  <a href="#modes-de-la-cli-cisco" class="md-nav__link">
+    Modes de la CLI Cisco
   </a>
   
-    <nav class="md-nav" aria-label="1. Informations sur le système">
+    <nav class="md-nav" aria-label="Modes de la CLI Cisco">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-memoire-et-charge-systeme" class="md-nav__link">
-    a. Mémoire et Charge Système
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-informations-sur-le-processeur" class="md-nav__link">
-    b. Informations sur le processeur
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-espace-disque" class="md-nav__link">
-    c. Espace disque
+  <a href="#commandes-de-base" class="md-nav__link">
+    Commandes de Base
   </a>
   
 </li>
@@ -3051,30 +3098,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-veille-systeme" class="md-nav__link">
-    2. Veille système
+  <a href="#configuration-du-routeur" class="md-nav__link">
+    Configuration du Routeur
   </a>
   
-    <nav class="md-nav" aria-label="2. Veille système">
+    <nav class="md-nav" aria-label="Configuration du Routeur">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-journaux-systeme-avec-journalctl" class="md-nav__link">
-    a. Journaux système avec journalctl
+  <a href="#ajout-dun-hostname" class="md-nav__link">
+    Ajout d'un Hostname
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-audit-du-systeme-avec-auditd" class="md-nav__link">
-    b. Audit du système avec auditd
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-logs-de-connexion-et-dauthentification" class="md-nav__link">
-    c. Logs de connexion et d'authentification
+  <a href="#verification-de-la-configuration" class="md-nav__link">
+    Vérification de la Configuration
   </a>
   
 </li>
@@ -3085,23 +3125,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-journalisation" class="md-nav__link">
-    3. Journalisation
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Journalisation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-configurer-rsyslog" class="md-nav__link">
-    a. Configurer rsyslog
+  <a href="#fonctionnalites-de-la-cli" class="md-nav__link">
+    Fonctionnalités de la CLI
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-des-interfaces" class="md-nav__link">
+    Configuration des Interfaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sauvegarde-de-configuration" class="md-nav__link">
+    Sauvegarde de Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#switchs-et-vlans" class="md-nav__link">
+    Switchs et VLANs
+  </a>
+  
+    <nav class="md-nav" aria-label="Switchs et VLANs">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#b-rotation-des-journaux-avec-logrotate" class="md-nav__link">
-    b. Rotation des journaux avec logrotate
+  <a href="#configuration-de-vlan" class="md-nav__link">
+    Configuration de VLAN
   </a>
   
 </li>
@@ -3112,29 +3166,97 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#4-surveillance-en-temps-reel" class="md-nav__link">
-    4. Surveillance en temps réel
+  <a href="#configuration-des-protocoles" class="md-nav__link">
+    Configuration des Protocoles
   </a>
   
-    <nav class="md-nav" aria-label="4. Surveillance en temps réel">
+    <nav class="md-nav" aria-label="Configuration des Protocoles">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-utilisez-tail" class="md-nav__link">
-    a. Utilisez tail
+  <a href="#dhcp" class="md-nav__link">
+    DHCP
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-outils-de-surveillance" class="md-nav__link">
-    b. Outils de surveillance
+  <a href="#ntp" class="md-nav__link">
+    NTP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nat" class="md-nav__link">
+    NAT
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#spanning-tree-protocol-stp" class="md-nav__link">
+    Spanning Tree Protocol (STP)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protocoles-de-routage" class="md-nav__link">
+    Protocoles de Routage
+  </a>
+  
+    <nav class="md-nav" aria-label="Protocoles de Routage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-deigrp" class="md-nav__link">
+    Configuration d'EIGRP
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lancer-ospf" class="md-nav__link">
+    Lancer OSPF
+  </a>
+  
+    <nav class="md-nav" aria-label="Lancer OSPF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verifier-la-configuration-ospf" class="md-nav__link">
+    Vérifier la Configuration OSPF
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurer-un-abr-area-border-router" class="md-nav__link">
+    Configurer un ABR (Area Border Router)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configurer-un-asbr-autonomous-system-border-router" class="md-nav__link">
+    Configurer un ASBR (Autonomous System Border Router)
+  </a>
   
 </li>
       
@@ -3153,60 +3275,106 @@
                   
 
 
-<h1 id="guide-de-veille-et-journalisation-sur-gnulinux">Guide de Veille et Journalisation sur GNU/Linux</h1>
-<p>La capacité à surveiller et à journaliser l'activité d'un système est cruciale pour sa sécurité et sa maintenance. Dans ce guide, nous couvrirons les bases de la collecte d'informations sur le système et des techniques de veille et de journalisation.</p>
-<h2 id="1-informations-sur-le-systeme">1. Informations sur le système</h2>
-<h3 id="a-memoire-et-charge-systeme">a. Mémoire et Charge Système</h3>
+<h1 id="resume-des-commandes-pour-la-configuration-du-materiel-cisco">Résumé des Commandes pour la Configuration du Matériel Cisco</h1>
+<h2 id="modes-de-la-cli-cisco">Modes de la CLI Cisco</h2>
 <ul>
-<li>Utilisez <code>free -h</code> pour afficher des informations sur la RAM et la mémoire SWAP.</li>
-<li><code>top</code> ou <code>htop</code> (si installé) montrent la charge du système et les processus en cours.</li>
+<li>Mode Utilisateur</li>
+<li>Mode Privilège</li>
+<li>Mode Configuration Globale</li>
+<li>Mode Configuration d'Interfaces</li>
+<li>Mode Configuration du Routage</li>
+<li>Mode Configuration de Ligne</li>
 </ul>
-<h3 id="b-informations-sur-le-processeur">b. Informations sur le processeur</h3>
+<h3 id="commandes-de-base">Commandes de Base</h3>
+<pre><code class="language-bash">exit
+</code></pre>
+<h2 id="configuration-du-routeur">Configuration du Routeur</h2>
+<h3 id="ajout-dun-hostname">Ajout d'un Hostname</h3>
+<pre><code class="language-bash">hostname NomduRouteur
+</code></pre>
+<h3 id="verification-de-la-configuration">Vérification de la Configuration</h3>
+<pre><code class="language-bash">show running-config
+</code></pre>
+<h2 id="fonctionnalites-de-la-cli">Fonctionnalités de la CLI</h2>
 <ul>
-<li><code>lscpu</code> affiche des détails sur le(s) processeur(s).</li>
+<li>Autocomplétion</li>
+<li>Historique de Commandes</li>
+<li>Aide en Ligne</li>
 </ul>
-<h3 id="c-espace-disque">c. Espace disque</h3>
+<h2 id="configuration-des-interfaces">Configuration des Interfaces</h2>
+<pre><code class="language-bash">interface nom_de_l_interface
+ip address XXX.XXX.XXX.XXX XXX.XXX.XXX.XXX
+no shutdown
+</code></pre>
+<h2 id="sauvegarde-de-configuration">Sauvegarde de Configuration</h2>
+<pre><code class="language-bash">copy running-config startup-config
+</code></pre>
+<h2 id="switchs-et-vlans">Switchs et VLANs</h2>
+<h3 id="configuration-de-vlan">Configuration de VLAN</h3>
+<pre><code class="language-bash">vlan vlan-id
+name vlan-name
+switchport access vlan vlan-id
+show running-config vlan [ vlan_id ]
+show vlan brief
+</code></pre>
+<h2 id="configuration-des-protocoles">Configuration des Protocoles</h2>
 <ul>
-<li><code>df -h</code> montre l'espace disque utilisé et disponible pour tous les systèmes de fichiers montés.</li>
+<li>DHCP</li>
+<li>NTP</li>
+<li>NAT</li>
 </ul>
-<h2 id="2-veille-systeme">2. Veille système</h2>
-<h3 id="a-journaux-systeme-avec-journalctl">a. Journaux système avec <code>journalctl</code></h3>
+<h3 id="dhcp">DHCP</h3>
+<pre><code class="language-bash">ip dhcp pool nomDuPool
+network adresse masque
+default-router adresseDeLInterface
+</code></pre>
+<h3 id="ntp">NTP</h3>
+<pre><code class="language-bash">ntp server adresseNTPServeur
+</code></pre>
+<h3 id="nat">NAT</h3>
+<pre><code class="language-bash">ip route 0.0.0.0 0.0.0.0 adresseGateway
+</code></pre>
+<h2 id="spanning-tree-protocol-stp">Spanning Tree Protocol (STP)</h2>
+<pre><code class="language-bash">show spanning-tree
+</code></pre>
+<h2 id="protocoles-de-routage">Protocoles de Routage</h2>
 <ul>
-<li><code>journalctl</code> est l'outil principal pour interroger le journal système <code>systemd</code>.</li>
-<li>Pour afficher tous les journaux: <code>journalctl</code></li>
-<li>Pour afficher les journaux pour une unité spécifique: <code>journalctl -u nom_du_service</code></li>
+<li>OSPF</li>
+<li>EIGRP</li>
 </ul>
-<h3 id="b-audit-du-systeme-avec-auditd">b. Audit du système avec <code>auditd</code></h3>
-<ul>
-<li><code>auditd</code> est le démon d'audit des utilisateurs et des processus. Il est essentiel pour surveiller l'accès aux fichiers et d'autres activités suspectes.</li>
-<li>Pour vérifier les journaux d'audit: <code>ausearch</code> et <code>aureport</code>.</li>
-</ul>
-<h3 id="c-logs-de-connexion-et-dauthentification">c. Logs de connexion et d'authentification</h3>
-<ul>
-<li>Vérifiez <code>/var/log/auth.log</code> ou <code>/var/log/secure</code> pour les tentatives de connexion et les activités d'authentification.</li>
-</ul>
-<h2 id="3-journalisation">3. Journalisation</h2>
-<h3 id="a-configurer-rsyslog">a. Configurer <code>rsyslog</code></h3>
-<ul>
-<li>La plupart des distributions Linux utilisent <code>rsyslog</code> pour la journalisation.</li>
-<li>Les configurations sont généralement trouvées dans <code>/etc/rsyslog.conf</code> et <code>/etc/rsyslog.d/</code>.</li>
-</ul>
-<h3 id="b-rotation-des-journaux-avec-logrotate">b. Rotation des journaux avec <code>logrotate</code></h3>
-<ul>
-<li>La rotation des journaux est essentielle pour gérer l'espace disque et organiser les fichiers de journal.</li>
-<li>Les configurations sont dans <code>/etc/logrotate.conf</code> et <code>/etc/logrotate.d/</code>.</li>
-</ul>
-<h2 id="4-surveillance-en-temps-reel">4. Surveillance en temps réel</h2>
-<h3 id="a-utilisez-tail">a. Utilisez <code>tail</code></h3>
-<ul>
-<li><code>tail -f /chemin/vers/le/journal</code> permet de surveiller en temps réel les entrées d'un fichier journal.</li>
-</ul>
-<h3 id="b-outils-de-surveillance">b. Outils de surveillance</h3>
-<ul>
-<li>Considérez des outils comme <code>Nagios</code>, <code>Prometheus</code>, ou <code>Zabbix</code> pour une surveillance en temps réel du système et des services.</li>
-</ul>
-<p>AV2023</p>
-<hr />
+<h3 id="configuration-deigrp">Configuration d'EIGRP</h3>
+<pre><code class="language-bash">interface gi0/0/0
+ip address 192.168.0.254 255.255.255.0
+no shutdown
+</code></pre>
+<h2 id="lancer-ospf">Lancer OSPF</h2>
+<p>Pour initialiser OSPF, utilisez la commande suivante :</p>
+<pre><code class="language-bash">routeur(config)# router ospf n°DeProcess  
+</code></pre>
+<p><strong>Note :</strong> Ne pas confondre avec le numéro d’area.</p>
+<p>Ensuite, pour chaque routeur, ajoutez tous les réseaux qui doivent être gérés par OSPF :</p>
+<pre><code class="language-bash">routeur2(config-router)# network adresseIP masqueInversé area n°Area  
+</code></pre>
+<blockquote>
+<p>Seuls les réseaux privés ne doivent pas être communiqués à OSPF.</p>
+</blockquote>
+<h3 id="verifier-la-configuration-ospf">Vérifier la Configuration OSPF</h3>
+<p>Pour voir l'ID du routeur et les réseaux sur lesquels il est configuré, utilisez :</p>
+<pre><code class="language-bash">sh ip protocols  
+</code></pre>
+<p>Pour voir les voisins OSPF et l'état des liaisons, utilisez :</p>
+<pre><code class="language-bash">show ip ospf neighbor  
+</code></pre>
+<h2 id="configurer-un-abr-area-border-router">Configurer un ABR (Area Border Router)</h2>
+<p>Un ABR est un routeur qui fait le lien entre deux zones OSPF. Ajoutez les réseaux et les zones auxquels il est connecté :</p>
+<pre><code class="language-bash">routeur(config-router)# network adresseIP masqueInversé area n°Area
+</code></pre>
+<blockquote>
+<p>Tous les ABR doivent être reliés à la zone 0.</p>
+</blockquote>
+<h2 id="configurer-un-asbr-autonomous-system-border-router">Configurer un ASBR (Autonomous System Border Router)</h2>
+<p>Un ASBR est un routeur qui relie deux AS différents, que ce soit OSPF ou un autre protocole. Ce lien est établi via BGP.</p>
+<p>```</p>
 
 
 
