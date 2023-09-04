@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../Guide_information_system_LINUX/">
+        <link rel="prev" href="../Note/">
       
       
-        <link rel="next" href="../guide_tar-linux/">
+        <link rel="next" href="../../VIM/VIM/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Guide de Veille et Journalisation sur GNU/Linux - DOC TSSR</title>
+        <title>note SSH ACL Radius - DOC TSSR</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#guide-de-veille-et-journalisation-sur-gnulinux" class="md-skip">
+        <a href="#en-resume" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Guide de Veille et Journalisation sur GNU/Linux
+              note SSH ACL Radius
             
           </span>
         </div>
@@ -286,16 +286,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
       
       
       
@@ -304,7 +302,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           LINUX
@@ -317,7 +315,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Guide_Crontab/" class="md-nav__link">
+      <a href="../../LINUX/Guide_Crontab/" class="md-nav__link">
         Guide Avancé pour l'Utilisation de crontab sous Linux
       </a>
     </li>
@@ -331,7 +329,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../Guide_information_system_LINUX/" class="md-nav__link">
+      <a href="../../LINUX/Guide_information_system_LINUX/" class="md-nav__link">
         Guide Avancé sur les Informations Système sur GNU/Linux
       </a>
     </li>
@@ -343,167 +341,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Guide de Veille et Journalisation sur GNU/Linux
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../LINUX/Guide_veille_et_journalisation/" class="md-nav__link">
         Guide de Veille et Journalisation sur GNU/Linux
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#1-informations-sur-le-systeme" class="md-nav__link">
-    1. Informations sur le système
-  </a>
-  
-    <nav class="md-nav" aria-label="1. Informations sur le système">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-memoire-et-charge-systeme" class="md-nav__link">
-    a. Mémoire et Charge Système
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-informations-sur-le-processeur" class="md-nav__link">
-    b. Informations sur le processeur
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-espace-disque" class="md-nav__link">
-    c. Espace disque
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#2-veille-systeme" class="md-nav__link">
-    2. Veille système
-  </a>
-  
-    <nav class="md-nav" aria-label="2. Veille système">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-journaux-systeme-avec-journalctl" class="md-nav__link">
-    a. Journaux système avec journalctl
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-audit-du-systeme-avec-auditd" class="md-nav__link">
-    b. Audit du système avec auditd
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#c-logs-de-connexion-et-dauthentification" class="md-nav__link">
-    c. Logs de connexion et d'authentification
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#3-journalisation" class="md-nav__link">
-    3. Journalisation
-  </a>
-  
-    <nav class="md-nav" aria-label="3. Journalisation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-configurer-rsyslog" class="md-nav__link">
-    a. Configurer rsyslog
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-rotation-des-journaux-avec-logrotate" class="md-nav__link">
-    b. Rotation des journaux avec logrotate
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-surveillance-en-temps-reel" class="md-nav__link">
-    4. Surveillance en temps réel
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Surveillance en temps réel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-utilisez-tail" class="md-nav__link">
-    a. Utilisez tail
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-outils-de-surveillance" class="md-nav__link">
-    b. Outils de surveillance
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -515,7 +357,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../guide_tar-linux/" class="md-nav__link">
+      <a href="../../LINUX/guide_tar-linux/" class="md-nav__link">
         Guide d'utilisation de tar sur Debian
       </a>
     </li>
@@ -790,14 +632,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
       
       
       
@@ -806,7 +650,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_4">
           <span class="md-nav__icon md-icon"></span>
           RESEAU ET CISCO
@@ -819,7 +663,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/BASE_RESEAU/" class="md-nav__link">
+      <a href="../BASE_RESEAU/" class="md-nav__link">
         BASE RESEAU
       </a>
     </li>
@@ -833,7 +677,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/Commande_IOS/" class="md-nav__link">
+      <a href="../Commande_IOS/" class="md-nav__link">
         Commande IOS
       </a>
     </li>
@@ -847,7 +691,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/Commande_IOS2/" class="md-nav__link">
+      <a href="../Commande_IOS2/" class="md-nav__link">
         Commande IOS2
       </a>
     </li>
@@ -861,7 +705,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/Commande_IOS3/" class="md-nav__link">
+      <a href="../Commande_IOS3/" class="md-nav__link">
         Commande IOS3
       </a>
     </li>
@@ -875,7 +719,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/Note/" class="md-nav__link">
+      <a href="../Note/" class="md-nav__link">
         Résumé des Commandes pour la Configuration du Matériel Cisco
       </a>
     </li>
@@ -887,11 +731,217 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../RESEAU_ET_CISCO/note_SSH_ACL_Radius/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          note SSH ACL Radius
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         note SSH ACL Radius
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#en-resume" class="md-nav__link">
+    En résumé
+  </a>
+  
+    <nav class="md-nav" aria-label="En résumé">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#securisation-des-routeurs-avec-mots-de-passe" class="md-nav__link">
+    Sécurisation des Routeurs avec Mots de Passe
+  </a>
+  
+    <nav class="md-nav" aria-label="Sécurisation des Routeurs avec Mots de Passe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-de-lignes-line-dentree-du-routeur" class="md-nav__link">
+    Types de lignes (line) d'entrée du routeur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-un-mot-de-passe-unique" class="md-nav__link">
+    Créer un Mot de Passe Unique
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-un-mot-de-passe-pour-un-utilisateur-specifique" class="md-nav__link">
+    Créer un Mot de Passe pour un Utilisateur Spécifique
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilisation-de-ssh-pour-une-connexion-securisee" class="md-nav__link">
+    Utilisation de SSH pour une Connexion Sécurisée
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-acl-listes-de-controle-dacces" class="md-nav__link">
+    Les ACL (Listes de Contrôle d'Accès)
+  </a>
+  
+    <nav class="md-nav" aria-label="Les ACL (Listes de Contrôle d'Accès)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-dacl" class="md-nav__link">
+    Types d'ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#regles-des-acl" class="md-nav__link">
+    Règles des ACL
+  </a>
+  
+    <nav class="md-nav" aria-label="Règles des ACL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-acl-standard" class="md-nav__link">
+    Création d'une ACL Standard
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-acl-etendue" class="md-nav__link">
+    Création d'une ACL Étendue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acl-avec-nom" class="md-nav__link">
+    ACL avec Nom
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#radius-remote-authentication-dial-in-user-service" class="md-nav__link">
+    RADIUS (Remote Authentication Dial-In User Service)
+  </a>
+  
+    <nav class="md-nav" aria-label="RADIUS (Remote Authentication Dial-In User Service)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristiques-de-radius" class="md-nav__link">
+    Caractéristiques de RADIUS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-radius-sur-un-serveur" class="md-nav__link">
+    Configuration de RADIUS sur un serveur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-radius-sur-les-appareils-cisco" class="md-nav__link">
+    Configuration de RADIUS sur les appareils CISCO
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration de RADIUS sur les appareils CISCO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activer-aaa" class="md-nav__link">
+    Activer AAA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-le-serveur-radius" class="md-nav__link">
+    Configurer le serveur RADIUS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-un-groupe-radius" class="md-nav__link">
+    Créer un groupe RADIUS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associer-le-groupe-a-une-ligne" class="md-nav__link">
+    Associer le groupe à une ligne
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3007,8 +3057,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -3017,30 +3065,50 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#1-informations-sur-le-systeme" class="md-nav__link">
-    1. Informations sur le système
+  <a href="#en-resume" class="md-nav__link">
+    En résumé
   </a>
   
-    <nav class="md-nav" aria-label="1. Informations sur le système">
+    <nav class="md-nav" aria-label="En résumé">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-memoire-et-charge-systeme" class="md-nav__link">
-    a. Mémoire et Charge Système
+  <a href="#securisation-des-routeurs-avec-mots-de-passe" class="md-nav__link">
+    Sécurisation des Routeurs avec Mots de Passe
+  </a>
+  
+    <nav class="md-nav" aria-label="Sécurisation des Routeurs avec Mots de Passe">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#types-de-lignes-line-dentree-du-routeur" class="md-nav__link">
+    Types de lignes (line) d'entrée du routeur
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-informations-sur-le-processeur" class="md-nav__link">
-    b. Informations sur le processeur
+  <a href="#creer-un-mot-de-passe-unique" class="md-nav__link">
+    Créer un Mot de Passe Unique
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#c-espace-disque" class="md-nav__link">
-    c. Espace disque
+  <a href="#creer-un-mot-de-passe-pour-un-utilisateur-specifique" class="md-nav__link">
+    Créer un Mot de Passe pour un Utilisateur Spécifique
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#utilisation-de-ssh-pour-une-connexion-securisee" class="md-nav__link">
+    Utilisation de SSH pour une Connexion Sécurisée
   </a>
   
 </li>
@@ -3051,30 +3119,50 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#2-veille-systeme" class="md-nav__link">
-    2. Veille système
+  <a href="#les-acl-listes-de-controle-dacces" class="md-nav__link">
+    Les ACL (Listes de Contrôle d'Accès)
   </a>
   
-    <nav class="md-nav" aria-label="2. Veille système">
+    <nav class="md-nav" aria-label="Les ACL (Listes de Contrôle d'Accès)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-journaux-systeme-avec-journalctl" class="md-nav__link">
-    a. Journaux système avec journalctl
+  <a href="#types-dacl" class="md-nav__link">
+    Types d'ACL
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-audit-du-systeme-avec-auditd" class="md-nav__link">
-    b. Audit du système avec auditd
+  <a href="#regles-des-acl" class="md-nav__link">
+    Règles des ACL
+  </a>
+  
+    <nav class="md-nav" aria-label="Règles des ACL">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creation-dune-acl-standard" class="md-nav__link">
+    Création d'une ACL Standard
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#c-logs-de-connexion-et-dauthentification" class="md-nav__link">
-    c. Logs de connexion et d'authentification
+  <a href="#creation-dune-acl-etendue" class="md-nav__link">
+    Création d'une ACL Étendue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#acl-avec-nom" class="md-nav__link">
+    ACL avec Nom
   </a>
   
 </li>
@@ -3085,51 +3173,65 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#3-journalisation" class="md-nav__link">
-    3. Journalisation
+  <a href="#radius-remote-authentication-dial-in-user-service" class="md-nav__link">
+    RADIUS (Remote Authentication Dial-In User Service)
   </a>
   
-    <nav class="md-nav" aria-label="3. Journalisation">
+    <nav class="md-nav" aria-label="RADIUS (Remote Authentication Dial-In User Service)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#a-configurer-rsyslog" class="md-nav__link">
-    a. Configurer rsyslog
+  <a href="#caracteristiques-de-radius" class="md-nav__link">
+    Caractéristiques de RADIUS
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#b-rotation-des-journaux-avec-logrotate" class="md-nav__link">
-    b. Rotation des journaux avec logrotate
+  <a href="#configuration-de-radius-sur-un-serveur" class="md-nav__link">
+    Configuration de RADIUS sur un serveur
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration-de-radius-sur-les-appareils-cisco" class="md-nav__link">
+    Configuration de RADIUS sur les appareils CISCO
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration de RADIUS sur les appareils CISCO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#activer-aaa" class="md-nav__link">
+    Activer AAA
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurer-le-serveur-radius" class="md-nav__link">
+    Configurer le serveur RADIUS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creer-un-groupe-radius" class="md-nav__link">
+    Créer un groupe RADIUS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#associer-le-groupe-a-une-ligne" class="md-nav__link">
+    Associer le groupe à une ligne
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#4-surveillance-en-temps-reel" class="md-nav__link">
-    4. Surveillance en temps réel
-  </a>
-  
-    <nav class="md-nav" aria-label="4. Surveillance en temps réel">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#a-utilisez-tail" class="md-nav__link">
-    a. Utilisez tail
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#b-outils-de-surveillance" class="md-nav__link">
-    b. Outils de surveillance
-  </a>
   
 </li>
         
@@ -3153,60 +3255,116 @@
                   
 
 
-<h1 id="guide-de-veille-et-journalisation-sur-gnulinux">Guide de Veille et Journalisation sur GNU/Linux</h1>
-<p>La capacité à surveiller et à journaliser l'activité d'un système est cruciale pour sa sécurité et sa maintenance. Dans ce guide, nous couvrirons les bases de la collecte d'informations sur le système et des techniques de veille et de journalisation.</p>
-<h2 id="1-informations-sur-le-systeme">1. Informations sur le système</h2>
-<h3 id="a-memoire-et-charge-systeme">a. Mémoire et Charge Système</h3>
+  <h1>note SSH ACL Radius</h1>
+
+<h2 id="en-resume">En résumé</h2>
+<h3 id="securisation-des-routeurs-avec-mots-de-passe">Sécurisation des Routeurs avec Mots de Passe</h3>
+<p>Il est possible de créer des mots de passe pour sécuriser l’accès de vos routeurs. Ces mots de passe peuvent être uniques ou différents pour chaque utilisateur.</p>
+<h4 id="types-de-lignes-line-dentree-du-routeur">Types de lignes (line) d'entrée du routeur</h4>
+<ol>
+<li><strong>CTY</strong> pour les ports console.</li>
+<li><strong>AUX</strong> pour les ports auxiliaires.</li>
+<li><strong>TTY</strong> pour les ports asynchrones.</li>
+<li><strong>VTY</strong> pour les ports virtuels (SSH).</li>
+</ol>
+<h4 id="creer-un-mot-de-passe-unique">Créer un Mot de Passe Unique</h4>
+<p>Pour créer un mot de passe unique, entrez en mode configuration-line :</p>
+<pre><code class="language-bash">routeur1(config)#line con 0
+routeur1(config-line)#password motDePasse
+routeur1(config-line)#login
+</code></pre>
+<h4 id="creer-un-mot-de-passe-pour-un-utilisateur-specifique">Créer un Mot de Passe pour un Utilisateur Spécifique</h4>
+<p>Pour créer un mot de passe associé à un utilisateur :</p>
+<pre><code class="language-bash">routeur1(config)#username root secret motDePasse
+routeur1(config)#line con 0
+routeur1(config-line)#login local
+</code></pre>
+<h3 id="utilisation-de-ssh-pour-une-connexion-securisee">Utilisation de SSH pour une Connexion Sécurisée</h3>
+<p>La façon la plus sécurisée de se connecter aux routeurs est d'utiliser SSH.</p>
+<ol>
+<li>
+<p><strong>Créer un nom de domaine :</strong></p>
+<p><code>bash
+routeur1(config)#ip domain-name mondomain.lan</code></p>
+</li>
+<li>
+<p><strong>Générer une paire de clés publiques/privées :</strong></p>
+<p><code>bash
+routeur1(config)#crypto key generate rsa</code></p>
+</li>
+<li>
+<p><strong>Spécifier la version de SSH :</strong></p>
+<p><code>bash
+routeur1(config)#ip ssh version 2</code></p>
+</li>
+<li>
+<p><strong>Configurer les lignes VTY pour utiliser SSH :</strong></p>
+<p><code>bash
+routeur1(config)#line vty 0 4
+routeur1(config-line)#transport input ssh
+routeur1(config-line)#login local</code></p>
+<h2 id="les-acl-listes-de-controle-dacces">Les ACL (Listes de Contrôle d'Accès)</h2>
+</li>
+</ol>
+<p>Les ACL vous permettent de créer des règles autorisant ou interdisant l'accès à un réseau.</p>
+<h3 id="types-dacl">Types d'ACL</h3>
+<ol>
+<li><strong>Standards</strong> : Ces ACL permettent de configurer la source et doivent être placées au plus près de la destination.</li>
+<li><strong>Étendues</strong> : Ces ACL permettent de renseigner la source, la destination, ainsi que le port et doivent être placées au plus près de la source.</li>
+</ol>
+<h3 id="regles-des-acl">Règles des ACL</h3>
 <ul>
-<li>Utilisez <code>free -h</code> pour afficher des informations sur la RAM et la mémoire SWAP.</li>
-<li><code>top</code> ou <code>htop</code> (si installé) montrent la charge du système et les processus en cours.</li>
+<li>Les ACL peuvent soit autoriser, soit interdire un réseau.</li>
+<li>Une fois créée, l'ACL doit être associée à une interface.</li>
+<li>Les règles se lisent de haut en bas, l'ordre a donc une importance.</li>
+<li>Les règles les plus précises doivent être placées en haut et les plus générales en bas.</li>
 </ul>
-<h3 id="b-informations-sur-le-processeur">b. Informations sur le processeur</h3>
+<h4 id="creation-dune-acl-standard">Création d'une ACL Standard</h4>
+<p>Pour créer une ACL standard :</p>
+<pre><code class="language-bash">routeur(config)#access-list n°1-99 deny/permit réseau masqueInversé
+</code></pre>
+<h4 id="creation-dune-acl-etendue">Création d'une ACL Étendue</h4>
+<p>Pour créer une ACL étendue :</p>
+<pre><code class="language-bash">routeur(config)#access-list n°100-199 deny/permit protocole réseauSource masqueInversé réseauDestination masqueInversé n°port
+</code></pre>
+<h3 id="acl-avec-nom">ACL avec Nom</h3>
+<p>Ces deux types d’ACL peuvent être renseignés par un nom au lieu d’utiliser un numéro :</p>
+<pre><code class="language-bash">routeur(config)#ip access-list standard/extended Nom
+routeur(config-ext-nacl)#deny/permit protocol réseauSource masqueInversé réseauDestination masqueInversé n°port
+</code></pre>
+<h2 id="radius-remote-authentication-dial-in-user-service">RADIUS (Remote Authentication Dial-In User Service)</h2>
+<p>RADIUS vous permet de centraliser vos identifiants et mots de passe. Il s’agit d’un protocole client/serveur où le serveur RADIUS gère les authentifications pour ses clients comme les routeurs et les switchs.</p>
+<h3 id="caracteristiques-de-radius">Caractéristiques de RADIUS</h3>
+<p>RADIUS est un protocole AAA, ce qui signifie :</p>
+<ol>
+<li><strong>Authentification</strong> : vérification des identités.</li>
+<li><strong>Autorisation</strong> : détermination des ressources accessibles.</li>
+<li><strong>Accounting (compte)</strong> : suivi de l'utilisation des ressources.</li>
+</ol>
+<h3 id="configuration-de-radius-sur-un-serveur">Configuration de RADIUS sur un serveur</h3>
+<p>Pour configurer RADIUS, il faut créer sur le serveur :</p>
 <ul>
-<li><code>lscpu</code> affiche des détails sur le(s) processeur(s).</li>
+<li>Un client</li>
+<li>Un utilisateur</li>
 </ul>
-<h3 id="c-espace-disque">c. Espace disque</h3>
-<ul>
-<li><code>df -h</code> montre l'espace disque utilisé et disponible pour tous les systèmes de fichiers montés.</li>
-</ul>
-<h2 id="2-veille-systeme">2. Veille système</h2>
-<h3 id="a-journaux-systeme-avec-journalctl">a. Journaux système avec <code>journalctl</code></h3>
-<ul>
-<li><code>journalctl</code> est l'outil principal pour interroger le journal système <code>systemd</code>.</li>
-<li>Pour afficher tous les journaux: <code>journalctl</code></li>
-<li>Pour afficher les journaux pour une unité spécifique: <code>journalctl -u nom_du_service</code></li>
-</ul>
-<h3 id="b-audit-du-systeme-avec-auditd">b. Audit du système avec <code>auditd</code></h3>
-<ul>
-<li><code>auditd</code> est le démon d'audit des utilisateurs et des processus. Il est essentiel pour surveiller l'accès aux fichiers et d'autres activités suspectes.</li>
-<li>Pour vérifier les journaux d'audit: <code>ausearch</code> et <code>aureport</code>.</li>
-</ul>
-<h3 id="c-logs-de-connexion-et-dauthentification">c. Logs de connexion et d'authentification</h3>
-<ul>
-<li>Vérifiez <code>/var/log/auth.log</code> ou <code>/var/log/secure</code> pour les tentatives de connexion et les activités d'authentification.</li>
-</ul>
-<h2 id="3-journalisation">3. Journalisation</h2>
-<h3 id="a-configurer-rsyslog">a. Configurer <code>rsyslog</code></h3>
-<ul>
-<li>La plupart des distributions Linux utilisent <code>rsyslog</code> pour la journalisation.</li>
-<li>Les configurations sont généralement trouvées dans <code>/etc/rsyslog.conf</code> et <code>/etc/rsyslog.d/</code>.</li>
-</ul>
-<h3 id="b-rotation-des-journaux-avec-logrotate">b. Rotation des journaux avec <code>logrotate</code></h3>
-<ul>
-<li>La rotation des journaux est essentielle pour gérer l'espace disque et organiser les fichiers de journal.</li>
-<li>Les configurations sont dans <code>/etc/logrotate.conf</code> et <code>/etc/logrotate.d/</code>.</li>
-</ul>
-<h2 id="4-surveillance-en-temps-reel">4. Surveillance en temps réel</h2>
-<h3 id="a-utilisez-tail">a. Utilisez <code>tail</code></h3>
-<ul>
-<li><code>tail -f /chemin/vers/le/journal</code> permet de surveiller en temps réel les entrées d'un fichier journal.</li>
-</ul>
-<h3 id="b-outils-de-surveillance">b. Outils de surveillance</h3>
-<ul>
-<li>Considérez des outils comme <code>Nagios</code>, <code>Prometheus</code>, ou <code>Zabbix</code> pour une surveillance en temps réel du système et des services.</li>
-</ul>
-<p>AV2023</p>
-<hr />
+<h3 id="configuration-de-radius-sur-les-appareils-cisco">Configuration de RADIUS sur les appareils CISCO</h3>
+<h4 id="activer-aaa">Activer AAA</h4>
+<p>Pour activer AAA :</p>
+<pre><code class="language-bash">routeur2(config)# aaa new-model
+</code></pre>
+<h4 id="configurer-le-serveur-radius">Configurer le serveur RADIUS</h4>
+<p>Pour configurer le serveur RADIUS :</p>
+<pre><code class="language-bash">routeur2(config)# radius-server host 223.0.2.8 key Cisco1234
+</code></pre>
+<h4 id="creer-un-groupe-radius">Créer un groupe RADIUS</h4>
+<p>Pour créer un groupe RADIUS :</p>
+<pre><code class="language-bash">routeur2(config)# aaa authentication login default group radius local
+</code></pre>
+<h4 id="associer-le-groupe-a-une-ligne">Associer le groupe à une ligne</h4>
+<p>Pour associer le groupe à une ligne :</p>
+<pre><code class="language-bash">routeur2(config)# line vty 0 15
+routeur2(configure-line)# login authentication default
+</code></pre>
 
 
 
