@@ -12,7 +12,7 @@
         <link rel="prev" href="../Principales%20fonctions/">
       
       
-        <link rel="next" href="../../VIM/VIM/">
+        <link rel="next" href="../fichier%20fonctionfonc/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
@@ -59,6 +59,11 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
+      
+        
+        <a href="#tous-les-scritps" class="md-skip">
+          Skip to content
+        </a>
       
     </div>
     <div data-md-component="announce">
@@ -797,10 +802,95 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Scripts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Scripts
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tous-les-scritps" class="md-nav__link">
+    tous les scritps :
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fichier%20fonctionfonc/" class="md-nav__link">
+        Fichier fonctionfonc
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../script%20cr%C3%A9ation%20d%27utilisateur/" class="md-nav__link">
+        Script création d'utilisateur
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../script%20process/" class="md-nav__link">
+        Script process
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scripts%20sauvegarde%20fichier/" class="md-nav__link">
+        Scripts sauvegarde fichier
+      </a>
     </li>
   
 
@@ -3335,6 +3425,21 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#tous-les-scritps" class="md-nav__link">
+    tous les scritps :
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3350,7 +3455,350 @@
 
   <h1>Scripts</h1>
 
+<h2 id="tous-les-scritps">tous les scritps :</h2>
+<pre><code>#!/bin/bash
 
+# Vérifie si l' utilisateur existe
+check_user_exist() {
+    if id &quot;$1&quot; &amp;&gt;/dev/null; then
+        echo &quot;Compte utilisateur de $1 EXISTE&quot;
+    else
+        echo &quot;Compte utilisateur de $1 INEXISTANT&quot;
+    fi
+}
+
+# Menu  des utilisateur + création de dossier (diférencié préferable pour les utilisateur de gestion)
+menu() {
+    echo &quot;GESTION DES UTILISATEURS : $1&quot;
+    echo &quot;--------------------------&quot;
+    echo &quot;C - Créer le compte utilisateur&quot;
+    echo &quot;D - Créer un dossier personnel pour l'utilisateur&quot;
+    echo &quot;M - Modifier le mot de passe de l'utilisateur&quot;
+    echo &quot;S - Supprimer le compte utilisateur&quot;
+    echo &quot;V - Vérifier si le compte utilisateur existe&quot;
+    echo &quot;Q - quitter&quot;
+    read -p &quot;Votre choix : &quot; CHOIX
+
+    case $CHOIX in
+        C|c)
+            sudo useradd $1 &amp;&amp; echo &quot;Utilisateur $1 créé avec succès!&quot; || echo &quot;Erreur lors de la création de l'utilisateur $1.&quot;
+            ;;
+        D|d)
+            DIR=&quot;/home/$1&quot;
+            if [[ -d $DIR ]]; then
+                echo &quot;Le dossier personnel pour l'utilisateur $1 existe déjà.&quot;
+            else
+                sudo mkdir $DIR
+                sudo chown $1:$1 $DIR
+                echo &quot;Dossier personnel pour l'utilisateur $1 créé avec succès!&quot;
+            fi
+            ;;
+        M|m)
+            sudo passwd $1
+            ;;
+        S|s)
+            sudo userdel -r $1 &amp;&amp; echo &quot;Utilisateur $1 supprimé avec succès!&quot; || echo &quot;Erreur lors de la suppression de l'utilisateur $1.&quot;
+            ;;
+        V|v)
+            check_user_exist $1
+            ;;
+        Q|q)
+            exit 0
+            ;;
+        *)
+            echo &quot;Choix invalide!&quot;
+            ;;
+    esac
+}
+
+# Saisie de l'identifiant utilisateur
+read -p &quot;Saisir l'identifiant utilisateur souhaité : &quot; USER_ID
+
+# Affichage du menu
+menu $USER_ID
+
+</code></pre>
+<pre><code>#!/bin/bash
+
+# Script: get-process.sh
+# Description: Script pour afficher la liste des processus basée sur un critère de recherche
+
+# Si plus d'un argument est fourni
+if [[ $# -gt 1 ]]; then
+    echo &quot;Utilisation : $0 [nom_process]&quot;
+    exit 3
+fi
+
+# Si aucun argument n'est fourni
+if [[ $# -eq 0 ]]; then
+    echo -n &quot;Veuillez saisir un critère de recherche de processus : &quot;
+    read CRITERE
+    # Si la saisie est vide, on utilise l'identifiant utilisateur comme critère
+    if [[ -z &quot;$CRITERE&quot; ]]; then
+        CRITERE=$USER
+    fi
+else
+    CRITERE=$1
+fi
+
+# Affichage des processus
+echo &quot;-------------------------------------------------&quot;
+echo &quot;Liste des processus contenant $CRITERE&quot;
+echo &quot;-------------------------------------------------&quot;
+ps aux | grep -v &quot;grep&quot; | grep &quot;$CRITERE&quot; 
+
+echo &quot;-------------------------------------------------&quot;
+echo &quot;$(date +&quot;%H:%M:%S&quot;) - Fin de traitement&quot;
+
+
+</code></pre>
+<pre><code>#!/bin/bash
+
+# Inclure les fonctions du fichier fonctions.fonc
+source fonctions.fonc
+
+# Menu pour le script
+menu() {
+    echo &quot;-----------------------------------&quot;
+    echo &quot;1 - Sauvegarder les fichiers .sh&quot;
+    echo &quot;2 - Supprimer les fichiers .save&quot;
+    echo &quot;3 - Lister les fichiers&quot;
+    echo &quot;4 - Quitter&quot;
+    echo &quot;-----------------------------------&quot;
+    read -p &quot;Votre choix : &quot; choice
+
+    case $choice in
+        1)
+            backup_files
+            ;;
+        2)
+            delete_backup
+            ;;
+        3)
+            list_files
+            ;;
+        4)
+            echo &quot;Au revoir!&quot;
+            exit 0
+            ;;
+        *)
+            echo &quot;Choix non valide&quot;
+            ;;
+    esac
+}
+
+# Boucle pour afficher le menu
+while true; do
+    menu
+done
+
+
+
+</code></pre>
+<pre><code>
+#!/bin/bash
+
+# contenue su fichier fonctions.fonc pour sauvegarder les fichiers .sh
+
+backup_files() {
+    for file in *.sh; do
+        if [[ -f &quot;$file&quot; ]]; then
+            cp &quot;$file&quot; &quot;${file}.save&quot;
+        fi
+    done
+    echo &quot;Sauvegarde terminée.&quot;
+}
+
+# Fonction pour supprimer les fichiers .save
+delete_backup() {
+    rm *.save 2&gt;/dev/null
+    echo &quot;Tous les fichiers .save ont été supprimés.&quot;
+}
+
+# Fonction pour lister les fichiers
+list_files() {
+    for file in *; do
+        if [[ &quot;$file&quot; == *.sh ]]; then
+            if [[ -f &quot;${file}.save&quot; ]]; then
+                echo -e &quot;\e[32m$file\e[0m&quot;
+            else
+                echo -e &quot;\e[31m$file\e[0m&quot;
+            fi
+        fi
+    done
+}
+
+</code></pre>
+<pre><code>#!/bin/bash
+
+LOG_FILE=&quot;/var/log/createusers_fails.log&quot;
+SUCCESS_COUNT=0
+FAIL_COUNT=0
+
+# Fonction pour créer un utilisateur (utilisation de useradd plutôt que adduser car + de compatibilité )
+create_user() {
+    local USER_NAME=&quot;$1&quot;
+    echo &quot;Creation du compte : $USER_NAME&quot;
+    sudo useradd &quot;$USER_NAME&quot;
+    if [[ $? -eq 0 ]]; then
+        echo &quot;Creation de l'utilisateur : $USER_NAME OK&quot;
+        ((SUCCESS_COUNT++))
+    else
+        echo &quot;ECHEC de creation de l'utilisateur : $USER_NAME&quot;
+        echo &quot;$USER_NAME&quot; &gt;&gt; &quot;$LOG_FILE&quot;
+        ((FAIL_COUNT++))
+    fi
+}
+
+# Corp principal du script
+main() {
+    if [[ -f &quot;$LOG_FILE&quot; ]]; then
+        &gt; &quot;$LOG_FILE&quot;
+    fi
+
+    read -p &quot;Base de nom des comptes a créer : &quot; BASE_NAME
+    read -p &quot;Nombre d'utilisateurs a créer :&quot; COUNT
+    read -p &quot;Numero du premier utilisateur (défaut: 1) : &quot; START_NUM
+    START_NUM=${START_NUM:-1}
+
+    for ((i=0; i&lt;COUNT; i++)); do
+        USER_NAME=&quot;${BASE_NAME}$(($START_NUM + $i))&quot;
+        create_user &quot;$USER_NAME&quot;
+    done
+
+    echo &quot;----------------------------------------------&quot;
+    echo &quot;$SUCCESS_COUNT utilisateurs ont été créés avec succès&quot;
+    echo &quot;$FAIL_COUNT utilisateur(s) n'a/ont pas été créé(s)&quot;
+    echo &quot;Les échecs de création ont été reportés dans : $LOG_FILE&quot;
+    echo &quot;----------------------------------------------&quot;
+}
+
+main
+
+
+</code></pre>
+<pre><code>#!/bin/bash
+
+LOG_FILE=&quot;/var/log/createusers_fails.log&quot;
+SUCCESS_COUNT=0
+FAIL_COUNT=0
+LIST_FILE=&quot;/tmp/listusers.txt&quot;
+
+# Fonction pour créer un utilisateur
+create_user() {
+    local USER_NAME=&quot;$1&quot;
+    echo &quot;Création du compte : $USER_NAME&quot;
+    sudo useradd &quot;$USER_NAME&quot;
+    if [[ $? -eq 0 ]]; then
+        echo &quot;Création de l'utilisateur : $USER_NAME OK&quot;
+        ((SUCCESS_COUNT++))
+    else
+        echo &quot;ECHEC de création de l'utilisateur : $USER_NAME&quot;
+        echo &quot;$USER_NAME&quot; &gt;&gt; &quot;$LOG_FILE&quot;
+        ((FAIL_COUNT++))
+    fi
+}
+
+# Point d'entrée principal du script
+main() {
+    if [[ -f &quot;$LOG_FILE&quot; ]]; then
+        &gt; &quot;$LOG_FILE&quot;
+    fi
+
+    if [[ -f &quot;$LIST_FILE&quot; ]]; then
+        echo &quot;Utilisation de $LIST_FILE pour créer les utilisateurs&quot;
+        for USER_NAME in $(cat &quot;$LIST_FILE&quot;); do
+            create_user &quot;$USER_NAME&quot;
+        done
+    else
+        read -p &quot;Base de nom des comptes à créer : &quot; BASE_NAME
+        read -p &quot;Nombre d'utilisateurs à créer :&quot; COUNT
+        read -p &quot;Numero du premier utilisateur (défaut: 1) : &quot; START_NUM
+        START_NUM=${START_NUM:-1}
+
+        for ((i=0; i&lt;COUNT; i++)); do
+            USER_NAME=&quot;${BASE_NAME}$(($START_NUM + $i))&quot;
+            create_user &quot;$USER_NAME&quot;
+        done
+    fi
+
+    echo &quot;----------------------------------------------&quot;
+    echo &quot;$SUCCESS_COUNT utilisateurs ont été créés avec succès&quot;
+    echo &quot;$FAIL_COUNT utilisateur(s) n'a/ont pas été créé(s)&quot;
+    echo &quot;Les échecs de création ont été reportés dans : $LOG_FILE&quot;
+    echo &quot;----------------------------------------------&quot;
+
+    # Mise à jour de la liste pour ne contenir que les utilisateurs non créés
+    if [[ -f &quot;$LIST_FILE&quot; ]]; then
+        mv &quot;$LIST_FILE&quot; &quot;${LIST_FILE}.bak&quot;
+        cp &quot;$LOG_FILE&quot; &quot;$LIST_FILE&quot;
+    fi
+}
+
+main
+
+
+</code></pre>
+<pre><code>#!/bin/bash
+
+LOG_FILE=&quot;/var/log/createusers_fails.log&quot;
+SUCCESS_COUNT=0
+FAIL_COUNT=0
+LIST_FILE=&quot;/tmp/listusersmaj.txt&quot;
+
+# Fonction pour créer un utilisateur avec des V positionel
+create_detailed_user() {
+    local USER_NAME=&quot;$1&quot;
+    local USER_DIR=&quot;$2&quot;
+    local USER_SHELL=&quot;$3&quot;
+
+    # Vérifiez si le shell est valide ou non
+    if [[ -z &quot;$USER_SHELL&quot; ]] || ! [[ -f &quot;$USER_SHELL&quot; ]]; then
+        USER_SHELL=&quot;/bin/bash&quot;
+    fi
+
+    echo &quot;Création du compte : $USER_NAME avec le répertoire $USER_DIR et le shell $USER_SHELL&quot;
+    sudo useradd -m -d &quot;$USER_DIR&quot; -s &quot;$USER_SHELL&quot; &quot;$USER_NAME&quot;
+
+    if [[ $? -eq 0 ]]; then
+        echo &quot;Création de l'utilisateur : $USER_NAME OK&quot;
+        ((SUCCESS_COUNT++))
+    else
+        echo &quot;ECHEC de création de l'utilisateur : $USER_NAME&quot;
+        echo &quot;$USER_NAME&quot; &gt;&gt; &quot;$LOG_FILE&quot;
+        ((FAIL_COUNT++))
+    fi
+}
+
+# Menu du script
+main() {
+    if [[ -f &quot;$LOG_FILE&quot; ]]; then
+        &gt; &quot;$LOG_FILE&quot;
+    fi
+
+    if [[ -f &quot;$LIST_FILE&quot; ]]; then
+        echo &quot;Utilisation de $LIST_FILE pour créer les utilisateurs&quot;
+
+        while IFS=' ' read -r USER_NAME USER_DIR USER_SHELL; do
+            create_detailed_user &quot;$USER_NAME&quot; &quot;$USER_DIR&quot; &quot;$USER_SHELL&quot;
+        done &lt; &quot;$LIST_FILE&quot;
+
+    else
+        echo &quot;Fichier $LIST_FILE introuvable. Fin du script.&quot;
+        exit 1
+    fi
+
+    echo &quot;----------------------------------------------&quot;
+    echo &quot;$SUCCESS_COUNT utilisateurs ont été créés avec succès&quot;
+    echo &quot;$FAIL_COUNT utilisateur(s) n'a/ont pas été créé(s)&quot;
+    echo &quot;Les échecs de création ont été reportés dans : $LOG_FILE&quot;
+    echo &quot;----------------------------------------------&quot;
+}
+
+main
+
+
+</code></pre>
 
 
 
