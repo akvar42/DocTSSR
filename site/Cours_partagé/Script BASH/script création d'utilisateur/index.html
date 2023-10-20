@@ -60,6 +60,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#script-creation-dutilisateur" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -825,9 +830,38 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Script création d'utilisateur
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Script création d'utilisateur
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#script-creation-dutilisateur" class="md-nav__link">
+    script création d'utilisateur
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -3391,6 +3425,21 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#script-creation-dutilisateur" class="md-nav__link">
+    script création d'utilisateur
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -3406,7 +3455,69 @@
 
   <h1>Script création d'utilisateur</h1>
 
+<h2 id="script-creation-dutilisateur">script création d'utilisateur</h2>
+<pre><code>#!/bin/bash
 
+# Vérifie si l' utilisateur existe
+check_user_exist() {
+    if id &quot;$1&quot; &amp;&gt;/dev/null; then
+        echo &quot;Compte utilisateur de $1 EXISTE&quot;
+    else
+        echo &quot;Compte utilisateur de $1 INEXISTANT&quot;
+    fi
+}
+
+# Menu  des utilisateur + création de dossier (diférencié préferable pour les utilisateur de gestion)
+menu() {
+    echo &quot;GESTION DES UTILISATEURS : $1&quot;
+    echo &quot;--------------------------&quot;
+    echo &quot;C - Créer le compte utilisateur&quot;
+    echo &quot;D - Créer un dossier personnel pour l'utilisateur&quot;
+    echo &quot;M - Modifier le mot de passe de l'utilisateur&quot;
+    echo &quot;S - Supprimer le compte utilisateur&quot;
+    echo &quot;V - Vérifier si le compte utilisateur existe&quot;
+    echo &quot;Q - quitter&quot;
+    read -p &quot;Votre choix : &quot; CHOIX
+
+    case $CHOIX in
+        C|c)
+            sudo useradd $1 &amp;&amp; echo &quot;Utilisateur $1 créé avec succès!&quot; || echo &quot;Erreur lors de la création de l'utilisateur $1.&quot;
+            ;;
+        D|d)
+            DIR=&quot;/home/$1&quot;
+            if [[ -d $DIR ]]; then
+                echo &quot;Le dossier personnel pour l'utilisateur $1 existe déjà.&quot;
+            else
+                sudo mkdir $DIR
+                sudo chown $1:$1 $DIR
+                echo &quot;Dossier personnel pour l'utilisateur $1 créé avec succès!&quot;
+            fi
+            ;;
+        M|m)
+            sudo passwd $1
+            ;;
+        S|s)
+            sudo userdel -r $1 &amp;&amp; echo &quot;Utilisateur $1 supprimé avec succès!&quot; || echo &quot;Erreur lors de la suppression de l'utilisateur $1.&quot;
+            ;;
+        V|v)
+            check_user_exist $1
+            ;;
+        Q|q)
+            exit 0
+            ;;
+        *)
+            echo &quot;Choix invalide!&quot;
+            ;;
+    esac
+}
+
+# Saisie de l'identifiant utilisateur
+read -p &quot;Saisir l'identifiant utilisateur souhaité : &quot; USER_ID
+
+# Affichage du menu
+menu $USER_ID
+
+</code></pre>
 
 
 
