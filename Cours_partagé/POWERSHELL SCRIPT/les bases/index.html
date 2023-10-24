@@ -19,7 +19,7 @@
     
     
       
-        <title>Guide PowerShell - DOC TSSR</title>
+        <title>Les Bases PowerShell - DOC TSSR</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#guide-powershell" class="md-skip">
+        <a href="#les-bases-powershell" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Guide PowerShell
+              Les Bases PowerShell
             
           </span>
         </div>
@@ -664,7 +664,7 @@
   
     <li class="md-nav__item">
       <a href="../Ressource/" class="md-nav__link">
-        Ressources pour la Gestion de Serveur et PowerShell
+        Ressources
       </a>
     </li>
   
@@ -687,12 +687,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Guide PowerShell
+          Les Bases PowerShell
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Guide PowerShell
+        Les Bases PowerShell
       </a>
       
         
@@ -797,6 +797,75 @@
   <a href="#les-variables" class="md-nav__link">
     Les Variables
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variables-denvironnement-couramment-utilisees" class="md-nav__link">
+    Variables d'Environnement Couramment Utilisées
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables d'Environnement Couramment Utilisées">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#envcomputername" class="md-nav__link">
+    $env:COMPUTERNAME
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envuserdomain" class="md-nav__link">
+    $env:USERDOMAIN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envusername" class="md-nav__link">
+    $env:USERNAME
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envuserprofile" class="md-nav__link">
+    $env:USERPROFILE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envos" class="md-nav__link">
+    $env:OS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envpath" class="md-nav__link">
+    $env:PATH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envtemp-et-envtmp" class="md-nav__link">
+    $env:TEMP et $env:TMP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envpsmodulepath" class="md-nav__link">
+    $env:PSModulePath
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -3790,6 +3859,75 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#variables-denvironnement-couramment-utilisees" class="md-nav__link">
+    Variables d'Environnement Couramment Utilisées
+  </a>
+  
+    <nav class="md-nav" aria-label="Variables d'Environnement Couramment Utilisées">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#envcomputername" class="md-nav__link">
+    $env:COMPUTERNAME
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envuserdomain" class="md-nav__link">
+    $env:USERDOMAIN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envusername" class="md-nav__link">
+    $env:USERNAME
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envuserprofile" class="md-nav__link">
+    $env:USERPROFILE
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envos" class="md-nav__link">
+    $env:OS
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envpath" class="md-nav__link">
+    $env:PATH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envtemp-et-envtmp" class="md-nav__link">
+    $env:TEMP et $env:TMP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#envpsmodulepath" class="md-nav__link">
+    $env:PSModulePath
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#les-fonctions" class="md-nav__link">
     Les Fonctions
   </a>
@@ -3873,7 +4011,7 @@
                   
 
 
-<h1 id="guide-powershell">Guide PowerShell</h1>
+<h1 id="les-bases-powershell">Les Bases PowerShell</h1>
 <p>PowerShell est un environnement de scripting avancé basé sur .NET, permettant l'automatisation des tâches administratives et la gestion des configurations.</p>
 <h2 id="powershell-est-oriente-objet">PowerShell est Orienté Objet</h2>
 <p>En PowerShell, tout est un objet. Cela signifie que chaque sortie d'une commande peut avoir des propriétés et des méthodes auxquelles on peut accéder.</p>
@@ -3950,6 +4088,41 @@
   <code>powershell
   $env:USERNAME</code></li>
 </ul>
+<h2 id="variables-denvironnement-couramment-utilisees">Variables d'Environnement Couramment Utilisées</h2>
+<h3 id="envcomputername"><code>$env:COMPUTERNAME</code></h3>
+<p>Contient le nom de l'ordinateur.</p>
+<pre><code class="language-powershell">Echo $env:COMPUTERNAME
+</code></pre>
+<h3 id="envuserdomain"><code>$env:USERDOMAIN</code></h3>
+<p>Contient le nom de domaine de l'utilisateur actuel.</p>
+<pre><code class="language-powershell">Echo $env:USERDOMAIN
+</code></pre>
+<h3 id="envusername"><code>$env:USERNAME</code></h3>
+<p>Contient le nom d'utilisateur actuel.</p>
+<pre><code class="language-powershell">Echo $env:USERNAME
+</code></pre>
+<h3 id="envuserprofile"><code>$env:USERPROFILE</code></h3>
+<p>Spécifie le chemin du profil de l'utilisateur.</p>
+<pre><code class="language-powershell">Echo $env:USERPROFILE
+</code></pre>
+<h3 id="envos"><code>$env:OS</code></h3>
+<p>Contient le nom du système d'exploitation.</p>
+<pre><code class="language-powershell">Echo $env:OS
+</code></pre>
+<h3 id="envpath"><code>$env:PATH</code></h3>
+<p>Contient les chemins d'accès aux fichiers exécutables.</p>
+<pre><code class="language-powershell">Echo $env:PATH
+</code></pre>
+<h3 id="envtemp-et-envtmp"><code>$env:TEMP</code> et <code>$env:TMP</code></h3>
+<p>Spécifient les dossiers utilisés pour stocker les fichiers temporaires.</p>
+<pre><code class="language-powershell">Echo $env:TEMP
+</code></pre>
+<pre><code class="language-powershell">Echo $env:TMP
+</code></pre>
+<h3 id="envpsmodulepath"><code>$env:PSModulePath</code></h3>
+<p>Spécifie les chemins d'accès aux modules PowerShell.</p>
+<pre><code class="language-powershell">Echo $env:PSModulePath
+</code></pre>
 <h2 id="les-fonctions">Les Fonctions</h2>
 <pre><code class="language-powershell">function Saluer {
     param(
