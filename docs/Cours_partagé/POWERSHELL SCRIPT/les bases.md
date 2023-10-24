@@ -35,6 +35,65 @@ Les commandes dans PowerShell sont appelées "cmdlets" (prononcées "command-let
   $process | Get-Member
   ```
 
+## d'autres Cmdlets Couramment Utilisés
+
+### Where-Object
+
+`Where-Object` filtre les objets en fonction de leurs propriétés. 
+
+```powershell
+Get-Process | Where-Object {$_.CPU -gt 100}
+```
+Ceci retourne tous les processus dont l'utilisation CPU est supérieure à 100.
+
+### Select-Object
+
+`Select-Object` permet de sélectionner des propriétés spécifiques d'un objet.
+
+```powershell
+Get-Process | Select-Object Name, CPU, ID
+```
+Ceci retourne le nom, l'utilisation CPU et l'ID de tous les processus.
+
+### Sort-Object
+
+`Sort-Object` trie les objets en fonction de leurs propriétés.
+
+```powershell
+Get-Process | Sort-Object CPU -Descending
+```
+Ceci trie les processus en fonction de leur utilisation CPU, du plus élevé au plus bas.
+
+###  Measure-Object
+
+`Measure-Object` calcule des propriétés telles que le compte, la somme ou la moyenne d'objets.
+
+```powershell
+Get-Content C:fichier.txt | Measure-Object -Line
+```
+Ceci compte le nombre de lignes dans un fichier.
+
+###  Out-File
+
+`Out-File` dirige la sortie vers un fichier.
+
+```powershell
+Get-Process | Out-File C:processus.txt
+```
+Ceci sauvegarde la liste des processus dans un fichier nommé "processus.txt".
+
+###  Test-Connection
+
+`Test-Connection` envoie des paquets ICMP (ping) à une adresse.
+
+```powershell
+Test-Connection google.com
+```
+Ceci vérifie si google.com est accessible via ping.
+
+
+
+
 ## Les Opérateurs
 - -eq: Égal à
 - -ne: Non égal à

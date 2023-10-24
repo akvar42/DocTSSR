@@ -732,6 +732,61 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dautres-cmdlets-couramment-utilises" class="md-nav__link">
+    d'autres Cmdlets Couramment Utilisés
+  </a>
+  
+    <nav class="md-nav" aria-label="d'autres Cmdlets Couramment Utilisés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-object" class="md-nav__link">
+    Where-Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-object" class="md-nav__link">
+    Select-Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-object" class="md-nav__link">
+    Sort-Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measure-object" class="md-nav__link">
+    Measure-Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-file" class="md-nav__link">
+    Out-File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-connection" class="md-nav__link">
+    Test-Connection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#les-operateurs" class="md-nav__link">
     Les Opérateurs
   </a>
@@ -3666,6 +3721,61 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#dautres-cmdlets-couramment-utilises" class="md-nav__link">
+    d'autres Cmdlets Couramment Utilisés
+  </a>
+  
+    <nav class="md-nav" aria-label="d'autres Cmdlets Couramment Utilisés">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#where-object" class="md-nav__link">
+    Where-Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-object" class="md-nav__link">
+    Select-Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sort-object" class="md-nav__link">
+    Sort-Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measure-object" class="md-nav__link">
+    Measure-Object
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#out-file" class="md-nav__link">
+    Out-File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test-connection" class="md-nav__link">
+    Test-Connection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#les-operateurs" class="md-nav__link">
     Les Opérateurs
   </a>
@@ -3791,6 +3901,37 @@
   $process = Get-Process -Name "chrome"
   $process | Get-Member</code></li>
 </ul>
+<h2 id="dautres-cmdlets-couramment-utilises">d'autres Cmdlets Couramment Utilisés</h2>
+<h3 id="where-object">Where-Object</h3>
+<p><code>Where-Object</code> filtre les objets en fonction de leurs propriétés. </p>
+<pre><code class="language-powershell">Get-Process | Where-Object {$_.CPU -gt 100}
+</code></pre>
+<p>Ceci retourne tous les processus dont l'utilisation CPU est supérieure à 100.</p>
+<h3 id="select-object">Select-Object</h3>
+<p><code>Select-Object</code> permet de sélectionner des propriétés spécifiques d'un objet.</p>
+<pre><code class="language-powershell">Get-Process | Select-Object Name, CPU, ID
+</code></pre>
+<p>Ceci retourne le nom, l'utilisation CPU et l'ID de tous les processus.</p>
+<h3 id="sort-object">Sort-Object</h3>
+<p><code>Sort-Object</code> trie les objets en fonction de leurs propriétés.</p>
+<pre><code class="language-powershell">Get-Process | Sort-Object CPU -Descending
+</code></pre>
+<p>Ceci trie les processus en fonction de leur utilisation CPU, du plus élevé au plus bas.</p>
+<h3 id="measure-object">Measure-Object</h3>
+<p><code>Measure-Object</code> calcule des propriétés telles que le compte, la somme ou la moyenne d'objets.</p>
+<pre><code class="language-powershell">Get-Content C:fichier.txt | Measure-Object -Line
+</code></pre>
+<p>Ceci compte le nombre de lignes dans un fichier.</p>
+<h3 id="out-file">Out-File</h3>
+<p><code>Out-File</code> dirige la sortie vers un fichier.</p>
+<pre><code class="language-powershell">Get-Process | Out-File C:processus.txt
+</code></pre>
+<p>Ceci sauvegarde la liste des processus dans un fichier nommé "processus.txt".</p>
+<h3 id="test-connection">Test-Connection</h3>
+<p><code>Test-Connection</code> envoie des paquets ICMP (ping) à une adresse.</p>
+<pre><code class="language-powershell">Test-Connection google.com
+</code></pre>
+<p>Ceci vérifie si google.com est accessible via ping.</p>
 <h2 id="les-operateurs">Les Opérateurs</h2>
 <ul>
 <li>-eq: Égal à</li>
