@@ -1,4 +1,4 @@
-# Guide PowerShell
+# Les Bases PowerShell
 
 PowerShell est un environnement de scripting avancé basé sur .NET, permettant l'automatisation des tâches administratives et la gestion des configurations.
 
@@ -111,6 +111,79 @@ Ceci vérifie si google.com est accessible via ping.
   ```powershell
   $env:USERNAME
   ```
+
+## Variables d'Environnement Couramment Utilisées
+
+###  `$env:COMPUTERNAME`
+
+Contient le nom de l'ordinateur.
+
+```powershell
+Echo $env:COMPUTERNAME
+```
+
+###  `$env:USERDOMAIN`
+
+Contient le nom de domaine de l'utilisateur actuel.
+
+```powershell
+Echo $env:USERDOMAIN
+```
+
+###  `$env:USERNAME`
+
+Contient le nom d'utilisateur actuel.
+
+```powershell
+Echo $env:USERNAME
+```
+
+###  `$env:USERPROFILE`
+
+Spécifie le chemin du profil de l'utilisateur.
+
+```powershell
+Echo $env:USERPROFILE
+```
+
+###  `$env:OS`
+
+Contient le nom du système d'exploitation.
+
+```powershell
+Echo $env:OS
+```
+
+###  `$env:PATH`
+
+Contient les chemins d'accès aux fichiers exécutables.
+
+```powershell
+Echo $env:PATH
+```
+
+###  `$env:TEMP` et `$env:TMP`
+
+Spécifient les dossiers utilisés pour stocker les fichiers temporaires.
+
+```powershell
+Echo $env:TEMP
+```
+```powershell
+Echo $env:TMP
+```
+
+###  `$env:PSModulePath`
+
+Spécifie les chemins d'accès aux modules PowerShell.
+
+```powershell
+Echo $env:PSModulePath
+```
+
+
+
+
 
 ## Les Fonctions
 ```powershell

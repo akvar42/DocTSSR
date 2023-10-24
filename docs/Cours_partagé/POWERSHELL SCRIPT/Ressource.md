@@ -1,4 +1,4 @@
-# Ressources pour la Gestion de Serveur et PowerShell
+# Ressources
 
 Ci-dessous se trouvent des ressources pour apprendre la gestion de serveur via PowerShell, avec un cours pratique et quelques scripts amusants pour se familiariser avec PowerShell.
 
