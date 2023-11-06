@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../../guigui/7%20-%20ITIL/R%C3%A9visions/R%C3%A9sum%C3%A9_des_acronymes_par_phases/">
+        <link rel="prev" href="../../GITHUB/mkdocs_et_github/">
       
       
-        <link rel="next" href="../../../liste_comp%C3%A9tences_TSSR/Comp%C3%A9tence_TSSR/">
+        <link rel="next" href="../../LINUX/Guide_Crontab/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>DNS linux - DOC TSSR</title>
+        <title>Guide d'Installation GLPI - DOC TSSR</title>
       
     
     
@@ -60,6 +60,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#guide-dinstallation-glpi" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -91,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              DNS linux
+              Guide d'Installation GLPI
             
           </span>
         </div>
@@ -281,14 +286,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
       
       
       
@@ -297,7 +304,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           GLPI
@@ -308,11 +315,121 @@
               
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../../GLPI/Guide%20installation%20GLPI/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Guide d'Installation GLPI
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Guide d'Installation GLPI
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    Prérequis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-installation-de-mariadb" class="md-nav__link">
+    1. Installation de MariaDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuration-de-mariadb" class="md-nav__link">
+    2. Configuration de MariaDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-installation-du-module-php-pour-apache-et-extensions-php" class="md-nav__link">
+    3. Installation du module PHP pour Apache et extensions PHP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-telechargement-et-installation-de-glpi" class="md-nav__link">
+    4. Téléchargement et Installation de GLPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-configuration-dapache" class="md-nav__link">
+    5. Configuration d'Apache
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-web-de-glpi" class="md-nav__link">
+    Installation Web de GLPI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-post-installation" class="md-nav__link">
+    Configuration Post-Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilisation-de-glpi" class="md-nav__link">
+    Utilisation de GLPI
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -3139,16 +3256,14 @@
               
   
   
-    
-  
   
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" checked>
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_13" >
       
       
       
@@ -3157,7 +3272,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="true">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_13_label" aria-expanded="false">
         <label class="md-nav__title" for="__nav_2_13">
           <span class="md-nav__icon md-icon"></span>
           Lionel
@@ -3168,19 +3283,11 @@
               
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../lionel/DNS_linux/" class="md-nav__link">
         DNS linux
       </a>
-      
     </li>
   
 
@@ -3610,6 +3717,92 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#prerequis" class="md-nav__link">
+    Prérequis
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+    <nav class="md-nav" aria-label="Installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-installation-de-mariadb" class="md-nav__link">
+    1. Installation de MariaDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-configuration-de-mariadb" class="md-nav__link">
+    2. Configuration de MariaDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-installation-du-module-php-pour-apache-et-extensions-php" class="md-nav__link">
+    3. Installation du module PHP pour Apache et extensions PHP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-telechargement-et-installation-de-glpi" class="md-nav__link">
+    4. Téléchargement et Installation de GLPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-configuration-dapache" class="md-nav__link">
+    5. Configuration d'Apache
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-web-de-glpi" class="md-nav__link">
+    Installation Web de GLPI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-post-installation" class="md-nav__link">
+    Configuration Post-Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#utilisation-de-glpi" class="md-nav__link">
+    Utilisation de GLPI
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -3624,9 +3817,72 @@
                   
 
 
-  <h1>DNS linux</h1>
+<h1 id="guide-dinstallation-glpi">Guide d'Installation GLPI</h1>
+<h2 id="prerequis">Prérequis</h2>
+<ul>
+<li>Serveur Ubuntu avec Apache.</li>
+<li>PHP et MariaDB.</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<h3 id="1-installation-de-mariadb">1. Installation de MariaDB</h3>
+<pre><code class="language-bash">sudo apt update
+sudo apt install mariadb-server mariadb-client
+sudo mysql_secure_installation
+</code></pre>
+<h3 id="2-configuration-de-mariadb">2. Configuration de MariaDB</h3>
+<pre><code class="language-bash">sudo mysql -u root -p
+CREATE DATABASE glpi;
+CREATE USER 'glpiuser'@'localhost' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON glpi.* TO 'glpiuser'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+</code></pre>
+<h3 id="3-installation-du-module-php-pour-apache-et-extensions-php">3. Installation du module PHP pour Apache et extensions PHP</h3>
+<pre><code class="language-bash">sudo apt-get install libapache2-mod-php8.1
+sudo apt-get install php-mysqli php-curl php-gd php-mbstring php-xml php-cli php-ldap php-imap php-apcu
+sudo a2enmod php8.1
+</code></pre>
+<h3 id="4-telechargement-et-installation-de-glpi">4. Téléchargement et Installation de GLPI</h3>
+<pre><code class="language-bash">wget https://github.com/glpi-project/glpi/releases/download/9.5.6/glpi-9.5.6.tgz
+tar -zxvf glpi-9.5.6.tgz -C /var/www/html/
+sudo chown -R www-data:www-data /var/www/html/glpi
+sudo chmod -R 755 /var/www/html/glpi
+</code></pre>
+<h3 id="5-configuration-dapache">5. Configuration d'Apache</h3>
+<pre><code>Créer le fichier glpi.conf dans /etc/apache2/sites-available/ avec le contenu suivant :
+</code></pre>
+<pre><code class="language-bash">&lt;VirtualHost *:80&gt;
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html/glpi
+    ServerName votre_serveur
 
-<p><img alt="DNS" src="../DNS_LINUX_v2.png" /></p>
+    &lt;Directory /var/www/html/glpi&gt;
+        Options Indexes FollowSymLinks MultiViews
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+</code></pre>
+<pre><code>Ensuite, activer le site et redémarrer Apache :
+</code></pre>
+<pre><code class="language-bash">sudo a2ensite glpi
+sudo systemctl restart apache2
+</code></pre>
+<h2 id="installation-web-de-glpi">Installation Web de GLPI</h2>
+<pre><code>Accéder à http://votre_serveur/glpi et suivre l'assistant d'installation.
+</code></pre>
+<h2 id="configuration-post-installation">Configuration Post-Installation</h2>
+<pre><code>Sécuriser le fichier de configuration :
+</code></pre>
+<pre><code class="language-bash">sudo chmod 400 /var/www/html/glpi/config/config_db.php
+</code></pre>
+<h2 id="utilisation-de-glpi">Utilisation de GLPI</h2>
+<pre><code>Se connecter à GLPI avec les identifiants créés durant l'installation.
+Configurer l'environnement GLPI (entités, utilisateurs, matériels, etc.).
+</code></pre>
 
 
 
