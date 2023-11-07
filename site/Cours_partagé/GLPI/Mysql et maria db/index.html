@@ -9,17 +9,17 @@
       
       
       
-        <link rel="prev" href="../Guide_veille_et_journalisation/">
+        <link rel="prev" href="../Guide%20installation%20GLPI/">
       
       
-        <link rel="next" href="../../MSP_client/TP/Procedure%20complete%20MSP1_client/">
+        <link rel="next" href="../../LINUX/Guide_Crontab/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.5.2, mkdocs-material-9.1.21">
     
     
       
-        <title>Guide d'utilisation de tar sur Debian - DOC TSSR</title>
+        <title>Guide des Bases de Données MySQL/MariaDB - DOC TSSR</title>
       
     
     
@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#guide-dutilisation-de-tar-sur-debian" class="md-skip">
+        <a href="#guide-des-bases-de-donnees-mysqlmariadb" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +96,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Guide d'utilisation de tar sur Debian
+              Guide des Bases de Données MySQL/MariaDB
             
           </span>
         </div>
@@ -286,14 +286,16 @@
               
   
   
+    
+  
   
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
       
       
       
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
       
       
       
@@ -302,7 +304,7 @@
           <span class="md-nav__icon md-icon"></span>
         </label>
       
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
         <label class="md-nav__title" for="__nav_2_2">
           <span class="md-nav__icon md-icon"></span>
           GLPI
@@ -315,100 +317,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../GLPI/Guide%20installation%20GLPI/" class="md-nav__link">
+      <a href="../Guide%20installation%20GLPI/" class="md-nav__link">
         Guide d'Installation GLPI
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../GLPI/Mysql%20et%20maria%20db/" class="md-nav__link">
-        Guide des Bases de Données MySQL/MariaDB
-      </a>
-    </li>
-  
-
-            
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-      
-      
-      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
-      
-      
-      
-        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-          LINUX
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
-        <label class="md-nav__title" for="__nav_2_3">
-          <span class="md-nav__icon md-icon"></span>
-          LINUX
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Guide_Crontab/" class="md-nav__link">
-        Guide Avancé pour l'Utilisation de crontab sous Linux
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Guide_information_system_LINUX/" class="md-nav__link">
-        Guide Avancé sur les Informations Système sur GNU/Linux
-      </a>
-    </li>
-  
-
-            
-          
-            
-              
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../Guide_veille_et_journalisation/" class="md-nav__link">
-        Guide de Veille et Journalisation sur GNU/Linux
       </a>
     </li>
   
@@ -431,12 +341,12 @@
       
       
         <label class="md-nav__link md-nav__link--active" for="__toc">
-          Guide d'utilisation de tar sur Debian
+          Guide des Bases de Données MySQL/MariaDB
           <span class="md-nav__icon md-icon"></span>
         </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Guide d'utilisation de tar sur Debian
+        Guide des Bases de Données MySQL/MariaDB
       </a>
       
         
@@ -455,96 +365,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creation-dune-archive" class="md-nav__link">
-    Création d'une archive
-  </a>
-  
-    <nav class="md-nav" aria-label="Création d'une archive">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#avec-compression-gzip-extension-targz-ou-tgz" class="md-nav__link">
-    Avec compression gzip (extension .tar.gz ou .tgz)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#avec-compression-bzip2-extension-tarbz2" class="md-nav__link">
-    Avec compression bzip2 (extension .tar.bz2)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extraction-dune-archive" class="md-nav__link">
-    Extraction d'une archive
-  </a>
-  
-    <nav class="md-nav" aria-label="Extraction d'une archive">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#archive-targz-ou-tgz" class="md-nav__link">
-    Archive .tar.gz ou .tgz
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#archive-tarbz2" class="md-nav__link">
-    Archive .tar.bz2
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lister-le-contenu-dune-archive-sans-extraire" class="md-nav__link">
-    Lister le contenu d'une archive sans extraire
-  </a>
-  
-    <nav class="md-nav" aria-label="Lister le contenu d'une archive sans extraire">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#archive-targz-ou-tgz_1" class="md-nav__link">
-    Archive .tar.gz ou .tgz
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#archive-tarbz2_1" class="md-nav__link">
-    Archive .tar.bz2
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quelques-options-utiles" class="md-nav__link">
-    Quelques options utiles
+  <a href="#rappel-sur-les-sgbd-et-le-langage-sql" class="md-nav__link">
+    Rappel sur les SGBD et le langage SQL
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pour-plus-dinformations" class="md-nav__link">
-    Pour plus d'informations
+  <a href="#les-commandes-de-base-mysqlmariadb" class="md-nav__link">
+    Les commandes de base MySQL/MariaDB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demonstration-connexion-a-la-base-mariadb-de-glpi-et-affichage-de-tables-et-structures" class="md-nav__link">
+    Démonstration - Connexion à la base MariaDB de GLPI et affichage de tables et structures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulation-de-la-base-de-donnees" class="md-nav__link">
+    Manipulation de la base de données
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demonstration-affichage-de-la-liste-des-comptes-utilisateurs-de-glpi" class="md-nav__link">
+    Démonstration - Affichage de la liste des comptes utilisateurs de GLPI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requete-sur-plusieurs-tables-les-cles-et-les-jointures" class="md-nav__link">
+    Requête sur plusieurs tables : les clés et les jointures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-cles-et-les-jointures-en-sql" class="md-nav__link">
+    Les Clés et les Jointures en SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demonstration-affichage-de-la-liste-des-comptes-utilisateurs-de-glpi-ayant-ouvert-un-ticket-dintervention" class="md-nav__link">
+    Démonstration - Affichage de la liste des comptes utilisateurs de GLPI ayant ouvert un ticket d'intervention
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demonstration-sauvegarde-dump-de-la-base-de-donnees-de-glpi" class="md-nav__link">
+    Démonstration - Sauvegarde (dump) de la base de données de GLPI
   </a>
   
 </li>
@@ -553,6 +431,96 @@
   
 </nav>
       
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          LINUX
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          LINUX
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINUX/Guide_Crontab/" class="md-nav__link">
+        Guide Avancé pour l'Utilisation de crontab sous Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINUX/Guide_information_system_LINUX/" class="md-nav__link">
+        Guide Avancé sur les Informations Système sur GNU/Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINUX/Guide_veille_et_journalisation/" class="md-nav__link">
+        Guide de Veille et Journalisation sur GNU/Linux
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LINUX/guide_tar-linux/" class="md-nav__link">
+        Guide d'utilisation de tar sur Debian
+      </a>
     </li>
   
 
@@ -3760,96 +3728,64 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#creation-dune-archive" class="md-nav__link">
-    Création d'une archive
-  </a>
-  
-    <nav class="md-nav" aria-label="Création d'une archive">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#avec-compression-gzip-extension-targz-ou-tgz" class="md-nav__link">
-    Avec compression gzip (extension .tar.gz ou .tgz)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#avec-compression-bzip2-extension-tarbz2" class="md-nav__link">
-    Avec compression bzip2 (extension .tar.bz2)
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extraction-dune-archive" class="md-nav__link">
-    Extraction d'une archive
-  </a>
-  
-    <nav class="md-nav" aria-label="Extraction d'une archive">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#archive-targz-ou-tgz" class="md-nav__link">
-    Archive .tar.gz ou .tgz
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#archive-tarbz2" class="md-nav__link">
-    Archive .tar.bz2
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#lister-le-contenu-dune-archive-sans-extraire" class="md-nav__link">
-    Lister le contenu d'une archive sans extraire
-  </a>
-  
-    <nav class="md-nav" aria-label="Lister le contenu d'une archive sans extraire">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#archive-targz-ou-tgz_1" class="md-nav__link">
-    Archive .tar.gz ou .tgz
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#archive-tarbz2_1" class="md-nav__link">
-    Archive .tar.bz2
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#quelques-options-utiles" class="md-nav__link">
-    Quelques options utiles
+  <a href="#rappel-sur-les-sgbd-et-le-langage-sql" class="md-nav__link">
+    Rappel sur les SGBD et le langage SQL
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#pour-plus-dinformations" class="md-nav__link">
-    Pour plus d'informations
+  <a href="#les-commandes-de-base-mysqlmariadb" class="md-nav__link">
+    Les commandes de base MySQL/MariaDB
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demonstration-connexion-a-la-base-mariadb-de-glpi-et-affichage-de-tables-et-structures" class="md-nav__link">
+    Démonstration - Connexion à la base MariaDB de GLPI et affichage de tables et structures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulation-de-la-base-de-donnees" class="md-nav__link">
+    Manipulation de la base de données
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demonstration-affichage-de-la-liste-des-comptes-utilisateurs-de-glpi" class="md-nav__link">
+    Démonstration - Affichage de la liste des comptes utilisateurs de GLPI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#requete-sur-plusieurs-tables-les-cles-et-les-jointures" class="md-nav__link">
+    Requête sur plusieurs tables : les clés et les jointures
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#les-cles-et-les-jointures-en-sql" class="md-nav__link">
+    Les Clés et les Jointures en SQL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demonstration-affichage-de-la-liste-des-comptes-utilisateurs-de-glpi-ayant-ouvert-un-ticket-dintervention" class="md-nav__link">
+    Démonstration - Affichage de la liste des comptes utilisateurs de GLPI ayant ouvert un ticket d'intervention
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#demonstration-sauvegarde-dump-de-la-base-de-donnees-de-glpi" class="md-nav__link">
+    Démonstration - Sauvegarde (dump) de la base de données de GLPI
   </a>
   
 </li>
@@ -3869,44 +3805,112 @@
                   
 
 
-<h1 id="guide-dutilisation-de-tar-sur-debian">Guide d'utilisation de <code>tar</code> sur Debian</h1>
-<p><code>tar</code> est un outil de gestion d'archives sur les systèmes Unix. Voici quelques commandes courantes.</p>
-<h2 id="creation-dune-archive">Création d'une archive</h2>
-<h3 id="avec-compression-gzip-extension-targz-ou-tgz">Avec compression gzip (extension .tar.gz ou .tgz)</h3>
-<pre><code>tar -czvf nom_de_l_archive.tar.gz dossier_a_archiver/
+<h1 id="guide-des-bases-de-donnees-mysqlmariadb">Guide des Bases de Données MySQL/MariaDB</h1>
+<h2 id="rappel-sur-les-sgbd-et-le-langage-sql">Rappel sur les SGBD et le langage SQL</h2>
+<p>Je me sers des Systèmes de Gestion de Bases de Données (SGBD) comme MySQL ou MariaDB pour gérer et interroger des données structurées. Le langage que j'emploie pour ces opérations est le SQL, qui me permet de créer, récupérer, modifier et supprimer les données.</p>
+<h2 id="les-commandes-de-base-mysqlmariadb">Les commandes de base MySQL/MariaDB</h2>
+<pre><code>SHOW DATABASES; -- Je liste toutes les bases de données.
+CREATE DATABASE ma_base_de_donnees; -- Je crée une nouvelle base de données.
+USE ma_base_de_donnees; -- Je sélectionne la base de données pour mes opérations.
+SHOW TABLES; -- Je montre toutes les tables dans la base de données actuelle.
+CREATE TABLE ma_table (id INT AUTO_INCREMENT PRIMARY KEY, nom VARCHAR(100)); -- Je crée une nouvelle table avec une colonne ID et une colonne nom.
+DESCRIBE ma_table; -- Je consulte la structure de ma table.
+INSERT INTO ma_table (nom) VALUES ('Exemple'); -- J'insère une nouvelle entrée dans ma table.
+SELECT * FROM ma_table; -- Je sélectionne et affiche toutes les données de ma table.
+UPDATE ma_table SET nom = 'Nouveau' WHERE id = 1; -- Je mets à jour une entrée spécifique de ma table.
+DELETE FROM ma_table WHERE id = 1; -- Je supprime une entrée de ma table.
+DROP TABLE ma_table; -- Je supprime la table entière.
+DROP DATABASE ma_base_de_donnees; -- Je supprime la base de données entière.
 </code></pre>
-<h3 id="avec-compression-bzip2-extension-tarbz2">Avec compression bzip2 (extension .tar.bz2)</h3>
-<pre><code>tar -cjvf nom_de_l_archive.tar.bz2 dossier_a_archiver/
+<h2 id="demonstration-connexion-a-la-base-mariadb-de-glpi-et-affichage-de-tables-et-structures">Démonstration - Connexion à la base MariaDB de GLPI et affichage de tables et structures</h2>
+<pre><code class="language-sql">mysql -u mon_utilisateur -p -- Je me connecte à la base de données MariaDB.
+SHOW DATABASES; -- J'affiche les bases de données disponibles.
+USE glpi; -- Je sélectionne la base de données de GLPI pour utilisation.
+SHOW TABLES; -- J'affiche les tables de la base de données GLPI.
+DESCRIBE glpi_users; -- Je consulte la structure de la table des utilisateurs.
 </code></pre>
-<h2 id="extraction-dune-archive">Extraction d'une archive</h2>
-<h3 id="archive-targz-ou-tgz">Archive .tar.gz ou .tgz</h3>
-<pre><code>tar -xzvf nom_de_l_archive.tar.gz
+<h2 id="manipulation-de-la-base-de-donnees">Manipulation de la base de données</h2>
+<pre><code class="language-sql">INSERT INTO glpi_users (name, password) VALUES ('utilisateur', 'motdepasse'); -- J'ajoute un nouvel utilisateur.
+SELECT name, password FROM glpi_users; -- Je récupère les noms d'utilisateur et les mots de passe.
+UPDATE glpi_users SET password = 'nouveaumotdepasse' WHERE name = 'utilisateur'; -- Je mets à jour le mot de passe d'un utilisateur.
+DELETE FROM glpi_users WHERE name = 'utilisateur'; -- Je supprime un utilisateur de la base de données.
 </code></pre>
-<h3 id="archive-tarbz2">Archive .tar.bz2</h3>
-<pre><code>tar -xjvf nom_de_l_archive.tar.bz2
+<h2 id="demonstration-affichage-de-la-liste-des-comptes-utilisateurs-de-glpi">Démonstration - Affichage de la liste des comptes utilisateurs de GLPI</h2>
+<pre><code class="language-sql">SELECT * FROM glpi_users; -- J'affiche tous les utilisateurs enregistrés dans GLPI.
 </code></pre>
-<h2 id="lister-le-contenu-dune-archive-sans-extraire">Lister le contenu d'une archive sans extraire</h2>
-<h3 id="archive-targz-ou-tgz_1">Archive .tar.gz ou .tgz</h3>
-<pre><code>tar -tzvf nom_de_l_archive.tar.gz
+<h2 id="requete-sur-plusieurs-tables-les-cles-et-les-jointures">Requête sur plusieurs tables : les clés et les jointures</h2>
+<pre><code class="language-sql">SELECT u.name, t.name
+FROM glpi_users AS u
+INNER JOIN glpi_tickets AS t ON u.id = t.user_id; -- Je récupère les noms des utilisateurs et les tickets associés.
 </code></pre>
-<h3 id="archive-tarbz2_1">Archive .tar.bz2</h3>
-<pre><code>tar -tjvf nom_de_l_archive.tar.bz2
-</code></pre>
-<h2 id="quelques-options-utiles">Quelques options utiles</h2>
+<h2 id="les-cles-et-les-jointures-en-sql">Les Clés et les Jointures en SQL</h2>
+<p>Lorsque je travaille avec des bases de données relationnelles, je me sers des clés pour établir des relations entre différentes tables. Une clé est une colonne ou un ensemble de colonnes utilisées pour identifier de manière unique les lignes dans une table. Les types de clés les plus courants sont :</p>
 <ul>
-<li><code>-c</code>: Créer une nouvelle archive.</li>
-<li><code>-x</code>: Extraire le contenu d'une archive.</li>
-<li><code>-t</code>: Lister le contenu de l'archive.</li>
-<li><code>-z</code>: Compresser avec gzip.</li>
-<li><code>-j</code>: Compresser avec bzip2.</li>
-<li><code>-v</code>: Mode verbeux (affiche le détail des opérations).</li>
-<li><code>-f</code>: Précise le nom de fichier de l'archive (toujours mettre cette option en dernier).</li>
+<li><strong>Clé primaire (<code>PRIMARY KEY</code>)</strong>: Une colonne ou un groupe de colonnes qui identifie de manière unique chaque ligne de la table. Il ne peut y avoir qu'une seule clé primaire par table et aucune des colonnes ne peut avoir de valeurs nulles.</li>
 </ul>
-<p><strong>Note :</strong> Si vous archivez ou extrayez des fichiers/dossiers avec des permissions spécifiques, considérez utiliser l'option <code>-p</code> pour préserver ces permissions.</p>
-<h2 id="pour-plus-dinformations">Pour plus d'informations</h2>
-<p>Pour obtenir plus de détails sur les options disponibles, consultez la page de manuel avec la commande :</p>
-<pre><code>man tar
+<pre><code class="language-sql">CREATE TABLE personnes (
+    id INT AUTO_INCREMENT,
+    nom VARCHAR(100),
+    PRIMARY KEY (id)
+);
 </code></pre>
+<ul>
+<li><strong>Clé étrangère (<code>FOREIGN KEY</code>)</strong>: Une colonne ou un ensemble de colonnes qui fait référence à la clé primaire d'une autre table. Cela permet de maintenir l'intégrité référentielle entre les deux tables.</li>
+</ul>
+<pre><code class="language-sql">CREATE TABLE commandes (
+    commande_id INT,
+    utilisateur_id INT,
+    PRIMARY KEY (commande_id),
+    FOREIGN KEY (utilisateur_id) REFERENCES personnes(id)
+);
+</code></pre>
+<p>Les jointures sont utilisées pour récupérer des données de plusieurs tables et les combiner en fonction des relations définies par les clés. Les types de jointures en SQL comprennent :</p>
+<ul>
+<li><strong>INNER JOIN</strong>: Sélectionne les enregistrements qui ont des valeurs correspondantes dans les deux tables.</li>
+</ul>
+<pre><code class="language-sql">SELECT personnes.nom, commandes.commande_id
+FROM personnes
+INNER JOIN commandes ON personnes.id = commandes.utilisateur_id;
+</code></pre>
+<ul>
+<li><strong>LEFT JOIN (ou LEFT OUTER JOIN)</strong>: Sélectionne tous les enregistrements de la table de gauche (table principale), avec les enregistrements correspondants de la table de droite. Les résultats incluent toutes les lignes de la table de gauche, même s'il n'y a pas de correspondance dans la table de droite.</li>
+</ul>
+<pre><code class="language-sql">SELECT personnes.nom, commandes.commande_id
+FROM personnes
+LEFT JOIN commandes ON personnes.id = commandes.utilisateur_id;
+</code></pre>
+<ul>
+<li><strong>RIGHT JOIN (ou RIGHT OUTER JOIN)</strong>: Sélectionne tous les enregistrements de la table de droite, avec les enregistrements correspondants de la table de gauche. Les résultats incluent toutes les lignes de la table de droite, même s'il n'y a pas de correspondance dans la table de gauche.</li>
+</ul>
+<pre><code class="language-sql">SELECT personnes.nom, commandes.commande_id
+FROM personnes
+RIGHT JOIN commandes ON personnes.id = commandes.utilisateur_id;
+</code></pre>
+<ul>
+<li><strong>FULL JOIN (ou FULL OUTER JOIN)</strong>: Sélectionne tous les enregistrements lorsqu'il y a une correspondance dans l'une des tables.</li>
+</ul>
+<pre><code class="language-sql">SELECT personnes.nom, commandes.commande_id
+FROM personnes
+FULL OUTER JOIN commandes ON personnes.id = commandes.utilisateur_id;
+</code></pre>
+<ul>
+<li><strong>CROSS JOIN</strong>: Produit le produit cartésien de deux tables, c'est-à-dire qu'il combine chaque ligne de la première table avec chaque ligne de la seconde table.</li>
+</ul>
+<pre><code class="language-sql">SELECT personnes.nom, commandes.commande_id
+FROM personnes
+CROSS JOIN commandes;
+</code></pre>
+<p>Chaque type de jointure  sert à récupérer des informations de manière spécifique selon la relation que j'ai établie entre mes tables. Je dois donc choisir le type de jointure adapté à la situation pour obtenir les résultats souhaités.</p>
+<h2 id="demonstration-affichage-de-la-liste-des-comptes-utilisateurs-de-glpi-ayant-ouvert-un-ticket-dintervention">Démonstration - Affichage de la liste des comptes utilisateurs de GLPI ayant ouvert un ticket d'intervention</h2>
+<pre><code class="language-sql">SELECT u.name, t.title
+FROM glpi_users AS u
+JOIN glpi_tickets AS t ON u.id = t.user_id
+WHERE t.type='intervention'; -- Je liste tous les utilisateurs qui ont ouvert un ticket d'intervention.
+</code></pre>
+<h2 id="demonstration-sauvegarde-dump-de-la-base-de-donnees-de-glpi">Démonstration - Sauvegarde (dump) de la base de données de GLPI</h2>
+<pre><code class="language-bash">mysqldump -u mon_utilisateur -p glpi &gt; sauvegarde_glpi.sql -- Je crée une sauvegarde de la base de données GLPI.
+</code></pre>
+<p>Chaque commande est un exemple que je peux utiliser pour gérer ma base de données MySQL ou MariaDB. Je dois veiller à remplacer <code>mon_utilisateur</code>, <code>ma_table</code>, <code>ma_base_de_donnees</code>, <code>utilisateur</code>, <code>motdepasse</code>, et <code>nouveaumotdepasse</code> par mes propres valeurs</p>
 
 
 
